@@ -3,6 +3,12 @@ export default {
     const url = new URL(request.url);
     const pathname = url.pathname.toLowerCase().replace(/\/$/, "");
 
+    // Canonical Redirect: www.sistemawinners.com -> sistemawinners.com
+    if (url.hostname.startsWith("www.")) {
+      url.hostname = url.hostname.replace(/^www\./, "");
+      return Response.redirect(url.toString(), 301);
+    }
+
     // 1. WhatsApp Redirects
     if (pathname === "/wa" || pathname === "/whatsapp") {
       return Response.redirect(
