@@ -8,15 +8,15 @@ export default {
       return Response.json({ status: "ok", app: "sistema-winners", v: "2.1", timestamp: new Date().toISOString() });
     }
 
-    // 0. Servir la página de inicio (index.html) en la raíz
-    if (url.pathname === "/" || pathname === "" || pathname === "/index") {
-      return env.ASSETS.fetch(new Request(new URL("/index.html", request.url), request));
+    // 1. Redirección canónica: forzar www.sistemawinners.com (igual que en woodsdavinci.com)
+    if (url.hostname === "sistemawinners.com") {
+      url.hostname = "www.sistemawinners.com";
+      return Response.redirect(url.toString(), 301);
     }
 
-    // 1. Redirección canónica de www a dominio principal
-    if (url.hostname.startsWith("www.")) {
-      url.hostname = url.hostname.replace(/^www\./, "");
-      return Response.redirect(url.toString(), 301);
+    // 2. Servir la página de inicio (index.html) en la raíz
+    if (url.pathname === "/" || pathname === "" || pathname === "/index") {
+      return env.ASSETS.fetch(new Request(new URL("/index.html", request.url), request));
     }
 
     // 2. Atajos directos a WhatsApp Oficial (+57 314 869 1001)
