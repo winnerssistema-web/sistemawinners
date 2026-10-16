@@ -3,6 +3,11 @@ export default {
     const url = new URL(request.url);
     const pathname = url.pathname.toLowerCase().replace(/\/$/, "");
 
+    // Health Check Endpoint
+    if (pathname === "/api/health") {
+      return Response.json({ status: "ok", app: "sistema-winners", v: "2.1", timestamp: new Date().toISOString() });
+    }
+
     // 1. Redirección canónica de www a dominio principal
     if (url.hostname.startsWith("www.")) {
       url.hostname = url.hostname.replace(/^www\./, "");
