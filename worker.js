@@ -8,6 +8,11 @@ export default {
       return Response.json({ status: "ok", app: "sistema-winners", v: "2.1", timestamp: new Date().toISOString() });
     }
 
+    // 0. Servir la página de inicio (index.html) en la raíz
+    if (url.pathname === "/" || pathname === "" || pathname === "/index") {
+      return env.ASSETS.fetch(new Request(new URL("/index.html", request.url), request));
+    }
+
     // 1. Redirección canónica de www a dominio principal
     if (url.hostname.startsWith("www.")) {
       url.hostname = url.hostname.replace(/^www\./, "");

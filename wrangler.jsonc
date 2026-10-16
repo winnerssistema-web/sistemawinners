@@ -6,7 +6,6 @@
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
-    "html_handling": "none",
-    "not_found_handling": "none"
+    "html_handling": "auto-trailing-slash"
   }
 }
