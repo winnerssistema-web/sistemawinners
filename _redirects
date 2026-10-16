@@ -1,15 +1,4 @@
-# Cloudflare Pages / Workers Redirects & Rewrites (sistemawinners.com)
-
-# 1. Enlaces Limpios (200 Rewrite sin extensión .html)
-/consulta-devoluciones    /consulta-devoluciones.html    200
-/zona-clientes            /zona-clientes.html            200
-/tu-pago-en-linea         /tu-pago-en-linea.html         200
-/devoluciones             /devoluciones.html             200
-/resultados-asamblea      /resultados-asamblea.html      200
-/gerente                  /gerente.html                  200
-/admin                    /gerente.html                  200
-
-# 2. Atajos de Marketing y WhatsApp (+57 314 869 1001)
+# Atajos de Marketing y WhatsApp (+57 314 869 1001)
 /wa                       https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20informaci%C3%B3n%20sobre%20afiliaci%C3%B3n%20y%20planes    302
 /whatsapp                 https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20informaci%C3%B3n%20sobre%20afiliaci%C3%B3n%20y%20planes    302
 /motos                    /index.html#motocicletas       301
@@ -22,5 +11,5 @@
 /referidos                /index.html#como-funciona      301
 /simulador                /index.html#simulador          301
 /contacto                 /index.html#contacto           301
-/pagos                    /tu-pago-en-linea.html         301
-/oficina                  /zona-clientes.html            301
+/admin                    /gerente.html                  301
+/login                    /gerente.html                  301

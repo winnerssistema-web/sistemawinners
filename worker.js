@@ -44,8 +44,21 @@ export default {
       return Response.redirect(new URL("/gerente.html", request.url), 302);
     }
 
-    // 5. Servir archivos estáticos a través de env.ASSETS
-    // Cloudflare Assets resuelve automáticamente URLs limpias (ej. /consulta-devoluciones -> consulta-devoluciones.html)
+    // 5. Soporte para URLs limpias sin extensión .html
+    const cleanPages = [
+      "consulta-devoluciones",
+      "zona-clientes",
+      "tu-pago-en-linea",
+      "devoluciones",
+      "resultados-asamblea"
+    ];
+    const cleanName = pathname.replace(/^\//, "");
+    if (cleanPages.includes(cleanName)) {
+      const assetUrl = new URL(`/${cleanName}.html`, request.url);
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
+
+    // 6. Servir archivos estáticos a través de env.ASSETS
     return env.ASSETS.fetch(request);
   }
 };
