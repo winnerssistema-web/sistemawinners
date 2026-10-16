@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta Devoluciones | Sistema Winners</title>
+  <meta name="description" content="Consulta de devoluciones · Ingresa y conoce todo acerca del estado de tu solicitud de reintegro o fondo común en Sistema Winners de manera transparente y ágil.">
+  <link rel="canonical" href="https://sistemawinners.com/consulta-devoluciones.html">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <a href="index.html" class="logo-wrapper">
+          <img src="images/logo.svg" alt="Sistema Winners" class="header-logo">
+          <span class="logo-domain-tag">sistemawinners.com</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html#simulador" class="btn btn-white btn-sm">Simula tu Plan</a>
+          <a href="zona-clientes.html" class="btn btn-blue btn-sm">Zona Clientes</a>
+        </div>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">← Volver al Inicio</a></li>
+          <li class="nav-item"><a href="consulta-devoluciones.html" class="nav-link active">Consulta Devoluciones</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="nav-link">Zona Clientes</a></li>
+          <li class="nav-item"><a href="tu-pago-en-linea.html" class="nav-link">Tu Pago en Línea</a></li>
+          <li class="nav-item"><a href="devoluciones.html" class="nav-link">Garantías y Políticas</a></li>
+          <li class="nav-item"><a href="resultados-asamblea.html" class="nav-link">Resultados y Entregas</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 60px 0; background-color: var(--bg-secondary); min-height: 80vh;">
+    <div class="container" style="max-width: 860px;">
+      
+      <!-- Migas de pan / Breadcrumb -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        <a href="index.html" style="color: var(--blue-primary);">Inicio</a> / 
+        <span style="color: var(--text-primary); font-weight: 600;">Consulta Devoluciones</span>
+      </div>
+
+      <div style="background: #ffffff; padding: 40px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); box-shadow: var(--shadow-md);">
+        <span class="pill-badge">Trámite en Línea</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin: 12px 0 10px 0; color: var(--text-primary);">
+          Consulta de Devoluciones y Estado de Reintegros
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 30px;">
+          En Sistema Winners garantizamos total transparencia en la administración del fondo común. Ingresa tus datos para verificar en tiempo real el estado de tu solicitud de terminación o devolución:
+        </p>
+
+        <!-- Formulario de Consulta -->
+        <form id="devolucion-form" style="background: var(--bg-secondary); padding: 26px; border-radius: var(--radius-md); border: 1px solid var(--border-light); margin-bottom: 30px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+            <div>
+              <label class="form-label">Tipo de Documento:</label>
+              <select style="width: 100%; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); background: #ffffff;">
+                <option value="CC">Cédula de Ciudadanía (C.C.)</option>
+                <option value="CE">Cédula de Extranjería (C.E.)</option>
+                <option value="NIT">NIT de Empresa</option>
+                <option value="PAS">Pasaporte</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Número de Documento:</label>
+              <input type="text" id="doc-input" class="search-input" placeholder="Ej: 1020304050" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label class="form-label">Número de Contrato o Código de Socio (Opcional):</label>
+            <input type="text" class="search-input" placeholder="Ej: SW-2026-9842" style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+          </div>
+
+          <button type="submit" class="btn btn-blue btn-lg" style="width: 100%; border-radius: var(--radius-sm);">
+            🔍 Consultar Estado de Solicitud
+          </button>
+        </form>
+
+        <!-- Resultado Dinámico Simulado -->
+        <div id="resultado-box" style="display: none; padding: 24px; border-radius: var(--radius-md); background: #f0fdf4; border: 1.5px solid #86efac; margin-bottom: 30px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+            <strong style="color: #166534; font-size: 1.15rem;">✓ Solicitud Encontrada en Sistema</strong>
+            <span style="background: #bbf7d0; color: #14532d; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">EN PROCESO NORMAL</span>
+          </div>
+          <div style="font-size: 0.92rem; color: #166534; line-height: 1.6;">
+            <p><strong>Titular:</strong> Asociado Emprendedor Activo</p>
+            <p><strong>Fondo Asignado:</strong> Liquidación conforme a reglamento del fondo común.</p>
+            <p><strong>Próxima Fecha de Desembolso:</strong> Día 28 del mes en curso.</p>
+          </div>
+        </div>
+
+        <!-- Preguntas Frecuentes sobre Devoluciones -->
+        <div style="border-top: 1px solid var(--border-light); padding-top: 30px;">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px;">¿Cómo funciona la devolución en Sistema Winners?</h3>
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem; color: var(--text-secondary);">
+            <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">1. ¿En cuánto tiempo se procesa mi solicitud?</strong>
+              Las solicitudes radicadas se verifican dentro de los primeros 5 días hábiles conforme al calendario del fondo común solidario.
+            </div>
+            <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">2. ¿Qué pasa con los aportes y referidos?</strong>
+              El socio mantiene derecho a la liquidación proporcional de sus aportes directos conforme a los estatutos vigentes, sin penalidades arbitrarias.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none;">
+      <p class="footer-legal-text">© 2026 Sistema Winners S.A.S. - Dominio oficial sistemawinners.com</p>
+      <a href="index.html" class="btn btn-outline-blue btn-sm">Volver al Inicio</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('devolucion-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('resultado-box').style.display = 'block';
+      document.getElementById('resultado-box').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

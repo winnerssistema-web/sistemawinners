@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Pago en Línea | Pagos Seguros PSE | Sistema Winners</title>
+  <meta name="description" content="Paga tu membresía o aporte mensual en línea a través de PSE, tarjetas de crédito, débito, Nequi y Daviplata de forma 100% segura y con confirmación inmediata.">
+  <link rel="canonical" href="https://sistemawinners.com/tu-pago-en-linea.html">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <a href="index.html" class="logo-wrapper">
+          <img src="images/logo.svg" alt="Sistema Winners" class="header-logo">
+          <span class="logo-domain-tag">sistemawinners.com</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html#simulador" class="btn btn-white btn-sm">Simula tu Plan</a>
+          <a href="zona-clientes.html" class="btn btn-blue btn-sm">Zona Clientes</a>
+        </div>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">← Volver al Inicio</a></li>
+          <li class="nav-item"><a href="consulta-devoluciones.html" class="nav-link">Consulta Devoluciones</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="nav-link">Zona Clientes</a></li>
+          <li class="nav-item"><a href="tu-pago-en-linea.html" class="nav-link active">Tu Pago en Línea</a></li>
+          <li class="nav-item"><a href="devoluciones.html" class="nav-link">Garantías y Políticas</a></li>
+          <li class="nav-item"><a href="resultados-asamblea.html" class="nav-link">Resultados y Entregas</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 60px 0; background-color: var(--bg-secondary); min-height: 80vh;">
+    <div class="container" style="max-width: 860px;">
+      
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        <a href="index.html" style="color: var(--blue-primary);">Inicio</a> / 
+        <span style="color: var(--text-primary); font-weight: 600;">Tu Pago en Línea</span>
+      </div>
+
+      <div style="background: #ffffff; padding: 40px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); box-shadow: var(--shadow-lg);">
+        <span class="pill-badge">Canal Oficial de Pagos</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin: 12px 0 10px 0; color: var(--text-primary);">
+          Tu Pago en Línea y Recaudo Seguro
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 30px;">
+          Realiza el pago de tu cuota de afiliación, activación de membresía o aportes voluntarios al fondo común de manera ágil y segura:
+        </p>
+
+        <!-- Formulario PSE -->
+        <form onsubmit="event.preventDefault(); alert('Redirigiendo a pasarela segura PSE...');" style="background: var(--bg-secondary); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-medium); margin-bottom: 32px;">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+            <div>
+              <label class="form-label">Cédula o NIT del Titular:</label>
+              <input type="text" class="search-input" placeholder="Ej: 1020304050" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+            <div>
+              <label class="form-label">Concepto de Pago:</label>
+              <select style="width: 100%; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); background: #ffffff;">
+                <option value="membresia-pro">Activación Membresía Pro ($450.000 COP)</option>
+                <option value="membresia-basica">Activación Membresía Básica ($250.000 COP)</option>
+                <option value="membresia-master">Activación Membresía Master ($900.000 COP)</option>
+                <option value="aporte-fondo">Aporte Periódico a Fondo Común</option>
+                <option value="otro">Otro Concepto Aprobado</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+            <div>
+              <label class="form-label">Correo Electrónico para Factura:</label>
+              <input type="email" class="search-input" placeholder="socio@email.com" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+            <div>
+              <label class="form-label">Teléfono de Notificación:</label>
+              <input type="tel" class="search-input" placeholder="300 123 4567" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+          </div>
+
+          <!-- Métodos de Pago Disponibles -->
+          <div style="margin-bottom: 24px;">
+            <label class="form-label">Selecciona el Método de Pago:</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+              <label style="border: 1.5px solid var(--blue-primary); background: var(--blue-light); padding: 12px; border-radius: var(--radius-md); text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <input type="radio" name="payment-method" value="pse" checked>
+                <strong style="color: var(--blue-primary);">PSE / Débito Bancario</strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Todos los bancos</span>
+              </label>
+
+              <label style="border: 1.5px solid var(--border-medium); background: #ffffff; padding: 12px; border-radius: var(--radius-md); text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <input type="radio" name="payment-method" value="tarjetas">
+                <strong style="color: var(--text-primary);">Tarjeta Crédito</strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Visa / Mastercard / Amex</span>
+              </label>
+
+              <label style="border: 1.5px solid var(--border-medium); background: #ffffff; padding: 12px; border-radius: var(--radius-md); text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <input type="radio" name="payment-method" value="billeteras">
+                <strong style="color: var(--text-primary);">Nequi / Daviplata</strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Pago móvil al instante</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-blue btn-lg" style="width: 100%; border-radius: var(--radius-sm);">
+            🔒 Continuar a Pago Seguro
+          </button>
+        </form>
+
+        <div style="display: flex; align-items: center; justify-content: space-around; padding: 18px; border: 1px solid var(--border-light); border-radius: var(--radius-md); background: #ffffff; font-size: 0.85rem; color: var(--text-muted);">
+          <span>✓ Pagos verificados en línea</span>
+          <span>✓ Comprobante automático a tu correo</span>
+          <span>✓ Sin recargos ocultos</span>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none;">
+      <p class="footer-legal-text">© 2026 Sistema Winners S.A.S. - Dominio oficial sistemawinners.com</p>
+      <a href="index.html" class="btn btn-outline-blue btn-sm">Volver al Inicio</a>
+    </div>
+  </footer>
+
+</body>
+</html>

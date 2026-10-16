@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zona Clientes | Oficina Virtual de Socios | Sistema Winners</title>
+  <meta name="description" content="Bienvenido a la Zona de Clientes de Sistema Winners. Aquí puedes gestionar tu plan, consultar tus referidos, estado del fondo común y solicitar tus entregas.">
+  <link rel="canonical" href="https://sistemawinners.com/zona-clientes.html">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <a href="index.html" class="logo-wrapper">
+          <img src="images/logo.svg" alt="Sistema Winners" class="header-logo">
+          <span class="logo-domain-tag">sistemawinners.com</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html#simulador" class="btn btn-white btn-sm">Simula tu Plan</a>
+          <a href="tu-pago-en-linea.html" class="btn btn-blue btn-sm">Tu Pago en Línea</a>
+        </div>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">← Volver al Inicio</a></li>
+          <li class="nav-item"><a href="consulta-devoluciones.html" class="nav-link">Consulta Devoluciones</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="nav-link active">Zona Clientes</a></li>
+          <li class="nav-item"><a href="tu-pago-en-linea.html" class="nav-link">Tu Pago en Línea</a></li>
+          <li class="nav-item"><a href="devoluciones.html" class="nav-link">Garantías y Políticas</a></li>
+          <li class="nav-item"><a href="resultados-asamblea.html" class="nav-link">Resultados y Entregas</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 60px 0; background-color: var(--bg-secondary); min-height: 80vh;">
+    <div class="container" style="max-width: 940px;">
+      
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        <a href="index.html" style="color: var(--blue-primary);">Inicio</a> / 
+        <span style="color: var(--text-primary); font-weight: 600;">Zona Clientes</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; background: #ffffff; padding: 40px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); box-shadow: var(--shadow-lg);">
+        
+        <!-- Columna Izquierda: Formulario de Ingreso -->
+        <div>
+          <span class="pill-badge">Portal Exclusivo para Socios</span>
+          <h1 style="font-size: 2.1rem; font-weight: 800; margin: 12px 0 10px 0; color: var(--text-primary);">
+            Bienvenido a tu Zona de Clientes
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.5; margin-bottom: 24px;">
+            Ingresa a tu oficina virtual para monitorear tu red de referidos, aportes acumulados al fondo común y fecha de entrega de tus bienes:
+          </p>
+
+          <form onsubmit="event.preventDefault(); alert('Acceso autorizado a oficina virtual de demostración.');" style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="form-group" style="margin: 0;">
+              <label class="form-label">Usuario, Cédula o Correo Electrónico:</label>
+              <input type="text" class="search-input" placeholder="Ej: 1020304050 o socio@email.com" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+
+            <div class="form-group" style="margin: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="form-label" style="margin: 0;">Contraseña:</label>
+                <a href="#" style="font-size: 0.8rem; color: var(--blue-primary);">¿Olvidaste tu clave?</a>
+              </div>
+              <input type="password" class="search-input" placeholder="••••••••" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary);">
+              <input type="checkbox" id="remember" checked>
+              <label for="remember">Recordar mi sesión en este dispositivo</label>
+            </div>
+
+            <button type="submit" class="btn btn-blue btn-lg" style="width: 100%; border-radius: var(--radius-sm); margin-top: 6px;">
+              Ingresar a mi Cuenta
+            </button>
+          </form>
+
+          <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-light); font-size: 0.88rem; color: var(--text-secondary);">
+            ¿Aún no eres socio? 
+            <a href="index.html#simulador" style="color: var(--blue-primary); font-weight: 700;">Simula tu membresía y regístrate aquí</a>.
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Beneficios de la Zona Clientes -->
+        <div style="background: var(--bg-secondary); padding: 30px; border-radius: var(--radius-md); border: 1px solid var(--border-light); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 16px;">
+              En tu Zona Clientes puedes:
+            </h3>
+
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem; color: var(--text-primary);">
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="color: var(--blue-primary); font-weight: bold;">✓</span>
+                <div>
+                  <strong>Árbol de Referidos en Vivo:</strong>
+                  <span style="display: block; font-size: 0.825rem; color: var(--text-secondary);">Revisa el crecimiento de tu red y tus comisiones o derechos de entrega inmediata.</span>
+                </div>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="color: var(--blue-primary); font-weight: bold;">✓</span>
+                <div>
+                  <strong>Histórico del Fondo Común:</strong>
+                  <span style="display: block; font-size: 0.825rem; color: var(--text-secondary);">Acceso a balances consolidados y actas públicas de asambleas.</span>
+                </div>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="color: var(--blue-primary); font-weight: bold;">✓</span>
+                <div>
+                  <strong>Solicitud de Entregas y Bienes:</strong>
+                  <span style="display: block; font-size: 0.825rem; color: var(--text-secondary);">Radica tu adjudicación directa sin necesidad de intermediarios.</span>
+                </div>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <span style="color: var(--blue-primary); font-weight: bold;">✓</span>
+                <div>
+                  <strong>Descarga de Certificados y Paz y Salvo:</strong>
+                  <span style="display: block; font-size: 0.825rem; color: var(--text-secondary);">Genera constancias tributarias y certificados de vinculación.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="background: #ffffff; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); margin-top: 20px; font-size: 0.825rem; color: var(--text-muted); text-align: center;">
+            🔒 Conexión segura con cifrado bancario SSL · IP protegida por Cloudflare
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none;">
+      <p class="footer-legal-text">© 2026 Sistema Winners S.A.S. - Dominio oficial sistemawinners.com</p>
+      <a href="index.html" class="btn btn-outline-blue btn-sm">Volver al Inicio</a>
+    </div>
+  </footer>
+
+</body>
+</html>

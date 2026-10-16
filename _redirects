@@ -1,0 +1,32 @@
+# Cloudflare Pages Redirects & Rewrites (sistemawinners.com)
+
+# ==============================================================================
+# 1. ENLACES LIMPIOS GOOGLE SITELINKS (200 Rewrite sin extensión .html)
+# ==============================================================================
+/consulta-devoluciones    /consulta-devoluciones.html    200
+/zona-clientes            /zona-clientes.html            200
+/tu-pago-en-linea         /tu-pago-en-linea.html         200
+/devoluciones             /devoluciones.html             200
+/resultados-asamblea      /resultados-asamblea.html      200
+
+# ==============================================================================
+# 2. ATAJOS DE MARKETING DE REFERIDOS Y CAMPAÑAS (301 / 302 Redirects)
+# ==============================================================================
+/wa                       https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20mi%20motocicleta%20con%20200.000%20pesos%20y%203%20referidos    302
+/whatsapp                 https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20mi%20motocicleta%20con%20200.000%20pesos%20y%203%20referidos    302
+/motos                    /index.html#motocicletas                                                                                                                 301
+/moto                     /index.html#motocicletas                                                                                                                 301
+/referidos                /index.html#como-funciona                                                                                                                301
+/membresia                /index.html#simulador                                                                                                                    301
+/simulador                /index.html#simulador                                                                                                                    301
+/asambleas                /resultados-asamblea.html                                                                                                                301
+/asamblea                 /resultados-asamblea.html                                                                                                                301
+/pagos                    /tu-pago-en-linea.html                                                                                                                   301
+/pago                     /tu-pago-en-linea.html                                                                                                                   301
+/oficina                  /zona-clientes.html                                                                                                                      301
+/socios                   /zona-clientes.html                                                                                                                      301
+/celular                  /index.html#celulares                                                                                                                    301
+/celulares                /index.html#celulares                                                                                                                    301
+/plan70k                  /index.html#celulares                                                                                                                    301
+/smartphone               /index.html#celulares                                                                                                                    301
+

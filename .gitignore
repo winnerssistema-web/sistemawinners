@@ -1,0 +1,14 @@
+# Dependencias y entornos
+node_modules/
+.env
+.env.local
+
+# Archivos de sistema operativo y editores
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Capturas de referencia de celular (opcional para no sobrecargar el repositorio)
+# celular/
