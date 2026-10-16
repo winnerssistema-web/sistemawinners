@@ -1,6 +1,6 @@
 /**
  * SISTEMA WINNERS - INTERACTIVIDAD Y LOGICA WEB
- * Sliders, Simulador de Multifinanciamiento, Modales y Navegación
+ * Sliders, Simulador de Multifinanciamiento, Modales, Módulo de Leads y Navegación
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initMobileMenu();
   initSearch();
+  initLeadForms();
 });
 
 /* ==========================================================================
@@ -78,7 +79,7 @@ function initHeroSlider() {
 }
 
 /* ==========================================================================
-   2. CAROUSEL DE PASOS (SLIDER 2 - CÓMO FUNCIONA EL MULTIFINANCIAMIENTO)
+   2. CAROUSEL DE PASOS (SLIDER 2 - PROYECTA, IMPULSA, TRIUNFA)
    ========================================================================== */
 function initStepsCarousel() {
   const track = document.querySelector('.carousel-track');
@@ -104,10 +105,6 @@ function initStepsCarousel() {
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     if (currentIndex < 0) currentIndex = 0;
 
-    const cardWidthPercent = 100 / cardsPerView;
-    const offset = currentIndex * (cardWidthPercent + (20 / track.clientWidth * 100));
-    
-    // Usamos desplazamiento directo por porcentaje
     track.style.transform = `translateX(-${currentIndex * (100 / cardsPerView + 1.5)}%)`;
 
     dots.forEach((dot, idx) => {
@@ -220,7 +217,7 @@ function initSimulator() {
     const refs = parseInt(referralsRange.value, 10);
 
     const isCelular = selectedMembershipCost === 70000;
-    const itemNombre = isCelular ? "SMARTPHONE" : "MOTOCICLETA";
+    const itemNombre = isCelular ? "SMARTPHONE SAMSUNG" : "MOTOCICLETA";
 
     // Fondo acumulado en red: Membresía base * factor multiplicador por referidos
     const fondoGenerado = (selectedMembershipCost * refs * 2.8);
@@ -330,18 +327,83 @@ function initSearch() {
         window.location.href = 'consulta-devoluciones.html';
       } else if (query.includes('pago') || query.includes('pse') || query.includes('linea')) {
         window.location.href = 'tu-pago-en-linea.html';
-      } else if (query.includes('zona') || query.includes('cliente') || query.includes('socio') || query.includes('login')) {
+      } else if (query.includes('zona') || query.includes('cliente') || query.includes('socio') || query.includes('login') || query.includes('oficina')) {
         window.location.href = 'zona-clientes.html';
+      } else if (query.includes('gerente') || query.includes('admin')) {
+        window.location.href = 'gerente.html';
       } else if (query.includes('asamblea') || query.includes('resultado') || query.includes('sorteo')) {
         window.location.href = 'resultados-asamblea.html';
+      } else if (query.includes('celular') || query.includes('samsung') || query.includes('smartphone')) {
+        const celSection = document.getElementById('celulares');
+        if (celSection) celSection.scrollIntoView({ behavior: 'smooth' });
+      } else if (query.includes('moto')) {
+        const motoSection = document.getElementById('motocicletas');
+        if (motoSection) motoSection.scrollIntoView({ behavior: 'smooth' });
       } else if (query.includes('simula') || query.includes('calcul')) {
         const simSection = document.getElementById('simulador');
         if (simSection) simSection.scrollIntoView({ behavior: 'smooth' });
       } else {
-        // Redirigir o scroll a la sección relevante
         const compSection = document.getElementById('comparativa');
         if (compSection) compSection.scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
+}
+
+/* ==========================================================================
+   7. CAPTURA Y GESTIÓN DE PROSPECTOS (LEADS) PARA EL GERENTE
+   ========================================================================== */
+function initLeadForms() {
+  const STORAGE_KEY = 'winners_leads_db';
+
+  // Formularios que capturan datos
+  const leadForms = document.querySelectorAll('.js-lead-form');
+
+  leadForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector('[name="name"]')?.value.trim() || 'Interesado';
+      const phone = form.querySelector('[name="phone"]')?.value.trim() || '';
+      const email = form.querySelector('[name="email"]')?.value.trim() || 'No especificado';
+      const country = form.querySelector('[name="country"]')?.value.trim() || 'Colombia';
+      const plan = form.querySelector('[name="plan"]')?.value.trim() || 'Plan General';
+
+      const newLead = {
+        id: Date.now(),
+        date: new Date().toISOString().replace('T', ' ').slice(0, 16),
+        name: name,
+        phone: phone,
+        email: email,
+        country: country,
+        plan: plan,
+        status: 'Nuevo'
+      };
+
+      // Guardar en localStorage para que el Gerente lo vea en /gerente.html
+      let leads = [];
+      try {
+        leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      } catch (err) {
+        leads = [];
+      }
+      leads.unshift(newLead);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+
+      // Reset y mensaje de éxito
+      form.reset();
+
+      // Cerrar modal si estaba en modal
+      const modal = form.closest('.modal-overlay');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+
+      // Redirigir a WhatsApp con mensaje personalizado
+      const waMsg = encodeURIComponent(`Hola Sistema Winners, acabo de registrar mis datos en la web: Mi nombre es ${name}, estoy interesado en: ${plan}. Deseo recibir asesoría.`);
+      const confirmWa = confirm(`¡Gracias ${name}! Tus datos fueron registrados con éxito para estudio y asesoría.\n\n¿Deseas abrir WhatsApp con un asesor oficial ahora mismo?`);
+      if (confirmWa) {
+        window.open(`https://wa.me/573148691001?text=${waMsg}`, '_blank');
+      }
+    });
+  });
 }

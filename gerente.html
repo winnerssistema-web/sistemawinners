@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Gerencia | Sistema Winners</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    :root {
+      --admin-bg: #f8fafc;
+      --admin-sidebar: #0f172a;
+      --admin-card: #ffffff;
+      --admin-border: #e2e8f0;
+      --admin-primary: #0070d2;
+      --admin-primary-dark: #005bb5;
+      --admin-success: #10b981;
+      --admin-warning: #f59e0b;
+      --admin-danger: #ef4444;
+      --admin-text: #1e293b;
+      --admin-muted: #64748b;
+    }
+
+    body.admin-body {
+      background-color: var(--admin-bg);
+      color: var(--admin-text);
+      font-family: var(--font-primary);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Pantalla de Login */
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      background: radial-gradient(circle at top right, #e0f2fe, #f8fafc);
+    }
+
+    .login-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      text-align: center;
+    }
+
+    .login-logo {
+      height: 48px;
+      margin-bottom: 16px;
+    }
+
+    .login-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .login-subtitle {
+      font-size: 0.9rem;
+      color: var(--admin-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--admin-primary);
+      box-shadow: 0 0 0 3px rgba(0, 112, 210, 0.15);
+    }
+
+    .btn-block {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+    }
+
+    /* Dashboard Layout */
+    .dashboard-container {
+      display: none; /* Se activa con login */
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .dashboard-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--admin-border);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-brand img {
+      height: 38px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .user-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--admin-success);
+    }
+
+    .dashboard-main {
+      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Tarjetas de Estadísticas */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .stat-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--admin-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .stat-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    .tag-blue { background: #e0f2fe; color: #0369a1; }
+    .tag-green { background: #dcfce7; color: #15803d; }
+    .tag-purple { background: #f3e8ff; color: #7e22ce; }
+    .tag-amber { background: #fef3c7; color: #b45309; }
+
+    /* Barra de Herramientas y Filtros */
+    .toolbar-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .search-input-group {
+      position: relative;
+      min-width: 260px;
+    }
+
+    .filter-select {
+      padding: 10px 14px;
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      background: #ffffff;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .toolbar-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Tabla de Leads */
+    .table-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .admin-table th {
+      background: #f8fafc;
+      padding: 14px 18px;
+      font-weight: 700;
+      color: #475569;
+      border-bottom: 1px solid var(--admin-border);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .admin-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+      vertical-align: middle;
+    }
+
+    .admin-table tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .lead-name {
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+    }
+
+    .lead-date {
+      font-size: 0.78rem;
+      color: var(--admin-muted);
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-nuevo { background: #dbeafe; color: #1e40af; }
+    .status-contacto { background: #fef3c7; color: #92400e; }
+    .status-afiliado { background: #dcfce7; color: #166534; }
+    .status-no-interesa { background: #fee2e2; color: #991b1b; }
+
+    .action-btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #25d366;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .action-btn-whatsapp:hover {
+      background: #1eb857;
+    }
+
+    .action-btn-delete {
+      background: none;
+      border: 1px solid #cbd5e1;
+      color: #64748b;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    .action-btn-delete:hover {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--admin-muted);
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- ==========================================================================
+       PANTALLA 1: INICIO DE SESIÓN GERENCIA (LOGIN)
+       ========================================================================== -->
+  <div class="login-container" id="login-view">
+    <div class="login-card">
+      <img src="images/logo.svg" alt="Sistema Winners" class="login-logo">
+      <h2 class="login-title">Acceso Gerencial</h2>
+      <p class="login-subtitle">Control de Contactos y Prospectos Recopilados</p>
+
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="admin-user">Usuario Gerencial</label>
+          <input type="text" id="admin-user" class="form-input" placeholder="gerencia" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="admin-pass">Contraseña de Seguridad</label>
+          <input type="password" id="admin-pass" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div id="login-error" style="display:none; color: var(--admin-danger); font-size: 0.85rem; margin-bottom: 14px; font-weight: 600;">
+          Credenciales incorrectas. Verifique e intente nuevamente.
+        </div>
+        <button type="submit" class="btn btn-blue btn-block">Ingresar al Panel</button>
+      </form>
+
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+        <a href="index.html" style="color: var(--admin-primary); font-size: 0.85rem; font-weight: 600; text-decoration: none;">
+          ← Volver a la página web principal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PANTALLA 2: DASHBOARD GERENCIAL DE PROSPECTOS
+       ========================================================================== -->
+  <div class="dashboard-container" id="dashboard-view">
+    <!-- Header Superior -->
+    <header class="dashboard-header">
+      <div class="header-brand">
+        <a href="index.html" title="Ir al Inicio">
+          <img src="images/logo.svg" alt="Sistema Winners">
+        </a>
+        <div>
+          <h1>Panel de Gerencia Comercial</h1>
+          <span style="font-size: 0.78rem; color: var(--admin-muted); font-weight: 600;">Proyecta · Impulsa · Triunfa</span>
+        </div>
+      </div>
+      <div class="header-user">
+        <div class="user-badge">
+          <span class="user-badge-dot"></span>
+          <span>Gerente General</span>
+        </div>
+        <button class="btn btn-white btn-sm" onclick="handleLogout()" style="padding: 6px 14px; font-size: 0.82rem;">
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="dashboard-main">
+      <!-- Fila de Tarjetas de Estadísticas -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-title">Total Prospectos</div>
+          <div class="stat-value" id="stat-total">0</div>
+          <span class="stat-tag tag-blue">Base de Datos Activa</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Línea Motocicletas</div>
+          <div class="stat-value" id="stat-motos">0</div>
+          <span class="stat-tag tag-green">$200.000 + 3 Referidos</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Equipos Samsung</div>
+          <div class="stat-value" id="stat-celulares">0</div>
+          <span class="stat-tag tag-purple">$70.000 + 3 Referidos</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Emprendimientos</div>
+          <div class="stat-value" id="stat-ideas">0</div>
+          <span class="stat-tag tag-amber">Apalancamiento de Fondo</span>
+        </div>
+      </div>
+
+      <!-- Barra de Filtros y Exportación -->
+      <div class="toolbar-card">
+        <div class="toolbar-left">
+          <div class="search-input-group">
+            <input type="text" id="filter-search" class="form-input" placeholder="Buscar por nombre, celular o correo..." oninput="renderTable()">
+          </div>
+          <select id="filter-plan" class="filter-select" onchange="renderTable()">
+            <option value="todos">Todos los Planes</option>
+            <option value="Motocicleta">Motocicletas ($200k)</option>
+            <option value="Samsung">Smartphones Samsung ($70k)</option>
+            <option value="Emprendimiento">Apalancamiento Emprendimiento</option>
+          </select>
+          <select id="filter-status" class="filter-select" onchange="renderTable()">
+            <option value="todos">Todos los Estados</option>
+            <option value="Nuevo">Nuevos</option>
+            <option value="Contactado">En Contacto</option>
+            <option value="Afiliado">Afiliados</option>
+          </select>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn btn-blue btn-sm" onclick="exportToCSV()" title="Descargar base de datos en formato Excel/CSV">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Exportar a Excel (CSV)
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabla de Prospectos -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Nombre del Prospecto</th>
+                <th>Celular / WhatsApp</th>
+                <th>Correo Electrónico</th>
+                <th>País / Ciudad</th>
+                <th>Interés / Plan</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody">
+              <!-- Renderizado dinámico -->
+            </tbody>
+          </table>
+        </div>
+        <div id="table-empty" class="empty-state" style="display: none;">
+          No se encontraron prospectos que coincidan con la búsqueda.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Base de datos de Leads en localStorage
+    const STORAGE_KEY = 'winners_leads_db';
+
+    // Datos demo iniciales si no hay ninguno registrado
+    const DEFAULT_LEADS = [
+      {
+        id: 1,
+        date: '2026-10-16 10:15',
+        name: 'Carlos Andrés Gómez',
+        phone: '3145558901',
+        email: 'carlos.gomez@gmail.com',
+        country: 'Colombia 🇨🇴 (Bogotá)',
+        plan: 'Motocicleta ($200.000 + 3 Ref)',
+        status: 'Nuevo'
+      },
+      {
+        id: 2,
+        date: '2026-10-16 11:30',
+        name: 'Andrea Morales Restrepo',
+        phone: '3004441234',
+        email: 'andrea.morales@hotmail.com',
+        country: 'Colombia 🇨🇴 (Medellín)',
+        plan: 'Smartphones Samsung ($70.000)',
+        status: 'Contactado'
+      },
+      {
+        id: 3,
+        date: '2026-10-16 14:05',
+        name: 'Edwin Patricio Caiza',
+        phone: '998877665',
+        email: 'edwin.caiza@yahoo.com',
+        country: 'Ecuador 🇪🇨 (Quito)',
+        plan: 'Smartphones Samsung ($70.000)',
+        status: 'Afiliado'
+      },
+      {
+        id: 4,
+        date: '2026-10-16 15:20',
+        name: 'Marcos Antonio Quispe',
+        phone: '987654321',
+        email: 'marcos.quispe@gmail.com',
+        country: 'Perú 🇵🇪 (Lima)',
+        plan: 'Apalancamiento Emprendimiento',
+        status: 'Nuevo'
+      }
+    ];
+
+    function getLeads() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_LEADS));
+        return DEFAULT_LEADS;
+      }
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        return DEFAULT_LEADS;
+      }
+    }
+
+    function saveLeads(leads) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      renderStats();
+    }
+
+    // Autenticación de Gerencia
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('admin-user').value.trim();
+      const pass = document.getElementById('admin-pass').value.trim();
+      const errorDiv = document.getElementById('login-error');
+
+      // Claves de acceso gerencial
+      if ((user === 'gerencia' || user === 'admin' || user === 'winnerssistema@gmail.com') && (pass === 'Winners2026*' || pass === 'gerente2026')) {
+        sessionStorage.setItem('winners_admin_logged', 'true');
+        showDashboard();
+      } else {
+        errorDiv.style.display = 'block';
+      }
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem('winners_admin_logged');
+      document.getElementById('dashboard-view').style.display = 'none';
+      document.getElementById('login-view').style.display = 'flex';
+      document.getElementById('login-form').reset();
+      document.getElementById('login-error').style.display = 'none';
+    }
+
+    function showDashboard() {
+      document.getElementById('login-view').style.display = 'none';
+      document.getElementById('dashboard-view').style.display = 'flex';
+      renderStats();
+      renderTable();
+    }
+
+    // Renderizar Métricas
+    function renderStats() {
+      const leads = getLeads();
+      document.getElementById('stat-total').textContent = leads.length;
+      document.getElementById('stat-motos').textContent = leads.filter(l => l.plan.toLowerCase().includes('moto')).length;
+      document.getElementById('stat-celulares').textContent = leads.filter(l => l.plan.toLowerCase().includes('samsung') || l.plan.toLowerCase().includes('celular')).length;
+      document.getElementById('stat-ideas').textContent = leads.filter(l => l.plan.toLowerCase().includes('emprend') || l.plan.toLowerCase().includes('idea')).length;
+    }
+
+    // Renderizar Tabla
+    function renderTable() {
+      const leads = getLeads();
+      const query = document.getElementById('filter-search').value.toLowerCase();
+      const planFilter = document.getElementById('filter-plan').value.toLowerCase();
+      const statusFilter = document.getElementById('filter-status').value.toLowerCase();
+
+      const filtered = leads.filter(l => {
+        const matchesQuery = l.name.toLowerCase().includes(query) ||
+                             l.phone.toLowerCase().includes(query) ||
+                             l.email.toLowerCase().includes(query) ||
+                             l.country.toLowerCase().includes(query);
+        const matchesPlan = planFilter === 'todos' || l.plan.toLowerCase().includes(planFilter);
+        const matchesStatus = statusFilter === 'todos' || l.status.toLowerCase() === statusFilter;
+        return matchesQuery && matchesPlan && matchesStatus;
+      });
+
+      const tbody = document.getElementById('leads-tbody');
+      const emptyDiv = document.getElementById('table-empty');
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        emptyDiv.style.display = 'block';
+        return;
+      }
+      emptyDiv.style.display = 'none';
+
+      filtered.forEach(lead => {
+        const tr = document.createElement('tr');
+        
+        let statusClass = 'status-nuevo';
+        if (lead.status === 'Contactado') statusClass = 'status-contacto';
+        if (lead.status === 'Afiliado') statusClass = 'status-afiliado';
+        if (lead.status === 'No Interesa') statusClass = 'status-no-interesa';
+
+        // Enlace directo WhatsApp limpio (Colombia +57 por defecto si son 10 dígitos)
+        let cleanPhone = lead.phone.replace(/\D/g, '');
+        if (cleanPhone.length === 10) cleanPhone = '57' + cleanPhone;
+
+        const waText = encodeURIComponent(`Hola ${lead.name}, te saludo de la Gerencia de Sistema Winners. Vimos tu solicitud de información sobre: ${lead.plan}. ¿Cómo podemos ayudarte hoy?`);
+        const waLink = `https://wa.me/${cleanPhone}?text=${waText}`;
+
+        tr.innerHTML = `
+          <td><span class="lead-date">${lead.date}</span></td>
+          <td><span class="lead-name">${lead.name}</span></td>
+          <td>
+            <strong>${lead.phone}</strong>
+          </td>
+          <td>${lead.email}</td>
+          <td>${lead.country}</td>
+          <td><span style="font-weight:600; color:var(--admin-primary);">${lead.plan}</span></td>
+          <td>
+            <select class="filter-select" style="padding: 4px 8px; font-size: 0.8rem;" onchange="updateStatus(${lead.id}, this.value)">
+              <option value="Nuevo" ${lead.status === 'Nuevo' ? 'selected' : ''}>Nuevo</option>
+              <option value="Contactado" ${lead.status === 'Contactado' ? 'selected' : ''}>Contactado</option>
+              <option value="Afiliado" ${lead.status === 'Afiliado' ? 'selected' : ''}>Afiliado</option>
+              <option value="No Interesa" ${lead.status === 'No Interesa' ? 'selected' : ''}>No Interesa</option>
+            </select>
+          </td>
+          <td style="white-space: nowrap;">
+            <a href="${waLink}" target="_blank" class="action-btn-whatsapp" title="Contactar por WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+              </svg>
+              WhatsApp
+            </a>
+            <button class="action-btn-delete" onclick="deleteLead(${lead.id})" title="Eliminar registro" style="margin-left: 6px;">✕</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function updateStatus(id, newStatus) {
+      const leads = getLeads();
+      const lead = leads.find(l => l.id === id);
+      if (lead) {
+        lead.status = newStatus;
+        saveLeads(leads);
+        renderTable();
+      }
+    }
+
+    function deleteLead(id) {
+      if (!confirm('¿Seguro que deseas eliminar este prospecto?')) return;
+      let leads = getLeads();
+      leads = leads.filter(l => l.id !== id);
+      saveLeads(leads);
+      renderTable();
+    }
+
+    // Exportar a Excel (CSV con UTF-8 BOM)
+    function exportToCSV() {
+      const leads = getLeads();
+      if (leads.length === 0) {
+        alert('No hay datos para exportar.');
+        return;
+      }
+
+      let csv = '\uFEFF'; // UTF-8 BOM para que Excel respete tildes y caracteres
+      csv += 'ID;Fecha;Nombre Completo;Teléfono / WhatsApp;Correo Electrónico;País / Ciudad;Plan de Interés;Estado\n';
+
+      leads.forEach(l => {
+        csv += `"${l.id}";"${l.date}";"${l.name}";"${l.phone}";"${l.email}";"${l.country}";"${l.plan}";"${l.status}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', `Prospectos_SistemaWinners_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Inicialización al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('winners_admin_logged') === 'true') {
+        showDashboard();
+      }
+    });
+  </script>
+</body>
+</html>
