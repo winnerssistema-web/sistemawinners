@@ -341,3 +341,37 @@ h1, h2, h3, h4, .hero-title, .section-title, .stat-number, .step-title, .members
 .footer-cta .btn-blue:hover { background: linear-gradient(90deg, #C5A880, #B39366); }
 .footer-cta .btn-blue::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%); pointer-events: none; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%); transition: transform .9s var(--ease); }
 .footer-cta .btn-blue:hover::after { transform: translateX(120%); }
+
+/* Logo oficial de WhatsApp en la barra de comunidad */
+.community-cta {
+  background: transparent !important;
+  padding: 4px 12px 4px 6px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  transition: transform 0.3s var(--ease), background 0.3s ease !important;
+}
+.community-cta:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-1px) scale(1.03) !important;
+}
+.community-wa-logo {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain;
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 6px 16px rgba(37, 211, 102, 0.4));
+}
+.community-wa-text {
+  color: #ffffff !important;
+  font-family: var(--font-display, 'Space Grotesk', 'Inter', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+
