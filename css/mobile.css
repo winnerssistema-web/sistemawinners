@@ -130,13 +130,18 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 4px !important;
-    padding: 12px 16px !important;
+    gap: 0 !important;
+    padding: 8px 16px 16px 16px !important;
     margin: 0 !important;
   }
 
   .nav-item {
     width: 100% !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none !important;
   }
 
   .nav-link {
@@ -144,20 +149,29 @@
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
-    padding: 12px 14px !important;
+    padding: 13px 8px !important;
     font-size: 0.95rem !important;
-    font-weight: 600 !important;
-    border-radius: 8px !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
     color: #1e293b !important;
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
   }
 
-  .nav-link.active,
+  .nav-link:hover,
   .nav-link:active {
-    background: #0070d2 !important;
-    color: #ffffff !important;
-    border-color: #0070d2 !important;
+    background: #f8fafc !important;
+    color: #0070d2 !important;
+  }
+
+  .nav-link.active {
+    color: #0070d2 !important;
+    font-weight: 700 !important;
+    background: #eff6ff !important;
+    border-left: 3px solid #0070d2 !important;
+    padding-left: 10px !important;
   }
 
   /* Submenú en móvil */
@@ -169,18 +183,19 @@
     transform: none !important;
     box-shadow: none !important;
     border: none !important;
-    background: #f1f5f9 !important;
-    border-radius: 8px !important;
-    padding: 6px !important;
-    margin-top: 4px !important;
-    margin-bottom: 6px !important;
+    background: #f8fafc !important;
+    border-left: 2px solid #cbd5e1 !important;
+    border-radius: 0 8px 8px 0 !important;
+    padding: 4px 0 4px 12px !important;
+    margin: 2px 0 8px 8px !important;
   }
 
   .dropdown-link {
     display: block !important;
     padding: 9px 12px !important;
     font-size: 0.88rem !important;
-    color: #334155 !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
     border-radius: 6px !important;
   }
 
@@ -423,52 +438,134 @@
     padding: 20px 16px !important;
   }
 
-  /* ---------- 5. TABLA COMPARATIVA RESPONSIVA (SIN DESBORDE) ---------- */
+  /* ---------- 5. COMPARATIVA EN MÓVIL (PATRÓN FINTECH: CRITERIO ARRIBA + 2 COLUMNAS 50/50) ---------- */
   .comparison-section {
-    padding: 36px 0 !important;
+    padding: 32px 0 !important;
     overflow-x: hidden !important;
     width: 100% !important;
   }
 
-  /* Aplica tanto si el contenedor se llama comparison-table-container como table-responsive-wrapper */
   .comparison-table-container,
   .table-responsive-wrapper {
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    border-radius: 12px !important;
-    border: 1px solid #e2e8f0 !important;
+    overflow: visible !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
     margin-bottom: 20px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
     display: block !important;
-    position: relative !important;
   }
 
+  /* Transformar la tabla tradicional en tarjetas apiladas fluidas */
   .comparison-table {
-    min-width: 540px !important;
+    display: block !important;
     width: 100% !important;
-    border-collapse: collapse !important;
-    font-size: 0.82rem !important;
+    min-width: 100% !important;
+    border: none !important;
   }
 
-  .comparison-table th,
-  .comparison-table td {
-    padding: 10px 12px !important;
-    white-space: normal !important;
-    vertical-align: top !important;
+  /* Ocultar encabezado de tabla original de escritorio */
+  .comparison-table thead {
+    display: none !important;
   }
 
-  .comparison-table th {
-    font-size: 0.86rem !important;
+  .comparison-table tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
 
-  .feature-title {
-    font-size: 0.85rem !important;
+  /* Cada fila se convierte en una tarjeta de comparación independiente */
+  .comparison-table tr {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+    width: 100% !important;
   }
 
-  .feature-subtitle {
-    font-size: 0.74rem !important;
+  /* 1. Criterio Arriba como Encabezado Transversal (Spanning Header 100% ancho) */
+  .comparison-table tr td:first-child {
+    grid-column: 1 / -1 !important;
+    background: #0f172a !important;
+    color: #ffffff !important;
+    padding: 12px 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    text-align: left !important;
+  }
+
+  .comparison-table tr td:first-child .feature-title {
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+  }
+
+  .comparison-table tr td:first-child .feature-subtitle {
+    color: var(--gold, #c5a880) !important;
+    font-size: 0.76rem !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Columna Izquierda: SISTEMA WINNERS (50% Ancho) */
+  .comparison-table tr td.cell-winner {
+    grid-column: 1 / 2 !important;
+    background: #f0fdf4 !important;
+    border-right: 1px solid #e2e8f0 !important;
+    border-bottom: none !important;
+    padding: 12px 10px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    color: #0f172a !important;
+  }
+
+  .comparison-table tr td.cell-winner .badge-tag-winner {
+    display: inline-block !important;
+    background: #166534 !important;
+    color: #ffffff !important;
+    font-size: 0.68rem !important;
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    margin-bottom: 6px !important;
+    font-weight: 700 !important;
+  }
+
+  /* 3. Columna Derecha: AUTOFINANCIAMIENTO TRADICIONAL (50% Ancho) */
+  .comparison-table tr td:last-child {
+    grid-column: 2 / 3 !important;
+    background: #fef2f2 !important;
+    border-bottom: none !important;
+    padding: 12px 10px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    color: #475569 !important;
+  }
+
+  .comparison-table tr td:last-child .badge-tag-trad {
+    display: inline-block !important;
+    background: #991b1b !important;
+    color: #ffffff !important;
+    font-size: 0.68rem !important;
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    margin-bottom: 6px !important;
+    font-weight: 700 !important;
+  }
+
+  .comparison-table tr td ul {
+    margin-top: 6px !important;
+    padding-left: 12px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
   }
 
   .comparison-callout {
@@ -672,54 +769,106 @@
     font-size: 0.95rem !important;
   }
 
-  /* ---------- 9. FOOTER CORPORATIVO MÓVIL ---------- */
+  /* ---------- 9. FOOTER CORPORATIVO MÓVIL (COMPACTO Y ESTRUCTURADO) ---------- */
   .site-footer {
-    padding: 40px 0 24px 0 !important;
+    padding: 32px 0 20px 0 !important;
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-    margin-bottom: 32px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 16px !important;
+    margin-bottom: 24px !important;
   }
 
   .footer-col-about {
-    text-align: center !important;
-    align-items: center !important;
+    grid-column: 1 / -1 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    padding-bottom: 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .footer-logo {
+    height: 32px !important;
+    margin-bottom: 8px !important;
   }
 
   .footer-about-text {
-    font-size: 0.86rem !important;
-    text-align: center !important;
+    font-size: 0.84rem !important;
+    text-align: left !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
   }
 
   .footer-col {
-    text-align: center !important;
+    text-align: left !important;
+  }
+
+  .footer-col h4 {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    color: var(--gold, #c5a880) !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 6px !important;
+    position: relative !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
   }
 
   .footer-col h4::after {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 20px !important;
+    height: 2px !important;
+    background: var(--gold, #c5a880) !important;
   }
 
   .footer-links {
-    align-items: center !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
     gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .footer-links li {
+    width: 100% !important;
   }
 
   .footer-links a {
-    font-size: 0.86rem !important;
-    justify-content: center !important;
+    font-size: 0.82rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    line-height: 1.35 !important;
+    padding: 2px 0 !important;
+    display: inline-block !important;
+    word-break: break-word !important;
+  }
+
+  .footer-links a:hover,
+  .footer-links a:active {
+    color: #ffffff !important;
   }
 
   .footer-bottom {
     flex-direction: column !important;
-    text-align: center !important;
-    gap: 12px !important;
+    text-align: left !important;
+    gap: 8px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 
   .footer-legal-text {
-    font-size: 0.78rem !important;
+    font-size: 0.74rem !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
   }
 
   /* ---------- 10. BOTONES FLOTANTES COMPACTOS (SIN TAPAR CONTENIDO) ---------- */
