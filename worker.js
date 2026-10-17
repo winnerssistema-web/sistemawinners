@@ -55,7 +55,8 @@ export default {
       "zona-clientes",
       "tu-pago-en-linea",
       "devoluciones",
-      "resultados-asamblea"
+      "resultados-asamblea",
+      "politicas"
     ];
     const cleanName = pathname.replace(/^\//, "");
     if (cleanPages.includes(cleanName)) {
