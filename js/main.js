@@ -95,7 +95,7 @@ function initStepsCarousel() {
   function getCardsPerView() {
     if (window.innerWidth <= 768) return 1;
     if (window.innerWidth <= 1024) return 2;
-    return 4;
+    return 3;
   }
 
   function updateCarousel() {
@@ -105,7 +105,10 @@ function initStepsCarousel() {
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     if (currentIndex < 0) currentIndex = 0;
 
-    track.style.transform = `translateX(-${currentIndex * (100 / cardsPerView + 1.5)}%)`;
+    const gap = 20;
+    const cardW = (track.parentElement.clientWidth - gap * (cardsPerView - 1)) / cardsPerView;
+    cards.forEach(c => { c.style.flex = `0 0 ${cardW}px`; });
+    track.style.transform = `translateX(-${currentIndex * (cardW + gap)}px)`;
 
     dots.forEach((dot, idx) => {
       dot.classList.toggle('active', idx === currentIndex);
@@ -146,6 +149,7 @@ function initStepsCarousel() {
   });
 
   window.addEventListener('resize', updateCarousel);
+  updateCarousel();
 }
 
 /* ==========================================================================

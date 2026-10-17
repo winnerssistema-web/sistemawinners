@@ -297,16 +297,13 @@ button, input, select, textarea {
 .nav-list {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
-  gap: 8px;
-  overflow-x: auto;
+  gap: 4px 6px;
+  overflow: visible;
   padding: 6px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.nav-list::-webkit-scrollbar {
-  display: none;
+  margin: 0;
 }
 
 
@@ -319,8 +316,8 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  font-size: 0.925rem;
+  padding: 8px 10px;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
   border-radius: var(--radius-sm);
