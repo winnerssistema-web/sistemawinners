@@ -516,56 +516,83 @@
     margin: 0 !important;
   }
 
-  /* 2. Columna Izquierda: SISTEMA WINNERS (50% Ancho) */
+  /* 2. Columna Izquierda: SISTEMA WINNERS (Membresía Solidaria) */
   .comparison-table tr td.cell-winner {
     grid-column: 1 / 2 !important;
-    background: #f0fdf4 !important;
-    border-right: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    border-right: 1px solid var(--border-light, #e2e8f0) !important;
     border-bottom: none !important;
-    padding: 12px 10px !important;
-    font-size: 0.8rem !important;
-    line-height: 1.4 !important;
-    color: #0f172a !important;
+    padding: 14px 12px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    color: #0A192F !important;
   }
 
-  .comparison-table tr td.cell-winner .badge-tag-winner {
-    display: inline-block !important;
-    background: #166534 !important;
-    color: #ffffff !important;
-    font-size: 0.68rem !important;
-    padding: 3px 6px !important;
-    border-radius: 4px !important;
-    margin-bottom: 6px !important;
+  .comparison-table tr td.cell-winner strong {
+    color: #0A192F !important;
     font-weight: 700 !important;
   }
 
-  /* 3. Columna Derecha: AUTOFINANCIAMIENTO TRADICIONAL (50% Ancho) */
+  .comparison-table tr td.cell-winner .highlight {
+    color: #133E87 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Badge Institucional Sistema Winners (Azul Marino con borde dorado sutil) */
+  .comparison-table tr td.cell-winner .badge-tag-winner {
+    display: inline-block !important;
+    background: #0A192F !important;
+    color: #ffffff !important;
+    font-size: 0.68rem !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    border: 1px solid rgba(197, 168, 128, 0.4) !important;
+  }
+
+  /* 3. Columna Derecha: AUTOFINANCIAMIENTO TRADICIONAL */
   .comparison-table tr td:last-child {
     grid-column: 2 / 3 !important;
-    background: #fef2f2 !important;
+    background: #F8FAFC !important;
     border-bottom: none !important;
-    padding: 12px 10px !important;
-    font-size: 0.8rem !important;
-    line-height: 1.4 !important;
+    padding: 14px 12px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
     color: #475569 !important;
   }
 
-  .comparison-table tr td:last-child .badge-tag-trad {
-    display: inline-block !important;
-    background: #991b1b !important;
-    color: #ffffff !important;
-    font-size: 0.68rem !important;
-    padding: 3px 6px !important;
-    border-radius: 4px !important;
-    margin-bottom: 6px !important;
+  .comparison-table tr td:last-child strong {
+    color: #1e293b !important;
     font-weight: 700 !important;
   }
 
+  /* Badge Tradicional (Gris Ejecutivo Sobrio) */
+  .comparison-table tr td:last-child .badge-tag-trad {
+    display: inline-block !important;
+    background: #E2E8F0 !important;
+    color: #334155 !important;
+    font-size: 0.68rem !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+
   .comparison-table tr td ul {
-    margin-top: 6px !important;
-    padding-left: 12px !important;
-    font-size: 0.76rem !important;
-    line-height: 1.35 !important;
+    margin-top: 8px !important;
+    padding-left: 14px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    color: #0A192F !important;
+  }
+
+  .comparison-table tr td ul li {
+    margin-bottom: 4px !important;
+    color: #0A192F !important;
   }
 
   .comparison-callout {

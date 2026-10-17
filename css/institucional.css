@@ -374,4 +374,44 @@ h1, h2, h3, h4, .hero-title, .section-title, .stat-number, .step-title, .members
   white-space: nowrap;
 }
 
+/* ---------- Reglas de Escritorio para el Acordeón del Footer (<details>) ---------- */
+@media (min-width: 769px) {
+  .footer-accordion {
+    pointer-events: none !important;
+  }
+  .footer-accordion-header {
+    cursor: default !important;
+    list-style: none !important;
+  }
+  .footer-accordion-header::-webkit-details-marker,
+  .footer-accordion-header::marker {
+    display: none !important;
+  }
+  .accordion-icon {
+    display: none !important;
+  }
+  .footer-accordion[open] > .footer-accordion-content,
+  .footer-accordion > .footer-accordion-content {
+    display: grid !important;
+  }
+  .footer-accordion-header span {
+    color: var(--gold) !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    position: relative;
+    padding-bottom: 12px;
+    display: inline-block;
+  }
+  .footer-accordion-header span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 24px;
+    height: 1px;
+    background: rgba(197, 168, 128, 0.6);
+  }
+}
+
 
