@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos y Planes | Sistema Winners</title>
+  <meta name="description" content="Conoce los planes oficiales de Sistema Winners: Motocicletas nuevas, Smartphones de última tecnología y Apalancamiento para Emprendedores.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing-institucional.css">
+  <style>
+    .catalog-page {
+      padding: 4rem 0 6rem 0;
+      background: var(--color-bg-light);
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .catalog-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+    .catalog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(238, 170, 43, 0.4);
+    }
+    .catalog-img-wrap {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalog-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .catalog-card:hover .catalog-img-wrap img {
+      transform: scale(1.06);
+    }
+    .catalog-body {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .catalog-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--color-gold-light);
+      color: var(--color-gold-hover);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .catalog-card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.75rem;
+    }
+    .catalog-card-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    @media (max-width: 992px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Institucional -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo-link" aria-label="Sistema Winners Inicio">
+        <div class="brand-symbol-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">Sistema <span>Winners</span></span>
+          <span class="brand-slogan">Proyecta · Impulsa · Triunfa</span>
+        </div>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="index.html#quienes-somos" class="nav-link">Conócenos</a></li>
+          <li class="nav-item"><a href="productos.html" class="nav-link active">Productos</a></li>
+          <li class="nav-item"><a href="cotizador.html" class="nav-link nav-link-cotizador">Cotizador</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">Contáctanos</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="btn-header-login">Login Socios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="catalog-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Nuestros Productos y Planes</h1>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Soluciones estructuradas para potenciar tu movilidad, tus herramientas de comunicación y tus ideas de negocio.</p>
+      </div>
+
+      <div class="catalog-grid">
+        <!-- Tarjeta 1: Motos -->
+        <div class="catalog-card">
+          <div class="catalog-img-wrap">
+            <img src="images/moto-familia.jpg" alt="Plan Motocicletas Familiares y Trabajo">
+          </div>
+          <div class="catalog-body">
+            <span class="catalog-badge">Movilidad & Trabajo</span>
+            <h2 class="catalog-card-title">Plan Motocicletas Nuevas</h2>
+            <p class="catalog-card-desc">
+              Adquiere tu vehículo de concesionario aliado. Ideal para transporte personal, trabajo independiente o emprendimiento familiar sin cuotas abusivas.
+            </p>
+            <a href="cotizador.html" class="btn btn-navy" style="width: 100%;">Cotizar este Plan →</a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Celulares -->
+        <div class="catalog-card">
+          <div class="catalog-img-wrap">
+            <img src="images/celular-plan.jpg" alt="Plan Smartphones y Tecnología">
+          </div>
+          <div class="catalog-body">
+            <span class="catalog-badge">Tecnología & Conectividad</span>
+            <h2 class="catalog-card-title">Plan Smartphones 4G/5G</h2>
+            <p class="catalog-card-desc">
+              Accede a equipos Samsung y tecnología de última generación 100% de tu propiedad. Sin contratos de permanencia telefónica ni sobrecostos financieros.
+            </p>
+            <a href="cotizador.html" class="btn btn-navy" style="width: 100%;">Cotizar este Plan →</a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Emprendimiento -->
+        <div class="catalog-card">
+          <div class="catalog-img-wrap">
+            <img src="images/moto-referidos.jpg" alt="Plan Apalancamiento para Emprendedores">
+          </div>
+          <div class="catalog-body">
+            <span class="catalog-badge">Fondo Colectivo</span>
+            <h2 class="catalog-card-title">Plan Capital Emprendedor</h2>
+            <p class="catalog-card-desc">
+              Inyecta capital y solvencia a tus proyectos mediante la red de cooperación colectiva de Sistema Winners con el respaldo de una comunidad activa.
+            </p>
+            <a href="cotizador.html" class="btn btn-navy" style="width: 100%;">Cotizar este Plan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-copyright-bar">
+      <span>© 2026 Sistema Winners S.A.S. Todos los derechos reservados.</span>
+      <a href="index.html" style="color: var(--color-navy); font-weight: 600;">← Volver al Inicio</a>
+    </div>
+  </footer>
+
+</body>
+</html>

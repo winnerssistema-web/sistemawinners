@@ -1,16 +1,25 @@
 # Atajos de Marketing y WhatsApp (+57 314 869 1001)
 /wa                       https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20informaci%C3%B3n%20sobre%20afiliaci%C3%B3n%20y%20planes    302
 /whatsapp                 https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20informaci%C3%B3n%20sobre%20afiliaci%C3%B3n%20y%20planes    302
-/motos                    /index.html#motocicletas       301
-/moto                     /index.html#motocicletas       301
-/celular                  /index.html#celulares          301
-/celulares                /index.html#celulares          301
-/samsung                  /index.html#celulares          301
-/plan70k                  /index.html#celulares          301
-/smartphone               /index.html#celulares          301
-/referidos                /index.html#como-funciona      301
-/simulador                /index.html#simulador          301
-/contacto                 /index.html#contacto           301
-/admin                    /gerente.html                  301
-/login                    /gerente.html                  301
 
+# Redirecciones Modulares y Vistas Limpias
+/cotizador                /cotizador.html               200
+/simulador                /cotizador.html               301
+/productos                /productos.html               200
+/contacto                 /contacto.html                200
+/ubicaciones              /contacto.html                301
+/portal-clientes          /zona-clientes.html           301
+/zona-socios              /zona-clientes.html           301
+/login                    /zona-clientes.html           301
+/admin                    /gerente.html                 301
+/gerente                  /gerente.html                 301
+
+# Atajos de Productos hacia catálogo
+/motos                    /productos.html               301
+/moto                     /productos.html               301
+/celular                  /productos.html               301
+/celulares                /productos.html               301
+/samsung                  /productos.html               301
+/plan70k                  /productos.html               301
+/smartphone               /productos.html               301
+/referidos                /index.html#paso-a-paso       301

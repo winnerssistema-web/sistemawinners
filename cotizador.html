@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizador y Simulador de Planes | Sistema Winners</title>
+  <meta name="description" content="Simula tu plan de multifinanciamiento en Sistema Winners. Calcula tu ahorro, cuotas y tiempo de adjudicación programada con total transparencia.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing-institucional.css">
+  <style>
+    .cotizador-page {
+      padding: 4rem 0 6rem 0;
+      background: var(--color-bg-light);
+    }
+    .cotizador-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 3rem;
+      border: 1px solid var(--color-border);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .membership-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .membership-option {
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      background: var(--color-surface);
+    }
+    .membership-option:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+    .membership-option.is-selected {
+      border-color: var(--color-navy);
+      background: rgba(21, 50, 104, 0.04);
+      box-shadow: 0 4px 14px rgba(21, 50, 104, 0.12);
+    }
+    .membership-option .opt-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.25rem;
+    }
+    .membership-option .opt-price {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-gold);
+    }
+    .slider-group {
+      margin-bottom: 2.25rem;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+    .slider-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      background: var(--color-gold-light);
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(238, 170, 43, 0.3);
+    }
+    .range-input {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #CBD5E1;
+      outline: none;
+      -webkit-appearance: none;
+      accent-color: var(--color-gold);
+    }
+    .results-display-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      background: var(--color-navy);
+      color: #FFFFFF;
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .result-box-item .res-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+    .result-box-item .res-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-gold);
+      line-height: 1.1;
+    }
+    @media (max-width: 768px) {
+      .membership-selector {
+        grid-template-columns: 1fr 1fr;
+      }
+      .results-display-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .cotizador-card {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Institucional -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo-link" aria-label="Sistema Winners Inicio">
+        <div class="brand-symbol-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">Sistema <span>Winners</span></span>
+          <span class="brand-slogan">Proyecta · Impulsa · Triunfa</span>
+        </div>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="index.html#quienes-somos" class="nav-link">Conócenos</a></li>
+          <li class="nav-item"><a href="productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-item"><a href="cotizador.html" class="nav-link active nav-link-cotizador">Cotizador</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">Contáctanos</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="btn-header-login">Login Socios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="cotizador-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Simulador & Cotizador Oficial</h1>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Calcula las ventajas de la planificación cooperativa de Sistema Winners frente a créditos bancarios tradicionales.</p>
+      </div>
+
+      <div class="cotizador-card">
+        <h2 style="font-size: 1.35rem; color: var(--color-navy); margin-bottom: 1rem;">1. Selecciona tu Categoría de Membresía:</h2>
+        <div class="membership-selector">
+          <div class="membership-option" data-cost="70000" data-min="1500000" data-max="6000000" data-val="3000000">
+            <div class="opt-name">Smartphone</div>
+            <div class="opt-price">$70.000</div>
+          </div>
+          <div class="membership-option is-selected" data-cost="200000" data-min="5000000" data-max="30000000" data-val="12000000">
+            <div class="opt-name">Moto Oficial</div>
+            <div class="opt-price">$200.000</div>
+          </div>
+          <div class="membership-option" data-cost="400000" data-min="10000000" data-max="60000000" data-val="25000000">
+            <div class="opt-name">Proyecto Emprende</div>
+            <div class="opt-price">$400.000</div>
+          </div>
+          <div class="membership-option" data-cost="800000" data-min="20000000" data-max="120000000" data-val="50000000">
+            <div class="opt-name">Master Leader</div>
+            <div class="opt-price">$800.000</div>
+          </div>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--color-navy); margin-bottom: 1rem;">2. Ajusta el Valor Estimado del Bien o Proyecto:</h2>
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Monto del Activo:</span>
+            <span class="slider-value" id="val-monto-display">$12.000.000 COP</span>
+          </div>
+          <input type="range" class="range-input" id="range-monto" min="5000000" max="30000000" step="500000" value="12000000">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Socios Referidos en tu Red:</span>
+            <span class="slider-value" id="val-ref-display">3 Referidos</span>
+          </div>
+          <input type="range" class="range-input" id="range-ref" min="1" max="10" step="1" value="3">
+        </div>
+
+        <div class="results-display-grid">
+          <div class="result-box-item">
+            <div class="res-label">Ahorro en Intereses Bancarios</div>
+            <div class="res-value" id="res-ahorro">$5.400.000</div>
+          </div>
+          <div class="result-box-item">
+            <div class="res-label">Fondo Colectivo Generado</div>
+            <div class="res-value" id="res-fondo">$36.000.000</div>
+          </div>
+          <div class="result-box-item">
+            <div class="res-label">Tiempo Estimado Adjudicación</div>
+            <div class="res-value" id="res-tiempo">Inmediata / Evento 1</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a id="btn-wa-cotizacion" href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20formalizar%20mi%20cotizaci%C3%B3n%20de%20$12.000.000%20con%20plan%20Moto" target="_blank" class="btn btn-cta-gold">
+            Solicitar Formalización por WhatsApp →
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-text-muted);">
+            Cotización referencial basada en el modelo de fondo cooperativo de Sistema Winners. No constituye oferta crediticia bancaria.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-copyright-bar">
+      <span>© 2026 Sistema Winners S.A.S. Todos los derechos reservados.</span>
+      <a href="index.html" style="color: var(--color-navy); font-weight: 600;">← Volver al Inicio</a>
+    </div>
+  </footer>
+
+  <script>
+    // Lógica del simulador aislada en esta vista
+    const formatCOP = (num) => '$' + num.toLocaleString('es-CO') + ' COP';
+    const rangeMonto = document.getElementById('range-monto');
+    const rangeRef = document.getElementById('range-ref');
+    const valMonto = document.getElementById('val-monto-display');
+    const valRef = document.getElementById('val-ref-display');
+    const resAhorro = document.getElementById('res-ahorro');
+    const resFondo = document.getElementById('res-fondo');
+    const resTiempo = document.getElementById('res-tiempo');
+    const btnWa = document.getElementById('btn-wa-cotizacion');
+    const options = document.querySelectorAll('.membership-option');
+
+    let currentCost = 200000;
+    let currentPlanName = 'Moto';
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        options.forEach(o => o.classList.remove('is-selected'));
+        opt.classList.add('is-selected');
+        currentCost = parseInt(opt.getAttribute('data-cost'));
+        currentPlanName = opt.querySelector('.opt-name').textContent;
+        rangeMonto.min = opt.getAttribute('data-min');
+        rangeMonto.max = opt.getAttribute('data-max');
+        rangeMonto.value = opt.getAttribute('data-val');
+        calc();
+      });
+    });
+
+    const calc = () => {
+      const monto = parseInt(rangeMonto.value);
+      const refs = parseInt(rangeRef.value);
+      valMonto.textContent = formatCOP(monto);
+      valRef.textContent = refs + (refs === 1 ? ' Referido' : ' Referidos');
+      
+      const ahorro = Math.round(monto * 0.45);
+      const fondo = (currentCost * refs * 12);
+      resAhorro.textContent = '$' + ahorro.toLocaleString('es-CO');
+      resFondo.textContent = '$' + fondo.toLocaleString('es-CO');
+      resTiempo.textContent = refs >= 3 ? 'Inmediata / Evento 1' : 'Convocatoria Evento 2';
+      
+      btnWa.href = `https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20formalizar%20mi%20cotizaci%C3%B3n%20del%20plan%20${encodeURIComponent(currentPlanName)}%20por%20valor%20de%20${encodeURIComponent(formatCOP(monto))}%20con%20${refs}%20referidos`;
+    };
+
+    rangeMonto.addEventListener('input', calc);
+    rangeRef.addEventListener('input', calc);
+    calc();
+  </script>
+</body>
+</html>

@@ -4,29 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <title>Sistema Winners | Multifinanciamiento y Marketing de Referidos</title>
-  <meta name="description" content="Inverso al sistema tradicional de compra programada. En Sistema Winners cada socio aporta a un fondo común y TODOS benefician a TODOS. Sin sorteos excluyentes, entrega inmediata por referidos y apalancamiento para tus proyectos.">
+  <title>Sistema Winners | Conquista tu Meta o Proyecto con los Mejores Beneficios</title>
+  <meta name="description" content="Descubre el modelo institucional y planificado de Sistema Winners. Adquiere vehículos nuevos, tecnología y apalancamiento para tus proyectos familiares y de negocio sin sobrecostos bancarios.">
   <link rel="canonical" href="https://www.sistemawinners.com/">
   
   <!-- Open Graph / Redes Sociales -->
   <meta property="og:locale" content="es_CO">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sistema Winners | Multifinanciamiento & Marketing de Referidos">
-  <meta property="og:description" content="Emprender es el camino. Conoce el fondo común donde todos se benefician mutuamente sin intereses bancarios ni sorteos interminables.">
+  <meta property="og:title" content="Sistema Winners | Conquista tu Meta o Proyecto">
+  <meta property="og:description" content="Planificación institucional inteligente. Únete a una comunidad sólida que te acompaña a cumplir tus metas con total transparencia.">
   <meta property="og:url" content="https://www.sistemawinners.com/">
   <meta property="og:site_name" content="Sistema Winners">
-  <meta property="og:image" content="https://www.sistemawinners.com/images/hero-slide1.jpg">
+  <meta property="og:image" content="https://www.sistemawinners.com/images/moto-familia.jpg">
   
-  <!-- Favicon y Estilos -->
+  <!-- Favicon y Tipografías -->
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/institucional.css">
-  <link rel="stylesheet" href="css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos del Sistema de Diseño Institucional -->
+  <link rel="stylesheet" href="css/landing-institucional.css">
 
-  <!-- Schema.org Structured Data para Google Sitelinks -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,12 +36,12 @@
         "@id": "https://www.sistemawinners.com/#website",
         "url": "https://www.sistemawinners.com/",
         "name": "Sistema Winners",
-        "description": "Sistema de Multifinanciamiento y Marketing de Referidos para Emprendedores",
+        "description": "Sistema Institucional de Planificación y Asignación de Activos",
         "potentialAction": [{
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://www.sistemawinners.com/?s={search_term_string}"
+            "urlTemplate": "https://www.sistemawinners.com/productos.html?q={search_term_string}"
           },
           "query-input": "required name=search_term_string"
         }],
@@ -55,32 +55,14 @@
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.sistemawinners.com/images/logo.svg"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+57-314-869-1001",
+          "contactType": "customer service",
+          "areaServed": "CO",
+          "availableLanguage": "Spanish"
         }
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Consulta Devoluciones",
-        "url": "https://www.sistemawinners.com/consulta-devoluciones.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Zona Clientes",
-        "url": "https://www.sistemawinners.com/zona-clientes.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Tu Pago en Línea",
-        "url": "https://www.sistemawinners.com/tu-pago-en-linea.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Devoluciones",
-        "url": "https://www.sistemawinners.com/devoluciones.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Resultados Asamblea",
-        "url": "https://www.sistemawinners.com/resultados-asamblea.html"
       }
     ]
   }
@@ -89,714 +71,575 @@
 <body>
 
   <!-- ==========================================================================
-       HEADER PRINCIPAL (ESTILO CHEVYPLAN)
+       SECCIÓN 1: HEADER / NAVBAR FIJO
        ========================================================================== -->
-  <header class="site-header">
-    <div class="header-top">
-      <div class="container header-top-inner">
-        <!-- Logo Oficial y Lema -->
-        <a href="index.html" class="logo-wrapper" title="Sistema Winners - Proyecta · Impulsa · Triunfa">
-          <img src="images/logo.svg" alt="Sistema Winners Logo" class="header-logo">
-          <span class="brand-motto-tag">Proyecta · Impulsa · Triunfa</span>
-        </a>
-
-        <!-- Buscador con Lupa -->
-        <div class="header-search">
-          <form class="search-form" action="#" method="GET">
-            <input type="text" class="search-input" placeholder="Buscar consultas, Samsung, motos, pagos..." aria-label="Buscar">
-            <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </button>
-          </form>
+  <header class="site-header" role="banner">
+    <div class="container navbar-container">
+      <!-- 1. Logo Oficial (Izquierda) -->
+      <a href="index.html" class="brand-logo-link" aria-label="Sistema Winners - Página de Inicio">
+        <div class="brand-symbol-circle">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
         </div>
-
-        <!-- Botones de Acción -->
-        <div class="header-actions">
-          <a href="#contacto" class="btn btn-white btn-sm">Solicitar Asesoría</a>
-          <a href="zona-clientes.html" class="btn btn-blue btn-sm">Zona Clientes</a>
+        <div class="brand-text-block">
+          <span class="brand-name">Sistema <span>Winners</span></span>
+          <span class="brand-slogan">Proyecta · Impulsa · Triunfa</span>
         </div>
+      </a>
 
-        <!-- Botón Menú Móvil -->
-        <button class="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <!-- 2. Navegación Central (Redirecciones Modulares) -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <!-- Conócenos (Dropdown / Ancla) -->
+          <li class="nav-item">
+            <a href="#quienes-somos" class="nav-link">
+              Conócenos
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#quienes-somos" class="nav-dropdown-item">¿Quiénes Somos?</a>
+              <a href="#paso-a-paso" class="nav-dropdown-item">Metodología Paso a Paso</a>
+              <a href="#resultados" class="nav-dropdown-item">Resultados y Adjudicados</a>
+            </div>
+          </li>
+
+          <!-- Productos (Redirección a vista independiente productos.html) -->
+          <li class="nav-item">
+            <a href="productos.html" class="nav-link">Productos</a>
+          </li>
+
+          <!-- Cotizador (Redirección a vista independiente cotizador.html) -->
+          <li class="nav-item">
+            <a href="cotizador.html" class="nav-link nav-link-cotizador">
+              Cotizador
+            </a>
+          </li>
+
+          <!-- Contáctanos (Dropdown / Ancla) -->
+          <li class="nav-item">
+            <a href="#encuentranos" class="nav-link">
+              Contáctanos
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#encuentranos" class="nav-dropdown-item">Nuestras Sedes</a>
+              <a href="contacto.html" class="nav-dropdown-item">Línea Directa y Formulario</a>
+              <a href="https://wa.me/573148691001" target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">WhatsApp Oficial</a>
+            </div>
+          </li>
+
+          <!-- Blog -->
+          <li class="nav-item">
+            <a href="#novedades" class="nav-link">Blog</a>
+          </li>
+
+          <!-- Login (Dropdown / Acceso al portal) -->
+          <li class="nav-item">
+            <a href="zona-clientes.html" class="nav-link">
+              Login
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="zona-clientes.html" class="nav-dropdown-item">Oficina Virtual Clientes</a>
+              <a href="gerente.html" class="nav-dropdown-item">Portal Administrativo</a>
+              <a href="consulta-devoluciones.html" class="nav-dropdown-item">Consulta de Devoluciones</a>
+            </div>
+          </li>
+
+          <!-- Tutoriales -->
+          <li class="nav-item">
+            <a href="#tutoriales" class="nav-link">Tutoriales</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Utilidades Derecha (Búsqueda, Compartir y Móvil) -->
+      <div class="header-actions">
+        <!-- Ícono de Búsqueda (Lupa SVG) -->
+        <button type="button" class="icon-btn" id="btn-search-trigger" aria-label="Abrir buscador institucional" title="Buscar">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Ícono de Compartir (Share SVG) -->
+        <button type="button" class="icon-btn" id="btn-share-trigger" aria-label="Compartir esta página" title="Compartir enlace">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </button>
+
+        <!-- Botón Toggle Móvil -->
+        <button type="button" class="mobile-toggle" aria-label="Abrir menú de navegación móvil">
           ☰
         </button>
       </div>
     </div>
-
-    <!-- Menú de Navegación Secundario -->
-    <nav class="header-nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link active">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a href="#motocicletas" class="nav-link">Motos ($200k)</a>
-          </li>
-          <li class="nav-item">
-            <a href="#celulares" class="nav-link">Samsung ($70k)</a>
-          </li>
-          <li class="nav-item">
-            <a href="#comparativa" class="nav-link">
-              Comparativa
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#como-funciona" class="nav-link">
-              Cómo Funciona
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#enlaces-rapidos" class="nav-link">
-              Servicios en Línea
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <div class="nav-dropdown">
-              <a href="consulta-devoluciones.html" class="dropdown-link">Consulta Devoluciones</a>
-              <a href="zona-clientes.html" class="dropdown-link">Zona Clientes</a>
-              <a href="tu-pago-en-linea.html" class="dropdown-link">Tu Pago en Línea (PSE)</a>
-              <a href="devoluciones.html" class="dropdown-link">Garantías & Devoluciones</a>
-              <a href="resultados-asamblea.html" class="dropdown-link">Resultados y Asambleas</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a href="#simulador" class="nav-link">Simulador</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contacto" class="nav-link" style="color: var(--blue-primary); font-weight: 700;">
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
   </header>
 
-  <main>
+  <!-- Drawer Móvil Desplegable -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-drawer" aria-label="Menú móvil">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <span class="brand-name">Sistema <span>Winners</span></span>
+        <button type="button" id="mobile-close-btn" style="font-size: 1.75rem; color: var(--color-navy);">&times;</button>
+      </div>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.25rem;">
+        <li><a href="index.html" class="mobile-drawer-link" style="font-weight: 700; color: var(--color-navy);">Inicio</a></li>
+        <li><a href="#quienes-somos" class="mobile-drawer-link" style="font-weight: 600;">Conócenos</a></li>
+        <li><a href="productos.html" class="mobile-drawer-link" style="font-weight: 600;">Productos</a></li>
+        <li><a href="cotizador.html" class="mobile-drawer-link" style="font-weight: 700; color: var(--color-gold);">Cotizador Oficial</a></li>
+        <li><a href="#paso-a-paso" class="mobile-drawer-link" style="font-weight: 600;">Metodología</a></li>
+        <li><a href="#ecosistema-digital" class="mobile-drawer-link" style="font-weight: 600;">App & Plataforma</a></li>
+        <li><a href="#resultados" class="mobile-drawer-link" style="font-weight: 600;">Adjudicados</a></li>
+        <li><a href="#encuentranos" class="mobile-drawer-link" style="font-weight: 600;">Ubicaciones</a></li>
+        <li><a href="zona-clientes.html" class="mobile-drawer-link" style="font-weight: 600;">Login Socios</a></li>
+      </ul>
+    </div>
+    <div style="padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+      <a href="cotizador.html" class="btn btn-navy" style="width: 100%; margin-bottom: 0.75rem;">¡Cotiza ahora!</a>
+      <a href="https://wa.me/573148691001" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%;">WhatsApp Directo</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
     <!-- ==========================================================================
-         SLIDER 1: HERO PRINCIPAL (ESTILO CHEVYPLAN CON MOTOCICLETAS)
+         SECCIÓN 2: HERO BANNER PRINCIPAL
          ========================================================================== -->
-    <section class="hero-slider-section" id="motocicletas">
-      <div class="container hero-slider-container">
-        <!-- Slide 1: Motocicleta y Estabilidad Financiera -->
-        <div class="hero-slide active">
-          <div class="hero-slide-grid">
-            <div class="hero-content">
-              <span class="hero-motto-badge">✦ PROYECTA · IMPULSA · TRIUNFA ✦</span><br>
-              <span class="pill-badge">¡Tu Motocicleta Nueva con Fondo Común!</span>
-              <h1 class="hero-title">
-                Te proveemos de la <span class="highlight-blue">Motocicleta</span> que te da estabilidad financiera
-              </h1>
-              <p class="hero-subtitle">
-                Porque con ella trabajas y das felicidad a tu familia. Puedes compartir y desplazarte con tu familia. 
-                <span class="highlight-yellow-badge">¡Genera felicidad para ti y tu familia!</span>
-              </p>
-              <ul class="hero-features-list">
-                <li>
-                  <span class="icon-check">✓</span>
-                  <strong>Solo con $200.000 Pesos y 3 Referidos</strong>
-                </li>
-                <li>
-                  <span class="icon-check">✓</span>
-                  Entrega inmediata sin sorteos, sin remates y sin intereses bancarios
-                </li>
-              </ul>
-              <div class="hero-actions">
-                <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20conocer%20como%20obtener%20mi%20motocicleta%20con%20200.000%20pesos%20y%203%20referidos" target="_blank" class="btn btn-blue btn-lg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
-                  </svg>
-                  Quiero mi Motocicleta
-                </a>
-                <a href="#simulador" class="btn btn-white btn-lg">Simular con 3 Referidos</a>
-              </div>
+    <section class="hero-section" id="hero" aria-label="Banner Principal">
+      <!-- Imagen de fondo compuesta con carga prioritaria -->
+      <div class="hero-bg-wrapper">
+        <img 
+          src="images/moto-familia.jpg" 
+          alt="Familia feliz con activos alcanzados en Sistema Winners" 
+          class="hero-bg-image"
+          fetchpriority="high"
+          width="1920"
+          height="1080"
+        >
+      </div>
+
+      <!-- Superposición oscura gradual a la izquierda -->
+      <div class="hero-overlay"></div>
+
+      <!-- Contenido alineado a la izquierda -->
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            ✦ SISTEMA WINNERS · PLANIFICACIÓN INTELIGENTE ✦
+          </div>
+          
+          <h1 class="hero-title">
+            <span class="highlight-gold">Conquista</span> Tu meta o proyecto con los mejores beneficios
+          </h1>
+
+          <p class="hero-subtitle">
+            El modelo institucional que te permite planificar, adquirir tus bienes y consolidar tu patrimonio familiar sin sobrecostos bancarios ni barreras tradicionales.
+          </p>
+
+          <div class="hero-cta-group">
+            <!-- CTA Principal: Redirección limpia al cotizador desacoplado -->
+            <a href="cotizador.html" class="btn btn-cta-gold" id="hero-cta-cotizar">
+              ¡Cotiza ahora!
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <!-- CTA Secundario institucional -->
+            <a href="#quienes-somos" class="btn btn-outline-white">
+              Conoce nuestro sistema
+            </a>
+          </div>
+
+          <!-- Sellos de confianza en el Hero -->
+          <div class="hero-trust-badges">
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Asignación 100% Transparente</span>
             </div>
-            <div class="hero-visual">
-              <div class="hero-img-wrapper">
-                <img src="images/moto-familia.jpg" alt="Familia feliz con motocicleta adquirida en Sistema Winners" loading="eager">
-                <div class="floating-trust-tag">
-                  <div class="tag-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M14 10.5l-2-4H9M16.5 10.5l2 6"/></svg></div>
-                  <div class="tag-text">
-                    Estabilidad & Felicidad Familiar<br>
-                    <span style="color: var(--blue-primary); font-weight: normal;">Herramienta de trabajo propia</span>
-                  </div>
-                </div>
-              </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Sin Intereses Bancarios</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Respaldo Colectivo Real</span>
             </div>
           </div>
-        </div>
-
-        <!-- Slide 2: Adquisición de Smartphone Samsung desde $70.000 COP -->
-        <div class="hero-slide">
-          <div class="hero-slide-grid">
-            <div class="hero-content">
-              <span class="hero-motto-badge">✦ ALIANZA EQUIPOS SAMSUNG ✦</span><br>
-              <span class="pill-badge" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;">Adquiere el Celular · NO es telefonía ni minutos</span>
-              <h2 class="hero-title">
-                Adquiere tu <span class="highlight-blue">Smartphone Samsung</span> Nuevo desde $70.000 COP
-              </h2>
-              <p class="hero-subtitle">
-                <strong>¡Adquisición de equipo 100% propio!</strong> Sin cuotas bancarias abusivas ni reportes en centrales de riesgo. Estrena tu celular Samsung Galaxy para trabajar, emprender y multiplicar tus ingresos.
-              </p>
-              <ul class="hero-features-list">
-                <li>
-                  <span class="icon-check">✓</span>
-                  <strong>Alianza oficial para entrega de equipos Samsung</strong> de última tecnología.
-                </li>
-                <li>
-                  <span class="icon-check">✓</span>
-                  <strong>Con solo $70.000 Pesos y 3 Referidos:</strong> Entrega inmediata sin deudas.
-                </li>
-                <li>
-                  <span class="icon-check">✓</span>
-                  Sin historial crediticio, sin bancos y sin trámites engorrosos.
-                </li>
-              </ul>
-              <div class="hero-actions">
-                <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20adquirir%20mi%20Smartphone%20Samsung%20con%2070.000%20pesos%20y%203%20referidos" target="_blank" class="btn btn-blue btn-lg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
-                  </svg>
-                  Adquirir Smartphone Samsung
-                </a>
-                <a href="#contacto" class="btn btn-white btn-lg">Solicitar Estudio</a>
-              </div>
-            </div>
-            <div class="hero-visual">
-              <div class="hero-img-wrapper">
-                <img src="images/celular-plan.jpg" alt="Adquisición de Smartphone Samsung en Sistema Winners" loading="lazy">
-                <div class="floating-trust-tag">
-                  <div class="tag-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
-                  <div class="tag-text">
-                    Alianza Oficial Samsung<br>
-                    <span style="color: var(--blue-primary); font-weight: bold;">Desde $70.000 COP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: Multifinanciamiento vs Compra Programada -->
-        <div class="hero-slide">
-          <div class="hero-slide-grid">
-            <div class="hero-content">
-              <span class="pill-badge">Inverso a la compra programada</span>
-              <h2 class="hero-title">
-                Solo con $200.000 y 3 Referidos: <span class="highlight-blue">Emprender es el camino</span>
-              </h2>
-              <p class="hero-subtitle">
-                Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas. Cada socio aporta a un fondo común y <strong>TODOS benefician a TODOS</strong>.
-              </p>
-              <ul class="hero-features-list">
-                <li>
-                  <span class="icon-check">✓</span>
-                  Al adquirir tu <strong>MEMBRESÍA</strong> esta se convierte en fondo común
-                </li>
-                <li>
-                  <span class="icon-check">✓</span>
-                  Cumpliendo con referir disfrutas <strong>INMEDIATAMENTE</strong> de productos y servicios
-                </li>
-              </ul>
-              <div class="hero-actions">
-                <a href="#comparativa" class="btn btn-blue btn-lg">Ver 3 Diferencias Clave</a>
-                <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20afiliarme%20con%20200.000%20pesos%20y%20mis%203%20referidos" target="_blank" class="btn btn-white btn-lg">Unirme como Socio</a>
-              </div>
-            </div>
-            <div class="hero-visual">
-              <div class="hero-img-wrapper">
-                <img src="images/moto-referidos.jpg" alt="Socios emprendedores celebrando con sus membresías y motocicleta" loading="lazy">
-                <div class="floating-trust-tag">
-                  <div class="tag-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></svg></div>
-                  <div class="tag-text">
-                    3 Referidos = Entrega Directa<br>
-                    <span style="color: var(--blue-primary); font-weight: normal;">Democratización total</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Controles Slider 1 -->
-        <button class="slider-arrow slider-prev" aria-label="Diapositiva anterior">❮</button>
-        <button class="slider-arrow slider-next" aria-label="Diapositiva siguiente">❯</button>
-
-        <div class="slider-dots">
-          <button class="slider-dot active" aria-label="Slide 1"></button>
-          <button class="slider-dot" aria-label="Slide 2"></button>
-          <button class="slider-dot" aria-label="Slide 3"></button>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         BARRA DE COMUNIDAD INTERNACIONAL (COLOMBIA, ECUADOR, PERÚ, BOLIVIA)
+         SECCIÓN 3: BLOQUE INSTITUCIONAL "¿QUIÉNES SOMOS?" + PRUEBA SOCIAL
          ========================================================================== -->
-    <section class="community-bar">
-      <div class="container community-bar-inner">
-        <div class="community-countries">
-          <!-- Bandera Colombia SVG -->
-          <span class="country-pill">
-            <svg class="flag-svg" viewBox="0 0 36 24" aria-hidden="true">
-              <rect width="36" height="12" fill="#FCD116"/>
-              <rect y="12" width="36" height="6" fill="#003893"/>
-              <rect y="18" width="36" height="6" fill="#CE1126"/>
-            </svg>
-            Colombia
-          </span>
-          <!-- Bandera Ecuador SVG -->
-          <span class="country-pill">
-            <svg class="flag-svg" viewBox="0 0 36 24" aria-hidden="true">
-              <rect width="36" height="12" fill="#FFDD00"/>
-              <rect y="12" width="36" height="6" fill="#034EA2"/>
-              <rect y="18" width="36" height="6" fill="#ED1C24"/>
-              <circle cx="18" cy="12" r="3" fill="#D69A28"/>
-            </svg>
-            Ecuador
-          </span>
-          <!-- Bandera Perú SVG -->
-          <span class="country-pill">
-            <svg class="flag-svg" viewBox="0 0 36 24" aria-hidden="true">
-              <rect width="12" height="24" fill="#D91023"/>
-              <rect x="12" width="12" height="24" fill="#FFFFFF"/>
-              <rect x="24" width="12" height="24" fill="#D91023"/>
-            </svg>
-            Perú
-          </span>
-          <!-- Bandera Bolivia SVG -->
-          <span class="country-pill">
-            <svg class="flag-svg" viewBox="0 0 36 24" aria-hidden="true">
-              <rect width="36" height="8" fill="#D52B1E"/>
-              <rect y="8" width="36" height="8" fill="#F9E300"/>
-              <rect y="16" width="36" height="8" fill="#007934"/>
-            </svg>
-            Bolivia
-          </span>
-        </div>
-        <div class="community-text">
-          <strong>Comunidad de Emprendedores:</strong> ¡Donde todos aportamos y todos nos beneficiamos!
-        </div>
-        <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20ser%20parte%20de%20la%20comunidad%20de%20emprendedores" target="_blank" class="community-cta" aria-label="WhatsApp: +57 314 869 1001" title="WhatsApp: +57 314 869 1001">
-          <img src="images/whatsapp.png" alt="WhatsApp" class="community-wa-logo" width="52" height="52">
-          <span class="community-wa-text">WhatsApp: +57 314 869 1001</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         BARRA DE MÉTRICAS / IMPACTO (ESTILO CHEVYPLAN)
-         ========================================================================== -->
-    <section class="stats-bar-section">
+    <section class="about-section" id="quienes-somos" aria-label="¿Quiénes Somos?">
+      <!-- Parte Superior: Grid 2 Columnas 50/50 -->
       <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">+ 15,000</div>
-            <div class="stat-label">Socios Emprendedores<br>vinculados a la red</div>
+        <div class="about-top-grid">
+          <!-- Columna Izquierda: Mensaje Institucional Humano y Planificado -->
+          <div class="about-text-col">
+            <div class="section-header-left">
+              <h2 class="section-title text-navy">¿QUIÉNES SOMOS?</h2>
+              <div class="gold-divider-left"></div>
+            </div>
+
+            <p class="about-highlight-subtitle">
+              Trayectoria, solidez y un propósito claro: democratizar el acceso a bienes y proyectos para las familias colombianas.
+            </p>
+
+            <p class="about-paragraph">
+              En <strong>Sistema Winners</strong> impulsamos un modelo colaborativo y planificado que transforma la manera en que las personas y los emprendedores adquieren sus activos. Frente a las barreras crediticias convencionales y las altas tasas de interés, brindamos un camino seguro, accesible y transparente basado en la confianza mutua y la solidez institucional.
+            </p>
+
+            <div class="about-pillars">
+              <div class="about-pillar-item">
+                <span class="about-pillar-icon">✓</span>
+                <span>Planificación sólida enfocada en tus metas y no en el endeudamiento.</span>
+              </div>
+              <div class="about-pillar-item">
+                <span class="about-pillar-icon">✓</span>
+                <span>Acompañamiento personalizado y cercano en cada paso del proceso.</span>
+              </div>
+              <div class="about-pillar-item">
+                <span class="about-pillar-icon">✓</span>
+                <span>Comunidad activa con miles de proyectos entregados en todo el país.</span>
+              </div>
+            </div>
+
+            <a href="productos.html" class="btn btn-navy">
+              Explorar Nuestros Planes Oficiales →
+            </a>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">+ $4.800 M COP</div>
-            <div class="stat-label">Fondo Común Colectivo en pesos colombianos<br>administrado y democratizado</div>
+
+          <!-- Columna Derecha: Collage visual en 4 franjas verticales con filtro azul -->
+          <div class="about-collage-col">
+            <div class="collage-strips-grid">
+              <!-- Franja 1: CONFIANZA -->
+              <div class="collage-strip">
+                <img 
+                  src="images/moto-referidos.jpg" 
+                  alt="Confianza en Sistema Winners" 
+                  loading="lazy" 
+                  width="400" 
+                  height="600"
+                >
+                <div class="collage-strip-overlay">
+                  <span class="collage-strip-label">CONFIANZA</span>
+                </div>
+              </div>
+
+              <!-- Franja 2: TRAYECTORIA -->
+              <div class="collage-strip">
+                <img 
+                  src="images/hero-slide2.jpg" 
+                  alt="Trayectoria institucional y celebración de logros" 
+                  loading="lazy" 
+                  width="400" 
+                  height="600"
+                >
+                <div class="collage-strip-overlay">
+                  <span class="collage-strip-label">TRAYECTORIA</span>
+                </div>
+              </div>
+
+              <!-- Franja 3: FAMILIA -->
+              <div class="collage-strip">
+                <img 
+                  src="images/moto-familia.jpg" 
+                  alt="Familia alcanzando su meta" 
+                  loading="lazy" 
+                  width="400" 
+                  height="600"
+                >
+                <div class="collage-strip-overlay">
+                  <span class="collage-strip-label">FAMILIA</span>
+                </div>
+              </div>
+
+              <!-- Franja 4: PROGRESO -->
+              <div class="collage-strip">
+                <img 
+                  src="images/celular-plan.jpg" 
+                  alt="Progreso y tecnología" 
+                  loading="lazy" 
+                  width="400" 
+                  height="600"
+                >
+                <div class="collage-strip-overlay">
+                  <span class="collage-strip-label">PROGRESO</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logo superpuesto en el centro del collage -->
+            <div class="collage-center-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span class="collage-center-badge-text">WINNERS</span>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Entrega Inmediata<br>al cumplir con referidos</div>
+        </div>
+      </div>
+
+      <!-- Parte Inferior: Grid Asimétrico 2 Columnas 55/45 -->
+      <div class="about-bottom-split">
+        <!-- Columna Izquierda: Tarjeta Testimonio Polaroid -->
+        <div class="testimonial-split-col">
+          <div class="testimonial-polaroid-card">
+            <div class="polaroid-photo-frame">
+              <img 
+                src="images/moto-familia.jpg" 
+                alt="Familia Carlos y Marcela - Adjudicados" 
+                loading="lazy"
+                width="200"
+                height="220"
+              >
+            </div>
+            <div class="testimonial-text-box">
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-quote-text">
+                Gracias a Sistema Winners logré la meta de mi vehículo familiar en tiempo récord y con cuotas que realmente pude asumir. Un sistema transparente donde la comunidad se apoya de verdad.
+              </p>
+              <div class="testimonial-author">Carlos & Marcela R.</div>
+              <div class="testimonial-badge">Adjudicación Plan Movilidad Familiar</div>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">0%</div>
-            <div class="stat-label">Intereses Bancarios<br>ni remates o licitaciones</div>
-          </div>
+        </div>
+
+        <!-- Columna Derecha: Bloque Navy "¿Cómo funciona nuestro sistema?" -->
+        <div class="bridge-split-col">
+          <h3>¿Cómo funciona nuestro sistema?</h3>
+          <p>
+            Un modelo planificado y transparente concebido para que avances paso a paso, con la seguridad de saber exactamente cómo y cuándo materializas tu objetivo.
+          </p>
+          <a href="#paso-a-paso" class="bridge-cta-btn">
+            Conoce el Paso a Paso
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SERVICIOS Y CONSULTAS OFICIALES EN LÍNEA
+         SECCIÓN 4: METODOLOGÍA "PASO A PASO"
          ========================================================================== -->
-    <section class="sitelinks-section" id="enlaces-rapidos">
+    <section class="steps-section" id="paso-a-paso" aria-label="Metodología Paso a Paso">
       <div class="container">
+        <!-- Cabecera de sección centrada -->
         <div class="section-header">
-          <span class="section-tag">Trámites y Consultas</span>
-          <h2 class="section-title">Servicios y Canales Clave en Línea</h2>
-          <p class="section-desc">
-            Gestiona tus consultas, pagos y trámites de membresía de forma directa, ágil y transparente:
+          <h2 class="section-title">Paso a paso</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Conoce las 6 etapas diseñadas para que alcances tu bien o proyecto de manera ágil, clara y confiable:
           </p>
         </div>
 
-        <!-- Tarjetas de Servicios en Línea -->
-        <div class="sitelinks-cards-grid">
-          <!-- 1. Consulta Devoluciones -->
-          <a href="consulta-devoluciones.html" class="sitelink-card"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
-            <div class="sitelink-card-title">
-              Consulta de Solicitudes y Devoluciones
-              <span class="arrow">→</span>
+        <!-- Grid de 3 columnas x 2 filas -->
+        <div class="steps-grid">
+          <!-- Paso 1 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+              <div class="step-big-number">1</div>
             </div>
-            <p class="sitelink-card-desc">
-              Ingresa tu cédula o número de contrato y conoce en tiempo real el estado de tu trámite con máxima claridad y respaldo.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Elige el producto o plan</h3>
+            <p class="step-card-desc">
+              Selecciona el activo que necesitas para tu bienestar o trabajo: motocicletas nuevas, tecnología de punta o apalancamiento financiero.
             </p>
-            <span class="sitelink-url-hint">Ver estado de solicitud</span>
-          </a>
+          </article>
 
-          <!-- 2. Zona Clientes -->
-          <a href="zona-clientes.html" class="sitelink-card"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
-            <div class="sitelink-card-title">
-              Zona Socios / Oficina Virtual
-              <span class="arrow">→</span>
+          <!-- Paso 2 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div class="step-big-number">2</div>
             </div>
-            <p class="sitelink-card-desc">
-              Accede a tu oficina virtual. Administra tu membresía, supervisa tus referidos y solicita la entrega de tu motocicleta o equipo Samsung.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Define monto y plazo</h3>
+            <p class="step-card-desc">
+              Establece el valor de tu objetivo y las cuotas periódicas que mejor se ajustan a tu presupuesto familiar, con absoluta claridad.
             </p>
-            <span class="sitelink-url-hint">Ingresar a mi oficina</span>
-          </a>
+          </article>
 
-          <!-- 3. Tu Pago en Línea -->
-          <a href="tu-pago-en-linea.html" class="sitelink-card"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg></span>
-            <div class="sitelink-card-title">
-              Tu Pago en Línea (Aportes y Membresía)
-              <span class="arrow">→</span>
+          <!-- Paso 3 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="step-big-number">3</div>
             </div>
-            <p class="sitelink-card-desc">
-              Paga tu activación de membresía y aportes de forma ágil, segura y cifrada a través de PSE, tarjetas débito y crédito.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Forma parte del sistema</h3>
+            <p class="step-card-desc">
+              Intégrate a un grupo institucional activo donde el esfuerzo mutuo y la administración rigurosa fortalecen las metas de todos los miembros.
             </p>
-            <span class="sitelink-url-hint">Pagar en línea</span>
-          </a>
+          </article>
 
-          <!-- 4. Devoluciones -->
-          <a href="devoluciones.html" class="sitelink-card"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-            <div class="sitelink-card-title">
-              Garantías y Reglamento del Fondo
-              <span class="arrow">→</span>
+          <!-- Paso 4 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="step-big-number">4</div>
             </div>
-            <p class="sitelink-card-desc">
-              Conoce las políticas y el marco de transparencia comunitaria que protege a todos los socios emprendedores de Sistema Winners.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Eventos y procesos mensuales</h3>
+            <p class="step-card-desc">
+              Participa en las convocatorias mensuales debidamente auditadas, con informes públicos y mecanismos de seguimiento certificados.
             </p>
-            <span class="sitelink-url-hint">Consultar normativa</span>
-          </a>
+          </article>
 
-          <!-- 5. Resultados Asamblea -->
-          <a href="resultados-asamblea.html" class="sitelink-card"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></span>
-            <div class="sitelink-card-title">
-              Resultados y Asambleas Solidarias
-              <span class="arrow">→</span>
+          <!-- Paso 5 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div class="step-big-number">5</div>
             </div>
-            <p class="sitelink-card-desc">
-              Actas públicas de entregas comunitarias, reportes de asignación de motos y celulares, y fechas de asambleas abiertas.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Opciones de adjudicación</h3>
+            <p class="step-card-desc">
+              Accede a la asignación de tu bien mediante las diferentes modalidades de entrega programada y cumplimiento de metas del plan.
             </p>
-            <span class="sitelink-url-hint">Ver actas de asamblea</span>
-          </a>
+          </article>
 
-          <!-- Tarjeta Extra: Simulador Rápido -->
-          <a href="#simulador" class="sitelink-card sitelink-card-sim"><span class="sl-ico"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 7h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg></span>
-            <div class="sitelink-card-title">
-              Simulador en Vivo de Membresía
-              <span class="arrow">↓</span>
+          <!-- Paso 6 -->
+          <article class="step-card">
+            <div class="step-card-header">
+              <div class="step-vector-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div class="step-big-number">6</div>
             </div>
-            <p class="sitelink-card-desc">
-              Calcula en segundos el fondo colectivo que generas con 3 referidos y cuándo recibes tu motocicleta o smartphone.
+            <div class="step-blue-line"></div>
+            <h3 class="step-card-title">Disfruta tu beneficio</h3>
+            <p class="step-card-desc">
+              Recibe tu activo nuevo de concesionarios y aliados comerciales oficiales y celebra el fruto de una planificación bien hecha.
             </p>
-            <span class="sitelink-url-hint">Calcular mi plan ahora</span>
-          </a>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         CUADRO COMPARATIVO: MULTIFINANCIAMIENTO VS AUTOFINANCIAMIENTO
-         (CONTENIDO EXACTO DEL CUADERNO MANUSCRITO)
+         SECCIÓN 5: BANNER ECOSISTEMA DIGITAL / APP
          ========================================================================== -->
-    <section class="comparison-section" id="comparativa">
+    <section class="ecosystem-section" id="ecosistema-digital" aria-label="Ecosistema Digital y App">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Análisis Comparativo Fundamental</span>
-          <h2 class="section-title">Multifinanciamiento Inverso vs Autofinanciamiento Tradicional</h2>
-          <p class="section-desc">
-            Conoce por qué el modelo solidario de <strong>Sistema Winners</strong> es la evolución ética y democrática frente al sistema tradicional de compra programada:
-          </p>
-        </div>
-
-        <div class="comparison-table-container">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th style="width: 25%;">Criterio</th>
-                <th class="col-winner" style="width: 38%;">
-                  <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg> SISTEMA WINNERS (Multifinanciamiento MR)
-                </th>
-                <th class="col-traditional" style="width: 37%;">
-                  <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5L2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg> AUTOFINANCIAMIENTO TRADICIONAL (Compra Programada)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 1. Concepto de Fondo -->
-              <tr>
-                <td>
-                  <span class="feature-title">1. Estructura del Fondo</span>
-                  <span class="feature-subtitle">Cómo se manejan los aportes</span>
-                </td>
-                <td class="cell-winner">
-                  <span class="badge-tag-winner">Solidario & Colectivo</span><br>
-                  Cada socio emprendedor aporta a un <strong>fondo común</strong> y <strong>TODOS benefician a TODOS</strong> de forma coordinada y sin favoritismos.
-                </td>
-                <td>
-                  <span class="badge-tag-trad">Individualista & Cerrado</span><br>
-                  Los clientes forman grupos cerrados y aportan mensualmente a un fondo individual donde compiten entre sí por adjudicaciones.
-                </td>
-              </tr>
-
-              <!-- 2. Membresía vs Adjudicación -->
-              <tr>
-                <td>
-                  <span class="feature-title">2. Acceso y Entrega</span>
-                  <span class="feature-subtitle">Membresía vs Adjudicación</span>
-                </td>
-                <td class="cell-winner">
-                  <span class="badge-tag-winner">Membresía Solidaria Inmediata</span><br>
-                  Al adquirir tu <strong>MEMBRESÍA</strong>, esta se convierte en un fondo común y <strong>cumpliendo con referir</strong> te permite <span class="highlight">INMEDIATAMENTE</span> disfrutar de los servicios o productos de Sistema Winners.
-                </td>
-                <td>
-                  <span class="badge-tag-trad">Sorteo, Remate o Licitación</span><br>
-                  Los productos y servicios se entregan por sorteo o licitación: mientras más aportes más posibilidades tienes. <strong>Jamás se democratiza la entrega</strong> y dependes del azar o mayor capital.
-                </td>
-              </tr>
-
-              <!-- 3. Productos y Servicios -->
-              <tr>
-                <td>
-                  <span class="feature-title">3. Productos y Servicios</span>
-                  <span class="feature-subtitle">Diversificación y apoyo</span>
-                </td>
-                <td class="cell-winner">
-                  <span class="badge-tag-winner">Ecosistema Abierto y Multi-Rubro</span><br>
-                  A través de este sistema puedes obtener:
-                  <ul style="margin-top: 6px; padding-left: 18px; font-size: 0.88rem; line-height: 1.5;">
-                    <li>✓ Bienes comunales y productos propios.</li>
-                    <li>✓ <strong>Promover tus propios emprendimientos</strong>.</li>
-                    <li>✓ <strong>Obtener apalancamiento financiero</strong> para tus ideas.</li>
-                    <li>✓ Participar en otras iniciativas productivas y comerciales.</li>
-                  </ul>
-                </td>
-                <td>
-                  <span class="badge-tag-trad">Catálogo Restringido</span><br>
-                  Te ofrecen únicamente sus propios productos (vehículos o inmuebles específicos). No diversifican opciones ni impulsan jamás tus emprendimientos ni te dan un espacio para crecer.
-                </td>
-              </tr>
-
-              <!-- 4. Filosofía y Crecimiento -->
-              <tr>
-                <td>
-                  <span class="feature-title">4. Filosofía y Propósito</span>
-                  <span class="feature-subtitle">El camino del socio</span>
-                </td>
-                <td class="cell-winner">
-                  <span class="badge-tag-winner">EMPRENDER ES EL CAMINO</span><br>
-                  <strong>Seamos socios</strong> y empecemos a construir tus proyectos o reactivemos tus ideas. Economía colaborativa real de impacto.
-                </td>
-                <td>
-                  <span class="badge-tag-trad">Cliente Consumidor</span><br>
-                  Eres un simple deudor atado a cuotas mensuales por años, sin capacidad de crear red ni apalancar negocios personales.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Callout Banner -->
-        <div class="comparison-callout">
-          <div class="callout-content">
-            <h4>¿Listo para salir de la trampa de los sorteos y los intereses bancarios?</h4>
-            <p>Con el Marketing de Referidos (MR) de Sistema Winners, el poder económico regresa a los emprendedores.</p>
-          </div>
-          <a href="#simulador" class="btn btn-blue btn-lg">Simular Mi Membresía</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SLIDER 2: CARRUSEL DE PASOS (PROYECTA · IMPULSA · TRIUNFA)
-         ========================================================================== -->
-    <section class="steps-carousel-section" id="como-funciona">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Metodología Oficial</span>
-          <h2 class="section-title">Proyecta · Impulsa · Triunfa</h2>
-          <p class="section-desc">
-            Cuatro etapas sencillas diseñadas para que alcances tus metas de forma democrática y sin intereses bancarios:
-          </p>
-        </div>
-
-        <div class="carousel-outer">
-          <div class="carousel-track-window">
-            <div class="carousel-track">
-              <!-- Paso 1: PROYECTA -->
-              <div class="carousel-step-card">
-                <div class="step-icon-box"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div>
-                <div class="step-number">Paso 1: PROYECTA</div>
-                <h3 class="step-title">Define tu Meta y Membresía</h3>
-                <p class="step-desc">
-                  Elige tu objetivo: tu <strong>motocicleta de trabajo</strong> o tu <strong>smartphone Samsung</strong>. Tu membresía entra inmediatamente a formar parte del fondo común solidario.
-                </p>
-              </div>
-
-              <!-- Paso 2: IMPULSA -->
-              <div class="carousel-step-card">
-                <div class="step-icon-box"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1.5 6-1.5 6-1.5s0 3-1.5 6l-6 6-4.5-4.5z"/><circle cx="15" cy="9" r="1.2"/></svg></div>
-                <div class="step-number">Paso 2: IMPULSA</div>
-                <h3 class="step-title">Activa tus 3 Referidos</h3>
-                <p class="step-desc">
-                  El poder del Marketing de Referidos: comparte la oportunidad con 3 socios emprendedores. Todos aportan en el fondo común y todos benefician a todos.
-                </p>
-              </div>
-
-              <!-- Paso 3: TRIUNFA -->
-              <div class="carousel-step-card">
-                <div class="step-icon-box"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v6a4 4 0 01-8 0zM8 6H4.5a3 3 0 003.5 4M16 6h3.5a3 3 0 01-3.5 4M12 14v4M8.5 20.5h7"/></svg></div>
-                <div class="step-number">Paso 3: TRIUNFA</div>
-                <h3 class="step-title">Entrega Inmediata</h3>
-                <p class="step-desc">
-                  Sin rifas, sin remates, sin azar y sin deudas. Cumpliendo tu meta de 3 referidos, recibes de inmediato tu motocicleta o tu equipo Samsung.
-                </p>
-              </div>
-
-              <!-- Paso 4: MULTIPLICA -->
-              <div class="carousel-step-card">
-                <div class="step-icon-box"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></div>
-                <div class="step-number">Paso 4: MULTIPLICA</div>
-                <h3 class="step-title">Apalanca tus Negocios</h3>
-                <p class="step-desc">
-                  Utiliza el respaldo de la comunidad para inyectar capital a tus ideas y comercializar tus productos ante miles de socios en Colombia, Ecuador, Perú y Bolivia.
-                </p>
-              </div>
+        <div class="ecosystem-grid">
+          <!-- Columna Izquierda: Fotografía de usuario con smartphone -->
+          <div class="ecosystem-visual-col">
+            <div class="phone-mockup-frame">
+              <img 
+                src="images/celular-plan.jpg" 
+                alt="Usuario consultando la plataforma de Sistema Winners desde el móvil" 
+                loading="lazy"
+                width="400"
+                height="500"
+              >
+            </div>
+            <div class="ecosystem-floating-chip chip-top">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Certificado al Día</span>
+            </div>
+            <div class="ecosystem-floating-chip chip-bottom">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              <span>Adjudicación Activa</span>
             </div>
           </div>
 
-          <!-- Controles del Carrusel 2 -->
-          <div class="carousel-nav-controls">
-            <button class="carousel-arrow carousel-arrow-prev" aria-label="Paso anterior">❮</button>
-            <div class="carousel-dots">
-              <button class="carousel-dot active" aria-label="Ir a paso 1"></button>
-              <button class="carousel-dot" aria-label="Ir a paso 2"></button>
-              <button class="carousel-dot" aria-label="Ir a paso 3"></button>
-              <button class="carousel-dot" aria-label="Ir a paso 4"></button>
-            </div>
-            <button class="carousel-arrow carousel-arrow-next" aria-label="Paso siguiente">❯</button>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- Columna Derecha: Copy persuasivo y llamados a la acción -->
+          <div class="ecosystem-text-col">
+            <div class="eco-pretitle">Plataforma Digital 24/7</div>
+            <h2 class="eco-title">Tu gestión, más fácil, ágil y transparente desde cualquier lugar</h2>
+            
+            <p class="eco-desc">
+              Disfruta de la comodidad de gestionar tus certificados, verificar tus estados de cuenta, consultar fechas de convocatorias y revisar ofertas exclusivas directamente desde tu smartphone o computador personal.
+            </p>
 
-    <!-- ==========================================================================
-         SIMULADOR INTERACTIVO DE MULTIFINANCIAMIENTO
-         ========================================================================== -->
-    <section class="simulator-section" id="simulador">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Calculadora en Vivo</span>
-          <h2 class="section-title">Simula tu Membresía y Beneficios Solidarios</h2>
-          <p class="section-desc">
-            Descubre el impacto de pertenecer a Sistema Winners comparado con el costo de financiarte en un banco o esperar un sorteo tradicional:
-          </p>
-        </div>
+            <ul class="ecosystem-features-list">
+              <li class="ecosystem-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Descarga inmediata de comprobantes y certificaciones oficiales.</span>
+              </li>
+              <li class="ecosystem-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Seguimiento en tiempo real de tu avance hacia la entrega del bien.</span>
+              </li>
+              <li class="ecosystem-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Acceso directo a soporte prioritario vía chat institucional.</span>
+              </li>
+            </ul>
 
-        <div class="simulator-box">
-          <!-- Controles del simulador -->
-          <div class="simulator-controls">
-            <h3>Configura tu Proyección</h3>
+            <div class="eco-cta-title">¡Qué esperas para tenerla!</div>
 
-            <!-- Tipo de Membresía -->
-            <div class="form-group">
-              <label class="form-label">Selecciona tu Membresía:</label>
-              <div class="select-membership">
-                <div class="membership-card-option" data-cost="70000" data-min-goal="1000000" data-max-goal="8000000" data-default-goal="2500000" data-name="Celular">
-                  <div class="membership-name">Plan Celular</div>
-                  <div class="membership-price">$70.000 COP</div>
-                  <span class="membership-tag">Nuevo · Smartphones</span>
+            <!-- Botones de tiendas de aplicaciones y acceso web -->
+            <div class="app-buttons-group">
+              <a href="zona-clientes.html" class="app-store-btn" aria-label="Google Play">
+                <svg viewBox="0 0 24 24"><path d="M3.6 1.7L14.4 12 3.6 22.3c-.4-.4-.6-1-.6-1.7V3.4c0-.7.2-1.3.6-1.7zm11.9 11.4l2.5-2.4-11.8-6.8 9.3 9.2zm0 1.8l-9.3 9.2 11.8-6.8-2.5-2.4zm1.2-1.2l3.4-2c1.2-.7 1.2-1.9 0-2.6l-3.4-2-2.7 2.6 2.7 4z"/></svg>
+                <div class="store-labels">
+                  <span class="store-sub">Disponible en</span>
+                  <span class="store-name">Google Play</span>
                 </div>
-                <div class="membership-card-option selected" data-cost="200000" data-min-goal="5000000" data-max-goal="40000000" data-default-goal="12000000" data-name="Motocicleta">
-                  <div class="membership-name">Moto Emprendedor</div>
-                  <div class="membership-price">$200.000 COP</div>
-                  <span class="membership-tag">Plan Oficial · 3 Referidos</span>
-                </div>
-                <div class="membership-card-option" data-cost="400000" data-min-goal="10000000" data-max-goal="60000000" data-default-goal="25000000" data-name="Proyecto">
-                  <div class="membership-name">Pro Solidario</div>
-                  <div class="membership-price">$400.000 COP</div>
-                </div>
-                <div class="membership-card-option" data-cost="800000" data-min-goal="20000000" data-max-goal="100000000" data-default-goal="50000000" data-name="Líder">
-                  <div class="membership-name">Master Leader</div>
-                  <div class="membership-price">$800.000 COP</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Monto del Proyecto / Apalancamiento -->
-            <div class="form-group">
-              <div class="form-label">
-                <span>Valor de la Motocicleta o Proyecto:</span>
-                <strong id="sim-goal-val" style="color: var(--blue-primary); font-size: 1.1rem;">$12.000.000 COP</strong>
-              </div>
-              <input type="range" class="form-range" id="sim-goal-range" min="5000000" max="40000000" step="1000000" value="12000000">
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
-                <span>$5M (Moto Básica)</span>
-                <span>$12M (Pulsar NS / Trabajo)</span>
-                <span>$40M (Alta Gama)</span>
-              </div>
-            </div>
-
-            <!-- Referidos activos -->
-            <div class="form-group">
-              <div class="form-label">
-                <span>Socios Referidos en tu Red:</span>
-                <strong id="sim-ref-val" style="color: var(--blue-primary); font-size: 1.1rem;">3 socios referidos</strong>
-              </div>
-              <input type="range" class="form-range" id="sim-ref-range" min="1" max="10" step="1" value="3">
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
-                <span>1 socio</span>
-                <span>3 socios (¡Meta Oficial!)</span>
-                <span>10+ socios</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Resultados del simulador -->
-          <div class="simulator-results">
-            <div>
-              <div class="results-header">
-                <h4>Tu Proyección en el Fondo Común</h4>
-              </div>
-
-              <div class="results-list">
-                <div class="result-row">
-                  <span class="result-label">Fondo de Red Solidario:</span>
-                  <span class="result-value" id="res-fondo-comun">$3.500.000 COP</span>
-                </div>
-                <div class="result-row">
-                  <span class="result-label">Velocidad de Entrega:</span>
-                  <span class="result-value accent-green" id="res-tiempo-entrega">¡ENTREGA INMEDIATA!</span>
-                </div>
-                <div class="result-row">
-                  <span class="result-label">Intereses Bancarios Ahorrados:</span>
-                  <span class="result-value" id="res-ahorro-bancario" style="color: #0284c7;">Ahorras $3.840.000</span>
-                </div>
-                <div class="result-row">
-                  <span class="result-label">Capacidad de Apalancamiento:</span>
-                  <span class="result-value" id="res-apalancamiento">$17.400.000 COP</span>
-                </div>
-              </div>
-
-              <p class="result-guarantee-note">
-                *Solo con tu membresía de $200.000 y al cumplir tus 3 referidos directos, tu solicitud pasa a estado de entrega inmediata democratizada, sin esperar rifas ni pujar en licitaciones.
-              </p>
-            </div>
-
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="https://wa.me/573148691001?text=Hola,%20acabo%20de%20simular%20en%20sistemawinners.com%20y%20quiero%20mi%20moto%20con%20200.000%20y%203%20referidos" target="_blank" class="btn btn-blue btn-lg" style="flex: 1;">
-                Quiero Mi Motocicleta (WhatsApp)
               </a>
-              <a href="tu-pago-en-linea.html" class="btn btn-white btn-lg">
-                Pagar Membresía
+
+              <a href="zona-clientes.html" class="app-store-btn" aria-label="App Store">
+                <svg viewBox="0 0 24 24"><path d="M18.7 19.5c-.8 1.2-1.7 2.4-3 2.4-1.3 0-1.7-.8-3.2-.8-1.5 0-2 .8-3.2.8-1.3 0-2.3-1.3-3.1-2.5-1.7-2.5-3-7-1.2-10 1-.9 2.5-1.4 3.7-1.4 1.4 0 2.2.8 3.2.8 1 0 1.6-.8 3.1-.8 1.1 0 2.4.5 3.3 1.5-2.8 1.6-2.4 5.3.3 6.6-.7 1.7-1.5 3.4-2.1 4.6zM15.5 6.3c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2-.6 2.6-1.3z"/></svg>
+                <div class="store-labels">
+                  <span class="store-sub">Consíguela en</span>
+                  <span class="store-name">App Store</span>
+                </div>
+              </a>
+
+              <a href="zona-clientes.html" class="btn btn-navy" style="padding: 0.75rem 1.4rem;">
+                Ingresar a la WebApp →
               </a>
             </div>
           </div>
@@ -805,279 +648,333 @@
     </section>
 
     <!-- ==========================================================================
-         PRODUCTOS Y SERVICIOS COMUNALES
+         SECCIÓN 6: CONTADORES DE IMPACTO / "ADJUDICADOS"
          ========================================================================== -->
-    <section class="ecosystem-section" id="ecosistema">
+    <section class="results-section" id="resultados" aria-label="Resultados y Adjudicados">
       <div class="container">
+        <!-- Cabecera de sección centrada -->
         <div class="section-header">
-          <span class="section-tag">Diversificación y Alianzas</span>
-          <h2 class="section-title">Nuestros Productos y Servicios Comunales</h2>
-          <p class="section-desc">
-            A diferencia de los sistemas tradicionales cerrados de compra programada, en Sistema Winners impulsamos múltiples frentes productivos para que nunca dependas de una sola opción:
+          <h2 class="section-title">Adjudicados</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Cifras reales que respaldan nuestro compromiso con las familias y emprendedores colombianos:
           </p>
         </div>
 
-        <div class="ecosystem-grid" id="celulares">
-          <!-- 1. Motocicletas para Trabajo y Familia -->
-          <div class="ecosystem-card">
-            <div class="ecosystem-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M14 10.5l-2-4H9M16.5 10.5l2 6"/></svg></div>
-            <h3>Motocicletas de Trabajo y Familia</h3>
-            <p>
-              Te proveemos de la motocicleta que te da estabilidad financiera. Porque con ella trabajas, generas ingresos y das felicidad a tu familia compartiendo y desplazándote juntos.
+        <!-- Layout de Métricas: Grid de 2 columnas centradas -->
+        <div class="metrics-grid">
+          <!-- Métrica 1: Proyectos entregados -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="metric-number" data-target="3850" data-prefix="+">+3.850</div>
+            <div class="metric-label">Proyectos entregados</div>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.4rem;">
+              Vehículos, tecnología y activos entregados a nivel nacional.
             </p>
-            <ul class="ecosystem-list">
-              <li>✓ <strong>Solo con $200.000 y 3 referidos</strong></li>
-              <li>✓ Modelos tipo Pulsar NS 200, commuter y trabajo</li>
-              <li>✓ Sin intereses bancarios ni sorteos excluyentes</li>
-            </ul>
-            <a href="https://wa.me/573148691001?text=Hola,%20quiero%20conocer%20el%20Plan%20Motocicletas" target="_blank" class="btn btn-outline-blue btn-sm" style="margin-top: 14px; width: 100%;">
-              Consultar Motos
-            </a>
           </div>
 
-          <!-- 2. Adquisición de Smartphones Samsung -->
-          <div class="ecosystem-card" style="border: 2px solid #0070d2; position: relative;">
-            <span class="pill-badge" style="background: #0070d2; color: #ffffff; font-size: 0.72rem; margin-bottom: 8px;">Alianza Oficial Samsung</span>
-            <div class="ecosystem-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
-            <h3>Adquiere tu Smartphone Samsung</h3>
-            <p>
-              <strong>¡Adquisición de equipo 100% propio, no es telefonía ni minutos!</strong> Estrena tu smartphone Samsung Galaxy nuevo desde solo $70.000 COP iniciales al fondo común y 3 referidos. Sin intereses bancarios ni reportes en Datacrédito.
+          <!-- Métrica 2: Metas cumplidas -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg viewBox="0 0 24 24">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <div class="metric-number" data-target="12400" data-prefix="+">+12.400</div>
+            <div class="metric-label">Metas cumplidas</div>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.4rem;">
+              Familias vinculadas transformando su futuro con planificación.
             </p>
-            <ul class="ecosystem-list">
-              <li>✓ <strong>Equipos Samsung Galaxy</strong> de última tecnología</li>
-              <li>✓ <strong>Solo $70.000 COP y 3 referidos</strong></li>
-              <li>✓ Sin historial crediticio ni barreras bancarias</li>
-            </ul>
-            <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20adquirir%20mi%20Smartphone%20Samsung%20con%2070.000%20pesos%20y%203%20referidos" target="_blank" class="btn btn-blue btn-sm" style="margin-top: 14px; width: 100%;">
-              Adquirir Smartphone Samsung
-            </a>
           </div>
+        </div>
+      </div>
 
-          <!-- 3. Apalancamiento para Emprendedores -->
-          <div class="ecosystem-card">
-            <div class="ecosystem-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></svg></div>
-            <h3>Apalancamiento de Ideas</h3>
-            <p>
-              ¿Tienes un proyecto en mente o un negocio que necesita capital de trabajo? El fondo común solidario te permite inyectar liquidez y reactivar tus ideas sin hipotecar tu futuro.
-            </p>
-            <ul class="ecosystem-list">
-              <li>✓ Reactivación de proyectos pausados</li>
-              <li>✓ Fondo común donde todos benefician a todos</li>
-              <li>✓ Asesoría comunitaria y acompañamiento</li>
-            </ul>
-          </div>
-
-          <!-- 4. Promoción de tus Propios Productos -->
-          <div class="ecosystem-card">
-            <div class="ecosystem-icon"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></div>
-            <h3>Vitrina Comercial Comunitaria</h3>
-            <p>
-              Los miles de socios vinculados a Sistema Winners se convierten en tus primeros clientes y aliados. Ponemos a disposición de la comunidad tus productos y servicios.
-            </p>
-            <ul class="ecosystem-list">
-              <li>✓ Red en Colombia, Ecuador, Perú y Bolivia</li>
-              <li>✓ Canal exclusivo de difusión comercial</li>
-              <li>✓ Intercambio productivo solidario</li>
-            </ul>
-          </div>
+      <!-- Banner de Cierre de Sección: Alto impacto -->
+      <div class="closing-banner">
+        <img 
+          src="images/hero-slide2.jpg" 
+          alt="Adquiere tu meta con Sistema Winners" 
+          class="closing-banner-bg"
+          loading="lazy"
+          width="1600"
+          height="500"
+        >
+        <div class="closing-banner-content">
+          <h2 class="closing-banner-title">Adquiere tu meta o proyecto, ¡hoy!</h2>
+          <p class="closing-banner-desc">
+            Da el primer paso hacia la adquisición de tu bien con las condiciones más transparentes del mercado.
+          </p>
+          <a href="cotizador.html" class="btn btn-cta-gold">
+            ¡Cotiza ahora tu plan!
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SECCIÓN DE CONTACTO Y CAPTURA DE DATOS (MÓDULO DE LEADS PARA GERENCIA)
+         SECCIÓN 7: UBICACIONES Y RESPALDO GREMIAL
          ========================================================================== -->
-    <section class="contact-lead-section" id="contacto">
+    <section class="locations-section" id="encuentranos" aria-label="Encuéntranos y Sedes">
       <div class="container">
-        <div class="lead-box-container">
-          <div class="section-header lead-intro">
-            <span class="section-tag">Proyecta · Impulsa · Triunfa</span>
-            <h2 class="section-title">Solicita tu Estudio y Afiliación Inmediata</h2>
-            <p class="section-desc">
-              Déjanos tus datos de contacto y un asesor oficial de <strong>Sistema Winners</strong> te contactará directamente por WhatsApp para coordinar tu entrega y resolver todas tus dudas:
+        <!-- Cabecera de sección centrada -->
+        <div class="section-header">
+          <h2 class="section-title">Encuéntranos</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Contamos con presencia y cobertura en las principales ciudades para brindarte asesoría cercana y oportuna:
+          </p>
+        </div>
+
+        <!-- Layout de Sedes: Grid de 3 columnas (2 cols ciudades + 1 col botón píldora) -->
+        <div class="locations-grid">
+          <!-- Columnas 1 y 2: Listado tipográfico limpio de ciudades -->
+          <div class="locations-list-col">
+            <div class="locations-cities-heading">Presencia a Nivel Nacional:</div>
+            <div class="locations-cities-cloud">
+              <span class="city-badge">Bogotá D.C.</span>
+              <span class="city-badge">Medellín</span>
+              <span class="city-badge">Cali</span>
+              <span class="city-badge">Barranquilla</span>
+              <span class="city-badge">Bucaramanga</span>
+              <span class="city-badge">Pereira</span>
+              <span class="city-badge">Cartagena</span>
+              <span class="city-badge">Manizales</span>
+              <span class="city-badge">Ibagué</span>
+              <span class="city-badge">Cúcuta</span>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--color-text-dark); margin-top: 0.5rem;">
+              Oficinas de atención personalizada, canales telefónicos directos y atención virtual continua para cualquier municipio de Colombia.
             </p>
           </div>
 
-          <form class="js-lead-form" id="main-contact-form">
-            <div class="lead-form-grid">
-              <div class="form-group">
-                <label class="form-label">Nombre Completo *</label>
-                <input type="text" name="name" class="form-input" placeholder="Ej: Carlos Andrés Gómez" required style="border-radius: 8px; border: 1px solid var(--border-medium); padding: 12px; width: 100%; box-sizing: border-box;">
-              </div>
+          <!-- Columna 3: Botón píldora en Accent Gold -->
+          <div class="locations-cta-col">
+            <p>Conoce direcciones, horarios y teléfonos de cada sede oficial.</p>
+            <a href="contacto.html" class="btn btn-gold">
+              Ver ubicaciones
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </div>
 
-              <div class="form-group">
-                <label class="form-label">Teléfono Celular / WhatsApp *</label>
-                <input type="tel" name="phone" class="form-input" placeholder="Ej: 314 869 1001" required style="border-radius: 8px; border: 1px solid var(--border-medium); padding: 12px; width: 100%; box-sizing: border-box;">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Correo Electrónico *</label>
-                <input type="email" name="email" class="form-input" placeholder="Ej: carlos@correo.com" required style="border-radius: 8px; border: 1px solid var(--border-medium); padding: 12px; width: 100%; box-sizing: border-box;">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">País y Ciudad *</label>
-                <select name="country" class="form-input" style="border-radius: 8px; border: 1px solid var(--border-medium); padding: 12px; width: 100%; box-sizing: border-box; background: #ffffff;">
-                  <option value="Colombia">Colombia</option>
-                  <option value="Ecuador">Ecuador</option>
-                  <option value="Perú">Perú</option>
-                  <option value="Bolivia">Bolivia</option>
-                  <option value="Otro">Otro país</option>
-                </select>
-              </div>
-
-              <div class="form-group form-group-full">
-                <label class="form-label">¿En cuál plan o beneficio deseas participar? *</label>
-                <select name="plan" class="form-input" style="border-radius: 8px; border: 1px solid var(--border-medium); padding: 12px; width: 100%; box-sizing: border-box; background: #ffffff;">
-                  <option value="Motocicleta ($200.000 + 3 Ref)">Plan Motocicletas ($200.000 COP y 3 Referidos)</option>
-                  <option value="Smartphones Samsung ($70.000)">Adquisición Smartphone Samsung ($70.000 COP y 3 Referidos)</option>
-                  <option value="Apalancamiento Emprendimiento">Apalancamiento Financiero para mi Emprendimiento</option>
-                  <option value="Membresía General">Información General de la Membresía Solidaria</option>
-                </select>
-              </div>
-
-              <div class="form-group-full" style="margin-top: 10px;">
-                <button type="submit" class="btn btn-blue btn-lg" style="width: 100%; border-radius: 8px; font-weight: 800; font-size: 1.1rem; padding: 16px;">
-                  Enviar Solicitud y Recibir Asesoría Inmediata
-                </button>
-                <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
-                  <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg> Tus datos están protegidos conforme a la ley de privacidad. Sin intermediarios ni comisiones ocultas.
-                </p>
-              </div>
+        <!-- Sub-sección de Respaldo Gremial -->
+        <div class="endorsement-block">
+          <div class="endorsement-title">Con el respaldo de nuestras alianzas institucionales y comerciales</div>
+          <div class="endorsement-logos-row">
+            <div class="endorsement-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              <span>Vigilancia & Cumplimiento</span>
             </div>
-          </form>
+            <div class="endorsement-badge">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Cámara de Comercio Oficial</span>
+            </div>
+            <div class="endorsement-badge">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span>Transparencia en Asignaciones</span>
+            </div>
+            <div class="endorsement-badge">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Red de Concesionarios Aliados</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Sección complementaria para anclas del menú (Novedades & Tutoriales) -->
+    <section id="novedades" style="padding-top: 1rem;"></section>
+    <section id="tutoriales" style="padding-top: 1rem;"></section>
+
   </main>
 
   <!-- ==========================================================================
-       FOOTER CORPORATIVO (ESTILO CHEVYPLAN)
+       SECCIÓN 8: FOOTER INSTITUCIONAL Y WIDGETS FLOTANTES
        ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-cta"><div><span class="footer-cta-tag">Proyecta · Impulsa · Triunfa</span><h3>Emprender es el camino. Seamos socios.</h3></div><a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20ser%20socio" target="_blank" class="btn btn-blue btn-lg">Hablar con un asesor <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-grid">
-        <!-- Columna 1: Información Corporativa -->
-        <div class="footer-col-about">
-          <img src="images/logo.svg" alt="Sistema Winners" class="footer-logo">
-          <p class="footer-about-text">
-            <strong>Sistema Winners S.A.S.</strong> es la plataforma líder en multifinanciamiento solidario y marketing de referidos. Transformamos la compra programada en un modelo donde <strong>todos benefician a todos</strong>.
-          </p>
-          <p style="font-size: 0.85rem; font-weight: 700; color: var(--blue-primary); margin-top: 8px;">
-            ✦ PROYECTA · IMPULSA · TRIUNFA ✦
-          </p>
-        </div>
-
-        <!-- Columna 2: Enlaces Rápidos -->
-        <div class="footer-col">
-          <h4>Servicios en Línea</h4>
-          <ul class="footer-links">
-            <li><a href="consulta-devoluciones.html">Consulta Devoluciones</a></li>
-            <li><a href="zona-clientes.html">Zona Socios / Oficina</a></li>
-            <li><a href="tu-pago-en-linea.html">Tu Pago en Línea (PSE)</a></li>
-            <li><a href="devoluciones.html">Garantías y Reglamento</a></li>
-            <li><a href="resultados-asamblea.html">Resultados y Asambleas</a></li>
+      <div class="footer-main-grid">
+        <!-- Columna 1: Enlaces de Interés -->
+        <div>
+          <h3 class="footer-col-title">Enlaces de interés</h3>
+          <ul class="footer-links-list">
+            <li><a href="politicas.html" class="footer-link">Términos y Condiciones Generales</a></li>
+            <li><a href="politicas.html" class="footer-link">Política de Tratamiento de Datos Personales</a></li>
+            <li><a href="consulta-devoluciones.html" class="footer-link">Consulta de Devoluciones y Garantías</a></li>
+            <li><a href="zona-clientes.html" class="footer-link">Zona de Socios / Oficina Virtual</a></li>
+            <li><a href="tu-pago-en-linea.html" class="footer-link">Tu Pago en Línea (Recaudo PSE)</a></li>
+            <li><a href="resultados-asamblea.html" class="footer-link">Actas y Resultados de Asambleas</a></li>
           </ul>
         </div>
 
-        <!-- Columna 3: Ecosistema & Planes -->
-        <div class="footer-col">
-          <h4>Planes & Beneficios</h4>
-          <ul class="footer-links">
-            <li><a href="#motocicletas">Plan Motocicletas ($200.000)</a></li>
-            <li><a href="#celulares">Equipos Samsung ($70.000)</a></li>
-            <li><a href="#comparativa">Multifinanciamiento vs Autofinanciamiento</a></li>
-            <li><a href="#simulador">Simulador Interactivo</a></li>
-            <li><a href="https://wa.me/573148691001" target="_blank">Canal WhatsApp Oficial</a></li>
-          </ul>
+        <!-- Columna 2: Entradas Recientes / Novedades -->
+        <div>
+          <h3 class="footer-col-title">Novedades & Actualidad</h3>
+          <div class="footer-news-item">
+            <span class="footer-news-date">15 Octubre, 2026</span>
+            <a href="politicas.html" class="footer-news-link">
+              Cómo planificar la adquisición de tu motocicleta sin pagar sobrecostos bancarios.
+            </a>
+          </div>
+          <div class="footer-news-item">
+            <span class="footer-news-date">02 Octubre, 2026</span>
+            <a href="resultados-asamblea.html" class="footer-news-link">
+              Resultados de la última asamblea mensual de asignación comunitaria.
+            </a>
+          </div>
+          <div class="footer-news-item">
+            <span class="footer-news-date">18 Septiembre, 2026</span>
+            <a href="productos.html" class="footer-news-link">
+              Nuevas alianzas para adquisición de smartphones de última generación.
+            </a>
+          </div>
         </div>
 
-        <!-- Columna 4: Legal & Administración -->
-        <div class="footer-col">
-          <h4>Legal & Administración</h4>
-          <ul class="footer-links">
-            <li><a href="politicas.html#terminos-operacion">Términos de Operación</a></li>
-            <li><a href="politicas.html#marco-fiduciario">Reglamento del Fondo Común</a></li>
-            <li><a href="politicas.html#politica-privacidad">Tratamiento de Datos Personales</a></li>
-            <li><a href="politicas.html#dudas-adicionales">Dudas Adicionales (FAQ)</a></li>
-            <li><a href="gerente.html" style="color: #64748b; font-weight: 600;"><svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg> Panel de Gerencia (Login)</a></li>
-            <li><a href="mailto:soporte@sistemawinners.com">soporte@sistemawinners.com</a></li>
-          </ul>
+        <!-- Columna 3: Contáctenos -->
+        <div>
+          <h3 class="footer-col-title">Contáctenos</h3>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <span>Línea Telefónica Directa:</span>
+                <span class="footer-phone-direct">(601) 745 8900</span>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <span>Correo Electrónico:</span><br>
+                <a href="mailto:atencion@sistemawinners.com" style="color: var(--color-navy); font-weight: 600;">atencion@sistemawinners.com</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <span>Sede Principal:</span><br>
+                Cra 15 # 93-75, Oficina 402, Bogotá D.C.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Barra inferior de copyright -->
-      <div class="footer-bottom">
-        <p class="footer-legal-text">
-          © 2026 Sistema Winners S.A.S. - Todos los derechos reservados. Registrado y protegido en Colombia y la región andina.
-        </p>
-        <p class="footer-legal-text">
-          Alojado en red de alta disponibilidad Cloudflare · Transacciones cifradas SSL de 256 bits.
-        </p>
+      <!-- Barra Inferior de Copyright -->
+      <div class="footer-copyright-bar">
+        <div>
+          © 2026 Sistema Winners S.A.S. Todos los derechos reservados. NIT: 901.482.915-4.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="politicas.html">Términos de Uso</a>
+          <a href="politicas.html">Privacidad</a>
+          <a href="contacto.html">Sedes</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       BOTONES FLOTANTES
+       WIDGETS FLOTANTES (FIXED UI)
        ========================================================================== -->
-  <!-- Botón Flotante "Haz tu Pago" (Abajo Derecha) -->
-  <a href="tu-pago-en-linea.html" class="floating-pay-btn" title="Pagar membresía o aporte en línea">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-      <line x1="2" y1="10" x2="22" y2="10"></line>
-    </svg>
-    <span>Haz tu pago</span>
-  </a>
+  <!-- 1. Izquierda Inferior: Botón circular Primary Navy con ícono de chat / soporte -->
+  <aside class="floating-widget-left" aria-label="Soporte y Atención">
+    <button type="button" class="floating-btn-chat" id="floating-chat-trigger" aria-label="Abrir chat de soporte institucional" title="Centro de Atención">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </aside>
 
-  <!-- Botón Flotante de WhatsApp (Abajo Izquierda) -->
-  <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20información%20sobre%20afiliación%20y%20planes" target="_blank" class="floating-whatsapp-btn" title="Chatear por WhatsApp: +57 314 869 1001">
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
-    </svg>
-  </a>
+  <!-- 2. Derecha Inferior: WhatsApp con badge '1' + Botón Volver Arriba -->
+  <aside class="floating-widget-right" aria-label="Canales de Ayuda">
+    <!-- Botón Volver Arriba (Scroll to top) -->
+    <button type="button" class="floating-btn-top" id="floating-scroll-top" aria-label="Volver arriba de la página" title="Ir al inicio">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Botón circular verde oficial WhatsApp -->
+    <a 
+      href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20quiero%20conocer%20c%C3%B3mo%20funciona%20el%20sistema%20y%20sus%20beneficios" 
+      class="floating-btn-whatsapp" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp Oficial a Sistema Winners"
+      title="Atención por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+      </svg>
+      <!-- Badge de notificación roja '1' -->
+      <span class="notification-badge">1</span>
+    </a>
+  </aside>
 
   <!-- ==========================================================================
-       MODAL: SIMULACIÓN / AFILIACIÓN RÁPIDA (INTEGRADO CON LEADS)
+       MODALES Y NOTIFICACIONES
        ========================================================================== -->
-  <div class="modal-overlay" id="modal-simula">
+  <!-- Modal de Búsqueda -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-label="Buscador institucional">
     <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar modal">✕</button>
-      <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;">Simula tu Plan y Afíliate</h3>
-      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">
-        Déjanos tus datos para calcular tu cupo de multifinanciamiento y conectarte con un asesor de Sistema Winners por WhatsApp:
-      </p>
-
-      <form class="js-lead-form">
-        <div class="form-group">
-          <label class="form-label">Nombre Completo:</label>
-          <input type="text" name="name" class="search-input" placeholder="Ej: Carlos Gómez" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium); width: 100%; box-sizing: border-box; padding: 12px;">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Teléfono Celular / WhatsApp:</label>
-          <input type="tel" name="phone" class="search-input" placeholder="Ej: 314 869 1001" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium); width: 100%; box-sizing: border-box; padding: 12px;">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Correo Electrónico:</label>
-          <input type="email" name="email" class="search-input" placeholder="Ej: correo@ejemplo.com" required style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium); width: 100%; box-sizing: border-box; padding: 12px;">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Plan o Beneficio:</label>
-          <select name="plan" class="search-input" style="border-radius: var(--radius-sm); border: 1px solid var(--border-medium); width: 100%; box-sizing: border-box; padding: 12px; background: #ffffff;">
-            <option value="Motocicleta ($200.000 + 3 Ref)">Plan Motocicletas ($200.000 COP)</option>
-            <option value="Smartphones Samsung ($70.000)">Adquisición Smartphone Samsung ($70.000 COP)</option>
-            <option value="Apalancamiento Emprendimiento">Apalancamiento de Ideas / Emprendimiento</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-blue btn-lg" style="width: 100%; border-radius: var(--radius-sm); margin-top: 10px; font-weight: 700;">
-          Enviar y Recibir Asesoría
-        </button>
+      <button type="button" class="modal-close-btn" id="search-modal-close" aria-label="Cerrar buscador">&times;</button>
+      <h3 style="color: var(--color-navy); margin-bottom: 0.5rem; font-size: 1.35rem;">Buscar en Sistema Winners</h3>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Encuentra información de planes, sedes, devoluciones o asambleas:</p>
+      <form action="productos.html" method="GET">
+        <input 
+          type="text" 
+          name="q" 
+          id="search-modal-input" 
+          class="contact-input" 
+          placeholder="Escribe lo que buscas (ej. motocicletas, sedes, cotizador)..."
+          style="margin-bottom: 1rem; width: 100%;"
+        >
+        <button type="submit" class="btn btn-navy" style="width: 100%;">Buscar en el sitio →</button>
       </form>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/institucional.js" defer></script>
+  <!-- Modal de Soporte Rápido -->
+  <div class="modal-backdrop" id="chat-modal" role="dialog" aria-modal="true" aria-label="Centro de Atención al Cliente">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="chat-modal-close" aria-label="Cerrar soporte">&times;</button>
+      <h3 style="color: var(--color-navy); margin-bottom: 0.5rem; font-size: 1.35rem;">Centro de Atención</h3>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">¿En qué podemos orientarte el día de hoy?</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+        <a href="cotizador.html" class="btn btn-navy" style="width: 100%; justify-content: flex-start;">
+          📊 Quiero cotizar un plan de adjudicación
+        </a>
+        <a href="https://wa.me/573148691001" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; justify-content: flex-start;">
+          💬 Hablar con un asesor en WhatsApp
+        </a>
+        <a href="consulta-devoluciones.html" class="btn btn-outline-navy" style="width: 100%; justify-content: flex-start;">
+          🔍 Consultar estado de solicitud o trámite
+        </a>
+      </div>
+
+      <div style="font-size: 0.82rem; color: var(--color-text-muted); text-align: center;">
+        Línea de atención telefónica nacional: <strong>(601) 745 8900</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de compartir enlace -->
+  <div class="toast-notice" id="share-toast" role="alert" aria-live="polite">
+    ✓ ¡Enlace copiado al portapapeles!
+  </div>
+
+  <!-- Script Institucional (Sin lógica de cálculo financiero) -->
+  <script src="js/landing-institucional.js" defer></script>
+
 </body>
 </html>

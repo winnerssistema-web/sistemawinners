@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sedes y Contacto | Sistema Winners</title>
+  <meta name="description" content="Encuentra las sedes y canales de atención de Sistema Winners en Bogotá, Medellín, Cali, Barranquilla y a nivel nacional.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing-institucional.css">
+  <style>
+    .contacto-page {
+      padding: 4rem 0 6rem 0;
+      background: var(--color-bg-light);
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .contacto-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+    }
+    .branches-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .branch-item {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1.25rem;
+    }
+    .branch-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .branch-city {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .branch-detail {
+      font-size: 0.92rem;
+      color: var(--color-text-dark);
+      line-height: 1.5;
+    }
+    .contact-form-group {
+      margin-bottom: 1.25rem;
+    }
+    .contact-form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 0.35rem;
+    }
+    .contact-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .contact-input:focus {
+      border-color: var(--color-navy);
+    }
+    @media (max-width: 900px) {
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Institucional -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo-link" aria-label="Sistema Winners Inicio">
+        <div class="brand-symbol-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">Sistema <span>Winners</span></span>
+          <span class="brand-slogan">Proyecta · Impulsa · Triunfa</span>
+        </div>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="index.html#quienes-somos" class="nav-link">Conócenos</a></li>
+          <li class="nav-item"><a href="productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-item"><a href="cotizador.html" class="nav-link nav-link-cotizador">Cotizador</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link active">Contáctanos</a></li>
+          <li class="nav-item"><a href="zona-clientes.html" class="btn-header-login">Login Socios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contacto-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Nuestras Sedes y Canales Oficiales</h1>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">Estamos presentes en las principales ciudades del país para brindarte asesoría confiable, oportuna y personalizada.</p>
+      </div>
+
+      <div class="contacto-grid">
+        <!-- Sedes Principales -->
+        <div class="contacto-card">
+          <h2 style="font-size: 1.35rem; color: var(--color-navy); margin-bottom: 1.5rem;">Sedes de Atención</h2>
+          <div class="branches-list">
+            <div class="branch-item">
+              <div class="branch-city">📍 Bogotá D.C. — Sede Principal</div>
+              <div class="branch-detail">Cra 15 # 93-75, Oficina 402, Chico Norte.<br>PBX: (601) 745 8900 | Horario: Lun - Vie 8:00 AM - 5:30 PM</div>
+            </div>
+            <div class="branch-item">
+              <div class="branch-city">📍 Medellín — Sede Antioquia</div>
+              <div class="branch-detail">Calle 10 # 42-28, El Poblado.<br>Atención presencial y virtual: Lun - Vie 8:30 AM - 5:00 PM</div>
+            </div>
+            <div class="branch-item">
+              <div class="branch-city">📍 Cali — Sede Valle del Cauca</div>
+              <div class="branch-detail">Av. 6N # 24N-18, Barrio Granada.<br>Línea directa: (602) 889 4200</div>
+            </div>
+            <div class="branch-item">
+              <div class="branch-city">📍 Barranquilla — Sede Costa Caribe</div>
+              <div class="branch-detail">Calle 77 # 57-141, Edificio Centro Empresarial.<br>Línea directa: (605) 360 8100</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <div class="contacto-card">
+          <h2 style="font-size: 1.35rem; color: var(--color-navy); margin-bottom: 1.5rem;">Envíanos un Mensaje Directo</h2>
+          <form onsubmit="event.preventDefault(); window.open('https://wa.me/573148691001?text=Hola%20Sistema%20Winners,%20mi%20nombre%20es%20' + encodeURIComponent(document.getElementById('c-name').value) + '%20y%20quiero%20informaci%C3%B3n%20sobre%20' + encodeURIComponent(document.getElementById('c-subj').value), '_blank');">
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="c-name">Nombre Completo:</label>
+              <input type="text" id="c-name" class="contact-input" placeholder="Ej. Juan Pérez" required>
+            </div>
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="c-phone">Celular o WhatsApp:</label>
+              <input type="tel" id="c-phone" class="contact-input" placeholder="Ej. 310 123 4567" required>
+            </div>
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="c-subj">Asunto o Proyecto de Interés:</label>
+              <input type="text" id="c-subj" class="contact-input" placeholder="Ej. Información sobre Plan Motocicleta" required>
+            </div>
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="c-msg">Mensaje (Opcional):</label>
+              <textarea id="c-msg" class="contact-input" rows="3" placeholder="Cuéntanos brevemente tu meta..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-navy" style="width: 100%;">Contactar Asesor por WhatsApp →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-copyright-bar">
+      <span>© 2026 Sistema Winners S.A.S. Todos los derechos reservados.</span>
+      <a href="index.html" style="color: var(--color-navy); font-weight: 600;">← Volver al Inicio</a>
+    </div>
+  </footer>
+
+</body>
+</html>
