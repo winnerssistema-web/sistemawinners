@@ -1,0 +1,9 @@
+.git/
+.wrangler/
+node_modules/
+.vscode/
+.idea/
+worker.js
+wrangler.jsonc
+README.md
+*.log
