@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema Winners | Sigue nuestros pasos</title>
+<meta name="description" content="Inscríbete, elige tu bien y envía tus documentos. Sistema Winners: planificación inteligente y respaldada para tu vehículo, inmueble o proyecto.">
+<link rel="icon" href="images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/inmersivo.css">
+</head>
+<body>
+
+<div class="stage" aria-hidden="true">
+  <video id="v1" data-key="hero" class="on" muted loop playsinline preload="auto" src="images/1.mp4"></video>
+  <video id="v2" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
+  <video id="v3" data-key="proyecto" muted loop playsinline preload="none" data-src="images/3.mp4"></video>
+  <video id="v5" data-key="inmueble" muted loop playsinline preload="none" data-src="images/5.mp4"></video>
+  <video id="v6" data-key="vehiculo" muted loop playsinline preload="none" data-src="images/6.mp4"></video>
+  <video id="v4" data-key="docs" muted loop playsinline preload="none" data-src="images/4.mp4"></video>
+  <div class="overlay"></div>
+</div>
+
+<header class="pill">
+  <a href="#hero" class="brand"><img src="images/logo.svg" alt="Sistema Winners"></a>
+  <nav class="steps-nav" aria-label="Progreso">
+    <a href="#paso1" data-nav="paso1">01. Inscríbete</a>
+    <a href="#paso2" data-nav="paso2">02. Tu Bien</a>
+    <a href="#paso3" data-nav="paso3">03. Documentos</a>
+  </nav>
+  <a href="#paso1" class="btn-gold">Comenzar</a>
+</header>
+
+<div class="timeline" aria-hidden="true"><span id="tlFill"></span></div>
+
+<main>
+  <section id="hero" class="panel" data-video="hero">
+    <div class="content center reveal">
+      <h1>¿Quieres ser parte<br>del proceso?</h1>
+      <p class="lead">Sigue nuestros pasos, solo déjate llevar.</p>
+      <p class="kicker">¿Qué tienes que hacer?</p>
+      <a href="#paso1" class="scroll-cue" aria-label="Continuar">↓</a>
+    </div>
+  </section>
+
+  <section id="paso1" class="panel" data-video="paso1">
+    <div class="content reveal">
+      <span class="num">01</span>
+      <h2>Paso 1: ¿Qué tienes que hacer?<br><em>Inscribirte.</em></h2>
+      <p class="lead">Dar el primer paso es lo más importante: una planificación inteligente, ordenada y respaldada, pensada para que llegues a tu meta con rumbo firme.</p>
+    </div>
+  </section>
+
+  <section id="paso2" class="panel" data-video="proyecto">
+    <div class="content reveal">
+      <span class="num">02</span>
+      <h2>Paso 2: ¿Qué bien <em>necesitas?</em></h2>
+      <div class="cards">
+        <button class="card" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo"><b>Vehículo</b><small>Auto / Moto</small></button>
+        <button class="card" data-bien="Inmueble / Hogar" data-video="inmueble"><b>Inmueble</b><small>Hogar</small></button>
+        <button class="card" data-bien="Proyecto / Capital Planificado" data-video="proyecto"><b>Proyecto</b><small>Capital planificado</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="paso3" class="panel" data-video="docs">
+    <div class="content reveal">
+      <span class="num">03</span>
+      <h2>Paso 3: <em>Documentos.</em></h2>
+      <p class="lead">Rellena este formulario para más información.</p>
+      <form id="form" class="glass-form" novalidate>
+        <label>Bien elegido
+          <select name="bien" id="bien">
+            <option>Vehículo (Auto / Moto)</option>
+            <option>Inmueble / Hogar</option>
+            <option selected>Proyecto / Capital Planificado</option>
+          </select>
+        </label>
+        <label>Nombre completo<input name="nombre" required autocomplete="name"></label>
+        <label>Cédula / ID<input name="cedula" required inputmode="numeric"></label>
+        <label>WhatsApp<input name="whatsapp" type="tel" required autocomplete="tel"></label>
+        <label>Ciudad<input name="ciudad" required autocomplete="address-level2"></label>
+        <button type="submit" class="btn-gold big"><span>Enviar solicitud</span></button>
+        <p id="msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="images/logo.svg" alt="Sistema Winners" class="flogo">
+  <nav><a href="cotizador.html">Cotizador</a><a href="productos.html">Productos</a><a href="contacto.html">Contacto</a><a href="politicas.html">Políticas</a></nav>
+  <small>© Sistema Winners</small>
+</footer>
+
+<a class="wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="images/whatsapp.png" alt=""></a>
+
+<script src="js/inmersivo.js"></script>
+</body>
+</html>
