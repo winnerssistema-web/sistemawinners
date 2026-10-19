@@ -25,7 +25,9 @@
 </head>
 <body>
 
-<!-- STAGE DE 6 VIDEOS DE FONDO (100% VIBRANTES) -->
+<!-- =========================================================
+     STAGE DE 6 VIDEOS DE FONDO (100% VIBRANTES Y VISIBLES)
+========================================================= -->
 <div class="stage" aria-hidden="true">
   <video id="v1" data-key="hero" class="on" muted loop playsinline preload="auto" src="images/1.mp4"></video>
   <video id="v2" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
@@ -36,27 +38,39 @@
   <div class="vignette"></div>
 </div>
 
-<!-- HEADER FLOTANTE CON LOGO BLANCO RESPLANDECIENTE -->
+<!-- =========================================================
+     HEADER FLOTANTE (LOGO BLANCO RESPLANDECIENTE)
+========================================================= -->
 <header class="pill-header">
-  <a href="#hero" class="brand" aria-label="Sistema Winners">
+  <a href="#" class="brand" data-goto="0" aria-label="Sistema Winners">
     <img src="images/logo.svg" alt="Sistema Winners">
   </a>
   <nav class="steps-nav" aria-label="Progreso de la experiencia">
-    <a href="#paso1" data-nav="paso1">01. Inscríbete</a>
-    <a href="#paso2" data-nav="paso2">02. Tu Bien</a>
-    <a href="#paso3" data-nav="paso3">03. Documentos</a>
+    <button type="button" data-goto="1">01. Inscríbete</button>
+    <button type="button" data-goto="2">02. Tu Bien</button>
+    <button type="button" data-goto="3">03. Documentos</button>
   </nav>
-  <a href="#paso1" class="btn-header">Comenzar</a>
+  <button type="button" class="btn-header" data-goto="1">Comenzar</button>
 </header>
 
-<!-- BARRA TIMELINE LATERAL -->
-<div class="timeline" aria-hidden="true"><span id="tlFill"></span></div>
+<!-- =========================================================
+     INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER)
+========================================================= -->
+<div class="deck-controller" aria-label="Navegador de escenas">
+  <div class="scene-dot active" data-goto="0"><span>00. Apertura</span></div>
+  <div class="scene-dot" data-goto="1"><span>01. Inscríbete</span></div>
+  <div class="scene-dot" data-goto="2"><span>02. Tu Bien</span></div>
+  <div class="scene-dot" data-goto="3"><span>03. Documentos</span></div>
+</div>
 
-<main id="viewport-smooth">
-  <!-- ==================== HERO SECTION ==================== -->
-  <section id="hero" class="panel" data-video="hero">
-    <div class="container-center">
-      <!-- Pill interactivo estilo Apex Digital -->
+<!-- =========================================================
+     DECK FULLSCREEN: 4 ESCENAS CINEMATOGRÁFICAS (SIN SCROLLBAR)
+========================================================= -->
+<div class="deck" id="stageDeck">
+
+  <!-- ESCENA 0: HERO -->
+  <section class="scene scene-hero active" id="scene-0" data-video="hero">
+    <div class="scene-inner">
       <div class="pill-badge">
         <span class="dots">
           <span class="dot">01</span>
@@ -66,15 +80,18 @@
         <span>Plataforma de <span class="tag-gold">Planificación Inteligente</span></span>
       </div>
 
-      <h1 class="text-hero-shadow">¿Quieres ser parte<br>del proceso?</h1>
-      <p class="lead text-sub-shadow">Sigue nuestros pasos, solo déjate llevar hacia tu meta con total respaldo y claridad.</p>
-      
-      <a href="#paso1" class="btn-cta">
-        <span>¿Qué tienes que hacer? Descúbrelo</span>
-        <span>↓</span>
-      </a>
+      <h1 class="floating-text-shadow">¿Quieres ser parte<br>del proceso?</h1>
+      <p class="lead floating-sub-shadow">Sigue nuestros pasos, solo déjate llevar hacia tu meta con total respaldo y claridad.</p>
 
-      <!-- Barra de Métricas de Confianza (Estilo Apex Digital) -->
+      <button type="button" class="btn-cta" data-goto="1">
+        <span>¿Qué tienes que hacer? Descúbrelo</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </button>
+
+      <!-- Barra de Métricas Translúcida -->
       <div class="metrics-bar">
         <div class="metric-item">
           <b>100%</b>
@@ -96,64 +113,89 @@
     </div>
   </section>
 
-  <!-- ==================== PASO 01 ==================== -->
-  <section id="paso1" class="panel" data-video="paso1">
-    <div class="container-center">
-      <div class="super-card">
-        <div class="pill-badge">
-          <span class="dot">01</span>
-          <span>PASO 01 DE 03 — <span class="tag-gold">INICIO DEL VIAJE</span></span>
-        </div>
-
-        <h2 class="text-hero-shadow">¿Qué tienes que hacer?<br><span style="color: var(--gold);">Inscribirte.</span></h2>
-        <p class="lead-text text-sub-shadow">Dar el primer paso es lo más importante: una planificación ordenada, transparente y respaldada colectivamente, diseñada para que alcances tu bien sin deudas asfixiantes.</p>
-
-        <!-- 3 Mini Tarjetas Horizontales con Íconos -->
-        <div class="mini-cards-grid">
-          <div class="mini-card">
-            <div class="icon-circle">📝</div>
-            <h4>1. Registra tu perfil</h4>
-            <p>Datos simples para asignarte el grupo idóneo según tu meta.</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon-circle">⚡</div>
-            <h4>2. Sin trámites pesados</h4>
-            <p>Proceso 100% digital, ágil y sin requisitos imposibles.</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon-circle">🛡️</div>
-            <h4>3. Cupo inmediato</h4>
-            <p>Activación rápida y acompañamiento personalizado desde el día uno.</p>
-          </div>
-        </div>
-
-        <a href="#paso2" class="btn-cta" style="padding: 14px 32px; font-size: 0.95rem;">
-          <span>Avanzar al Paso 02</span>
-          <span>→</span>
-        </a>
+  <!-- ESCENA 1: PASO 01 (TEXTOS Y 3 MINI-PILLS SIN CAJA NEGRA) -->
+  <section class="scene scene-paso1" id="scene-1" data-video="paso1">
+    <div class="scene-inner">
+      <div class="pill-badge">
+        <span class="dot">01</span>
+        <span>PASO 01 DE 03 — <span class="tag-gold">INICIO DEL VIAJE</span></span>
       </div>
+
+      <h2 class="floating-text-shadow">¿Qué tienes que hacer?<br><span style="color: var(--gold);">Inscribirte.</span></h2>
+      <p class="lead-text floating-sub-shadow">Dar el primer paso es lo más importante: una planificación ordenada, transparente y respaldada colectivamente, pensada para que alcances tu bien sin deudas asfixiantes.</p>
+
+      <!-- 3 Mini-Pills Translúcidas con SVGs -->
+      <div class="feature-pills-grid">
+        <div class="feature-pill">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h4>1. Registra tu perfil</h4>
+          <p>Datos simples para asignarte el grupo idóneo según tu meta.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h4>2. Sin trámites pesados</h4>
+          <p>Proceso 100% digital, ágil y sin requisitos imposibles.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h4>3. Cupo inmediato</h4>
+          <p>Activación rápida y acompañamiento personalizado desde el día uno.</p>
+        </div>
+      </div>
+
+      <button type="button" class="btn-cta" data-goto="2" style="padding: 14px 34px; font-size: 0.96rem;">
+        <span>Avanzar al Paso 02</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
     </div>
   </section>
 
-  <!-- ==================== PASO 02 ==================== -->
-  <section id="paso2" class="panel" data-video="proyecto">
-    <div class="container-center">
+  <!-- ESCENA 2: PASO 02 (3 TARJETAS ULTRA-TRANSLÚCIDAS CON SVGS) -->
+  <section class="scene scene-paso2" id="scene-2" data-video="proyecto">
+    <div class="scene-inner">
       <div class="pill-badge">
         <span class="dot">02</span>
         <span>PASO 02 DE 03 — <span class="tag-gold">SELECCIÓN DE ACTIVO</span></span>
       </div>
 
-      <h2 class="text-hero-shadow">Paso 2: ¿Qué bien <span style="color: var(--gold);">necesitas?</span></h2>
+      <h2 class="floating-text-shadow">Paso 2: ¿Qué bien <span style="color: var(--gold);">necesitas?</span></h2>
 
-      <!-- 3 Tarjetas Visuales Grandes e Interactivas -->
       <div class="goods-grid">
-        <!-- Tarjeta 1: Vehículo -->
-        <div class="good-card" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo" tabindex="0">
+        <!-- Tarjeta 1: Vehículo (Dispara 6.mp4) -->
+        <div class="good-pill" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo" tabindex="0">
           <div>
             <span class="top-badge">Movilidad Urbana</span>
-            <span class="card-icon">🚗</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="8" rx="2"></rect>
+                <path d="M5 11l2-5h10l2 5"></path>
+                <circle cx="7.5" cy="15.5" r="1.5"></circle>
+                <circle cx="16.5" cy="15.5" r="1.5"></circle>
+              </svg>
+            </div>
             <h3>Vehículo</h3>
-            <p>Automóviles nuevos o motocicletas de alta gama. Conduce tus proyectos con cuotas planificadas y sin intermediarios abusivos.</p>
+            <p>Automóviles nuevos o motocicletas de alta gama con cuotas planificadas y sin sobrecostos bancarios.</p>
           </div>
           <div class="select-cue">
             <span>Explorar Vehículos</span>
@@ -161,13 +203,22 @@
           </div>
         </div>
 
-        <!-- Tarjeta 2: Inmueble -->
-        <div class="good-card" data-bien="Inmueble / Hogar" data-video="inmueble" tabindex="0">
+        <!-- Tarjeta 2: Inmueble (Dispara 5.mp4) -->
+        <div class="good-pill" data-bien="Inmueble / Hogar" data-video="inmueble" tabindex="0">
           <div>
             <span class="top-badge">Patrimonio Familiar</span>
-            <span class="card-icon">🏢</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l8-4v18"></path>
+                <path d="M19 21V11l-6-4"></path>
+                <line x1="9" y1="9" x2="9" y2="9.01"></line>
+                <line x1="9" y1="13" x2="9" y2="13.01"></line>
+                <line x1="9" y1="17" x2="9" y2="17.01"></line>
+              </svg>
+            </div>
             <h3>Inmueble</h3>
-            <p>Vivienda propia, remodelación o activos inmobiliarios comerciales. Construye tu estabilidad sobre bases sólidas y seguras.</p>
+            <p>Vivienda propia, remodelación o activos comerciales. Construye tu estabilidad sobre bases seguras.</p>
           </div>
           <div class="select-cue">
             <span>Explorar Vivienda</span>
@@ -175,13 +226,18 @@
           </div>
         </div>
 
-        <!-- Tarjeta 3: Proyecto -->
-        <div class="good-card sel" data-bien="Proyecto / Capital Planificado" data-video="proyecto" tabindex="0">
+        <!-- Tarjeta 3: Proyecto (Dispara 3.mp4) -->
+        <div class="good-pill sel" data-bien="Proyecto / Capital Planificado" data-video="proyecto" tabindex="0">
           <div>
             <span class="top-badge">Libertad Financiera</span>
-            <span class="card-icon">📈</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                <polyline points="16 7 22 7 22 13"></polyline>
+              </svg>
+            </div>
             <h3>Proyecto</h3>
-            <p>Capital planificado para emprendimientos, maquinaria, tecnología o expansión de negocios con respaldo institucional real.</p>
+            <p>Capital planificado para emprendimientos, tecnología o expansión de negocios con respaldo real.</p>
           </div>
           <div class="select-cue">
             <span>Explorar Proyectos</span>
@@ -192,54 +248,59 @@
     </div>
   </section>
 
-  <!-- ==================== PASO 03 ==================== -->
-  <section id="paso3" class="panel" data-video="docs">
-    <div class="container-center">
+  <!-- ESCENA 3: PASO 03 (CABINA TRANSLÚCIDA 2 COLS CON FORMULARIO) -->
+  <section class="scene scene-paso3" id="scene-3" data-video="docs">
+    <div class="scene-inner">
       <div class="two-col-layout">
-        <!-- Columna Izquierda: Información y Requisitos -->
+        <!-- Columna Izquierda: Información -->
         <div class="col-info">
           <div class="pill-badge">
             <span class="dot">03</span>
             <span>PASO 03 DE 03 — <span class="tag-gold">ÚLTIMO PASO</span></span>
           </div>
 
-          <h2 class="text-hero-shadow">Paso 3: <span style="color: var(--gold);">Documentos.</span></h2>
-          <p class="lead-sub text-sub-shadow">Rellena este formulario para recibir el plan estructurado de adjudicación correspondiente a tu elección.</p>
+          <h2 class="floating-text-shadow">Paso 3: <span style="color: var(--gold);">Documentos.</span></h2>
+          <p class="lead-sub floating-sub-shadow">Rellena este formulario para recibir tu propuesta de planificación personalizada.</p>
 
           <div class="req-list">
             <div class="req-item">
-              <span class="req-check">✓</span>
+              <span class="req-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
               <div>
                 <b>Requisitos Transparentes</b>
-                <span>Solo cédula o documento de identidad oficial para iniciar.</span>
+                <span>Solo documento de identidad oficial para iniciar.</span>
               </div>
             </div>
             <div class="req-item">
-              <span class="req-check">✓</span>
+              <span class="req-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
               <div>
                 <b>Validación Inmediata</b>
-                <span>Atención directa y confidencial vía WhatsApp Oficial.</span>
+                <span>Contacto y confirmación directa por WhatsApp Oficial.</span>
               </div>
             </div>
             <div class="req-item">
-              <span class="req-check">✓</span>
+              <span class="req-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
               <div>
                 <b>Respaldo Institucional</b>
-                <span>Acompañamiento guiado paso a paso por un asesor especializado.</span>
+                <span>Acompañamiento guiado paso a paso por un asesor experto.</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Columna Derecha: Formulario Premium de 2 Columnas -->
-        <div class="form-card">
+        <!-- Columna Derecha: Cabina de Formulario Translúcida -->
+        <div class="form-cockpit">
           <h3>Solicitud de Registro</h3>
-          <p class="form-subtitle">Completa tus datos para enviarte la propuesta personalizada.</p>
+          <p class="form-subtitle">Tus datos están protegidos bajo estricta confidencialidad.</p>
 
           <form id="form" class="compact-form" novalidate>
-            <!-- Selector de Bien -->
             <div class="form-field">
-              <label for="bien">Bien Seleccionado</label>
+              <label for="bien">Bien Elegido</label>
               <select name="bien" id="bien">
                 <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
                 <option value="Inmueble / Hogar">Inmueble / Hogar</option>
@@ -247,7 +308,6 @@
               </select>
             </div>
 
-            <!-- Fila 1: Nombre + Cédula -->
             <div class="form-row">
               <div class="form-field">
                 <label for="nombre">Nombre Completo</label>
@@ -259,7 +319,6 @@
               </div>
             </div>
 
-            <!-- Fila 2: WhatsApp + Ciudad -->
             <div class="form-row">
               <div class="form-field">
                 <label for="whatsapp">WhatsApp / Teléfono</label>
@@ -271,13 +330,11 @@
               </div>
             </div>
 
-            <!-- Fila 3: Correo Electrónico -->
             <div class="form-field">
               <label for="email">Correo Electrónico</label>
               <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required autocomplete="email">
             </div>
 
-            <!-- Botón de Envío -->
             <button type="submit" class="btn-submit">
               <span>ENVIAR SOLICITUD AHORA →</span>
             </button>
@@ -287,29 +344,16 @@
       </div>
     </div>
   </section>
-</main>
 
-<!-- FOOTER MINIMALISTA -->
-<footer>
-  <img src="images/logo.svg" alt="Sistema Winners" class="flogo">
-  <nav>
-    <a href="cotizador.html">Cotizador</a>
-    <a href="productos.html">Productos</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="politicas.html">Políticas</a>
-  </nav>
-  <small>© 2026 Sistema Winners. Todos los derechos reservados.</small>
-</footer>
+</div>
 
 <!-- BOTÓN FLOTANTE WHATSAPP CON PULSO -->
 <a class="wa-float" id="wa" href="https://wa.me/573117795935" target="_blank" rel="noopener" aria-label="Contacto Directo por WhatsApp">
   <img src="images/whatsapp.png" alt="WhatsApp">
 </a>
 
-<!-- LIBRERÍAS DE ANIMACIÓN Y SMOOTH SCROLL (LENIS + GSAP + SCROLLTRIGGER) -->
-<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<!-- GSAP PARA TRANSICIONES CINEMATOGRÁFICAS DE ESCENA -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/inmersivo.js"></script>
 </body>
 </html>

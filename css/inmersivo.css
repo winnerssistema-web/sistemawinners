@@ -11,28 +11,38 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: auto; /* Controlado suavemente por Lenis */
-}
-
-body {
+/* =========================================================
+   1. FULLSCREEN STAGE FIJO (PROHIBIDO SCROLLBAR)
+========================================================= */
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+  user-select: none;
   background: #000;
   color: #fff;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Ocultar cualquier rastro de scrollbar */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 /* =========================================================
-   STAGE DE VIDEOS — 100% VIBRANTES (SIN CAPAS GRISES)
+   2. STAGE DE VIDEOS DE FONDO (100% VIBRANTES Y LIMPIOS)
 ========================================================= */
 .stage {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -10;
+  z-index: 0;
   background: #000;
   overflow: hidden;
   pointer-events: none;
@@ -45,10 +55,10 @@ body {
   height: 100vh;
   object-fit: cover;
   opacity: 0;
-  /* Colores vivos, contraste puro y saturación cinematográfica */
+  /* Nitidez, contraste y color vivos */
   filter: contrast(1.08) saturate(1.18) brightness(0.92);
-  transform: scale(1.06);
-  transition: opacity 0.9s var(--ease), transform 1.2s var(--ease);
+  transform: scale(1.05);
+  transition: opacity 1s var(--ease), transform 1.2s var(--ease);
   will-change: opacity, transform;
 }
 
@@ -57,28 +67,28 @@ body {
   transform: scale(1);
 }
 
-/* Solo viñeteado sutil en bordes extremos, centro totalmente transparente */
-.vignette {
+/* Viñeteado ultra sutil exclusivo en bordes lejanos */
+.stage .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
   pointer-events: none;
 }
 
 /* =========================================================
-   TIPOGRAFÍA Y SOMBRAS PROFUNDAS (ESTILO PORTAFOLIO_SAAS)
+   3. SOMBRAS FLOTANTES DE TEXTO (LEGIBILIDAD SIN CAJAS)
 ========================================================= */
-.text-hero-shadow {
+.floating-text-shadow {
   text-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.85),
-    0 12px 35px rgba(0, 0, 0, 0.9),
-    0 2px 4px rgba(0, 0, 0, 0.95);
+    0 2px 4px rgba(0, 0, 0, 0.95),
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 16px 48px rgba(0, 0, 0, 0.85);
 }
 
-.text-sub-shadow {
+.floating-sub-shadow {
   text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.85),
-    0 8px 24px rgba(0, 0, 0, 0.85);
+    0 2px 6px rgba(0, 0, 0, 0.9),
+    0 6px 18px rgba(0, 0, 0, 0.85);
 }
 
 h1, h2, h3 {
@@ -88,22 +98,22 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: clamp(2.4rem, 6.2vw, 4.8rem);
+  font-size: clamp(2.5rem, 6.5vw, 5.2rem);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.05;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
-  line-height: 1.15;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.12;
 }
 
 /* =========================================================
-   HEADER FLOTANTE (LOGO BLANCO RESPLANDECIENTE)
+   4. HEADER FLOTANTE CON LOGO BLANCO
 ========================================================= */
 .pill-header {
   position: fixed;
-  top: 18px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: min(1140px, 94vw);
@@ -114,12 +124,11 @@ h2 {
   gap: 16px;
   padding: 8px 14px 8px 22px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
 }
 
 .brand {
@@ -128,18 +137,17 @@ h2 {
   text-decoration: none;
 }
 
-/* Solución del Logo: Blanco puro y nítido */
 .brand img {
   height: 42px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(255, 255, 255, 0.45));
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .brand:hover img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 14px var(--gold-glow));
   transform: scale(1.02);
+  filter: brightness(0) invert(1) drop-shadow(0 0 14px var(--gold-glow));
 }
 
 .steps-nav {
@@ -148,25 +156,29 @@ h2 {
   gap: 28px;
 }
 
-.steps-nav a {
+.steps-nav button {
+  background: none;
+  border: 0;
   color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
+  font-family: inherit;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  cursor: pointer;
   transition: color 0.3s ease;
   position: relative;
+  padding: 4px 0;
 }
 
-.steps-nav a:hover,
-.steps-nav a.active {
+.steps-nav button:hover,
+.steps-nav button.active {
   color: var(--gold);
 }
 
-.steps-nav a.active::after {
+.steps-nav button.active::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   left: 0;
   right: 0;
   height: 2px;
@@ -178,12 +190,12 @@ h2 {
 .btn-header {
   background: linear-gradient(135deg, #f5b841, var(--gold));
   color: #000;
-  text-decoration: none;
+  border: 0;
+  font-family: inherit;
   font-weight: 800;
   font-size: 0.85rem;
   padding: 10px 22px;
   border-radius: 999px;
-  border: 0;
   cursor: pointer;
   box-shadow: 0 4px 18px rgba(238, 170, 43, 0.4);
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
@@ -191,58 +203,76 @@ h2 {
 
 .btn-header:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(238, 170, 43, 0.65);
+  box-shadow: 0 8px 25px rgba(238, 170, 43, 0.7);
 }
 
 /* =========================================================
-   TIMELINE LATERAL
+   5. DECK DE ESCENAS (PANTALLA COMPLETA 100VH FIJA)
 ========================================================= */
-.timeline {
+.deck {
   position: fixed;
-  left: 24px;
-  top: 25vh;
-  bottom: 25vh;
-  width: 3px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
-  z-index: 80;
-  overflow: hidden;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.timeline span {
-  display: block;
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 6vw 60px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0.4s;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.scene-inner {
   width: 100%;
-  height: 0%;
-  background: var(--gold);
-  box-shadow: 0 0 12px var(--gold);
-  border-radius: 3px;
-  transition: height 0.1s linear;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
 }
 
 /* =========================================================
-   PILL BADGE ESTILO APEX DIGITAL
+   6. PILL BADGE ESTILO APEX DIGITAL
 ========================================================= */
 .pill-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 18px;
+  padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.68);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #fff;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   margin-bottom: 22px;
 }
 
 .pill-badge .dots {
   display: flex;
-  gap: 4px;
+  gap: 5px;
 }
 
 .pill-badge .dot {
@@ -250,11 +280,11 @@ h2 {
   height: 22px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--gold);
 }
@@ -265,38 +295,14 @@ h2 {
 }
 
 /* =========================================================
-   SECCIONES Y PINNED SCROLLYTELLING
+   ESCENA 0: HERO (TEXTO PURO DIRECTO SOBRE VIDEO)
 ========================================================= */
-.panel {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 6vw 80px;
-  z-index: 10;
-}
-
-.container-center {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* =========================================================
-   HERO SECTION
-========================================================= */
-#hero .lead {
+.scene-hero .lead {
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.96);
   max-width: 680px;
-  margin: 22px auto 30px;
+  margin: 20px auto 30px;
 }
 
 .btn-cta {
@@ -305,12 +311,12 @@ h2 {
   gap: 12px;
   background: linear-gradient(135deg, #f5b841, var(--gold));
   color: #000;
-  text-decoration: none;
+  border: 0;
+  font-family: inherit;
   font-size: 1.05rem;
   font-weight: 800;
   padding: 16px 36px;
   border-radius: 999px;
-  border: 0;
   cursor: pointer;
   box-shadow: 0 0 35px var(--gold-glow);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
@@ -321,21 +327,31 @@ h2 {
   box-shadow: 0 0 50px rgba(238, 170, 43, 0.85);
 }
 
-/* Barra de Métricas de Confianza (Estilo Apex Digital) */
+.btn-cta svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.btn-cta:hover svg {
+  transform: translateY(3px);
+}
+
+/* Barra de Métricas Translúcida (Sin tapar el video) */
 .metrics-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   width: 100%;
   max-width: 960px;
-  margin-top: 55px;
-  padding: 20px 32px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  margin-top: 50px;
+  padding: 16px 28px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
 .metric-item {
@@ -357,95 +373,91 @@ h2 {
 }
 
 .metric-item span {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.02em;
 }
 
 /* =========================================================
-   PASO 01 — SUPER-CARD DE CRISTAL FLOTANTE
+   ESCENA 1: PASO 01 (TEXTOS Y 3 MINI-PILLS SIN CAJA NEGRA)
 ========================================================= */
-.super-card {
+.scene-paso1 h2 {
+  margin: 10px 0 16px;
+}
+
+.scene-paso1 .lead-text {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+
+/* 3 Mini-Pills Translúcidas con SVG (Sin caja negra que tape el mar) */
+.feature-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
-  max-width: 920px;
-  background: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  backdrop-filter: blur(26px);
-  -webkit-backdrop-filter: blur(26px);
-  border-radius: 32px;
-  padding: 48px 44px;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.super-card h2 {
-  margin: 12px 0 16px;
-}
-
-.super-card .lead-text {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 680px;
+  max-width: 980px;
   margin-bottom: 36px;
 }
 
-.mini-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  width: 100%;
-  margin-bottom: 34px;
-}
-
-.mini-card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+.feature-pill {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 24px 18px;
+  padding: 22px 20px;
   text-align: center;
-  transition: transform 0.3s var(--ease), border-color 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s var(--ease), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mini-card:hover {
-  transform: translateY(-4px);
+.feature-pill:hover {
+  transform: translateY(-5px);
   border-color: var(--gold);
   background: rgba(238, 170, 43, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(238, 170, 43, 0.3);
 }
 
-.mini-card .icon-circle {
-  width: 44px;
-  height: 44px;
+.feature-pill .icon-wrap {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(238, 170, 43, 0.2);
+  background: rgba(238, 170, 43, 0.18);
   border: 1px solid var(--gold);
+  color: var(--gold);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
   margin-bottom: 12px;
 }
 
-.mini-card h4 {
+.feature-pill .icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold);
+}
+
+.feature-pill h4 {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
   margin-bottom: 6px;
 }
 
-.mini-card p {
+.feature-pill p {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.45;
 }
 
 /* =========================================================
-   PASO 02 — 3 TARJETAS VISUALES INTERACTIVAS
+   ESCENA 2: PASO 02 (3 TARJETAS ULTRA-TRANSLÚCIDAS)
 ========================================================= */
-#paso2 h2 {
+.scene-paso2 h2 {
   margin-bottom: 36px;
 }
 
@@ -454,54 +466,36 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1060px;
 }
 
-.good-card {
+.good-pill {
   position: relative;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.32);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 28px;
-  padding: 38px 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px 26px;
   text-align: left;
   cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
-  transition: transform 0.4s var(--ease), border-color 0.3s ease, box-shadow 0.4s ease, background 0.3s ease;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s var(--ease), border-color 0.3s ease, background 0.3s ease, box-shadow 0.35s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 320px;
+  min-height: 290px;
 }
 
-.good-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: transparent;
-  transition: background 0.3s ease;
-}
-
-.good-card:hover,
-.good-card.sel {
+.good-pill:hover,
+.good-pill.sel {
   transform: translateY(-8px);
   border-color: var(--gold);
-  background: rgba(20, 20, 20, 0.85);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(238, 170, 43, 0.35);
+  background: rgba(20, 20, 20, 0.65);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(238, 170, 43, 0.35);
 }
 
-.good-card:hover::before,
-.good-card.sel::before {
-  background: var(--gold);
-  box-shadow: 0 0 15px var(--gold);
-}
-
-.good-card .top-badge {
+.good-pill .top-badge {
   display: inline-block;
   font-size: 0.72rem;
   font-weight: 800;
@@ -512,30 +506,43 @@ h2 {
   border-radius: 999px;
   background: rgba(238, 170, 43, 0.15);
   border: 1px solid rgba(238, 170, 43, 0.35);
+  margin-bottom: 16px;
+}
+
+.good-pill .icon-svg {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--gold);
+}
+
+.good-pill .icon-svg svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gold);
+}
+
+.good-pill h3 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.good-pill p {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.45;
   margin-bottom: 20px;
 }
 
-.good-card .card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.good-card h3 {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.good-card p {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
-  margin-bottom: 24px;
-}
-
-.good-card .select-cue {
+.good-pill .select-cue {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -543,10 +550,10 @@ h2 {
   font-weight: 800;
   color: var(--gold);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
-.good-card .check-circle {
+.good-pill .check-circle {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -559,7 +566,7 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.good-card.sel .check-circle {
+.good-pill.sel .check-circle {
   background: var(--gold);
   border-color: var(--gold);
   color: #000;
@@ -567,133 +574,138 @@ h2 {
 }
 
 /* =========================================================
-   PASO 03 — 2 COLUMNAS DE LUJO SIMÉTRICAS
+   ESCENA 3: PASO 03 (CABINA DE CRISTAL TRANSLÚCIDA 2 COLS)
 ========================================================= */
 .two-col-layout {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 50px;
+  gap: 48px;
   width: 100%;
-  max-width: 1140px;
+  max-width: 1120px;
   align-items: center;
   text-align: left;
 }
 
 .col-info h2 {
-  margin: 12px 0 16px;
+  margin: 10px 0 14px;
 }
 
 .col-info .lead-sub {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 32px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 26px;
 }
 
 .req-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .req-item {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 16px;
-  padding: 16px 20px;
+  padding: 14px 18px;
 }
 
 .req-check {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: rgba(238, 170, 43, 0.2);
   border: 1px solid var(--gold);
   color: var(--gold);
-  font-weight: 900;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+.req-check svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--gold);
 }
 
 .req-item b {
   display: block;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
 }
 
 .req-item span {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
 }
 
-/* Formulario Premium Compacto de 2 Columnas */
-.form-card {
-  background: rgba(0, 0, 0, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(26px);
-  -webkit-backdrop-filter: blur(26px);
-  border-radius: 28px;
-  padding: 36px 32px;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9);
+/* Formulario Translúcido de Alta Gama */
+.form-cockpit {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 26px;
+  padding: 32px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
-.form-card h3 {
-  font-size: 1.45rem;
+.form-cockpit h3 {
+  font-size: 1.4rem;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.form-card .form-subtitle {
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.68);
-  margin-bottom: 24px;
+.form-cockpit .form-subtitle {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
 }
 
 .compact-form {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   text-align: left;
 }
 
 .form-field label {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .form-field input,
 .form-field select {
   width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: #fff;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   outline: 0;
   transition: all 0.25s ease;
 }
@@ -706,26 +718,26 @@ h2 {
 .form-field input:focus,
 .form-field select:focus {
   border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 0 15px rgba(238, 170, 43, 0.35);
 }
 
 .form-field input.err {
   border-color: #ff4d4f;
-  background: rgba(255, 77, 79, 0.15);
+  background: rgba(255, 77, 79, 0.18);
 }
 
 .btn-submit {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 8px;
   background: linear-gradient(135deg, #f5b841, var(--gold));
   color: #000;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 900;
   letter-spacing: 0.02em;
-  padding: 16px;
-  border-radius: 14px;
+  padding: 15px;
+  border-radius: 12px;
   border: 0;
   cursor: pointer;
   box-shadow: 0 0 28px var(--gold-glow);
@@ -738,67 +750,78 @@ h2 {
 }
 
 #msg {
-  font-size: 0.86rem;
-  font-weight: 600;
+  font-size: 0.84rem;
+  font-weight: 700;
   color: var(--gold);
   text-align: center;
   min-height: 1.2em;
 }
 
 /* =========================================================
-   FOOTER MINIMALISTA
+   7. INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER)
 ========================================================= */
-footer {
+.deck-controller {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.scene-dot {
   position: relative;
-  z-index: 20;
-  background: #000;
-  padding: 45px 6vw;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.35s ease;
 }
 
-.flogo {
-  height: 38px;
-  width: auto;
-  filter: brightness(0) invert(1);
+.scene-dot span {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-footer nav {
-  display: flex;
-  gap: 26px;
+.scene-dot:hover span {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
 }
 
-footer a {
-  color: rgba(255, 255, 255, 0.65);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: var(--gold);
-}
-
-footer small {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.82rem;
+.scene-dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.4);
+  box-shadow: 0 0 15px var(--gold);
 }
 
 /* =========================================================
-   BOTÓN FLOTANTE DE WHATSAPP CON PULSO
+   8. WHATSAPP FLOTANTE CON PULSO
 ========================================================= */
 .wa-float {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  left: 28px;
+  bottom: 28px;
   z-index: 120;
-  width: 62px;
-  height: 62px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -814,58 +837,68 @@ footer small {
 }
 
 .wa-float img {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
 }
 
 @keyframes pulse-wa {
   0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-  70% { box-shadow: 0 0 0 20px transparent; }
+  70% { box-shadow: 0 0 0 18px transparent; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+   9. RESPONSIVE MOBILE & TABLET
 ========================================================= */
 @media (max-width: 900px) {
   .steps-nav { display: none; }
-  .timeline { left: 10px; }
-  .panel { padding: 110px 5vw 60px; }
+  .deck-controller { display: none; }
+  
+  .scene {
+    padding: 90px 5vw 40px;
+  }
   
   .metrics-bar {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
+    gap: 14px;
+    padding: 16px;
+    margin-top: 30px;
   }
   
   .metric-item:nth-child(2) {
     border-right: 0;
   }
 
-  .mini-cards-grid,
+  .feature-pills-grid,
   .goods-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .good-pill {
+    min-height: auto;
+    padding: 22px 20px;
   }
 
   .two-col-layout {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  .super-card,
-  .form-card {
-    padding: 32px 22px;
+  .form-cockpit {
+    padding: 24px 20px;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition-duration: 0.01s !important;
+  
+  .wa-float {
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    width: 52px;
+    height: 52px;
   }
 }

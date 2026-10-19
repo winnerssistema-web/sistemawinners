@@ -41,186 +41,232 @@
     currentKey = key;
   }
 
-  // Iniciar reproducción del video inicial
+  // Reproducir video inicial
   if (vids.hero) {
     vids.hero.play().catch(function () {});
   }
-  // Precargar video del paso 1 de forma inteligente
-  setTimeout(function () { loadVideo(vids.paso1); }, 1200);
+  // Precarga estratégica de videos
+  setTimeout(function () { loadVideo(vids.paso1); }, 1000);
+  setTimeout(function () {
+    loadVideo(vids.proyecto);
+    loadVideo(vids.vehiculo);
+    loadVideo(vids.inmueble);
+    loadVideo(vids.docs);
+  }, 3000);
 
-  // Inicializar Lenis Smooth Scroll si está disponible
-  var lenis = null;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({
-      duration: 1.15,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      smoothWheel: true,
-      touchMultiplier: 1.5
+  // =========================================================
+  // MOTOR DE ESCENAS FULLSCREEN DECK (0, 1, 2, 3)
+  // =========================================================
+  var scenes = document.querySelectorAll('.scene');
+  var totalScenes = scenes.length;
+  var currentScene = 0;
+  var isTransitioning = false;
+  var COOLDOWN_MS = 1100;
+
+  var navButtons = document.querySelectorAll('.steps-nav button');
+  var sceneDots = document.querySelectorAll('.scene-dot');
+
+  function updateIndicators(targetIndex) {
+    // Nav del Header (1, 2, 3)
+    navButtons.forEach(function (btn) {
+      var goto = parseInt(btn.dataset.goto, 10);
+      btn.classList.toggle('active', goto === targetIndex);
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    // Dots del lateral (0, 1, 2, 3)
+    sceneDots.forEach(function (dot, idx) {
+      dot.classList.toggle('active', idx === targetIndex);
+    });
+  }
 
-    // Conectar Lenis con ScrollTrigger
-    if (typeof ScrollTrigger !== 'undefined') {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (time) {
-        lenis.raf(time * 1000);
+  function getVideoForScene(index) {
+    if (index === 0) return 'hero';
+    if (index === 1) return 'paso1';
+    if (index === 2) return chosenPaso2Video;
+    if (index === 3) return 'docs';
+    return 'hero';
+  }
+
+  function goToScene(nextIndex) {
+    if (nextIndex < 0 || nextIndex >= totalScenes || nextIndex === currentScene || isTransitioning) {
+      return;
+    }
+
+    isTransitioning = true;
+    var currentEl = scenes[currentScene];
+    var nextEl = scenes[nextIndex];
+    var direction = nextIndex > currentScene ? 1 : -1;
+
+    // Cambiar video correspondiente
+    switchVideo(getVideoForScene(nextIndex));
+    updateIndicators(nextIndex);
+
+    // Activar visibilidad de la escena entrante antes de animar
+    nextEl.style.visibility = 'visible';
+    nextEl.classList.add('active');
+
+    if (typeof gsap !== 'undefined') {
+      // Transición cinematográfica exacta con GSAP
+      gsap.to(currentEl, {
+        y: direction * -60,
+        scale: 0.94,
+        filter: 'blur(12px)',
+        opacity: 0,
+        duration: 0.85,
+        ease: 'power3.inOut',
+        onComplete: function () {
+          currentEl.classList.remove('active');
+          currentEl.style.visibility = 'hidden';
+          gsap.set(currentEl, { clearProps: 'all' });
+        }
       });
-      gsap.ticker.lagSmoothing(0);
+
+      gsap.fromTo(
+        nextEl,
+        {
+          y: direction * 60,
+          scale: 1.06,
+          filter: 'blur(12px)',
+          opacity: 0
+        },
+        {
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          opacity: 1,
+          duration: 0.95,
+          ease: 'power3.out',
+          onComplete: function () {
+            gsap.set(nextEl, { clearProps: 'filter,transform' });
+            currentScene = nextIndex;
+            setTimeout(function () {
+              isTransitioning = false;
+            }, 100);
+          }
+        }
+      );
+    } else {
+      // Fallback si no está GSAP
+      currentEl.classList.remove('active');
+      nextEl.classList.add('active');
+      currentScene = nextIndex;
+      setTimeout(function () { isTransitioning = false; }, COOLDOWN_MS);
     }
   }
 
-  // Smooth scroll en enlaces internos ancla (#hero, #paso1, etc.)
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var targetId = this.getAttribute('href');
-      if (targetId === '#' || !targetId) return;
-      var targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        if (lenis) {
-          lenis.scrollTo(targetEl, { offset: -20 });
-        } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+  function nextScene() {
+    if (currentScene < totalScenes - 1) {
+      goToScene(currentScene + 1);
+    }
+  }
+
+  function prevScene() {
+    if (currentScene > 0) {
+      goToScene(currentScene - 1);
+    }
+  }
+
+  // =========================================================
+  // CONTROLADORES DE ENTRADA: WHEEL / TOUCH / KEYS
+  // =========================================================
+
+  // 1. Wheel (Rueda del Mouse con Cooldown)
+  window.addEventListener('wheel', function (e) {
+    if (isTransitioning) return;
+    if (e.deltaY > 25) {
+      nextScene();
+    } else if (e.deltaY < -25) {
+      prevScene();
+    }
+  }, { passive: true });
+
+  // 2. Touch (Swipe en Móviles)
+  var touchStartY = 0;
+  window.addEventListener('touchstart', function (e) {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (e) {
+    if (isTransitioning) return;
+    var touchEndY = e.changedTouches[0].clientY;
+    var diff = touchStartY - touchEndY;
+    if (diff > 50) {
+      nextScene();
+    } else if (diff < -50) {
+      prevScene();
+    }
+  }, { passive: true });
+
+  // 3. Teclado (Flechas Arriba / Abajo)
+  window.addEventListener('keydown', function (e) {
+    // Si el usuario está escribiendo en el formulario, no cambiar de escena
+    var tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+    if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      nextScene();
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      prevScene();
+    }
+  });
+
+  // 4. Clics en elementos con [data-goto]
+  document.querySelectorAll('[data-goto]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = parseInt(this.dataset.goto, 10);
+      goToScene(target);
     });
   });
 
-  // GSAP ScrollTrigger para animaciones y cambio de video
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-
-    var panels = gsap.utils.toArray('.panel');
-    var navLinks = document.querySelectorAll('.steps-nav a');
-
-    panels.forEach(function (panel) {
-      var id = panel.id;
-      var targetVideo = panel.dataset.video;
-
-      // Animación de entrada de elementos dentro del panel
-      var animElements = panel.querySelectorAll('h1, h2, .lead, .lead-text, .lead-sub, .pill-badge, .metrics-bar, .mini-card, .good-card, .req-item, .form-card, .btn-cta');
-      if (animElements.length) {
-        gsap.from(animElements, {
-          y: 45,
-          opacity: 0,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: panel,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-      }
-
-      // Disparador de cambio de video de fondo por sección
-      ScrollTrigger.create({
-        trigger: panel,
-        start: 'top 50%',
-        end: 'bottom 50%',
-        onEnter: function () {
-          var v = (id === 'paso2') ? chosenPaso2Video : targetVideo;
-          switchVideo(v);
-          updateNav(id);
-          preloadAdjacent(id);
-        },
-        onEnterBack: function () {
-          var v = (id === 'paso2') ? chosenPaso2Video : targetVideo;
-          switchVideo(v);
-          updateNav(id);
-        }
-      });
-    });
-
-    function updateNav(activeId) {
-      navLinks.forEach(function (link) {
-        link.classList.toggle('active', link.dataset.nav === activeId);
-      });
-    }
-
-    function preloadAdjacent(id) {
-      if (id === 'hero') loadVideo(vids.paso1);
-      if (id === 'paso1') {
-        loadVideo(vids.proyecto);
-        loadVideo(vids.vehiculo);
-        loadVideo(vids.inmueble);
-      }
-      if (id === 'paso2') loadVideo(vids.docs);
-    }
-  } else {
-    // Fallback IntersectionObserver si no carga el CDN
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var key = e.target.dataset.video;
-        if (e.target.id === 'paso2') key = chosenPaso2Video;
-        switchVideo(key);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.panel').forEach(function (p) { io.observe(p); });
-  }
-
-  // Barra de progreso lateral (Timeline)
-  var tlFill = document.getElementById('tlFill');
-  function updateProgress() {
-    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    if (maxScroll > 0) {
-      var pct = Math.min(100, Math.max(0, (window.scrollY / maxScroll) * 100));
-      tlFill.style.height = pct + '%';
-    }
-  }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-
-  // Interacción de Tarjetas del Paso 2
+  // =========================================================
+  // PASO 2: TARJETAS INTERACTIVAS
+  // =========================================================
   var selectBien = document.getElementById('bien');
-  var goodCards = document.querySelectorAll('.good-card');
+  var goodPills = document.querySelectorAll('.good-pill');
 
-  goodCards.forEach(function (card) {
-    var videoKey = card.dataset.video;
-    var bienValue = card.dataset.bien;
+  goodPills.forEach(function (pill) {
+    var videoKey = pill.dataset.video;
+    var bienValue = pill.dataset.bien;
 
     // Hover: Previsualiza el video
-    card.addEventListener('mouseenter', function () {
-      switchVideo(videoKey);
+    pill.addEventListener('mouseenter', function () {
+      if (currentScene === 2) {
+        switchVideo(videoKey);
+      }
     });
 
-    // Mouseleave: Vuelve al video seleccionado permanentemente
-    card.addEventListener('mouseleave', function () {
-      switchVideo(chosenPaso2Video);
+    // Mouseleave: Vuelve al video seleccionado
+    pill.addEventListener('mouseleave', function () {
+      if (currentScene === 2) {
+        switchVideo(chosenPaso2Video);
+      }
     });
 
-    // Click: Fija la elección, marca la tarjeta y baja al Paso 3
-    card.addEventListener('click', function () {
+    // Click: Fija la elección y transiciona a la Escena 3
+    pill.addEventListener('click', function () {
       chosenPaso2Video = videoKey;
       switchVideo(chosenPaso2Video);
 
-      goodCards.forEach(function (c) { c.classList.remove('sel'); });
-      card.classList.add('sel');
+      goodPills.forEach(function (p) { p.classList.remove('sel'); });
+      pill.classList.add('sel');
 
       if (selectBien) {
         selectBien.value = bienValue;
       }
 
-      // Desplazamiento fluido al formulario del Paso 3
-      var paso3 = document.getElementById('paso3');
-      if (paso3) {
-        if (lenis) {
-          lenis.scrollTo(paso3, { offset: 0 });
-        } else {
-          paso3.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+      // Avanzar suavemente a la Escena 3 (Documentos)
+      setTimeout(function () {
+        goToScene(3);
+      }, 250);
     });
   });
 
-  // Formulario Paso 3 -> Envío a WhatsApp
+  // =========================================================
+  // PASO 3: FORMULARIO Y ENVÍO A WHATSAPP
+  // =========================================================
   var form = document.getElementById('form');
   var msg = document.getElementById('msg');
 
@@ -257,7 +303,7 @@
     });
   }
 
-  // Botón flotante directo
+  // Botón flotante de WhatsApp
   var waFloat = document.getElementById('wa');
   if (waFloat) {
     waFloat.href = 'https://wa.me/' + WA_NUMBER;
