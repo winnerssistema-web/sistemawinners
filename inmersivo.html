@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sistema Winners | Sigue nuestros pasos</title>
-<meta name="description" content="Inscríbete, elige tu bien y envía tus documentos. Sistema Winners: planificación inteligente y respaldada para tu vehículo, inmueble o proyecto.">
-<link rel="icon" href="images/logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/inmersivo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Sistema Winners | Planificación Inteligente de Activos</title>
+  <meta name="description" content="Inscríbete, elige tu bien y envía tus documentos. Sistema Winners: planificación inteligente y respaldada para tu vehículo, inmueble o proyecto.">
+  <link rel="canonical" href="https://www.sistemawinners.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sistema Winners | Conquista tu Meta o Proyecto">
+  <meta property="og:description" content="Inscríbete, elige tu bien y envía tus documentos. Planificación inteligente y respaldada con Sistema Winners.">
+  <meta property="og:url" content="https://www.sistemawinners.com/">
+  <meta property="og:site_name" content="Sistema Winners">
+  <meta property="og:image" content="https://www.sistemawinners.com/images/moto-familia.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/inmersivo.css">
 </head>
 <body>
 
+<!-- STAGE DE 6 VIDEOS DE FONDO (100% VIBRANTES) -->
 <div class="stage" aria-hidden="true">
   <video id="v1" data-key="hero" class="on" muted loop playsinline preload="auto" src="images/1.mp4"></video>
   <video id="v2" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
@@ -20,83 +33,283 @@
   <video id="v5" data-key="inmueble" muted loop playsinline preload="none" data-src="images/5.mp4"></video>
   <video id="v6" data-key="vehiculo" muted loop playsinline preload="none" data-src="images/6.mp4"></video>
   <video id="v4" data-key="docs" muted loop playsinline preload="none" data-src="images/4.mp4"></video>
-  <div class="overlay"></div>
+  <div class="vignette"></div>
 </div>
 
-<header class="pill">
-  <a href="#hero" class="brand"><img src="images/logo.svg" alt="Sistema Winners"></a>
-  <nav class="steps-nav" aria-label="Progreso">
+<!-- HEADER FLOTANTE CON LOGO BLANCO RESPLANDECIENTE -->
+<header class="pill-header">
+  <a href="#hero" class="brand" aria-label="Sistema Winners">
+    <img src="images/logo.svg" alt="Sistema Winners">
+  </a>
+  <nav class="steps-nav" aria-label="Progreso de la experiencia">
     <a href="#paso1" data-nav="paso1">01. Inscríbete</a>
     <a href="#paso2" data-nav="paso2">02. Tu Bien</a>
     <a href="#paso3" data-nav="paso3">03. Documentos</a>
   </nav>
-  <a href="#paso1" class="btn-gold">Comenzar</a>
+  <a href="#paso1" class="btn-header">Comenzar</a>
 </header>
 
+<!-- BARRA TIMELINE LATERAL -->
 <div class="timeline" aria-hidden="true"><span id="tlFill"></span></div>
 
-<main>
+<main id="viewport-smooth">
+  <!-- ==================== HERO SECTION ==================== -->
   <section id="hero" class="panel" data-video="hero">
-    <div class="content center reveal">
-      <h1>¿Quieres ser parte<br>del proceso?</h1>
-      <p class="lead">Sigue nuestros pasos, solo déjate llevar.</p>
-      <p class="kicker">¿Qué tienes que hacer?</p>
-      <a href="#paso1" class="scroll-cue" aria-label="Continuar">↓</a>
-    </div>
-  </section>
+    <div class="container-center">
+      <!-- Pill interactivo estilo Apex Digital -->
+      <div class="pill-badge">
+        <span class="dots">
+          <span class="dot">01</span>
+          <span class="dot">02</span>
+          <span class="dot">03</span>
+        </span>
+        <span>Plataforma de <span class="tag-gold">Planificación Inteligente</span></span>
+      </div>
 
-  <section id="paso1" class="panel" data-video="paso1">
-    <div class="content reveal">
-      <span class="num">01</span>
-      <h2>Paso 1: ¿Qué tienes que hacer?<br><em>Inscribirte.</em></h2>
-      <p class="lead">Dar el primer paso es lo más importante: una planificación inteligente, ordenada y respaldada, pensada para que llegues a tu meta con rumbo firme.</p>
-    </div>
-  </section>
+      <h1 class="text-hero-shadow">¿Quieres ser parte<br>del proceso?</h1>
+      <p class="lead text-sub-shadow">Sigue nuestros pasos, solo déjate llevar hacia tu meta con total respaldo y claridad.</p>
+      
+      <a href="#paso1" class="btn-cta">
+        <span>¿Qué tienes que hacer? Descúbrelo</span>
+        <span>↓</span>
+      </a>
 
-  <section id="paso2" class="panel" data-video="proyecto">
-    <div class="content reveal">
-      <span class="num">02</span>
-      <h2>Paso 2: ¿Qué bien <em>necesitas?</em></h2>
-      <div class="cards">
-        <button class="card" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo"><b>Vehículo</b><small>Auto / Moto</small></button>
-        <button class="card" data-bien="Inmueble / Hogar" data-video="inmueble"><b>Inmueble</b><small>Hogar</small></button>
-        <button class="card" data-bien="Proyecto / Capital Planificado" data-video="proyecto"><b>Proyecto</b><small>Capital planificado</small></button>
+      <!-- Barra de Métricas de Confianza (Estilo Apex Digital) -->
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <b>100%</b>
+          <span>Respaldo Legal</span>
+        </div>
+        <div class="metric-item">
+          <b>03</b>
+          <span>Pasos Simples</span>
+        </div>
+        <div class="metric-item">
+          <b>24/7</b>
+          <span>Acompañamiento</span>
+        </div>
+        <div class="metric-item">
+          <b>+1,500</b>
+          <span>Sueños Cumplidos</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ==================== PASO 01 ==================== -->
+  <section id="paso1" class="panel" data-video="paso1">
+    <div class="container-center">
+      <div class="super-card">
+        <div class="pill-badge">
+          <span class="dot">01</span>
+          <span>PASO 01 DE 03 — <span class="tag-gold">INICIO DEL VIAJE</span></span>
+        </div>
+
+        <h2 class="text-hero-shadow">¿Qué tienes que hacer?<br><span style="color: var(--gold);">Inscribirte.</span></h2>
+        <p class="lead-text text-sub-shadow">Dar el primer paso es lo más importante: una planificación ordenada, transparente y respaldada colectivamente, diseñada para que alcances tu bien sin deudas asfixiantes.</p>
+
+        <!-- 3 Mini Tarjetas Horizontales con Íconos -->
+        <div class="mini-cards-grid">
+          <div class="mini-card">
+            <div class="icon-circle">📝</div>
+            <h4>1. Registra tu perfil</h4>
+            <p>Datos simples para asignarte el grupo idóneo según tu meta.</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon-circle">⚡</div>
+            <h4>2. Sin trámites pesados</h4>
+            <p>Proceso 100% digital, ágil y sin requisitos imposibles.</p>
+          </div>
+          <div class="mini-card">
+            <div class="icon-circle">🛡️</div>
+            <h4>3. Cupo inmediato</h4>
+            <p>Activación rápida y acompañamiento personalizado desde el día uno.</p>
+          </div>
+        </div>
+
+        <a href="#paso2" class="btn-cta" style="padding: 14px 32px; font-size: 0.95rem;">
+          <span>Avanzar al Paso 02</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PASO 02 ==================== -->
+  <section id="paso2" class="panel" data-video="proyecto">
+    <div class="container-center">
+      <div class="pill-badge">
+        <span class="dot">02</span>
+        <span>PASO 02 DE 03 — <span class="tag-gold">SELECCIÓN DE ACTIVO</span></span>
+      </div>
+
+      <h2 class="text-hero-shadow">Paso 2: ¿Qué bien <span style="color: var(--gold);">necesitas?</span></h2>
+
+      <!-- 3 Tarjetas Visuales Grandes e Interactivas -->
+      <div class="goods-grid">
+        <!-- Tarjeta 1: Vehículo -->
+        <div class="good-card" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo" tabindex="0">
+          <div>
+            <span class="top-badge">Movilidad Urbana</span>
+            <span class="card-icon">🚗</span>
+            <h3>Vehículo</h3>
+            <p>Automóviles nuevos o motocicletas de alta gama. Conduce tus proyectos con cuotas planificadas y sin intermediarios abusivos.</p>
+          </div>
+          <div class="select-cue">
+            <span>Explorar Vehículos</span>
+            <span class="check-circle">✓</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Inmueble -->
+        <div class="good-card" data-bien="Inmueble / Hogar" data-video="inmueble" tabindex="0">
+          <div>
+            <span class="top-badge">Patrimonio Familiar</span>
+            <span class="card-icon">🏢</span>
+            <h3>Inmueble</h3>
+            <p>Vivienda propia, remodelación o activos inmobiliarios comerciales. Construye tu estabilidad sobre bases sólidas y seguras.</p>
+          </div>
+          <div class="select-cue">
+            <span>Explorar Vivienda</span>
+            <span class="check-circle">✓</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Proyecto -->
+        <div class="good-card sel" data-bien="Proyecto / Capital Planificado" data-video="proyecto" tabindex="0">
+          <div>
+            <span class="top-badge">Libertad Financiera</span>
+            <span class="card-icon">📈</span>
+            <h3>Proyecto</h3>
+            <p>Capital planificado para emprendimientos, maquinaria, tecnología o expansión de negocios con respaldo institucional real.</p>
+          </div>
+          <div class="select-cue">
+            <span>Explorar Proyectos</span>
+            <span class="check-circle">✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PASO 03 ==================== -->
   <section id="paso3" class="panel" data-video="docs">
-    <div class="content reveal">
-      <span class="num">03</span>
-      <h2>Paso 3: <em>Documentos.</em></h2>
-      <p class="lead">Rellena este formulario para más información.</p>
-      <form id="form" class="glass-form" novalidate>
-        <label>Bien elegido
-          <select name="bien" id="bien">
-            <option>Vehículo (Auto / Moto)</option>
-            <option>Inmueble / Hogar</option>
-            <option selected>Proyecto / Capital Planificado</option>
-          </select>
-        </label>
-        <label>Nombre completo<input name="nombre" required autocomplete="name"></label>
-        <label>Cédula / ID<input name="cedula" required inputmode="numeric"></label>
-        <label>WhatsApp<input name="whatsapp" type="tel" required autocomplete="tel"></label>
-        <label>Ciudad<input name="ciudad" required autocomplete="address-level2"></label>
-        <button type="submit" class="btn-gold big"><span>Enviar solicitud</span></button>
-        <p id="msg" role="status"></p>
-      </form>
+    <div class="container-center">
+      <div class="two-col-layout">
+        <!-- Columna Izquierda: Información y Requisitos -->
+        <div class="col-info">
+          <div class="pill-badge">
+            <span class="dot">03</span>
+            <span>PASO 03 DE 03 — <span class="tag-gold">ÚLTIMO PASO</span></span>
+          </div>
+
+          <h2 class="text-hero-shadow">Paso 3: <span style="color: var(--gold);">Documentos.</span></h2>
+          <p class="lead-sub text-sub-shadow">Rellena este formulario para recibir el plan estructurado de adjudicación correspondiente a tu elección.</p>
+
+          <div class="req-list">
+            <div class="req-item">
+              <span class="req-check">✓</span>
+              <div>
+                <b>Requisitos Transparentes</b>
+                <span>Solo cédula o documento de identidad oficial para iniciar.</span>
+              </div>
+            </div>
+            <div class="req-item">
+              <span class="req-check">✓</span>
+              <div>
+                <b>Validación Inmediata</b>
+                <span>Atención directa y confidencial vía WhatsApp Oficial.</span>
+              </div>
+            </div>
+            <div class="req-item">
+              <span class="req-check">✓</span>
+              <div>
+                <b>Respaldo Institucional</b>
+                <span>Acompañamiento guiado paso a paso por un asesor especializado.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Formulario Premium de 2 Columnas -->
+        <div class="form-card">
+          <h3>Solicitud de Registro</h3>
+          <p class="form-subtitle">Completa tus datos para enviarte la propuesta personalizada.</p>
+
+          <form id="form" class="compact-form" novalidate>
+            <!-- Selector de Bien -->
+            <div class="form-field">
+              <label for="bien">Bien Seleccionado</label>
+              <select name="bien" id="bien">
+                <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
+                <option value="Inmueble / Hogar">Inmueble / Hogar</option>
+                <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
+              </select>
+            </div>
+
+            <!-- Fila 1: Nombre + Cédula -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Nombre Completo</label>
+                <input id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="cedula">Cédula / ID</label>
+                <input id="cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
+              </div>
+            </div>
+
+            <!-- Fila 2: WhatsApp + Ciudad -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="whatsapp">WhatsApp / Teléfono</label>
+                <input id="whatsapp" name="whatsapp" type="tel" placeholder="Ej. 311 7795935" required autocomplete="tel">
+              </div>
+              <div class="form-field">
+                <label for="ciudad">Ciudad</label>
+                <input id="ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
+              </div>
+            </div>
+
+            <!-- Fila 3: Correo Electrónico -->
+            <div class="form-field">
+              <label for="email">Correo Electrónico</label>
+              <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" class="btn-submit">
+              <span>ENVIAR SOLICITUD AHORA →</span>
+            </button>
+            <p id="msg" role="status"></p>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
+<!-- FOOTER MINIMALISTA -->
 <footer>
   <img src="images/logo.svg" alt="Sistema Winners" class="flogo">
-  <nav><a href="cotizador.html">Cotizador</a><a href="productos.html">Productos</a><a href="contacto.html">Contacto</a><a href="politicas.html">Políticas</a></nav>
-  <small>© Sistema Winners</small>
+  <nav>
+    <a href="cotizador.html">Cotizador</a>
+    <a href="productos.html">Productos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="politicas.html">Políticas</a>
+  </nav>
+  <small>© 2026 Sistema Winners. Todos los derechos reservados.</small>
 </footer>
 
-<a class="wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="images/whatsapp.png" alt=""></a>
+<!-- BOTÓN FLOTANTE WHATSAPP CON PULSO -->
+<a class="wa-float" id="wa" href="https://wa.me/573117795935" target="_blank" rel="noopener" aria-label="Contacto Directo por WhatsApp">
+  <img src="images/whatsapp.png" alt="WhatsApp">
+</a>
 
+<!-- LIBRERÍAS DE ANIMACIÓN Y SMOOTH SCROLL (LENIS + GSAP + SCROLLTRIGGER) -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/inmersivo.js"></script>
 </body>
 </html>
