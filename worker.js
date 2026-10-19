@@ -59,7 +59,8 @@ export default {
       "tu-pago-en-linea",
       "devoluciones",
       "resultados-asamblea",
-      "politicas"
+      "politicas",
+      "inmersivo"
     ];
     const cleanName = pathname.replace(/^\//, "");
     if (cleanPages.includes(cleanName)) {
