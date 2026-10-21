@@ -206,6 +206,56 @@
     .mobile-nav { display: none; }
     .mobile-nav.open { display: block; }
 
+    /* ---------- Proceso en 3 pasos: efecto premium ---------- */
+    .paso-num {
+      font-size: clamp(3.2rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      background: linear-gradient(110deg, #FFE885 0%, #EEAA2B 38%, #8A5A00 50%, #EEAA2B 62%, #FFE885 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: pasoShine 3.6s linear infinite;
+      filter: drop-shadow(0 6px 22px rgba(238, 170, 43, 0.4));
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes pasoShine {
+      to { background-position: -250% center; }
+    }
+    .paso-card { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    .paso-card:hover { transform: translateY(-10px); }
+    .paso-card:hover .paso-num { transform: scale(1.12); }
+    /* Barra dorada que se dibuja al aparecer */
+    .paso-bar {
+      display: block;
+      height: 3px;
+      margin: 14px auto 0;
+      width: 120px;
+      overflow: hidden;
+    }
+    .paso-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #EEAA2B 30%, #FFDD77 50%, #EEAA2B 70%, transparent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 14px rgba(238, 170, 43, 0.65);
+    }
+    .visible .paso-bar span { transform: scaleX(1); }
+    /* Aparición escalonada al hacer scroll */
+    .paso-d1 { transition-delay: 0s; }
+    .paso-d2 { transition-delay: 0.18s; }
+    .paso-d3 { transition-delay: 0.36s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .paso-num { animation: none; -webkit-text-fill-color: #EEAA2B; }
+      .paso-card, .paso-card:hover { transform: none; transition: none; }
+      .visible .paso-bar span { transform: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -714,23 +764,26 @@
   <!-- Los 3 pasos flotantes -->
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mt-14 text-center">
 
-    <div class="reveal">
-      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">01</p>
+    <div class="reveal paso-card paso-d1">
+      <p class="paso-num">01</p>
       <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Uno</p>
+      <div class="paso-bar"><span></span></div>
       <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué tienes que hacer? Inscribirte</h3>
       <p class="text-white/80 mt-3 leading-relaxed">Regístrate como Socio Inversionista y asegura tu posición en el sistema.</p>
     </div>
 
-    <div class="reveal">
-      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">02</p>
+    <div class="reveal paso-card paso-d2">
+      <p class="paso-num">02</p>
       <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Dos</p>
+      <div class="paso-bar"><span></span></div>
       <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué bien o servicio necesitas?</h3>
       <p class="text-white/80 mt-3 leading-relaxed">Elige entre Vehículo (Carro/Moto), Tecnología, Emprendimiento/Fábricas Comunales o Bienestar/Viajes.</p>
     </div>
 
-    <div class="reveal">
-      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">03</p>
+    <div class="reveal paso-card paso-d3">
+      <p class="paso-num">03</p>
       <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Tres</p>
+      <div class="paso-bar"><span></span></div>
       <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">Documentos</h3>
       <p class="text-white/80 mt-3 leading-relaxed">Completa tus datos básicos en el formulario oficial a continuación para recibir asesoría inmediata.</p>
     </div>
