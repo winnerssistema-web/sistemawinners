@@ -147,6 +147,10 @@ strong { font-weight: 700; }
 .w-full { width: 100%; }
 .h-full { height: 100%; }
 .max-w-2xl { max-width: 42rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.pt-48 { padding-top: 12rem; }
+.placeholder-gray-400::placeholder { color: #9ca3af; }
 .max-w-3xl { max-width: 48rem; }
 .max-w-4xl { max-width: 56rem; }
 .max-w-5xl { max-width: 64rem; }
