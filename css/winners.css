@@ -365,7 +365,9 @@ strong { font-weight: 700; }
   .md\:mt-8 { margin-top: 2rem; }
   .md\:mt-12 { margin-top: 3rem; }
   .md\:pt-7 { padding-top: 1.75rem; }
+  .md\:pt-8 { padding-top: 2rem; }
   .md\:pt-36 { padding-top: 9rem; }
+  .md\:justify-start { justify-content: flex-start; }
   .md\:pb-16 { padding-bottom: 4rem; }
   .md\:tracking-\[0\.28em\] { letter-spacing: 0.28em; }
   .md\:h-80 { height: 20rem; }
