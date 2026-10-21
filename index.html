@@ -283,9 +283,20 @@
     .meta-d1 { transition-delay: 0s; }
     .meta-d2 { transition-delay: 0.15s; }
     .meta-d3 { transition-delay: 0.3s; }
-    .meta-item svg { transition: filter 0.35s ease; }
+    .meta-item svg {
+      transition: filter 0.35s ease;
+      animation: metaIconFloat 7s ease-in-out infinite;
+    }
+    .meta-d1 svg { animation-delay: 0s; }
+    .meta-d2 svg { animation-delay: 2.3s; }
+    .meta-d3 svg { animation-delay: 4.6s; }
+    @keyframes metaIconFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-3px) scale(1.08); }
+    }
     .meta-item:hover svg {
       filter: drop-shadow(0 0 8px rgba(238, 170, 43, 0.65));
+      animation-duration: 3.5s;
     }
     .meta-dot {
       animation: metaPulse 4.5s ease-in-out infinite;
@@ -376,6 +387,10 @@
     .paso-d1 { transition-delay: 0s; }
     .paso-d2 { transition-delay: 0.18s; }
     .paso-d3 { transition-delay: 0.36s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .meta-item svg { animation: none; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .paso-num { animation: none; -webkit-text-fill-color: #EEAA2B; }
