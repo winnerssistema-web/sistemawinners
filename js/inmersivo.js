@@ -1,6 +1,6 @@
 (function () {
-  // Número Oficial de WhatsApp (+57 311 7795935)
-  var WA_NUMBER = "573117795935";
+  // Número Oficial de WhatsApp (+57 314 869 1001)
+  var WA_NUMBER = "573148691001";
 
   // Cache de videos de fondo
   var vids = {};

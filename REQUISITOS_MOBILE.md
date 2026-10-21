@@ -68,7 +68,7 @@ Este documento establece la arquitectura obligatoria, reglas de corrección y fl
 4. **SECCIÓN 4: El Proceso en 3 Pasos**
    - **Paso 1: Inscribirte** — Inicio del viaje, 100% digital, sin trámites bancarios ni usura.
    - **Paso 2: ¿Qué bien necesitas?** — Tarjetas interactivas de selección (Vehículo, Inmueble, Proyecto).
-   - **Paso 3: Documentos (Formulario Oficial)** — Envío estructurado hacia WhatsApp Oficial (+57 311 7795935).
+   - **Paso 3: Documentos (Formulario Oficial)** — Envío estructurado hacia WhatsApp Oficial (+57 314 869 1001).
    - **Comunidad (PulseHeart ReactBits):** Botón con física de resorte `swellOf(t, overshoot)` y **persistencia garantizada en localStorage** (`winners_liked_state` y `winners_likes_count`).
 
 ---
