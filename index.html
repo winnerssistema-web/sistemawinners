@@ -26,9 +26,9 @@
 <body>
 
 <!-- =========================================================
-     STAGE DE 6 VIDEOS DE FONDO (100% VIBRANTES Y VISIBLES)
+     STAGE DE VIDEOS DE FONDO (EXCLUSIVO ESCRITORIO)
 ========================================================= -->
-<div class="stage" aria-hidden="true">
+<div class="stage desktop-only" aria-hidden="true">
   <video id="v1" data-key="hero" class="on" autoplay muted loop playsinline preload="auto" src="images/1.mp4">
     <source src="images/1.mp4" type="video/mp4">
   </video>
@@ -43,9 +43,9 @@
 </div>
 
 <!-- =========================================================
-     HEADER FLOTANTE (LOGO BLANCO RESPLANDECIENTE)
+     HEADER FLOTANTE (EXCLUSIVO ESCRITORIO)
 ========================================================= -->
-<header class="pill-header">
+<header class="pill-header desktop-only">
   <a href="#" class="brand" data-goto="0" aria-label="Sistema Winners">
     <img src="images/logo.svg" alt="Sistema Winners">
   </a>
@@ -58,9 +58,9 @@
 </header>
 
 <!-- =========================================================
-     INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER)
+     INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER ESCRITORIO)
 ========================================================= -->
-<div class="deck-controller" aria-label="Navegador de escenas">
+<div class="deck-controller desktop-only" aria-label="Navegador de escenas">
   <div class="scene-dot active" data-goto="0"><span>00. Apertura</span></div>
   <div class="scene-dot" data-goto="1"><span>01. Inscríbete</span></div>
   <div class="scene-dot" data-goto="2"><span>02. Tu Bien</span></div>
@@ -68,9 +68,9 @@
 </div>
 
 <!-- =========================================================
-     DECK FULLSCREEN: 4 ESCENAS CINEMATOGRÁFICAS (SIN SCROLLBAR)
+     DECK FULLSCREEN: 4 ESCENAS CINEMATOGRÁFICAS (EXCLUSIVO ESCRITORIO)
 ========================================================= -->
-<div class="deck" id="stageDeck">
+<div class="deck desktop-only" id="stageDeck">
 
   <!-- ESCENA 0: HERO -->
   <section class="scene scene-hero active" id="scene-0" data-video="hero">
@@ -351,13 +351,338 @@
 
 </div>
 
+<!-- =========================================================
+     EXPERIENCIA MÓVIL INDEPENDIENTE (COMPACTA, RESPONSIVA, 100% INMERSIVA)
+     - Sin videos para máximo rendimiento móvil
+     - Aceternity 3D Hero Parallax con imágenes 1, 2, 3, 4, 5
+     - Botón micro-interactivo PulseHeart al final
+========================================================= -->
+<main class="mobile-experience mobile-only" id="mobileApp">
+
+  <!-- Header Móvil Sticky -->
+  <header class="m-header">
+    <a href="#" class="m-brand" aria-label="Sistema Winners">
+      <img src="images/logo.svg" alt="Sistema Winners">
+    </a>
+    <a href="#m-paso3" class="m-header-action">Inscribirme</a>
+  </header>
+
+  <!-- Hero Móvil -->
+  <section class="m-hero">
+    <div class="m-badge">
+      <span>✨ 100% Digital · Planificación Colectiva</span>
+    </div>
+
+    <h1>¿Quieres ser parte<br><span class="tag-gold">del proceso?</span></h1>
+    <p>Sigue nuestros pasos, déjate llevar hacia tu meta con total respaldo y claridad. Adquiere tu vehículo, inmueble o proyecto sin deudas asfixiantes.</p>
+
+    <a href="#m-paso1" class="m-cta-btn">
+      <span>¿Qué tienes que hacer? Descúbrelo</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="19 12 12 19 5 12"></polyline>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Aceternity 3D Hero Parallax Showcase (Imágenes 1, 2, 3, 4, 5) -->
+  <div class="m-hero-parallax-wrap" aria-label="Galería interactiva de metas y beneficios">
+    <div class="m-parallax-stage">
+      
+      <!-- Fila 1: Parallax horizontal hacia la izquierda -->
+      <div class="m-parallax-row m-parallax-row-1">
+        <div class="m-parallax-card">
+          <img src="images/1.jpg" alt="Vehículo y Movilidad" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">🚗 Movilidad</span>
+            <span class="m-card-title">Vehículo Propio</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/2.jpg" alt="Visión al Futuro" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">🎯 Visión</span>
+            <span class="m-card-title">Planificación Inteligente</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/3.jpg" alt="Patrimonio Seguro" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">🏡 Hogar</span>
+            <span class="m-card-title">Inmueble Soñado</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/4.jpg" alt="Agilidad y Libertad" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">⚡ Agilidad</span>
+            <span class="m-card-title">Sin Intereses Usureros</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 2: Parallax horizontal hacia la derecha -->
+      <div class="m-parallax-row m-parallax-row-2">
+        <div class="m-parallax-card">
+          <img src="images/5.jpg" alt="Proyectos y Capital" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">⭐ Libertad</span>
+            <span class="m-card-title">Capital para Proyectos</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/1.jpg" alt="Tu Conquista Personal" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">🔥 Resultados</span>
+            <span class="m-card-title">Entrega Programada</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/2.jpg" alt="Claridad en Cada Paso" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">🤝 Respaldo</span>
+            <span class="m-card-title">Acompañamiento 24/7</span>
+          </div>
+        </div>
+        <div class="m-parallax-card">
+          <img src="images/4.jpg" alt="Proceso Transparente" loading="lazy">
+          <div class="m-parallax-card-overlay">
+            <span class="m-card-tag">📜 Legalidad</span>
+            <span class="m-card-title">100% Transparente</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Métricas Rápidas -->
+  <div class="m-metrics">
+    <div class="m-metric-pill">
+      <b>100%</b>
+      <span>Respaldo Legal</span>
+    </div>
+    <div class="m-metric-pill">
+      <b>03</b>
+      <span>Pasos Simples</span>
+    </div>
+    <div class="m-metric-pill">
+      <b>24/7</b>
+      <span>Asesoría Directa</span>
+    </div>
+    <div class="m-metric-pill">
+      <b>+1,500</b>
+      <span>Metas Cumplidas</span>
+    </div>
+  </div>
+
+  <!-- Paso 01: Inscríbete -->
+  <section class="m-section" id="m-paso1">
+    <div class="m-section-header">
+      <div class="m-step-badge">PASO 01 · INICIO DEL VIAJE</div>
+      <h2>¿Qué tienes que hacer?<br><span class="tag-gold">Inscribirte.</span></h2>
+      <p>Dar el primer paso es lo más importante: una planificación ordenada, colectiva y pensada para ti.</p>
+    </div>
+
+    <div class="m-features-list">
+      <div class="m-feature-item">
+        <div class="m-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <div class="m-feature-info">
+          <h3>Proceso 100% Digital</h3>
+          <p>Sin filas ni papeleos eternos. Realiza tu registro directamente desde tu celular en minutos.</p>
+        </div>
+      </div>
+
+      <div class="m-feature-item">
+        <div class="m-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="m-feature-info">
+          <h3>Sin Intereses Bancarios</h3>
+          <p>Tu dinero crece y se respalda colectivamente, libre de tasas de usura e intermediarios abusivos.</p>
+        </div>
+      </div>
+
+      <div class="m-feature-item">
+        <div class="m-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div class="m-feature-info">
+          <h3>Entrega Programada Garantizada</h3>
+          <p>Puntualidad y reglas claras bajo contrato legal desde el día número uno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paso 02: Tu Bien (Imágenes 1, 3, 5) -->
+  <section class="m-section" id="m-paso2">
+    <div class="m-section-header">
+      <div class="m-step-badge">PASO 02 · TU ELECCIÓN</div>
+      <h2>Elige el activo que<br><span class="tag-gold">quieres conquistar</span></h2>
+      <p>Selecciona tu bien para ajustar automáticamente tu solicitud:</p>
+    </div>
+
+    <div class="m-goods-list">
+      <!-- Opción 1: Vehículo (Foto 1.jpg) -->
+      <div class="m-good-card" data-m-bien="Vehículo (Auto / Moto)">
+        <div class="m-good-thumb">
+          <img src="images/1.jpg" alt="Vehículo (Auto / Moto)" loading="lazy">
+        </div>
+        <div class="m-good-details">
+          <span class="tag">Movilidad Urbana</span>
+          <h3>Vehículo Propio</h3>
+          <p>Autos nuevos o motocicletas con cuotas planificadas y sin bancos.</p>
+        </div>
+        <div class="m-good-check">✓</div>
+      </div>
+
+      <!-- Opción 2: Inmueble (Foto 3.jpg) -->
+      <div class="m-good-card" data-m-bien="Inmueble / Hogar">
+        <div class="m-good-thumb">
+          <img src="images/3.jpg" alt="Inmueble / Hogar" loading="lazy">
+        </div>
+        <div class="m-good-details">
+          <span class="tag">Patrimonio Familiar</span>
+          <h3>Inmueble o Vivienda</h3>
+          <p>Vivienda propia, remodelación o locales comerciales con base sólida.</p>
+        </div>
+        <div class="m-good-check">✓</div>
+      </div>
+
+      <!-- Opción 3: Proyecto (Foto 5.jpg) -->
+      <div class="m-good-card sel" data-m-bien="Proyecto / Capital Planificado">
+        <div class="m-good-thumb">
+          <img src="images/5.jpg" alt="Proyecto / Capital Planificado" loading="lazy">
+        </div>
+        <div class="m-good-details">
+          <span class="tag">Libertad Financiera</span>
+          <h3>Proyecto / Capital</h3>
+          <p>Capital planificado para tu negocio, maquinaria o expansión comercial.</p>
+        </div>
+        <div class="m-good-check">✓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paso 03: Documentos & Registro -->
+  <section class="m-section" id="m-paso3">
+    <div class="m-section-header">
+      <div class="m-step-badge">PASO 03 · ÚLTIMO PASO</div>
+      <h2>Completa tus datos para<br><span class="tag-gold">tu propuesta oficial</span></h2>
+      <p>Solo requerimos tu documento básico para estructurar tu plan sin costo:</p>
+    </div>
+
+    <div class="m-form-card">
+      <form id="m_form" novalidate>
+        <div class="m-form-field">
+          <label for="m_bien">Bien Seleccionado</label>
+          <select id="m_bien" name="bien">
+            <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
+            <option value="Inmueble / Hogar">Inmueble / Hogar</option>
+            <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
+          </select>
+        </div>
+
+        <div class="m-form-field">
+          <label for="m_nombre">Nombre Completo</label>
+          <input type="text" id="m_nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+        </div>
+
+        <div class="m-form-field">
+          <label for="m_cedula">Cédula / Documento ID</label>
+          <input type="tel" id="m_cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
+        </div>
+
+        <div class="m-form-field">
+          <label for="m_whatsapp">WhatsApp / Celular</label>
+          <input type="tel" id="m_whatsapp" name="whatsapp" placeholder="Ej. 311 7795935" required autocomplete="tel">
+        </div>
+
+        <div class="m-form-field">
+          <label for="m_ciudad">Ciudad</label>
+          <input type="text" id="m_ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
+        </div>
+
+        <div class="m-form-field">
+          <label for="m_email">Correo Electrónico</label>
+          <input type="email" id="m_email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+        </div>
+
+        <button type="submit" class="m-btn-submit">
+          <span>ENVIAR SOLICITUD AHORA →</span>
+        </button>
+        <p id="m_msg" role="status" style="margin-top:10px; font-size:0.82rem; text-align:center;"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Tarjeta Social & Botón PulseHeart (ReactBits Micro-Interaction) -->
+  <section class="m-social-card">
+    <div class="m-badge">❤️ COMUNIDAD WINNERS</div>
+    <h3>¿Te gusta este modelo de adjudicación?</h3>
+    <p>Más de 1,500 socios planifican su libertad financiera con nosotros. Haz clic en el botón para sumarte al respaldo colectivo:</p>
+
+    <!-- Botón PulseHeart con animación física e incremento dinámico -->
+    <button
+      id="pulseHeartBtn"
+      type="button"
+      class="pulse-heart"
+      aria-pressed="false"
+      data-liked="false"
+      aria-label="Apoyar el modelo colaborativo, 1542 me gusta"
+    >
+      <span class="pulse-heart__pill">
+        <span class="pulse-heart__heart" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g class="pulse-heart__glyph">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" vector-effect="non-scaling-stroke"></path>
+            </g>
+          </svg>
+        </span>
+        <span class="pulse-heart__count" aria-hidden="true">
+          <span>1</span>
+          <span>,</span>
+          <span>5</span>
+          <span>4</span>
+          <span class="pulse-heart__slot">
+            <span class="pulse-heart__roll" id="phRoll">
+              <span id="phDigitA">2</span>
+              <span id="phDigitB">3</span>
+            </span>
+          </span>
+        </span>
+        <span class="pulse-heart__label">Me gusta el proceso</span>
+      </span>
+    </button>
+  </section>
+
+  <!-- Footer Móvil -->
+  <footer class="m-footer">
+    <img src="images/logo.svg" alt="Sistema Winners">
+    <p>© 2026 Sistema Winners S.A.S. Todos los derechos reservados.</p>
+    <p style="margin-top: 4px; font-size: 0.7rem; color: rgba(255,255,255,0.35);">Planificación Inteligente de Activos y Fondos Colaborativos</p>
+  </footer>
+
+</main>
+
 <!-- BOTÓN FLOTANTE WHATSAPP CON PULSO -->
 <a class="wa-float" id="wa" href="https://wa.me/573117795935" target="_blank" rel="noopener" aria-label="Contacto Directo por WhatsApp">
   <img src="images/whatsapp.png" alt="WhatsApp">
 </a>
 
-<!-- GSAP PARA TRANSICIONES CINEMATOGRÁFICAS DE ESCENA -->
+<!-- GSAP + SCROLLTRIGGER PARA TRANSICIONES CINEMATOGRÁFICAS Y HERO PARALLAX -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/inmersivo.js"></script>
 </body>
 </html>

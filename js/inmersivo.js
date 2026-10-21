@@ -41,42 +41,57 @@
     currentKey = key;
   }
 
-  // Reproducir video inicial (Hero / Escena 0: "¿Quieres ser parte del proceso?")
-  function startHeroVideo() {
-    if (vids.hero) {
-      vids.hero.muted = true;
-      var p = vids.hero.play();
-      if (p !== undefined) {
-        p.catch(function () {});
+  var isMobile = window.innerWidth <= 900;
+
+  if (isMobile) {
+    // EN VERSIÓN MÓVIL NO SE USAN VIDEOS: desconectar para ahorrar datos y batería
+    Object.keys(vids).forEach(function (k) {
+      if (vids[k]) {
+        try {
+          vids[k].pause();
+          vids[k].removeAttribute('src');
+          vids[k].load();
+        } catch (e) {}
+      }
+    });
+  } else {
+    // Reproducir video inicial (Hero / Escena 0: "¿Quieres ser parte del proceso?")
+    function startHeroVideo() {
+      if (vids.hero) {
+        vids.hero.muted = true;
+        var p = vids.hero.play();
+        if (p !== undefined) {
+          p.catch(function () {});
+        }
       }
     }
-  }
 
-  startHeroVideo();
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startHeroVideo);
-  }
-
-  // Desbloqueo garantizado en caso de políticas restrictivas de autoplay en móviles/escritorio
-  var unlockEvents = ['click', 'touchstart', 'scroll', 'wheel', 'keydown'];
-  function unlockHeroVideo() {
     startHeroVideo();
-    unlockEvents.forEach(function (evt) {
-      window.removeEventListener(evt, unlockHeroVideo);
-    });
-  }
-  unlockEvents.forEach(function (evt) {
-    window.addEventListener(evt, unlockHeroVideo, { passive: true, once: true });
-  });
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startHeroVideo);
+    }
 
-  // Precarga estratégica de videos secundarios
-  setTimeout(function () { if (vids.paso1) loadVideo(vids.paso1); }, 800);
-  setTimeout(function () {
-    if (vids.proyecto) loadVideo(vids.proyecto);
-    if (vids.vehiculo) loadVideo(vids.vehiculo);
-    if (vids.inmueble) loadVideo(vids.inmueble);
-    if (vids.docs) loadVideo(vids.docs);
-  }, 2500);
+    // Desbloqueo garantizado en caso de políticas restrictivas de autoplay en escritorio
+    var unlockEvents = ['click', 'touchstart', 'scroll', 'wheel', 'keydown'];
+    function unlockHeroVideo() {
+      startHeroVideo();
+      unlockEvents.forEach(function (evt) {
+        window.removeEventListener(evt, unlockHeroVideo);
+      });
+    }
+    unlockEvents.forEach(function (evt) {
+      window.addEventListener(evt, unlockHeroVideo, { passive: true, once: true });
+    });
+
+    // Precarga estratégica de videos secundarios en escritorio
+    setTimeout(function () { if (vids.paso1) loadVideo(vids.paso1); }, 800);
+    setTimeout(function () {
+      if (vids.proyecto) loadVideo(vids.proyecto);
+      if (vids.vehiculo) loadVideo(vids.vehiculo);
+      if (vids.inmueble) loadVideo(vids.inmueble);
+      if (vids.docs) loadVideo(vids.docs);
+    }, 2500);
+  }
 
   // =========================================================
   // MOTOR DE ESCENAS FULLSCREEN DECK (0, 1, 2, 3)
@@ -194,9 +209,9 @@
   // CONTROLADORES DE ENTRADA: WHEEL / TOUCH / KEYS
   // =========================================================
 
-  // 1. Wheel (Rueda del Mouse con Cooldown)
+  // 1. Wheel (Rueda del Mouse con Cooldown para Escritorio)
   window.addEventListener('wheel', function (e) {
-    if (isTransitioning) return;
+    if (isMobile || isTransitioning) return;
     if (e.deltaY > 25) {
       nextScene();
     } else if (e.deltaY < -25) {
@@ -204,14 +219,15 @@
     }
   }, { passive: true });
 
-  // 2. Touch (Swipe en Móviles)
+  // 2. Touch (Swipe exclusivo en modo Escritorio/Tablet deck)
   var touchStartY = 0;
   window.addEventListener('touchstart', function (e) {
+    if (isMobile) return;
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
 
   window.addEventListener('touchend', function (e) {
-    if (isTransitioning) return;
+    if (isMobile || isTransitioning) return;
     var touchEndY = e.changedTouches[0].clientY;
     var diff = touchStartY - touchEndY;
     if (diff > 50) {
@@ -324,6 +340,211 @@
 
       var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
       window.open(waUrl, '_blank');
+    });
+  }
+
+  // =========================================================
+  // MÓVIL: HERO PARALLAX 3D (ACETERNITY STYLE CON SCROLLTRIGGER)
+  // =========================================================
+  if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
+    try {
+      gsap.registerPlugin(ScrollTrigger);
+
+      var pWrap = document.querySelector('.m-hero-parallax-wrap');
+      if (pWrap) {
+        gsap.to('.m-parallax-row-1', {
+          x: -120,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pWrap,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8
+          }
+        });
+
+        gsap.to('.m-parallax-row-2', {
+          x: 120,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pWrap,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8
+          }
+        });
+      }
+
+      // Animaciones suaves de entrada para componentes móviles
+      gsap.utils.toArray('.m-feature-item, .m-good-card, .m-metric-pill, .m-form-card').forEach(function (el) {
+        gsap.from(el, {
+          opacity: 0,
+          y: 24,
+          duration: 0.65,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+    } catch (err) {}
+  }
+
+  // =========================================================
+  // MÓVIL: PASO 02 - SELECCIÓN DE BIEN CON FOTOS 1, 3, 5
+  // =========================================================
+  var mCards = document.querySelectorAll('.m-good-card');
+  var mSelect = document.getElementById('m_bien');
+  var dSelect = document.getElementById('bien');
+
+  mCards.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var val = this.dataset.mBien;
+      mCards.forEach(function (item) { item.classList.remove('sel'); });
+      this.classList.add('sel');
+
+      if (mSelect) mSelect.value = val;
+      if (dSelect) dSelect.value = val;
+
+      var paso3 = document.getElementById('m-paso3');
+      if (paso3) {
+        paso3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // =========================================================
+  // MÓVIL: PASO 03 - FORMULARIO COMPACTO Y ENVÍO DIRECTO
+  // =========================================================
+  var mForm = document.getElementById('m_form');
+  var mMsg = document.getElementById('m_msg');
+
+  if (mForm) {
+    mForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var isValid = true;
+      var data = new FormData(mForm);
+
+      mForm.querySelectorAll('input[required]').forEach(function (input) {
+        var empty = !input.value.trim();
+        input.style.borderColor = empty ? '#ef4444' : '';
+        if (empty) isValid = false;
+      });
+
+      if (!isValid) {
+        if (mMsg) mMsg.textContent = 'Por favor completa todos los campos requeridos.';
+        return;
+      }
+
+      var text = 'Hola Sistema Winners, quiero solicitar mi registro institucional (Móvil):\n\n' +
+        '📌 Bien Elegido: ' + data.get('bien') + '\n' +
+        '👤 Nombre: ' + data.get('nombre') + '\n' +
+        '🪪 Cédula / ID: ' + data.get('cedula') + '\n' +
+        '📱 WhatsApp: ' + data.get('whatsapp') + '\n' +
+        '📍 Ciudad: ' + data.get('ciudad') + '\n' +
+        '✉️ Correo: ' + data.get('email');
+
+      if (mMsg) mMsg.textContent = '¡Datos listos! Redirigiendo a WhatsApp…';
+
+      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+      window.open(waUrl, '_blank');
+    });
+  }
+
+  // =========================================================
+  // REACTBITS: PULSE HEART MICRO-INTERACTION (VANILLA JS CON FÍSICA)
+  // =========================================================
+  var phBtn = document.getElementById('pulseHeartBtn');
+  if (phBtn) {
+    var OUT = 0.4;
+    function back(k, c) {
+      var u = k - 1;
+      return 1 + (c + 1) * Math.pow(u, 3) + c * Math.pow(u, 2);
+    }
+    function swellOf(t, c) {
+      return t <= 0 ? 0 : t < OUT ? 1 - Math.pow(1 - t / OUT, 3) : 1 - back((t - OUT) / (1 - OUT), c);
+    }
+
+    var liked = false;
+    var duration = 560;
+    var dotSize = 0.3;
+    var overshoot = 1.7;
+    var beat = 3;
+    var rafId = 0;
+
+    var pill = phBtn.querySelector('.pulse-heart__pill');
+    var glyph = phBtn.querySelector('.pulse-heart__glyph');
+    var rollEl = document.getElementById('phRoll');
+    var digitA = document.getElementById('phDigitA');
+    var digitB = document.getElementById('phDigitB');
+
+    // Pointer feedback
+    phBtn.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      phBtn.setAttribute('data-pressed', '');
+    });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (evt) {
+      phBtn.addEventListener(evt, function () {
+        phBtn.removeAttribute('data-pressed');
+      });
+    });
+
+    phBtn.addEventListener('click', function () {
+      if (rafId) return;
+      liked = !liked;
+
+      // Haptic feedback en dispositivos táctiles
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate(18);
+      }
+
+      phBtn.setAttribute('data-liked', String(liked));
+      phBtn.setAttribute('aria-pressed', String(liked));
+
+      // Rolling digit counter animation
+      if (rollEl && digitA && digitB) {
+        if (liked) {
+          digitA.textContent = '2';
+          digitB.textContent = '3';
+          rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
+          rollEl.style.transform = 'translateY(-1.1em)';
+        } else {
+          digitA.textContent = '3';
+          digitB.textContent = '2';
+          rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
+          rollEl.style.transform = 'translateY(-1.1em)';
+          setTimeout(function () {
+            rollEl.style.transition = 'none';
+            rollEl.style.transform = 'translateY(0)';
+            digitA.textContent = '2';
+            digitB.textContent = '3';
+          }, 360);
+        }
+      }
+
+      // Physics pulse animation loop
+      var t0 = performance.now();
+      function tick(now) {
+        var t = Math.min(1, (now - t0) / duration);
+        var s = swellOf(t, overshoot);
+        var k = 1 - (1 - dotSize) * s;
+        if (glyph) {
+          glyph.setAttribute('transform', 'translate(12 12) scale(' + k + ') translate(-12 -12)');
+        }
+        if (pill) {
+          pill.style.transform = 'scale(' + (1 - (beat / 100) * s) + ')';
+        }
+        if (t < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          rafId = 0;
+          if (glyph) glyph.removeAttribute('transform');
+          if (pill) pill.style.transform = '';
+        }
+      }
+      rafId = requestAnimationFrame(tick);
     });
   }
 
