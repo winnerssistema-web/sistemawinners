@@ -32,13 +32,19 @@
   <video id="v1" data-key="hero" class="on" autoplay muted loop playsinline preload="auto" src="images/1.mp4">
     <source src="images/1.mp4" type="video/mp4">
   </video>
-  <video id="v2" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4">
+  <video id="v2" data-key="servicios" muted loop playsinline preload="none" data-src="images/2.mp4">
     <source src="images/2.mp4" type="video/mp4">
   </video>
-  <video id="v3" data-key="proyecto" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
-  <video id="v5" data-key="inmueble" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
-  <video id="v6" data-key="vehiculo" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
-  <video id="v4" data-key="docs" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
+  <video id="v3" data-key="testimonios" muted loop playsinline preload="none" data-src="images/1.mp4">
+    <source src="images/1.mp4" type="video/mp4">
+  </video>
+  <video id="v4" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4">
+    <source src="images/2.mp4" type="video/mp4">
+  </video>
+  <video id="v5" data-key="proyecto" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
+  <video id="v6" data-key="inmueble" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
+  <video id="v7" data-key="vehiculo" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
+  <video id="v8" data-key="docs" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
   <div class="vignette"></div>
 </div>
 
@@ -50,9 +56,11 @@
     <img src="images/logo.svg" alt="Sistema Winners">
   </a>
   <nav class="steps-nav" aria-label="Progreso de la experiencia">
-    <button type="button" data-goto="1">01. Inscríbete</button>
-    <button type="button" data-goto="2">02. Tu Bien</button>
-    <button type="button" data-goto="3">03. Documentos</button>
+    <button type="button" data-goto="1">Productos y Servicios</button>
+    <button type="button" data-goto="2">Métricas y Reseñas</button>
+    <button type="button" data-goto="3">01. Inscríbete</button>
+    <button type="button" data-goto="4">02. Tu Bien</button>
+    <button type="button" data-goto="5">03. Documentos</button>
   </nav>
   <button type="button" class="btn-header" data-goto="1">Comenzar</button>
 </header>
@@ -61,14 +69,16 @@
      INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER ESCRITORIO)
 ========================================================= -->
 <div class="deck-controller desktop-only" aria-label="Navegador de escenas">
-  <div class="scene-dot active" data-goto="0"><span>00. Apertura</span></div>
-  <div class="scene-dot" data-goto="1"><span>01. Inscríbete</span></div>
-  <div class="scene-dot" data-goto="2"><span>02. Tu Bien</span></div>
-  <div class="scene-dot" data-goto="3"><span>03. Documentos</span></div>
+  <div class="scene-dot active" data-goto="0"><span>00. Portada</span></div>
+  <div class="scene-dot" data-goto="1"><span>01. Productos y Servicios</span></div>
+  <div class="scene-dot" data-goto="2"><span>02. Testimonios & Métricas</span></div>
+  <div class="scene-dot" data-goto="3"><span>03. Paso 1: Inscríbete</span></div>
+  <div class="scene-dot" data-goto="4"><span>04. Paso 2: Tu Bien</span></div>
+  <div class="scene-dot" data-goto="5"><span>05. Paso 3: Documentos</span></div>
 </div>
 
 <!-- =========================================================
-     DECK FULLSCREEN: 4 ESCENAS CINEMATOGRÁFICAS (EXCLUSIVO ESCRITORIO)
+     DECK FULLSCREEN: 6 ESCENAS CINEMATOGRÁFICAS (EXCLUSIVO ESCRITORIO)
 ========================================================= -->
 <div class="deck desktop-only" id="stageDeck">
 
@@ -117,8 +127,343 @@
     </div>
   </section>
 
-  <!-- ESCENA 1: PASO 01 (TEXTOS Y 3 MINI-PILLS SIN CAJA NEGRA) -->
-  <section class="scene scene-paso1" id="scene-1" data-video="paso1">
+  <!-- ESCENA 1: SECCIÓN 2 — PRODUCTOS Y SERVICIOS -->
+  <section class="scene scene-servicios" id="scene-1" data-video="servicios">
+    <div class="scene-inner">
+      <div class="pill-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+        <span>MODELO DE ADJUDICACIÓN COLECTIVA</span>
+      </div>
+
+      <h2 class="floating-text-shadow">PRODUCTOS Y SERVICIOS</h2>
+
+      <!-- Comparativa Multifinanciamiento vs Autofinanciamiento -->
+      <div class="compare-grid">
+        <!-- Bloque 1: Sistema Multifinanciamiento (Dorado #EEAA2B) -->
+        <div class="compare-card compare-card-gold">
+          <span class="compare-tag compare-tag-gold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Recomendado · Modelo Colaborativo
+          </span>
+          <h3>SISTEMA MULTIFINANCIAMIENTO</h3>
+          <p class="compare-sub">A través de este sistema te permite obtener:</p>
+          <ul class="compare-list">
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Los productos comunales.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Promover tus emprendimientos.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Obtener apalancamientos para tus ideas.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Participar en otras iniciativas productivas y comerciales.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bloque 2: Diferente a Sistema de Autofinanciamiento -->
+        <div class="compare-card compare-card-dim">
+          <span class="compare-tag compare-tag-dim">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            Modelo Convencional Limitado
+          </span>
+          <h3>DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h3>
+          <p class="compare-sub">Restricciones de esquemas tradicionales:</p>
+          <ul class="compare-list">
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-dim">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </span>
+              <span>Te ofrecen productos y servicios propios.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-dim">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </span>
+              <span>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bloque 3: Cierre de Poder con ShinyText -->
+      <div class="compare-callout">
+        <span class="shiny-text">EMPRENDER ES EL CAMINO</span>
+        <p class="shiny-sub">Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.</p>
+      </div>
+
+      <button type="button" class="btn-cta" data-goto="2" style="margin-top: 20px; padding: 13px 32px; font-size: 0.95rem;">
+        <span>Ver Métricas y Testimonios</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ESCENA 2: SECCIÓN 3 — ODOMETER + TESTIMONIOS -->
+  <section class="scene scene-testimonios" id="scene-2" data-video="testimonios">
+    <div class="scene-inner">
+      <div class="pill-badge">
+        <span class="tag-gold">IMPACTO REAL</span>
+        <span>· COMUNIDAD Y RESULTADOS</span>
+      </div>
+
+      <h2 class="floating-text-shadow">Métricas y <span style="color: var(--gold);">Testimonios</span></h2>
+
+      <!-- 3A: Contador Odometer Vertical (Slot Machine Effect) -->
+      <div class="odometer-strip">
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="1500">
+            <span class="odometer-static">+</span>
+            <span class="odometer-digit-track" data-val="1">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
+              </span>
+            </span>
+            <span class="odometer-static">,</span>
+            <span class="odometer-digit-track" data-val="5">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+          </div>
+          <p class="odometer-label">Emprendimientos Impulsados</p>
+        </div>
+
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="5300">
+            <span class="odometer-static">+</span>
+            <span class="odometer-digit-track" data-val="5">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </span>
+            </span>
+            <span class="odometer-static">,</span>
+            <span class="odometer-digit-track" data-val="3">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+          </div>
+          <p class="odometer-label">Sueños y Bienes Adjudicados</p>
+        </div>
+
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="100%">
+            <span class="odometer-digit-track" data-val="1">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-static">%</span>
+          </div>
+          <p class="odometer-label">Apalancamiento Colectivo</p>
+        </div>
+      </div>
+
+      <!-- 3B: Aceternity Animated Tooltip (Fila de 5 Avatares Superpuestos) -->
+      <div class="tooltip-avatar-row">
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socio Emprendedor</span>
+            <span class="tooltip-name">Carlos Andrés M.</span>
+            <span class="tooltip-role">Vehículo Adjudicado</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socia Activa</span>
+            <span class="tooltip-name">Elena Restrepo</span>
+            <span class="tooltip-role">Capital de Expansión</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/hero-slide1.jpg" alt="Elena Restrepo" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Adjudicado 2026</span>
+            <span class="tooltip-name">Mauricio Gómez</span>
+            <span class="tooltip-role">Vivienda Familiar</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/hero-slide2.jpg" alt="Mauricio Gómez" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Plan Familiar</span>
+            <span class="tooltip-name">Paola & Andrea</span>
+            <span class="tooltip-role">Movilidad Urbana</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/moto-familia.jpg" alt="Paola & Andrea" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socio Fundador</span>
+            <span class="tooltip-name">David Fernando K.</span>
+            <span class="tooltip-role">Maquinaria Comercial</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/moto-referidos.jpg" alt="David Fernando K." class="tooltip-avatar-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Tarjetas de Testimonio basadas en Uiverse (breezy-eagle-39 + clever-elephant-35) -->
+      <div class="uiverse-testimonials-grid">
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="r1" id="r1-1" type="radio">
+                  <label for="r1-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="r1" id="r1-2" type="radio">
+                  <label for="r1-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="r1" id="r1-3" type="radio">
+                  <label for="r1-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="r1" id="r1-4" type="radio">
+                  <label for="r1-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="r1" id="r1-5" type="radio" checked>
+                  <label for="r1-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Carlos Andrés M.</p>
+              <span class="uiverse-role">Socio Emprendedor</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Gracias al Sistema Multifinanciamiento logré apalancar mi propio negocio y adquirir mi vehículo sin las trabas del autofinanciamiento tradicional."
+          </p>
+        </div>
+
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/moto-familia.jpg" alt="Familia Gómez R." class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="r2" id="r2-1" type="radio">
+                  <label for="r2-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="r2" id="r2-2" type="radio">
+                  <label for="r2-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="r2" id="r2-3" type="radio">
+                  <label for="r2-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="r2" id="r2-4" type="radio">
+                  <label for="r2-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="r2" id="r2-5" type="radio" checked>
+                  <label for="r2-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Familia Gómez R.</p>
+              <span class="uiverse-role">Movilidad & Hogar</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Pudimos obtener nuestro vehículo familiar con un plan transparente y cuotas justas. El acompañamiento del equipo Winners fue impecable desde el primer día."
+          </p>
+        </div>
+
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/moto-referidos.jpg" alt="Mateo Valenzuela" class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="r3" id="r3-1" type="radio">
+                  <label for="r3-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="r3" id="r3-2" type="radio">
+                  <label for="r3-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="r3" id="r3-3" type="radio">
+                  <label for="r3-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="r3" id="r3-4" type="radio">
+                  <label for="r3-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="r3" id="r3-5" type="radio" checked>
+                  <label for="r3-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Mateo Valenzuela</p>
+              <span class="uiverse-role">Proyecto Productivo</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Emprender no es fácil cuando los bancos te cierran las puertas. Sistema Winners nos dio el apalancamiento que necesitábamos para reactivar nuestras ideas."
+          </p>
+        </div>
+      </div>
+
+      <button type="button" class="btn-cta" data-goto="3" style="margin-top: 20px; padding: 13px 32px; font-size: 0.95rem;">
+        <span>Conocer los 3 Pasos del Proceso</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ESCENA 3: PASO 01 (TEXTOS Y 3 MINI-PILLS SIN CAJA NEGRA) -->
+  <section class="scene scene-paso1" id="scene-3" data-video="paso1">
     <div class="scene-inner">
       <div class="pill-badge">
         <span class="dot">01</span>
@@ -165,7 +510,7 @@
         </div>
       </div>
 
-      <button type="button" class="btn-cta" data-goto="2" style="padding: 14px 34px; font-size: 0.96rem;">
+      <button type="button" class="btn-cta" data-goto="4" style="padding: 14px 34px; font-size: 0.96rem;">
         <span>Avanzar al Paso 02</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -175,8 +520,8 @@
     </div>
   </section>
 
-  <!-- ESCENA 2: PASO 02 (3 TARJETAS ULTRA-TRANSLÚCIDAS CON SVGS) -->
-  <section class="scene scene-paso2" id="scene-2" data-video="proyecto">
+  <!-- ESCENA 4: PASO 02 (3 TARJETAS ULTRA-TRANSLÚCIDAS CON SVGS) -->
+  <section class="scene scene-paso2" id="scene-4" data-video="proyecto">
     <div class="scene-inner">
       <div class="pill-badge">
         <span class="dot">02</span>
@@ -186,7 +531,7 @@
       <h2 class="floating-text-shadow">Paso 2: ¿Qué bien <span style="color: var(--gold);">necesitas?</span></h2>
 
       <div class="goods-grid">
-        <!-- Tarjeta 1: Vehículo (Dispara 6.mp4) -->
+        <!-- Tarjeta 1: Vehículo -->
         <div class="good-pill" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo" tabindex="0">
           <div>
             <span class="top-badge">Movilidad Urbana</span>
@@ -207,7 +552,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 2: Inmueble (Dispara 5.mp4) -->
+        <!-- Tarjeta 2: Inmueble -->
         <div class="good-pill" data-bien="Inmueble / Hogar" data-video="inmueble" tabindex="0">
           <div>
             <span class="top-badge">Patrimonio Familiar</span>
@@ -230,7 +575,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 3: Proyecto (Dispara 3.mp4) -->
+        <!-- Tarjeta 3: Proyecto -->
         <div class="good-pill sel" data-bien="Proyecto / Capital Planificado" data-video="proyecto" tabindex="0">
           <div>
             <span class="top-badge">Libertad Financiera</span>
@@ -252,8 +597,8 @@
     </div>
   </section>
 
-  <!-- ESCENA 3: PASO 03 (CABINA TRANSLÚCIDA 2 COLS CON FORMULARIO) -->
-  <section class="scene scene-paso3" id="scene-3" data-video="docs">
+  <!-- ESCENA 5: PASO 03 (CABINA TRANSLÚCIDA 2 COLS CON FORMULARIO) -->
+  <section class="scene scene-paso3" id="scene-5" data-video="docs">
     <div class="scene-inner">
       <div class="two-col-layout">
         <!-- Columna Izquierda: Información -->
@@ -397,7 +742,7 @@
       <h1>¿Quieres ser parte<br><span class="tag-gold">del proceso?</span></h1>
       <p>Sigue nuestros pasos, déjate llevar hacia tu meta con total respaldo y claridad. Adquiere tu vehículo, inmueble o proyecto sin deudas asfixiantes.</p>
 
-      <a href="#m-paso1" class="m-cta-btn">
+      <a href="#m-servicios" class="m-cta-btn">
         <span>¿Qué tienes que hacer? Descúbrelo</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -406,11 +751,11 @@
       </a>
     </div>
 
-    <!-- ACETERNITY UI: HERO PARALLAX (3D TILT + HORIZONTAL SCRUB) -->
-    <div class="m-hero-parallax-wrap" aria-label="Galería interactiva Hero Parallax">
-      <div class="m-parallax-stage">
+    <!-- ACETERNITY UI: HERO PARALLAX (3D TILT + EXCLUSIVELY LOCAL IMAGES 1 TO 5) -->
+    <div class="m-hero-parallax-wrap mobile-parallax-stage" aria-label="Galería interactiva Hero Parallax">
+      <div class="m-parallax-stage mobile-parallax-layer">
         
-        <!-- Fila 1: Parallax horizontal hacia la izquierda -->
+        <!-- Fila 1: Parallax horizontal -->
         <div class="m-parallax-row m-parallax-row-1">
           <div class="m-parallax-card">
             <img src="images/1.jpg" alt="Movilidad y Vehículo" loading="lazy">
@@ -471,7 +816,7 @@
           </div>
         </div>
 
-        <!-- Fila 2: Parallax horizontal hacia la derecha -->
+        <!-- Fila 2: Parallax horizontal contrario -->
         <div class="m-parallax-row m-parallax-row-2">
           <div class="m-parallax-card">
             <img src="images/5.jpg" alt="Libertad Financiera" loading="lazy">
@@ -560,12 +905,369 @@
   </div>
 
   <!-- =========================================================
-       SECCIÓN 2: PASO 01 (FONDO INMERSIVO: IMAGEN 2.JPG)
-       INCLUYE ACETERNITY UI: MACBOOK SCROLL ANIMATION
+       SECCIÓN 2: PRODUCTOS Y SERVICIOS (FONDO INMERSIVO: IMAGEN 2.JPG)
+       MULTIFINANCIAMIENTO VS AUTOFINANCIAMIENTO + EMPRENDER ES EL CAMINO
+  ========================================================= -->
+  <section class="m-section m-section-has-bg" id="m-servicios">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
+    </div>
+
+    <div class="m-section-content" style="padding: 24px 16px;">
+      <div class="m-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+        <span>ADJUDICACIÓN COLABORATIVA</span>
+      </div>
+
+      <h2 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">PRODUCTOS Y SERVICIOS</h2>
+
+      <!-- Comparativa Multifinanciamiento vs Autofinanciamiento -->
+      <div class="compare-grid">
+        <!-- Bloque 1: Destacado en Dorado #EEAA2B -->
+        <div class="compare-card compare-card-gold">
+          <span class="compare-tag compare-tag-gold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Recomendado · Modelo Colaborativo
+          </span>
+          <h3>SISTEMA MULTIFINANCIAMIENTO</h3>
+          <p class="compare-sub">A través de este sistema te permite obtener:</p>
+          <ul class="compare-list">
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Los productos comunales.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Promover tus emprendimientos.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Obtener apalancamientos para tus ideas.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Participar en otras iniciativas productivas y comerciales.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bloque 2: Contraste con borde sutil rojo/platino -->
+        <div class="compare-card compare-card-dim">
+          <span class="compare-tag compare-tag-dim">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            Modelo Convencional Limitado
+          </span>
+          <h3>DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h3>
+          <p class="compare-sub">Restricciones de esquemas tradicionales:</p>
+          <ul class="compare-list">
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-dim">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </span>
+              <span>Te ofrecen productos y servicios propios.</span>
+            </li>
+            <li class="compare-item">
+              <span class="compare-icon-wrap compare-icon-dim">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </span>
+              <span>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bloque 3: Cierre de Poder / Callout Central -->
+      <div class="compare-callout">
+        <span class="shiny-text">EMPRENDER ES EL CAMINO</span>
+        <p class="shiny-sub">Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 18px;">
+        <a href="#m-testimonios" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
+          <span>Ver Métricas y Testimonios</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 3: ODOMETER & TESTIMONIOS (FONDO INMERSIVO: IMAGEN 3.JPG)
+       3A: CONTADOR ODOMETER VERTICAL RÁPIDO
+       3B: ACETERNITY ANIMATED TOOLTIP + TARJETA UIVERSE + ESTRELLAS
+  ========================================================= -->
+  <section class="m-section m-section-has-bg" id="m-testimonios">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/3.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
+    </div>
+
+    <div class="m-section-content" style="padding: 24px 16px;">
+      <div class="m-badge">
+        <span class="tag-gold">IMPACTO REAL</span>
+        <span>· RESULTADOS COMPROBADOS</span>
+      </div>
+
+      <h2 style="font-size: 1.55rem; font-weight: 900; margin-bottom: 6px;">Métricas y <span class="tag-gold">Testimonios</span></h2>
+      <p style="font-size: 0.84rem; color: rgba(255,255,255,0.78); max-width: 320px; margin: 0 auto 16px;">Nuestra comunidad se apalanca en reglas transparentes y entregas garantizadas.</p>
+
+      <!-- 3A: Contador Odometer Vertical (Slot Machine Effect) -->
+      <div class="odometer-strip">
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="1500">
+            <span class="odometer-static">+</span>
+            <span class="odometer-digit-track" data-val="1">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
+              </span>
+            </span>
+            <span class="odometer-static">,</span>
+            <span class="odometer-digit-track" data-val="5">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+          </div>
+          <p class="odometer-label">Emprendimientos Impulsados</p>
+        </div>
+
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="5300">
+            <span class="odometer-static">+</span>
+            <span class="odometer-digit-track" data-val="5">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </span>
+            </span>
+            <span class="odometer-static">,</span>
+            <span class="odometer-digit-track" data-val="3">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+          </div>
+          <p class="odometer-label">Sueños y Bienes Adjudicados</p>
+        </div>
+
+        <div class="odometer-card">
+          <div class="odometer-number" data-target="100%">
+            <span class="odometer-digit-track" data-val="1">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-digit-track" data-val="0">
+              <span class="odometer-digit-ribbon">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+              </span>
+            </span>
+            <span class="odometer-static">%</span>
+          </div>
+          <p class="odometer-label">Apalancamiento Colectivo</p>
+        </div>
+      </div>
+
+      <!-- 3B: Aceternity Animated Tooltip (Fila de 5 Avatares) -->
+      <div class="tooltip-avatar-row">
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socio Emprendedor</span>
+            <span class="tooltip-name">Carlos Andrés M.</span>
+            <span class="tooltip-role">Vehículo Adjudicado</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socia Activa</span>
+            <span class="tooltip-name">Elena Restrepo</span>
+            <span class="tooltip-role">Capital de Expansión</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/hero-slide1.jpg" alt="Elena Restrepo" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Adjudicado 2026</span>
+            <span class="tooltip-name">Mauricio Gómez</span>
+            <span class="tooltip-role">Vivienda Familiar</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/hero-slide2.jpg" alt="Mauricio Gómez" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Plan Familiar</span>
+            <span class="tooltip-name">Paola & Andrea</span>
+            <span class="tooltip-role">Movilidad Urbana</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/moto-familia.jpg" alt="Paola & Andrea" class="tooltip-avatar-img" loading="lazy">
+        </div>
+
+        <div class="tooltip-avatar-item" tabindex="0">
+          <div class="tooltip-bubble">
+            <span class="tooltip-badge">Socio Fundador</span>
+            <span class="tooltip-name">David Fernando K.</span>
+            <span class="tooltip-role">Maquinaria Comercial</span>
+            <div class="tooltip-arrow"></div>
+          </div>
+          <img src="images/moto-referidos.jpg" alt="David Fernando K." class="tooltip-avatar-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Tarjetas de Testimonio basadas en Uiverse (breezy-eagle-39 + clever-elephant-35) -->
+      <div class="uiverse-testimonials-grid">
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="mr1" id="mr1-1" type="radio">
+                  <label for="mr1-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="mr1" id="mr1-2" type="radio">
+                  <label for="mr1-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="mr1" id="mr1-3" type="radio">
+                  <label for="mr1-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="mr1" id="mr1-4" type="radio">
+                  <label for="mr1-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="mr1" id="mr1-5" type="radio" checked>
+                  <label for="mr1-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Carlos Andrés M.</p>
+              <span class="uiverse-role">Socio Emprendedor</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Gracias al Sistema Multifinanciamiento logré apalancar mi propio negocio y adquirir mi vehículo sin las trabas del autofinanciamiento tradicional."
+          </p>
+        </div>
+
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/moto-familia.jpg" alt="Familia Gómez R." class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="mr2" id="mr2-1" type="radio">
+                  <label for="mr2-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="mr2" id="mr2-2" type="radio">
+                  <label for="mr2-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="mr2" id="mr2-3" type="radio">
+                  <label for="mr2-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="mr2" id="mr2-4" type="radio">
+                  <label for="mr2-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="mr2" id="mr2-5" type="radio" checked>
+                  <label for="mr2-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Familia Gómez R.</p>
+              <span class="uiverse-role">Movilidad & Hogar</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Pudimos obtener nuestro vehículo familiar con un plan transparente y cuotas justas. El acompañamiento del equipo Winners fue impecable desde el primer día."
+          </p>
+        </div>
+
+        <div class="uiverse-testimonial-card">
+          <div class="uiverse-header">
+            <img src="images/moto-referidos.jpg" alt="Mateo Valenzuela" class="uiverse-avatar" loading="lazy" />
+            <div>
+              <div class="uiverse-stars">
+                <div class="rating-clever-elephant">
+                  <input value="star-1" name="mr3" id="mr3-1" type="radio">
+                  <label for="mr3-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-2" name="mr3" id="mr3-2" type="radio">
+                  <label for="mr3-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-3" name="mr3" id="mr3-3" type="radio">
+                  <label for="mr3-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-4" name="mr3" id="mr3-4" type="radio">
+                  <label for="mr3-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                  <input value="star-5" name="mr3" id="mr3-5" type="radio" checked>
+                  <label for="mr3-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
+                </div>
+              </div>
+              <p class="uiverse-name">Mateo Valenzuela</p>
+              <span class="uiverse-role">Proyecto Productivo</span>
+            </div>
+          </div>
+          <p class="uiverse-message">
+            "Emprender no es fácil cuando los bancos te cierran las puertas. Sistema Winners nos dio el apalancamiento que necesitábamos para reactivar nuestras ideas."
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 18px;">
+        <a href="#m-paso1" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
+          <span>Conocer los 3 Pasos</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 4: EL PROCESO EN 3 PASOS
+       PASO 01: INSCRIBIRTE (FONDO INMERSIVO: IMAGEN 4.JPG) - ¡SIN MACBOOK!
   ========================================================= -->
   <section class="m-section m-section-has-bg" id="m-paso1">
     <div class="m-section-bg" aria-hidden="true">
-      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
+      <img src="images/4.jpg" alt="" class="m-bg-img" loading="lazy">
       <div class="m-bg-overlay"></div>
     </div>
 
@@ -615,61 +1317,24 @@
         </div>
       </div>
 
-      <!-- =========================================================
-           ACETERNITY UI: MACBOOK SCROLL COMPONENT (CON BADGE SVG Y ROTACIÓN 3D)
-      ========================================================= -->
-      <div class="macbook-scroll-wrap" id="macbookSection">
-        <div class="macbook-header">
-          <div class="macbook-title">
-            <span>Plataforma 100% Digital y Segura.<br><span class="tag-gold">Tu planificación en tiempo real.</span></span>
-          </div>
-          <div class="macbook-badge-anchor" title="Certificación de Adjudicación">
-            <!-- Badge SVG oficial Aceternity / Peerlist con rotación -12deg -->
-            <svg class="macbook-badge-svg" width="40" height="40" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28Z" fill="#00AA45"></path>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M28 54C42.3594 54 54 42.3594 54 28C54 13.6406 42.3594 2 28 2C13.6406 2 2 13.6406 2 28C2 42.3594 13.6406 54 28 54ZM28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56Z" fill="#219653"></path>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M27.0769 12H15V46H24.3846V38.8889H27.0769C34.7305 38.8889 41 32.9048 41 25.4444C41 17.984 34.7305 12 27.0769 12ZM24.3846 29.7778V21.1111H27.0769C29.6194 21.1111 31.6154 23.0864 31.6154 25.4444C31.6154 27.8024 29.6194 29.7778 27.0769 29.7778H24.3846Z" fill="#24292E"></path>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M18 11H29.0769C36.2141 11 42 16.5716 42 23.4444C42 30.3173 36.2141 35.8889 29.0769 35.8889H25.3846V43H18V11ZM25.3846 28.7778H29.0769C32.1357 28.7778 34.6154 26.39 34.6154 23.4444C34.6154 20.4989 32.1357 18.1111 29.0769 18.1111H25.3846V28.7778Z" fill="white"></path>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10H29.0769C36.7305 10 43 15.984 43 23.4444C43 30.9048 36.7305 36.8889 29.0769 36.8889H26.3846V44H17V10ZM19 12V42H24.3846V34.8889H29.0769C35.6978 34.8889 41 29.7298 41 23.4444C41 17.1591 35.6978 12 29.0769 12H19ZM24.3846 17.1111H29.0769C32.6521 17.1111 35.6154 19.9114 35.6154 23.4444C35.6154 26.9775 32.6521 29.7778 29.0769 29.7778H24.3846V17.1111ZM26.3846 19.1111V27.7778H29.0769C31.6194 27.7778 33.6154 25.8024 33.6154 23.4444C33.6154 21.0864 31.6194 19.1111 29.0769 19.1111H26.3846Z" fill="#24292E"></path>
-            </svg>
-          </div>
-        </div>
-
-        <div class="macbook-stage">
-          <!-- Pantalla / Lid con rotación 3D en scroll -->
-          <div class="macbook-lid" id="macbookLid">
-            <div class="macbook-screen">
-              <img src="images/celular-plan.jpg" alt="Demostración de Plataforma Winners" class="macbook-screen-img" loading="lazy">
-              <div class="macbook-notch"></div>
-              <div class="macbook-glass-reflection"></div>
-            </div>
-          </div>
-          <!-- Base y Teclado MacBook -->
-          <div class="macbook-base">
-            <div class="macbook-keyboard">
-              <div class="key-row"><span class="kkey">esc</span><span class="kkey">F1</span><span class="kkey">F2</span><span class="kkey">F3</span><span class="kkey">F4</span><span class="kkey">F5</span><span class="kkey">F6</span><span class="kkey">F7</span><span class="kkey">F8</span><span class="kkey">F9</span><span class="kkey">F10</span><span class="kkey">F11</span><span class="kkey">F12</span><span class="kkey">pwr</span></div>
-              <div class="key-row"><span class="kkey">~</span><span class="kkey">1</span><span class="kkey">2</span><span class="kkey">3</span><span class="kkey">4</span><span class="kkey">5</span><span class="kkey">6</span><span class="kkey">7</span><span class="kkey">8</span><span class="kkey">9</span><span class="kkey">0</span><span class="kkey">-</span><span class="kkey">=</span><span class="kkey kkey-wide">del</span></div>
-              <div class="key-row"><span class="kkey kkey-wide">tab</span><span class="kkey">Q</span><span class="kkey">W</span><span class="kkey">E</span><span class="kkey">R</span><span class="kkey">T</span><span class="kkey">Y</span><span class="kkey">U</span><span class="kkey">I</span><span class="kkey">O</span><span class="kkey">P</span><span class="kkey">[</span><span class="kkey">]</span><span class="kkey">\</span></div>
-              <div class="key-row"><span class="kkey kkey-wide2">caps</span><span class="kkey">A</span><span class="kkey">S</span><span class="kkey">D</span><span class="kkey">F</span><span class="kkey">G</span><span class="kkey">H</span><span class="kkey">J</span><span class="kkey">K</span><span class="kkey">L</span><span class="kkey">;</span><span class="kkey">'</span><span class="kkey kkey-wide2">return</span></div>
-              <div class="key-row"><span class="kkey kkey-wide3">shift</span><span class="kkey">Z</span><span class="kkey">X</span><span class="kkey">C</span><span class="kkey">V</span><span class="kkey">B</span><span class="kkey">N</span><span class="kkey">M</span><span class="kkey">,</span><span class="kkey">.</span><span class="kkey">/</span><span class="kkey kkey-wide3">shift</span></div>
-              <div class="key-row"><span class="kkey">fn</span><span class="kkey">ctrl</span><span class="kkey">opt</span><span class="kkey kkey-cmd">cmd</span><span class="kkey kkey-space"></span><span class="kkey kkey-cmd">cmd</span><span class="kkey">opt</span><span class="kkey">◄</span><span class="kkey">▲▼</span><span class="kkey">►</span></div>
-            </div>
-            <div class="macbook-trackpad"></div>
-            <div class="macbook-notch-base"></div>
-          </div>
-          <div class="macbook-ambient-glow"></div>
-        </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="#m-paso2" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
+          <span>Avanzar al Paso 02</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
-
     </div>
   </section>
 
   <!-- =========================================================
-       SECCIÓN 3: PASO 02 (FONDO INMERSIVO: IMAGEN 3.JPG)
+       SECCIÓN 4: PASO 02 (FONDO INMERSIVO: IMAGEN 5.JPG)
   ========================================================= -->
   <section class="m-section m-section-has-bg" id="m-paso2">
     <div class="m-section-bg" aria-hidden="true">
-      <img src="images/3.jpg" alt="" class="m-bg-img" loading="lazy">
+      <img src="images/5.jpg" alt="" class="m-bg-img" loading="lazy">
       <div class="m-bg-overlay"></div>
     </div>
 
@@ -757,11 +1422,11 @@
   </section>
 
   <!-- =========================================================
-       SECCIÓN 4: PASO 03 (FONDO INMERSIVO: IMAGEN 4.JPG)
+       SECCIÓN 4: PASO 03 (FONDO INMERSIVO: IMAGEN 1.JPG)
   ========================================================= -->
   <section class="m-section m-section-has-bg" id="m-paso3">
     <div class="m-section-bg" aria-hidden="true">
-      <img src="images/4.jpg" alt="" class="m-bg-img" loading="lazy">
+      <img src="images/1.jpg" alt="" class="m-bg-img" loading="lazy">
       <div class="m-bg-overlay"></div>
     </div>
 
@@ -822,12 +1487,12 @@
   </section>
 
   <!-- =========================================================
-       SECCIÓN 5: COMUNIDAD & ME GUSTA (FONDO INMERSIVO: IMAGEN 5.JPG)
+       SECCIÓN 5: COMUNIDAD & ME GUSTA (FONDO INMERSIVO: IMAGEN 2.JPG)
        INCLUYE REACTBITS PULSEHEART CON PERSISTENCIA EN LOCALSTORAGE
   ========================================================= -->
   <section class="m-section m-section-has-bg m-social-section" id="m-social">
     <div class="m-section-bg" aria-hidden="true">
-      <img src="images/5.jpg" alt="" class="m-bg-img" loading="lazy">
+      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
       <div class="m-bg-overlay"></div>
     </div>
 

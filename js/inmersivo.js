@@ -120,9 +120,11 @@
 
   function getVideoForScene(index) {
     if (index === 0) return 'hero';
-    if (index === 1) return 'paso1';
-    if (index === 2) return chosenPaso2Video;
-    if (index === 3) return 'docs';
+    if (index === 1) return 'servicios';
+    if (index === 2) return 'testimonios';
+    if (index === 3) return 'paso1';
+    if (index === 4) return chosenPaso2Video;
+    if (index === 5) return 'docs';
     return 'hero';
   }
 
@@ -139,6 +141,11 @@
     // Cambiar video correspondiente
     switchVideo(getVideoForScene(nextIndex));
     updateIndicators(nextIndex);
+
+    // Si la escena entrante es la de métricas (Escena 2), disparar odómetro
+    if (nextIndex === 2) {
+      spinOdometers(nextEl);
+    }
 
     // Activar visibilidad de la escena entrante antes de animar
     nextEl.style.visibility = 'visible';
@@ -262,6 +269,67 @@
   });
 
   // =========================================================
+  // SECCIÓN 3: ODOMETER GIRATORIO (SLOT MACHINE) & TOOLTIPS
+  // =========================================================
+  function spinOdometers(container) {
+    var root = container || document;
+    var tracks = root.querySelectorAll('.odometer-digit-track');
+    tracks.forEach(function (track, i) {
+      var val = parseInt(track.dataset.val, 10);
+      if (isNaN(val)) return;
+      var ribbon = track.querySelector('.odometer-digit-ribbon');
+      if (!ribbon) return;
+
+      // Reset sin transición
+      ribbon.style.transition = 'none';
+      ribbon.style.transform = 'translateY(0)';
+      ribbon.classList.remove('spinning');
+
+      // Disparar giro con aceleración y settling suave
+      setTimeout(function () {
+        ribbon.classList.add('spinning');
+        var dur = 1.35 + (i % 4) * 0.15;
+        ribbon.style.transition = 'transform ' + dur + 's cubic-bezier(0.12, 0.8, 0.18, 1)';
+        ribbon.style.transform = 'translateY(-' + ((10 + val) * 1.1) + 'em)';
+        setTimeout(function () {
+          ribbon.classList.remove('spinning');
+        }, dur * 1000 + 60);
+      }, 50 + (i % 4) * 70);
+    });
+  }
+
+  // Soporte interactivo táctil para Avatares (Aceternity Animated Tooltip)
+  var avatarItems = document.querySelectorAll('.tooltip-avatar-item');
+  avatarItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var wasActive = item.classList.contains('active');
+      avatarItems.forEach(function (it) { it.classList.remove('active'); });
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  document.addEventListener('click', function () {
+    avatarItems.forEach(function (it) { it.classList.remove('active'); });
+  });
+
+  // Disparador IntersectionObserver en móvil para #m-testimonios
+  var mobileTestimonios = document.getElementById('m-testimonios');
+  if (mobileTestimonios && 'IntersectionObserver' in window) {
+    var odoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          spinOdometers(mobileTestimonios);
+          odoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    odoObserver.observe(mobileTestimonios);
+  }
+
+  // =========================================================
   // PASO 2: TARJETAS INTERACTIVAS
   // =========================================================
   var selectBien = document.getElementById('bien');
@@ -273,19 +341,19 @@
 
     // Hover: Previsualiza el video
     pill.addEventListener('mouseenter', function () {
-      if (currentScene === 2) {
+      if (currentScene === 4) {
         switchVideo(videoKey);
       }
     });
 
     // Mouseleave: Vuelve al video seleccionado
     pill.addEventListener('mouseleave', function () {
-      if (currentScene === 2) {
+      if (currentScene === 4) {
         switchVideo(chosenPaso2Video);
       }
     });
 
-    // Click: Fija la elección y transiciona a la Escena 3
+    // Click: Fija la elección y transiciona a la Escena 5 (Documentos)
     pill.addEventListener('click', function () {
       chosenPaso2Video = videoKey;
       switchVideo(chosenPaso2Video);
@@ -297,9 +365,9 @@
         selectBien.value = bienValue;
       }
 
-      // Avanzar suavemente a la Escena 3 (Documentos)
+      // Avanzar suavemente a la Escena 5 (Documentos)
       setTimeout(function () {
-        goToScene(3);
+        goToScene(5);
       }, 250);
     });
   });
@@ -376,25 +444,7 @@
         });
       }
 
-      // 2. Aceternity UI Macbook Scroll (Rotación 3D de la tapa al hacer scroll)
-      var macbookLid = document.getElementById('macbookLid');
-      var macbookSection = document.getElementById('macbookSection');
-      if (macbookLid && macbookSection) {
-        gsap.fromTo(macbookLid,
-          { rotateX: 38, scale: 0.94 },
-          {
-            rotateX: 0,
-            scale: 1.02,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: macbookSection,
-              start: 'top 82%',
-              end: 'bottom 55%',
-              scrub: 1
-            }
-          }
-        );
-      }
+      // 2. Parallax sutil en los fondos 1, 2, 3, 4, 5 de las secciones móviles
 
       // 3. Parallax sutil en los fondos 1, 2, 3, 4, 5 de las secciones móviles
       gsap.utils.toArray('.m-section-has-bg').forEach(function (sec) {
