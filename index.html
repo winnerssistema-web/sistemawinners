@@ -203,7 +203,7 @@
           </div>
           <div class="select-cue">
             <span>Explorar Vehículos</span>
-            <span class="check-circle">✓</span>
+            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
           </div>
         </div>
 
@@ -226,7 +226,7 @@
           </div>
           <div class="select-cue">
             <span>Explorar Vivienda</span>
-            <span class="check-circle">✓</span>
+            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
           </div>
         </div>
 
@@ -245,7 +245,7 @@
           </div>
           <div class="select-cue">
             <span>Explorar Proyectos</span>
-            <span class="check-circle">✓</span>
+            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
           </div>
         </div>
       </div>
@@ -340,7 +340,11 @@
             </div>
 
             <button type="submit" class="btn-submit">
-              <span>ENVIAR SOLICITUD AHORA →</span>
+              <span>ENVIAR SOLICITUD AHORA</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </button>
             <p id="msg" role="status"></p>
           </form>
@@ -364,99 +368,178 @@
     <a href="#" class="m-brand" aria-label="Sistema Winners">
       <img src="images/logo.svg" alt="Sistema Winners">
     </a>
-    <a href="#m-paso3" class="m-header-action">Inscribirme</a>
-  </header>
-
-  <!-- Hero Móvil -->
-  <section class="m-hero">
-    <div class="m-badge">
-      <span>✨ 100% Digital · Planificación Colectiva</span>
-    </div>
-
-    <h1>¿Quieres ser parte<br><span class="tag-gold">del proceso?</span></h1>
-    <p>Sigue nuestros pasos, déjate llevar hacia tu meta con total respaldo y claridad. Adquiere tu vehículo, inmueble o proyecto sin deudas asfixiantes.</p>
-
-    <a href="#m-paso1" class="m-cta-btn">
-      <span>¿Qué tienes que hacer? Descúbrelo</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <polyline points="19 12 12 19 5 12"></polyline>
+    <a href="#m-paso3" class="m-header-action">
+      <span>Inscribirme</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
       </svg>
     </a>
+  </header>
+
+  <!-- =========================================================
+       SECCIÓN 1: HERO MÓVIL (FONDO INMERSIVO: IMAGEN 1.JPG)
+  ========================================================= -->
+  <section class="m-hero m-section-has-bg" id="m-hero">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/1.jpg" alt="" class="m-bg-img" loading="eager">
+      <div class="m-bg-overlay"></div>
+    </div>
+
+    <div class="m-section-content">
+      <div class="m-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>100% Digital · Planificación Colectiva</span>
+      </div>
+
+      <h1>¿Quieres ser parte<br><span class="tag-gold">del proceso?</span></h1>
+      <p>Sigue nuestros pasos, déjate llevar hacia tu meta con total respaldo y claridad. Adquiere tu vehículo, inmueble o proyecto sin deudas asfixiantes.</p>
+
+      <a href="#m-paso1" class="m-cta-btn">
+        <span>¿Qué tienes que hacer? Descúbrelo</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ACETERNITY UI: HERO PARALLAX (3D TILT + HORIZONTAL SCRUB) -->
+    <div class="m-hero-parallax-wrap" aria-label="Galería interactiva Hero Parallax">
+      <div class="m-parallax-stage">
+        
+        <!-- Fila 1: Parallax horizontal hacia la izquierda -->
+        <div class="m-parallax-row m-parallax-row-1">
+          <div class="m-parallax-card">
+            <img src="images/1.jpg" alt="Movilidad y Vehículo" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="8" rx="2"></rect>
+                  <path d="M5 11l2-5h10l2 5"></path>
+                  <circle cx="7.5" cy="15.5" r="1.5"></circle>
+                  <circle cx="16.5" cy="15.5" r="1.5"></circle>
+                </svg>
+                Movilidad
+              </span>
+              <span class="m-card-title">Vehículo Propio</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/2.jpg" alt="Visión y Estrategia" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+                Visión
+              </span>
+              <span class="m-card-title">Planificación Inteligente</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/3.jpg" alt="Patrimonio Inmobiliario" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l8-4v18"></path>
+                  <path d="M19 21V11l-6-4"></path>
+                </svg>
+                Hogar
+              </span>
+              <span class="m-card-title">Inmueble Soñado</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/4.jpg" alt="Agilidad y Rapidez" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                Agilidad
+              </span>
+              <span class="m-card-title">Cero Intereses Usureros</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 2: Parallax horizontal hacia la derecha -->
+        <div class="m-parallax-row m-parallax-row-2">
+          <div class="m-parallax-card">
+            <img src="images/5.jpg" alt="Libertad Financiera" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                Libertad
+              </span>
+              <span class="m-card-title">Capital para Proyectos</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/1.jpg" alt="Resultados Reales" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7.5"></path>
+                  <path d="M14 14.66V17c0 .55.45 1 1 1h1.5"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Resultados
+              </span>
+              <span class="m-card-title">Entrega Programada</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/2.jpg" alt="Acompañamiento y Respaldo" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Respaldo
+              </span>
+              <span class="m-card-title">Acompañamiento 24/7</span>
+            </div>
+          </div>
+
+          <div class="m-parallax-card">
+            <img src="images/4.jpg" alt="Transparencia y Legalidad" loading="lazy">
+            <div class="m-parallax-card-overlay">
+              <span class="m-card-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Legalidad
+              </span>
+              <span class="m-card-title">100% Transparente</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <!-- Aceternity 3D Hero Parallax Showcase (Imágenes 1, 2, 3, 4, 5) -->
-  <div class="m-hero-parallax-wrap" aria-label="Galería interactiva de metas y beneficios">
-    <div class="m-parallax-stage">
-      
-      <!-- Fila 1: Parallax horizontal hacia la izquierda -->
-      <div class="m-parallax-row m-parallax-row-1">
-        <div class="m-parallax-card">
-          <img src="images/1.jpg" alt="Vehículo y Movilidad" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">🚗 Movilidad</span>
-            <span class="m-card-title">Vehículo Propio</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/2.jpg" alt="Visión al Futuro" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">🎯 Visión</span>
-            <span class="m-card-title">Planificación Inteligente</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/3.jpg" alt="Patrimonio Seguro" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">🏡 Hogar</span>
-            <span class="m-card-title">Inmueble Soñado</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/4.jpg" alt="Agilidad y Libertad" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">⚡ Agilidad</span>
-            <span class="m-card-title">Sin Intereses Usureros</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fila 2: Parallax horizontal hacia la derecha -->
-      <div class="m-parallax-row m-parallax-row-2">
-        <div class="m-parallax-card">
-          <img src="images/5.jpg" alt="Proyectos y Capital" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">⭐ Libertad</span>
-            <span class="m-card-title">Capital para Proyectos</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/1.jpg" alt="Tu Conquista Personal" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">🔥 Resultados</span>
-            <span class="m-card-title">Entrega Programada</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/2.jpg" alt="Claridad en Cada Paso" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">🤝 Respaldo</span>
-            <span class="m-card-title">Acompañamiento 24/7</span>
-          </div>
-        </div>
-        <div class="m-parallax-card">
-          <img src="images/4.jpg" alt="Proceso Transparente" loading="lazy">
-          <div class="m-parallax-card-overlay">
-            <span class="m-card-tag">📜 Legalidad</span>
-            <span class="m-card-title">100% Transparente</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Métricas Rápidas -->
+  <!-- Métricas Rápidas Móvil -->
   <div class="m-metrics">
     <div class="m-metric-pill">
       <b>100%</b>
@@ -476,194 +559,322 @@
     </div>
   </div>
 
-  <!-- Paso 01: Inscríbete -->
-  <section class="m-section" id="m-paso1">
-    <div class="m-section-header">
-      <div class="m-step-badge">PASO 01 · INICIO DEL VIAJE</div>
-      <h2>¿Qué tienes que hacer?<br><span class="tag-gold">Inscribirte.</span></h2>
-      <p>Dar el primer paso es lo más importante: una planificación ordenada, colectiva y pensada para ti.</p>
+  <!-- =========================================================
+       SECCIÓN 2: PASO 01 (FONDO INMERSIVO: IMAGEN 2.JPG)
+       INCLUYE ACETERNITY UI: MACBOOK SCROLL ANIMATION
+  ========================================================= -->
+  <section class="m-section m-section-has-bg" id="m-paso1">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
     </div>
 
-    <div class="m-features-list">
-      <div class="m-feature-item">
-        <div class="m-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-          </svg>
+    <div class="m-section-content">
+      <div class="m-section-header">
+        <div class="m-step-badge">PASO 01 · INICIO DEL VIAJE</div>
+        <h2>¿Qué tienes que hacer?<br><span class="tag-gold">Inscribirte.</span></h2>
+        <p>Dar el primer paso es lo más importante: una planificación ordenada, colectiva y pensada para ti.</p>
+      </div>
+
+      <div class="m-features-list">
+        <div class="m-feature-item">
+          <div class="m-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <div class="m-feature-info">
+            <h3>Proceso 100% Digital</h3>
+            <p>Sin filas ni papeleos eternos. Realiza tu registro directamente desde tu celular en minutos.</p>
+          </div>
         </div>
-        <div class="m-feature-info">
-          <h3>Proceso 100% Digital</h3>
-          <p>Sin filas ni papeleos eternos. Realiza tu registro directamente desde tu celular en minutos.</p>
+
+        <div class="m-feature-item">
+          <div class="m-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="m-feature-info">
+            <h3>Sin Intereses Bancarios</h3>
+            <p>Tu dinero crece y se respalda colectivamente, libre de tasas de usura e intermediarios abusivos.</p>
+          </div>
+        </div>
+
+        <div class="m-feature-item">
+          <div class="m-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <div class="m-feature-info">
+            <h3>Entrega Programada Garantizada</h3>
+            <p>Puntualidad y reglas claras bajo contrato legal desde el día número uno.</p>
+          </div>
         </div>
       </div>
 
-      <div class="m-feature-item">
-        <div class="m-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
+      <!-- =========================================================
+           ACETERNITY UI: MACBOOK SCROLL COMPONENT (CON BADGE SVG Y ROTACIÓN 3D)
+      ========================================================= -->
+      <div class="macbook-scroll-wrap" id="macbookSection">
+        <div class="macbook-header">
+          <div class="macbook-title">
+            <span>Plataforma 100% Digital y Segura.<br><span class="tag-gold">Tu planificación en tiempo real.</span></span>
+          </div>
+          <div class="macbook-badge-anchor" title="Certificación de Adjudicación">
+            <!-- Badge SVG oficial Aceternity / Peerlist con rotación -12deg -->
+            <svg class="macbook-badge-svg" width="40" height="40" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28Z" fill="#00AA45"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M28 54C42.3594 54 54 42.3594 54 28C54 13.6406 42.3594 2 28 2C13.6406 2 2 13.6406 2 28C2 42.3594 13.6406 54 28 54ZM28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56Z" fill="#219653"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M27.0769 12H15V46H24.3846V38.8889H27.0769C34.7305 38.8889 41 32.9048 41 25.4444C41 17.984 34.7305 12 27.0769 12ZM24.3846 29.7778V21.1111H27.0769C29.6194 21.1111 31.6154 23.0864 31.6154 25.4444C31.6154 27.8024 29.6194 29.7778 27.0769 29.7778H24.3846Z" fill="#24292E"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18 11H29.0769C36.2141 11 42 16.5716 42 23.4444C42 30.3173 36.2141 35.8889 29.0769 35.8889H25.3846V43H18V11ZM25.3846 28.7778H29.0769C32.1357 28.7778 34.6154 26.39 34.6154 23.4444C34.6154 20.4989 32.1357 18.1111 29.0769 18.1111H25.3846V28.7778Z" fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10H29.0769C36.7305 10 43 15.984 43 23.4444C43 30.9048 36.7305 36.8889 29.0769 36.8889H26.3846V44H17V10ZM19 12V42H24.3846V34.8889H29.0769C35.6978 34.8889 41 29.7298 41 23.4444C41 17.1591 35.6978 12 29.0769 12H19ZM24.3846 17.1111H29.0769C32.6521 17.1111 35.6154 19.9114 35.6154 23.4444C35.6154 26.9775 32.6521 29.7778 29.0769 29.7778H24.3846V17.1111ZM26.3846 19.1111V27.7778H29.0769C31.6194 27.7778 33.6154 25.8024 33.6154 23.4444C33.6154 21.0864 31.6194 19.1111 29.0769 19.1111H26.3846Z" fill="#24292E"></path>
+            </svg>
+          </div>
         </div>
-        <div class="m-feature-info">
-          <h3>Sin Intereses Bancarios</h3>
-          <p>Tu dinero crece y se respalda colectivamente, libre de tasas de usura e intermediarios abusivos.</p>
+
+        <div class="macbook-stage">
+          <!-- Pantalla / Lid con rotación 3D en scroll -->
+          <div class="macbook-lid" id="macbookLid">
+            <div class="macbook-screen">
+              <img src="images/celular-plan.jpg" alt="Demostración de Plataforma Winners" class="macbook-screen-img" loading="lazy">
+              <div class="macbook-notch"></div>
+              <div class="macbook-glass-reflection"></div>
+            </div>
+          </div>
+          <!-- Base y Teclado MacBook -->
+          <div class="macbook-base">
+            <div class="macbook-keyboard">
+              <div class="key-row"><span class="kkey">esc</span><span class="kkey">F1</span><span class="kkey">F2</span><span class="kkey">F3</span><span class="kkey">F4</span><span class="kkey">F5</span><span class="kkey">F6</span><span class="kkey">F7</span><span class="kkey">F8</span><span class="kkey">F9</span><span class="kkey">F10</span><span class="kkey">F11</span><span class="kkey">F12</span><span class="kkey">pwr</span></div>
+              <div class="key-row"><span class="kkey">~</span><span class="kkey">1</span><span class="kkey">2</span><span class="kkey">3</span><span class="kkey">4</span><span class="kkey">5</span><span class="kkey">6</span><span class="kkey">7</span><span class="kkey">8</span><span class="kkey">9</span><span class="kkey">0</span><span class="kkey">-</span><span class="kkey">=</span><span class="kkey kkey-wide">del</span></div>
+              <div class="key-row"><span class="kkey kkey-wide">tab</span><span class="kkey">Q</span><span class="kkey">W</span><span class="kkey">E</span><span class="kkey">R</span><span class="kkey">T</span><span class="kkey">Y</span><span class="kkey">U</span><span class="kkey">I</span><span class="kkey">O</span><span class="kkey">P</span><span class="kkey">[</span><span class="kkey">]</span><span class="kkey">\</span></div>
+              <div class="key-row"><span class="kkey kkey-wide2">caps</span><span class="kkey">A</span><span class="kkey">S</span><span class="kkey">D</span><span class="kkey">F</span><span class="kkey">G</span><span class="kkey">H</span><span class="kkey">J</span><span class="kkey">K</span><span class="kkey">L</span><span class="kkey">;</span><span class="kkey">'</span><span class="kkey kkey-wide2">return</span></div>
+              <div class="key-row"><span class="kkey kkey-wide3">shift</span><span class="kkey">Z</span><span class="kkey">X</span><span class="kkey">C</span><span class="kkey">V</span><span class="kkey">B</span><span class="kkey">N</span><span class="kkey">M</span><span class="kkey">,</span><span class="kkey">.</span><span class="kkey">/</span><span class="kkey kkey-wide3">shift</span></div>
+              <div class="key-row"><span class="kkey">fn</span><span class="kkey">ctrl</span><span class="kkey">opt</span><span class="kkey kkey-cmd">cmd</span><span class="kkey kkey-space"></span><span class="kkey kkey-cmd">cmd</span><span class="kkey">opt</span><span class="kkey">◄</span><span class="kkey">▲▼</span><span class="kkey">►</span></div>
+            </div>
+            <div class="macbook-trackpad"></div>
+            <div class="macbook-notch-base"></div>
+          </div>
+          <div class="macbook-ambient-glow"></div>
         </div>
       </div>
 
-      <div class="m-feature-item">
-        <div class="m-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 3: PASO 02 (FONDO INMERSIVO: IMAGEN 3.JPG)
+  ========================================================= -->
+  <section class="m-section m-section-has-bg" id="m-paso2">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/3.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
+    </div>
+
+    <div class="m-section-content">
+      <div class="m-section-header">
+        <div class="m-step-badge">PASO 02 · TU ELECCIÓN</div>
+        <h2>Elige el activo que<br><span class="tag-gold">quieres conquistar</span></h2>
+        <p>Selecciona tu bien para ajustar automáticamente tu solicitud:</p>
+      </div>
+
+      <div class="m-goods-list">
+        <!-- Opción 1: Vehículo -->
+        <div class="m-good-card" data-m-bien="Vehículo (Auto / Moto)">
+          <div class="m-good-thumb">
+            <img src="images/1.jpg" alt="Vehículo (Auto / Moto)" loading="lazy">
+          </div>
+          <div class="m-good-details">
+            <span class="tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="8" rx="2"></rect>
+                <path d="M5 11l2-5h10l2 5"></path>
+                <circle cx="7.5" cy="15.5" r="1.5"></circle>
+                <circle cx="16.5" cy="15.5" r="1.5"></circle>
+              </svg>
+              Movilidad Urbana
+            </span>
+            <h3>Vehículo Propio</h3>
+            <p>Autos nuevos o motocicletas con cuotas planificadas y sin bancos.</p>
+          </div>
+          <div class="m-good-check">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
         </div>
-        <div class="m-feature-info">
-          <h3>Entrega Programada Garantizada</h3>
-          <p>Puntualidad y reglas claras bajo contrato legal desde el día número uno.</p>
+
+        <!-- Opción 2: Inmueble -->
+        <div class="m-good-card" data-m-bien="Inmueble / Hogar">
+          <div class="m-good-thumb">
+            <img src="images/3.jpg" alt="Inmueble / Hogar" loading="lazy">
+          </div>
+          <div class="m-good-details">
+            <span class="tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l8-4v18"></path>
+                <path d="M19 21V11l-6-4"></path>
+              </svg>
+              Patrimonio Familiar
+            </span>
+            <h3>Inmueble o Vivienda</h3>
+            <p>Vivienda propia, remodelación o locales comerciales con base sólida.</p>
+          </div>
+          <div class="m-good-check">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Opción 3: Proyecto -->
+        <div class="m-good-card sel" data-m-bien="Proyecto / Capital Planificado">
+          <div class="m-good-thumb">
+            <img src="images/5.jpg" alt="Proyecto / Capital Planificado" loading="lazy">
+          </div>
+          <div class="m-good-details">
+            <span class="tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+              Libertad Financiera
+            </span>
+            <h3>Proyecto / Capital</h3>
+            <p>Capital planificado para tu negocio, maquinaria o expansión comercial.</p>
+          </div>
+          <div class="m-good-check">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Paso 02: Tu Bien (Imágenes 1, 3, 5) -->
-  <section class="m-section" id="m-paso2">
-    <div class="m-section-header">
-      <div class="m-step-badge">PASO 02 · TU ELECCIÓN</div>
-      <h2>Elige el activo que<br><span class="tag-gold">quieres conquistar</span></h2>
-      <p>Selecciona tu bien para ajustar automáticamente tu solicitud:</p>
+  <!-- =========================================================
+       SECCIÓN 4: PASO 03 (FONDO INMERSIVO: IMAGEN 4.JPG)
+  ========================================================= -->
+  <section class="m-section m-section-has-bg" id="m-paso3">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/4.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
     </div>
 
-    <div class="m-goods-list">
-      <!-- Opción 1: Vehículo (Foto 1.jpg) -->
-      <div class="m-good-card" data-m-bien="Vehículo (Auto / Moto)">
-        <div class="m-good-thumb">
-          <img src="images/1.jpg" alt="Vehículo (Auto / Moto)" loading="lazy">
-        </div>
-        <div class="m-good-details">
-          <span class="tag">Movilidad Urbana</span>
-          <h3>Vehículo Propio</h3>
-          <p>Autos nuevos o motocicletas con cuotas planificadas y sin bancos.</p>
-        </div>
-        <div class="m-good-check">✓</div>
+    <div class="m-section-content">
+      <div class="m-section-header">
+        <div class="m-step-badge">PASO 03 · ÚLTIMO PASO</div>
+        <h2>Completa tus datos para<br><span class="tag-gold">tu propuesta oficial</span></h2>
+        <p>Solo requerimos tu documento básico para estructurar tu plan sin costo:</p>
       </div>
 
-      <!-- Opción 2: Inmueble (Foto 3.jpg) -->
-      <div class="m-good-card" data-m-bien="Inmueble / Hogar">
-        <div class="m-good-thumb">
-          <img src="images/3.jpg" alt="Inmueble / Hogar" loading="lazy">
-        </div>
-        <div class="m-good-details">
-          <span class="tag">Patrimonio Familiar</span>
-          <h3>Inmueble o Vivienda</h3>
-          <p>Vivienda propia, remodelación o locales comerciales con base sólida.</p>
-        </div>
-        <div class="m-good-check">✓</div>
-      </div>
+      <div class="m-form-card">
+        <form id="m_form" novalidate>
+          <div class="m-form-field">
+            <label for="m_bien">Bien Seleccionado</label>
+            <select id="m_bien" name="bien">
+              <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
+              <option value="Inmueble / Hogar">Inmueble / Hogar</option>
+              <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
+            </select>
+          </div>
 
-      <!-- Opción 3: Proyecto (Foto 5.jpg) -->
-      <div class="m-good-card sel" data-m-bien="Proyecto / Capital Planificado">
-        <div class="m-good-thumb">
-          <img src="images/5.jpg" alt="Proyecto / Capital Planificado" loading="lazy">
-        </div>
-        <div class="m-good-details">
-          <span class="tag">Libertad Financiera</span>
-          <h3>Proyecto / Capital</h3>
-          <p>Capital planificado para tu negocio, maquinaria o expansión comercial.</p>
-        </div>
-        <div class="m-good-check">✓</div>
+          <div class="m-form-field">
+            <label for="m_nombre">Nombre Completo</label>
+            <input type="text" id="m_nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+          </div>
+
+          <div class="m-form-field">
+            <label for="m_cedula">Cédula / Documento ID</label>
+            <input type="tel" id="m_cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
+          </div>
+
+          <div class="m-form-field">
+            <label for="m_whatsapp">WhatsApp / Celular</label>
+            <input type="tel" id="m_whatsapp" name="whatsapp" placeholder="Ej. 311 7795935" required autocomplete="tel">
+          </div>
+
+          <div class="m-form-field">
+            <label for="m_ciudad">Ciudad</label>
+            <input type="text" id="m_ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
+          </div>
+
+          <div class="m-form-field">
+            <label for="m_email">Correo Electrónico</label>
+            <input type="email" id="m_email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+          </div>
+
+          <button type="submit" class="m-btn-submit">
+            <span>ENVIAR SOLICITUD AHORA</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <p id="m_msg" role="status" style="margin-top:10px; font-size:0.82rem; text-align:center;"></p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Paso 03: Documentos & Registro -->
-  <section class="m-section" id="m-paso3">
-    <div class="m-section-header">
-      <div class="m-step-badge">PASO 03 · ÚLTIMO PASO</div>
-      <h2>Completa tus datos para<br><span class="tag-gold">tu propuesta oficial</span></h2>
-      <p>Solo requerimos tu documento básico para estructurar tu plan sin costo:</p>
+  <!-- =========================================================
+       SECCIÓN 5: COMUNIDAD & ME GUSTA (FONDO INMERSIVO: IMAGEN 5.JPG)
+       INCLUYE REACTBITS PULSEHEART CON PERSISTENCIA EN LOCALSTORAGE
+  ========================================================= -->
+  <section class="m-section m-section-has-bg m-social-section" id="m-social">
+    <div class="m-section-bg" aria-hidden="true">
+      <img src="images/5.jpg" alt="" class="m-bg-img" loading="lazy">
+      <div class="m-bg-overlay"></div>
     </div>
 
-    <div class="m-form-card">
-      <form id="m_form" novalidate>
-        <div class="m-form-field">
-          <label for="m_bien">Bien Seleccionado</label>
-          <select id="m_bien" name="bien">
-            <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
-            <option value="Inmueble / Hogar">Inmueble / Hogar</option>
-            <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
-          </select>
-        </div>
+    <div class="m-section-content m-social-inner">
+      <div class="m-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+        <span>COMUNIDAD WINNERS</span>
+      </div>
 
-        <div class="m-form-field">
-          <label for="m_nombre">Nombre Completo</label>
-          <input type="text" id="m_nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
-        </div>
+      <h3>¿Te gusta este modelo de adjudicación?</h3>
+      <p>Más de 1,500 socios planifican su libertad financiera con nosotros. Haz clic en el botón para sumarte al respaldo colectivo:</p>
 
-        <div class="m-form-field">
-          <label for="m_cedula">Cédula / Documento ID</label>
-          <input type="tel" id="m_cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
-        </div>
-
-        <div class="m-form-field">
-          <label for="m_whatsapp">WhatsApp / Celular</label>
-          <input type="tel" id="m_whatsapp" name="whatsapp" placeholder="Ej. 311 7795935" required autocomplete="tel">
-        </div>
-
-        <div class="m-form-field">
-          <label for="m_ciudad">Ciudad</label>
-          <input type="text" id="m_ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
-        </div>
-
-        <div class="m-form-field">
-          <label for="m_email">Correo Electrónico</label>
-          <input type="email" id="m_email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
-        </div>
-
-        <button type="submit" class="m-btn-submit">
-          <span>ENVIAR SOLICITUD AHORA →</span>
-        </button>
-        <p id="m_msg" role="status" style="margin-top:10px; font-size:0.82rem; text-align:center;"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Tarjeta Social & Botón PulseHeart (ReactBits Micro-Interaction) -->
-  <section class="m-social-card">
-    <div class="m-badge">❤️ COMUNIDAD WINNERS</div>
-    <h3>¿Te gusta este modelo de adjudicación?</h3>
-    <p>Más de 1,500 socios planifican su libertad financiera con nosotros. Haz clic en el botón para sumarte al respaldo colectivo:</p>
-
-    <!-- Botón PulseHeart con animación física e incremento dinámico -->
-    <button
-      id="pulseHeartBtn"
-      type="button"
-      class="pulse-heart"
-      aria-pressed="false"
-      data-liked="false"
-      aria-label="Apoyar el modelo colaborativo, 1542 me gusta"
-    >
-      <span class="pulse-heart__pill">
-        <span class="pulse-heart__heart" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <g class="pulse-heart__glyph">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" vector-effect="non-scaling-stroke"></path>
-            </g>
-          </svg>
-        </span>
-        <span class="pulse-heart__count" aria-hidden="true">
-          <span>1</span>
-          <span>,</span>
-          <span>5</span>
-          <span>4</span>
-          <span class="pulse-heart__slot">
-            <span class="pulse-heart__roll" id="phRoll">
-              <span id="phDigitA">2</span>
-              <span id="phDigitB">3</span>
+      <!-- Botón PulseHeart con animación física e incremento dinámico persistente -->
+      <button
+        id="pulseHeartBtn"
+        type="button"
+        class="pulse-heart"
+        aria-pressed="false"
+        data-liked="false"
+        aria-label="Apoyar el modelo colaborativo, 1542 me gusta"
+      >
+        <span class="pulse-heart__pill">
+          <span class="pulse-heart__heart" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g class="pulse-heart__glyph">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" vector-effect="non-scaling-stroke"></path>
+              </g>
+            </svg>
+          </span>
+          <span class="pulse-heart__count" id="phCountWrapper" aria-hidden="true">
+            <span>1</span>
+            <span>,</span>
+            <span>5</span>
+            <span>4</span>
+            <span class="pulse-heart__slot">
+              <span class="pulse-heart__roll" id="phRoll">
+                <span id="phDigitA">2</span>
+                <span id="phDigitB">3</span>
+              </span>
             </span>
           </span>
+          <span class="pulse-heart__label">Me gusta el proceso</span>
         </span>
-        <span class="pulse-heart__label">Me gusta el proceso</span>
-      </span>
-    </button>
+      </button>
+    </div>
   </section>
 
   <!-- Footer Móvil -->

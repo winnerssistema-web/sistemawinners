@@ -329,12 +329,12 @@
       }
 
       var text = 'Hola Sistema Winners, quiero solicitar mi registro institucional:\n\n' +
-        '📌 Bien Elegido: ' + formData.get('bien') + '\n' +
-        '👤 Nombre: ' + formData.get('nombre') + '\n' +
-        '🪪 Cédula / ID: ' + formData.get('cedula') + '\n' +
-        '📱 WhatsApp: ' + formData.get('whatsapp') + '\n' +
-        '📍 Ciudad: ' + formData.get('ciudad') + '\n' +
-        '✉️ Correo: ' + formData.get('email');
+        '* Bien Elegido: ' + formData.get('bien') + '\n' +
+        '* Nombre: ' + formData.get('nombre') + '\n' +
+        '* Cédula / ID: ' + formData.get('cedula') + '\n' +
+        '* WhatsApp: ' + formData.get('whatsapp') + '\n' +
+        '* Ciudad: ' + formData.get('ciudad') + '\n' +
+        '* Correo: ' + formData.get('email');
 
       msg.textContent = '¡Datos verificados! Abriendo WhatsApp Seguro…';
 
@@ -344,16 +344,17 @@
   }
 
   // =========================================================
-  // MÓVIL: HERO PARALLAX 3D (ACETERNITY STYLE CON SCROLLTRIGGER)
+  // MÓVIL: HERO PARALLAX 3D + MACBOOK SCROLL + FONDOS PARALLAX
   // =========================================================
   if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
     try {
       gsap.registerPlugin(ScrollTrigger);
 
+      // 1. Aceternity Hero Parallax (Scrub horizontal opuesto de filas 1 y 2)
       var pWrap = document.querySelector('.m-hero-parallax-wrap');
       if (pWrap) {
         gsap.to('.m-parallax-row-1', {
-          x: -120,
+          x: -150,
           ease: 'none',
           scrollTrigger: {
             trigger: pWrap,
@@ -364,7 +365,7 @@
         });
 
         gsap.to('.m-parallax-row-2', {
-          x: 120,
+          x: 150,
           ease: 'none',
           scrollTrigger: {
             trigger: pWrap,
@@ -375,11 +376,48 @@
         });
       }
 
-      // Animaciones suaves de entrada para componentes móviles
+      // 2. Aceternity UI Macbook Scroll (Rotación 3D de la tapa al hacer scroll)
+      var macbookLid = document.getElementById('macbookLid');
+      var macbookSection = document.getElementById('macbookSection');
+      if (macbookLid && macbookSection) {
+        gsap.fromTo(macbookLid,
+          { rotateX: 38, scale: 0.94 },
+          {
+            rotateX: 0,
+            scale: 1.02,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: macbookSection,
+              start: 'top 82%',
+              end: 'bottom 55%',
+              scrub: 1
+            }
+          }
+        );
+      }
+
+      // 3. Parallax sutil en los fondos 1, 2, 3, 4, 5 de las secciones móviles
+      gsap.utils.toArray('.m-section-has-bg').forEach(function (sec) {
+        var bgImg = sec.querySelector('.m-bg-img');
+        if (bgImg) {
+          gsap.to(bgImg, {
+            yPercent: 12,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true
+            }
+          });
+        }
+      });
+
+      // 4. Animaciones suaves de entrada para componentes móviles
       gsap.utils.toArray('.m-feature-item, .m-good-card, .m-metric-pill, .m-form-card').forEach(function (el) {
         gsap.from(el, {
           opacity: 0,
-          y: 24,
+          y: 22,
           duration: 0.65,
           ease: 'power2.out',
           scrollTrigger: {
@@ -439,12 +477,12 @@
       }
 
       var text = 'Hola Sistema Winners, quiero solicitar mi registro institucional (Móvil):\n\n' +
-        '📌 Bien Elegido: ' + data.get('bien') + '\n' +
-        '👤 Nombre: ' + data.get('nombre') + '\n' +
-        '🪪 Cédula / ID: ' + data.get('cedula') + '\n' +
-        '📱 WhatsApp: ' + data.get('whatsapp') + '\n' +
-        '📍 Ciudad: ' + data.get('ciudad') + '\n' +
-        '✉️ Correo: ' + data.get('email');
+        '* Bien Elegido: ' + data.get('bien') + '\n' +
+        '* Nombre: ' + data.get('nombre') + '\n' +
+        '* Cédula / ID: ' + data.get('cedula') + '\n' +
+        '* WhatsApp: ' + data.get('whatsapp') + '\n' +
+        '* Ciudad: ' + data.get('ciudad') + '\n' +
+        '* Correo: ' + data.get('email');
 
       if (mMsg) mMsg.textContent = '¡Datos listos! Redirigiendo a WhatsApp…';
 
@@ -454,7 +492,7 @@
   }
 
   // =========================================================
-  // REACTBITS: PULSE HEART MICRO-INTERACTION (VANILLA JS CON FÍSICA)
+  // REACTBITS: PULSE HEART MICRO-INTERACTION CON PERSISTENCIA EN LOCALSTORAGE
   // =========================================================
   var phBtn = document.getElementById('pulseHeartBtn');
   if (phBtn) {
@@ -467,7 +505,15 @@
       return t <= 0 ? 0 : t < OUT ? 1 - Math.pow(1 - t / OUT, 3) : 1 - back((t - OUT) / (1 - OUT), c);
     }
 
-    var liked = false;
+    var STORAGE_LIKED_KEY = 'winners_liked_state';
+    var STORAGE_COUNT_KEY = 'winners_likes_count';
+    var BASE_COUNT = 1542;
+
+    // Recuperar estado y contador de localStorage
+    var liked = localStorage.getItem(STORAGE_LIKED_KEY) === 'true';
+    var storedCount = parseInt(localStorage.getItem(STORAGE_COUNT_KEY), 10);
+    var count = (!isNaN(storedCount) && storedCount > 0) ? storedCount : (liked ? BASE_COUNT + 1 : BASE_COUNT);
+
     var duration = 560;
     var dotSize = 0.3;
     var overshoot = 1.7;
@@ -479,6 +525,49 @@
     var rollEl = document.getElementById('phRoll');
     var digitA = document.getElementById('phDigitA');
     var digitB = document.getElementById('phDigitB');
+
+    function syncUI(isInitial) {
+      phBtn.setAttribute('data-liked', String(liked));
+      phBtn.setAttribute('aria-pressed', String(liked));
+      phBtn.setAttribute('aria-label', 'Apoyar el modelo colaborativo, ' + count + ' me gusta');
+
+      if (rollEl && digitA && digitB) {
+        var countStr = count.toLocaleString('es-CO');
+        var lastDigit = countStr.slice(-1);
+        var prevDigit = String((parseInt(lastDigit, 10) + 9) % 10);
+
+        if (liked) {
+          digitA.textContent = prevDigit;
+          digitB.textContent = lastDigit;
+          if (isInitial) {
+            rollEl.style.transition = 'none';
+            rollEl.style.transform = 'translateY(-1.1em)';
+          } else {
+            rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
+            rollEl.style.transform = 'translateY(-1.1em)';
+          }
+        } else {
+          digitA.textContent = lastDigit;
+          digitB.textContent = String((parseInt(lastDigit, 10) + 1) % 10);
+          if (isInitial) {
+            rollEl.style.transition = 'none';
+            rollEl.style.transform = 'translateY(0)';
+          } else {
+            rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
+            rollEl.style.transform = 'translateY(-1.1em)';
+            setTimeout(function () {
+              rollEl.style.transition = 'none';
+              rollEl.style.transform = 'translateY(0)';
+              digitA.textContent = lastDigit;
+              digitB.textContent = String((parseInt(lastDigit, 10) + 1) % 10);
+            }, 360);
+          }
+        }
+      }
+    }
+
+    // Inicializar estado persistido
+    syncUI(true);
 
     // Pointer feedback
     phBtn.addEventListener('pointerdown', function (e) {
@@ -494,35 +583,20 @@
     phBtn.addEventListener('click', function () {
       if (rafId) return;
       liked = !liked;
+      count = liked ? count + 1 : count - 1;
+
+      // Guardar en localStorage
+      try {
+        localStorage.setItem(STORAGE_LIKED_KEY, String(liked));
+        localStorage.setItem(STORAGE_COUNT_KEY, String(count));
+      } catch (e) {}
 
       // Haptic feedback en dispositivos táctiles
       if (typeof navigator !== 'undefined' && navigator.vibrate) {
         navigator.vibrate(18);
       }
 
-      phBtn.setAttribute('data-liked', String(liked));
-      phBtn.setAttribute('aria-pressed', String(liked));
-
-      // Rolling digit counter animation
-      if (rollEl && digitA && digitB) {
-        if (liked) {
-          digitA.textContent = '2';
-          digitB.textContent = '3';
-          rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
-          rollEl.style.transform = 'translateY(-1.1em)';
-        } else {
-          digitA.textContent = '3';
-          digitB.textContent = '2';
-          rollEl.style.transition = 'transform 350ms cubic-bezier(0.23, 1, 0.32, 1)';
-          rollEl.style.transform = 'translateY(-1.1em)';
-          setTimeout(function () {
-            rollEl.style.transition = 'none';
-            rollEl.style.transform = 'translateY(0)';
-            digitA.textContent = '2';
-            digitB.textContent = '3';
-          }, 360);
-        }
-      }
+      syncUI(false);
 
       // Physics pulse animation loop
       var t0 = performance.now();
