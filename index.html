@@ -50,6 +50,8 @@
       will-change: opacity;
     }
     .heroLayer.active { opacity: 1; }
+    /* Encuadre del rostro en la imagen a.jpg (rostro en tercio superior-centro) */
+    .heroLayerA { object-position: 52% 18%; }
     /* Ken Burns sutil solo sobre imagenes activas */
     .heroLayer.active:not(video) { animation: heroKenBurns 8s ease-in-out forwards; }
     @keyframes heroKenBurns {
@@ -299,12 +301,12 @@
      Clon estético del póster oficial: negro/dorado con
      slider de fondo (PC: video flor + imagenes / móvil: imagenes).
 ========================================================= -->
-<section id="inicio" class="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden bg-[#08090C]">
+<section id="inicio" class="relative min-h-[92vh] flex flex-col items-center justify-end text-center px-6 pt-32 pb-8 md:pt-44 md:pb-14 overflow-hidden bg-[#08090C]">
 
   <!-- Fondo: slider intercambiable -->
   <div class="heroSlider" id="heroSlider" aria-hidden="true">
     <img class="heroLayer" src="images/c.jpg" alt="">
-    <img class="heroLayer" src="images/a.jpg" alt="">
+    <img class="heroLayer heroLayerA" src="images/a.jpg" alt="">
     <img class="heroLayer" src="images/b.jpg" alt="">
     <video class="heroLayer heroVideo active" autoplay loop muted playsinline preload="auto">
       <source src="images/2.mp4" type="video/mp4">
@@ -312,14 +314,11 @@
   </div>
   <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(8,9,12,0.45) 0%, rgba(20,15,5,0.65) 65%, #08090C 100%);"></div>
 
-  <!-- Contenido central flotante -->
-  <div class="relative z-10 flex flex-col items-center">
+  <!-- Contenido anclado a la base (libera el tercio superior para los rostros del slider) -->
+  <div class="relative z-10 flex flex-col items-center w-full">
 
-    <!-- Sello / Monograma dorado -->
-    <div class="flex items-center gap-4 mb-8">
-      <span class="border-2 border-[#EEAA2B] rounded-xl px-4 py-2 text-[#FFE885] font-black text-xl tracking-widest float-shadow">$W</span>
-      <span class="text-white/90 font-bold tracking-[0.25em] text-xs sm:text-sm uppercase float-shadow-soft">Sistema Winners • 10 Años de Solidez</span>
-    </div>
+    <!-- Marca superior discreta (sin simbolo $W) -->
+    <p class="text-white/85 font-bold tracking-[0.25em] text-[11px] sm:text-xs uppercase float-shadow-soft mb-6 md:mb-8">Sistema Winners • 10 Años de Solidez</p>
 
     <!-- Bloque tipográfico monumental -->
     <h1 class="font-black uppercase float-shadow">
@@ -329,10 +328,12 @@
       <span class="hero-llevar-text block">LLEVAR!!</span>
     </h1>
 
-    <!-- Firma entre comillas doradas -->
-    <p class="mt-8 text-white/60 text-5xl leading-none font-black select-none" aria-hidden="true">&ldquo;</p>
-    <p class="text-[#FFE885] font-black tracking-[0.2em] md:tracking-[0.35em] text-sm sm:text-base md:text-2xl uppercase -mt-1 md:-mt-4 float-shadow">&ldquo; S O C I O S &nbsp; I N V E R S I O N I S T A S &rdquo;</p>
-    <p class="mt-4 text-white/80 text-lg md:text-xl font-medium italic float-shadow-soft">¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.</p>
+    <!-- Firma entre comillas doradas (cada palabra indivisible en móvil) -->
+    <p class="mt-6 md:mt-8 text-white/60 text-4xl md:text-5xl leading-none font-black select-none" aria-hidden="true">&ldquo;</p>
+    <p class="text-[#FFE885] font-black tracking-[0.12em] md:tracking-[0.35em] text-sm sm:text-base md:text-2xl uppercase md:-mt-4 float-shadow">
+      <span class="whitespace-nowrap">&ldquo; SOCIOS</span>&nbsp;<span class="whitespace-nowrap">INVERSIONISTAS &rdquo;</span>
+    </p>
+    <p class="mt-3 md:mt-4 text-white/80 text-base md:text-xl font-medium italic float-shadow-soft">¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.</p>
 
     <!-- CTA principal -->
     <a href="#multifinanciamiento" class="mt-10 group bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-base md:text-lg px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.4)] transition transform hover:scale-105 inline-flex items-center gap-2">
@@ -341,7 +342,7 @@
     </a>
 
     <!-- Barra inferior de métricas (texto flotante sin cajas) -->
-    <div class="mt-14 pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-y-6">
+    <div class="mt-10 md:mt-14 pt-6 md:pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-y-6">
       <div class="text-center">
         <p class="text-[#FFE885] font-black text-2xl md:text-3xl">10 Años</p>
         <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Trayectoria Andina</p>
