@@ -4,1561 +4,1090 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <title>Sistema Winners | Planificación Inteligente de Activos</title>
-  <meta name="description" content="Inscríbete, elige tu bien y envía tus documentos. Sistema Winners: planificación inteligente y respaldada para tu vehículo, inmueble o proyecto.">
+  <title>Sistema Winners | Multifinanciamiento y Socios Inversionistas</title>
+  <meta name="description" content="10 años de trayectoria en el Área Andina y Latinoamérica. Sistema de Multifinanciamiento para vehículos, tecnología, bienestar y emprendimiento. Abre tu cuenta de Socio Inversionista.">
   <link rel="canonical" href="https://www.sistemawinners.com/">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="es_CO">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sistema Winners | Conquista tu Meta o Proyecto">
-  <meta property="og:description" content="Inscríbete, elige tu bien y envía tus documentos. Planificación inteligente y respaldada con Sistema Winners.">
+  <meta property="og:title" content="Sistema Winners | Socios Inversionistas — Los sueños sí se cumplen">
+  <meta property="og:description" content="10 años de solidez. Multifinanciamiento en comunidad para vehículos, tecnología, bienestar y emprendimiento. Solo déjate llevar.">
   <meta property="og:url" content="https://www.sistemawinners.com/">
   <meta property="og:site_name" content="Sistema Winners">
-  <meta property="og:image" content="https://www.sistemawinners.com/images/moto-familia.jpg">
+  <meta property="og:image" content="https://www.sistemawinners.com/images/hero-slide1.jpg">
 
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/inmersivo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { mont: ['Montserrat', 'sans-serif'] },
+          colors: {
+            gold: '#EEAA2B',
+            goldsoft: '#FFE885',
+            golddark: '#C59B27',
+            navy: '#132247',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ============================================================
+       SISTEMA WINNERS — HOJA DE ESTILO MAESTRA
+       Reglas: scroll fluido sin bloqueos, sin tarjetas negras
+       difuminadas, sin emojis, fondos optimizados PC vs Móvil.
+    ============================================================ */
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #08090C;
+      overflow-x: hidden;
+    }
+    section[id] { scroll-margin-top: 108px; }
+
+    /* ---------- Video de fondo: solo PC (>=768px) ---------- */
+    .heroVideo { display: none; }
+    @media (min-width: 768px) {
+      .heroVideo {
+        display: block;
+        position: absolute;
+        right: 0; bottom: 0;
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto;
+        object-fit: cover;
+        opacity: 1;
+        filter: contrast(1.08) saturate(1.15);
+      }
+    }
+
+    /* ---------- Parallax suave móvil ---------- */
+    .parallaxImg {
+      position: absolute;
+      top: -12%; left: 0;
+      width: 100%; height: 124%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    /* ---------- Texto flotante con sombra intensa (secciones oscuras) ---------- */
+    .float-shadow { text-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.9); }
+    .float-shadow-soft { text-shadow: 0 3px 18px rgba(0,0,0,0.8); }
+
+    /* ---------- Degradado dorado tipográfico ---------- */
+    .gold-gradient {
+      background: linear-gradient(100deg, #FFE885 0%, #EEAA2B 60%, #D98E12 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ---------- Text Image Clip "LLEVAR!!" (idéntico al póster) ---------- */
+    .hero-llevar-text {
+      font-size: clamp(4rem, 11vw, 9rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      background-image: url('images/hero-slide1.jpg'), linear-gradient(180deg, #FFF3B0 0%, #EEAA2B 45%, #8A5A00 100%);
+      background-size: cover;
+      background-position: center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 2px #EEAA2B;
+      filter: drop-shadow(0 8px 30px rgba(238, 170, 43, 0.45));
+      margin-top: 0.1em;
+    }
+
+    /* ---------- Logo blanco puro ---------- */
+    .logo-white { filter: brightness(0) invert(1); }
+
+    /* ---------- Letra capital gigante (Drop Cap "S") ---------- */
+    .dropcap::first-letter {
+      float: left;
+      font-size: 4.6rem;
+      line-height: 0.78;
+      padding-right: 0.75rem;
+      padding-top: 0.18rem;
+      font-weight: 900;
+      color: #111827;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ---------- Cintillo de marcas ---------- */
+    .brand-marquee span { letter-spacing: 0.18em; }
+
+    /* ---------- Odómetro / Slot machine ---------- */
+    .odometer-digit {
+      display: inline-block;
+      min-width: 0.65em;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .odometer.spinning .odometer-digit { color: #EEAA2B; }
+
+    /* ---------- Estrellas doradas interactivas (rebote hover) ---------- */
+    @keyframes starBounce {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.45) rotate(-8deg); }
+      60% { transform: scale(0.92) rotate(4deg); }
+      100% { transform: scale(1); }
+    }
+    .star { cursor: pointer; transition: transform 0.2s ease, filter 0.2s ease; transform-origin: bottom; }
+    .stars:hover .star { fill: #EEAA2B; filter: drop-shadow(0 2px 6px rgba(238,170,43,0.55)); }
+    .stars .star:hover { animation: starBounce 0.45s ease; }
+
+    /* ---------- Tooltip animado de avatares (estilo Aceternity) ---------- */
+    .avatar-wrap { position: relative; }
+    .avatar-img {
+      width: 3.25rem; height: 3.25rem;
+      border-radius: 9999px;
+      object-fit: cover;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(19,34,71,0.18);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      cursor: pointer;
+    }
+    .avatar-wrap:hover .avatar-img, .avatar-wrap:focus-within .avatar-img { transform: translateY(-10px) scale(1.12); }
+    .avatar-tip {
+      position: absolute;
+      bottom: calc(100% + 16px);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px) scale(0.92);
+      transform-origin: bottom center;
+      width: 15rem;
+      background: #132247;
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(19,34,71,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 40;
+      text-align: left;
+    }
+    .avatar-tip::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      margin-left: -8px;
+      border: 8px solid transparent;
+      border-top-color: #132247;
+    }
+    .avatar-wrap:hover .avatar-tip, .avatar-wrap:focus-within .avatar-tip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    /* ---------- Botón flotante WhatsApp con pulso ---------- */
+    @keyframes waPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+      70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    .wa-float { animation: waPulse 2.4s infinite; }
+
+    /* ---------- Reveal fluido al hacer scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Menú móvil ---------- */
+    .mobile-nav { display: none; }
+    .mobile-nav.open { display: block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .wa-float { animation: none; }
+    }
+  </style>
 </head>
-<body>
+<body class="font-mont antialiased">
 
 <!-- =========================================================
-     STAGE DE VIDEOS DE FONDO (EXCLUSIVO ESCRITORIO)
+     SECCIÓN 1: TOPBAR CORPORATIVO
 ========================================================= -->
-<div class="stage desktop-only" aria-hidden="true">
-  <video id="v1" data-key="hero" class="on" autoplay muted loop playsinline preload="auto" src="images/1.mp4">
-    <source src="images/1.mp4" type="video/mp4">
-  </video>
-  <video id="v2" data-key="servicios" muted loop playsinline preload="none" data-src="images/2.mp4">
-    <source src="images/2.mp4" type="video/mp4">
-  </video>
-  <video id="v3" data-key="testimonios" muted loop playsinline preload="none" data-src="images/1.mp4">
-    <source src="images/1.mp4" type="video/mp4">
-  </video>
-  <video id="v4" data-key="paso1" muted loop playsinline preload="none" data-src="images/2.mp4">
-    <source src="images/2.mp4" type="video/mp4">
-  </video>
-  <video id="v5" data-key="proyecto" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
-  <video id="v6" data-key="inmueble" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
-  <video id="v7" data-key="vehiculo" muted loop playsinline preload="none" data-src="images/1.mp4"></video>
-  <video id="v8" data-key="docs" muted loop playsinline preload="none" data-src="images/2.mp4"></video>
-  <div class="vignette"></div>
-</div>
-
-<!-- =========================================================
-     HEADER FLOTANTE (EXCLUSIVO ESCRITORIO)
-========================================================= -->
-<header class="pill-header desktop-only">
-  <a href="#" class="brand" data-goto="0" aria-label="Sistema Winners">
-    <img src="images/logo.svg?v=3" alt="Sistema Winners">
-  </a>
-  <nav class="steps-nav" aria-label="Progreso de la experiencia">
-    <button type="button" data-goto="1">Productos y Servicios</button>
-    <button type="button" data-goto="2">Métricas y Reseñas</button>
-    <button type="button" data-goto="3">01. Inscríbete</button>
-    <button type="button" data-goto="4">02. Tu Bien</button>
-    <button type="button" data-goto="5">03. Documentos</button>
-  </nav>
-  <button type="button" class="btn-header" data-goto="1">Comenzar</button>
-</header>
-
-<!-- =========================================================
-     INDICADOR LATERAL DE ESCENAS (STAGE CONTROLLER ESCRITORIO)
-========================================================= -->
-<div class="deck-controller desktop-only" aria-label="Navegador de escenas">
-  <div class="scene-dot active" data-goto="0"><span>00. Portada</span></div>
-  <div class="scene-dot" data-goto="1"><span>01. Productos y Servicios</span></div>
-  <div class="scene-dot" data-goto="2"><span>02. Testimonios & Métricas</span></div>
-  <div class="scene-dot" data-goto="3"><span>03. Paso 1: Inscríbete</span></div>
-  <div class="scene-dot" data-goto="4"><span>04. Paso 2: Tu Bien</span></div>
-  <div class="scene-dot" data-goto="5"><span>05. Paso 3: Documentos</span></div>
-</div>
-
-<!-- =========================================================
-     DECK FULLSCREEN: 6 ESCENAS CINEMATOGRÁFICAS (EXCLUSIVO ESCRITORIO)
-========================================================= -->
-<div class="deck desktop-only" id="stageDeck">
-
-  <!-- ESCENA 0: HERO -->
-  <section class="scene scene-hero active" id="scene-0" data-video="hero">
-    <div class="scene-inner">
-      <div class="pill-badge">
-        <span class="dots">
-          <span class="dot">01</span>
-          <span class="dot">02</span>
-          <span class="dot">03</span>
-        </span>
-        <span>Plataforma de <span class="tag-gold">Planificación Inteligente</span></span>
-      </div>
-
-      <h1 class="floating-text-shadow">¿Quieres ser parte<br>del proceso?</h1>
-      <p class="lead floating-sub-shadow">Sigue nuestros pasos, solo déjate llevar hacia tu meta con total respaldo y claridad.</p>
-
-      <button type="button" class="btn-cta" data-goto="1">
-        <span>¿Qué tienes que hacer? Descúbrelo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <polyline points="19 12 12 19 5 12"></polyline>
+<div class="bg-[#060709] text-white/80 text-xs py-2.5 px-6 border-b border-white/10">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <div class="flex items-center gap-5 flex-wrap">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
         </svg>
-      </button>
-
-      <!-- Barra de Métricas Translúcida -->
-      <div class="metrics-bar">
-        <div class="metric-item">
-          <b>100%</b>
-          <span>Respaldo Legal</span>
-        </div>
-        <div class="metric-item">
-          <b>03</b>
-          <span>Pasos Simples</span>
-        </div>
-        <div class="metric-item">
-          <b>24/7</b>
-          <span>Acompañamiento</span>
-        </div>
-        <div class="metric-item">
-          <b>+1,500</b>
-          <span>Sueños Cumplidos</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESCENA 1: SECCIÓN 2 — PRODUCTOS Y SERVICIOS -->
-  <section class="scene scene-servicios" id="scene-1" data-video="servicios">
-    <div class="scene-inner">
-      <div class="pill-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        10 AÑOS EN EL ÁREA ANDINA Y LATINOAMÉRICA
+      </span>
+      <span class="hidden sm:flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
-        <span>MODELO DE ADJUDICACIÓN COLECTIVA</span>
-      </div>
-
-      <h2 class="floating-text-shadow">PRODUCTOS Y SERVICIOS</h2>
-
-      <!-- Comparativa Multifinanciamiento vs Autofinanciamiento -->
-      <div class="compare-grid">
-        <!-- Bloque 1: Sistema Multifinanciamiento (Dorado #EEAA2B) -->
-        <div class="compare-card compare-card-gold">
-          <span class="compare-tag compare-tag-gold">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Recomendado · Modelo Colaborativo
-          </span>
-          <h3>SISTEMA MULTIFINANCIAMIENTO</h3>
-          <p class="compare-sub">A través de este sistema te permite obtener:</p>
-          <ul class="compare-list">
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Los productos comunales.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Promover tus emprendimientos.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Obtener apalancamientos para tus ideas.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Participar en otras iniciativas productivas y comerciales.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Bloque 2: Diferente a Sistema de Autofinanciamiento -->
-        <div class="compare-card compare-card-dim">
-          <span class="compare-tag compare-tag-dim">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-            Modelo Convencional Limitado
-          </span>
-          <h3>DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h3>
-          <p class="compare-sub">Restricciones de esquemas tradicionales:</p>
-          <ul class="compare-list">
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-dim">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              <span>Te ofrecen productos y servicios propios.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-dim">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              <span>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bloque 3: Cierre de Poder con ShinyText -->
-      <div class="compare-callout">
-        <span class="shiny-text">EMPRENDER ES EL CAMINO</span>
-        <p class="shiny-sub">Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.</p>
-      </div>
-
-      <button type="button" class="btn-cta" data-goto="2" style="margin-top: 20px; padding: 13px 32px; font-size: 0.95rem;">
-        <span>Ver Métricas y Testimonios</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
+        ATENCIÓN A SOCIOS INVERSIONISTAS: 08:00 A 18:00
+      </span>
     </div>
-  </section>
-
-  <!-- ESCENA 2: SECCIÓN 3 — ODOMETER + TESTIMONIOS -->
-  <section class="scene scene-testimonios" id="scene-2" data-video="testimonios">
-    <div class="scene-inner">
-      <div class="pill-badge">
-        <span class="tag-gold">IMPACTO REAL</span>
-        <span>· COMUNIDAD Y RESULTADOS</span>
-      </div>
-
-      <h2 class="floating-text-shadow">Métricas y <span style="color: var(--gold);">Testimonios</span></h2>
-
-      <!-- 3A: Contador Odometer Vertical (Slot Machine Effect) -->
-      <div class="odometer-strip">
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="1500">
-            <span class="odometer-static">+</span>
-            <span class="odometer-digit-track" data-val="1">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
-              </span>
-            </span>
-            <span class="odometer-static">,</span>
-            <span class="odometer-digit-track" data-val="5">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-          </div>
-          <p class="odometer-label">Emprendimientos Impulsados</p>
-        </div>
-
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="5300">
-            <span class="odometer-static">+</span>
-            <span class="odometer-digit-track" data-val="5">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-              </span>
-            </span>
-            <span class="odometer-static">,</span>
-            <span class="odometer-digit-track" data-val="3">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-          </div>
-          <p class="odometer-label">Sueños y Bienes Adjudicados</p>
-        </div>
-
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="100%">
-            <span class="odometer-digit-track" data-val="1">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-static">%</span>
-          </div>
-          <p class="odometer-label">Apalancamiento Colectivo</p>
-        </div>
-      </div>
-
-      <!-- 3B: Aceternity Animated Tooltip (Fila de 5 Avatares Superpuestos) -->
-      <div class="tooltip-avatar-row">
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socio Emprendedor</span>
-            <span class="tooltip-name">Carlos Andrés M.</span>
-            <span class="tooltip-role">Vehículo Adjudicado</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socia Activa</span>
-            <span class="tooltip-name">Elena Restrepo</span>
-            <span class="tooltip-role">Capital de Expansión</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/hero-slide1.jpg" alt="Elena Restrepo" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Adjudicado 2026</span>
-            <span class="tooltip-name">Mauricio Gómez</span>
-            <span class="tooltip-role">Vivienda Familiar</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/hero-slide2.jpg" alt="Mauricio Gómez" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Plan Familiar</span>
-            <span class="tooltip-name">Paola & Andrea</span>
-            <span class="tooltip-role">Movilidad Urbana</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/moto-familia.jpg" alt="Paola & Andrea" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socio Fundador</span>
-            <span class="tooltip-name">David Fernando K.</span>
-            <span class="tooltip-role">Maquinaria Comercial</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/moto-referidos.jpg" alt="David Fernando K." class="tooltip-avatar-img" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Tarjetas de Testimonio basadas en Uiverse (breezy-eagle-39 + clever-elephant-35) -->
-      <div class="uiverse-testimonials-grid">
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="r1" id="r1-1" type="radio">
-                  <label for="r1-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="r1" id="r1-2" type="radio">
-                  <label for="r1-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="r1" id="r1-3" type="radio">
-                  <label for="r1-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="r1" id="r1-4" type="radio">
-                  <label for="r1-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="r1" id="r1-5" type="radio" checked>
-                  <label for="r1-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Carlos Andrés M.</p>
-              <span class="uiverse-role">Socio Emprendedor</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Gracias al Sistema Multifinanciamiento logré apalancar mi propio negocio y adquirir mi vehículo sin las trabas del autofinanciamiento tradicional."
-          </p>
-        </div>
-
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/moto-familia.jpg" alt="Familia Gómez R." class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="r2" id="r2-1" type="radio">
-                  <label for="r2-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="r2" id="r2-2" type="radio">
-                  <label for="r2-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="r2" id="r2-3" type="radio">
-                  <label for="r2-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="r2" id="r2-4" type="radio">
-                  <label for="r2-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="r2" id="r2-5" type="radio" checked>
-                  <label for="r2-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Familia Gómez R.</p>
-              <span class="uiverse-role">Movilidad & Hogar</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Pudimos obtener nuestro vehículo familiar con un plan transparente y cuotas justas. El acompañamiento del equipo Winners fue impecable desde el primer día."
-          </p>
-        </div>
-
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/moto-referidos.jpg" alt="Mateo Valenzuela" class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="r3" id="r3-1" type="radio">
-                  <label for="r3-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="r3" id="r3-2" type="radio">
-                  <label for="r3-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="r3" id="r3-3" type="radio">
-                  <label for="r3-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="r3" id="r3-4" type="radio">
-                  <label for="r3-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="r3" id="r3-5" type="radio" checked>
-                  <label for="r3-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Mateo Valenzuela</p>
-              <span class="uiverse-role">Proyecto Productivo</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Emprender no es fácil cuando los bancos te cierran las puertas. Sistema Winners nos dio el apalancamiento que necesitábamos para reactivar nuestras ideas."
-          </p>
-        </div>
-      </div>
-
-      <button type="button" class="btn-cta" data-goto="3" style="margin-top: 20px; padding: 13px 32px; font-size: 0.95rem;">
-        <span>Conocer los 3 Pasos del Proceso</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- ESCENA 3: PASO 01 (TEXTOS Y 3 MINI-PILLS SIN CAJA NEGRA) -->
-  <section class="scene scene-paso1" id="scene-3" data-video="paso1">
-    <div class="scene-inner">
-      <div class="pill-badge">
-        <span class="dot">01</span>
-        <span>PASO 01 DE 03 — <span class="tag-gold">INICIO DEL VIAJE</span></span>
-      </div>
-
-      <h2 class="floating-text-shadow">¿Qué tienes que hacer?<br><span style="color: var(--gold);">Inscribirte.</span></h2>
-      <p class="lead-text floating-sub-shadow">Dar el primer paso es lo más importante: una planificación ordenada, transparente y respaldada colectivamente, pensada para que alcances tu bien sin deudas asfixiantes.</p>
-
-      <!-- 3 Mini-Pills Translúcidas con SVGs -->
-      <div class="feature-pills-grid">
-        <div class="feature-pill">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <h4>1. Registra tu perfil</h4>
-          <p>Datos simples para asignarte el grupo idóneo según tu meta.</p>
-        </div>
-
-        <div class="feature-pill">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <h4>2. Sin trámites pesados</h4>
-          <p>Proceso 100% digital, ágil y sin requisitos imposibles.</p>
-        </div>
-
-        <div class="feature-pill">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h4>3. Cupo inmediato</h4>
-          <p>Activación rápida y acompañamiento personalizado desde el día uno.</p>
-        </div>
-      </div>
-
-      <button type="button" class="btn-cta" data-goto="4" style="padding: 14px 34px; font-size: 0.96rem;">
-        <span>Avanzar al Paso 02</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- ESCENA 4: PASO 02 (3 TARJETAS ULTRA-TRANSLÚCIDAS CON SVGS) -->
-  <section class="scene scene-paso2" id="scene-4" data-video="proyecto">
-    <div class="scene-inner">
-      <div class="pill-badge">
-        <span class="dot">02</span>
-        <span>PASO 02 DE 03 — <span class="tag-gold">SELECCIÓN DE ACTIVO</span></span>
-      </div>
-
-      <h2 class="floating-text-shadow">Paso 2: ¿Qué bien <span style="color: var(--gold);">necesitas?</span></h2>
-
-      <div class="goods-grid">
-        <!-- Tarjeta 1: Vehículo -->
-        <div class="good-pill" data-bien="Vehículo (Auto / Moto)" data-video="vehiculo" tabindex="0">
-          <div>
-            <span class="top-badge">Movilidad Urbana</span>
-            <div class="icon-svg">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="8" rx="2"></rect>
-                <path d="M5 11l2-5h10l2 5"></path>
-                <circle cx="7.5" cy="15.5" r="1.5"></circle>
-                <circle cx="16.5" cy="15.5" r="1.5"></circle>
-              </svg>
-            </div>
-            <h3>Vehículo</h3>
-            <p>Automóviles nuevos o motocicletas de alta gama con cuotas planificadas y sin sobrecostos bancarios.</p>
-          </div>
-          <div class="select-cue">
-            <span>Explorar Vehículos</span>
-            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          </div>
-        </div>
-
-        <!-- Tarjeta 2: Inmueble -->
-        <div class="good-pill" data-bien="Inmueble / Hogar" data-video="inmueble" tabindex="0">
-          <div>
-            <span class="top-badge">Patrimonio Familiar</span>
-            <div class="icon-svg">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21h18"></path>
-                <path d="M5 21V7l8-4v18"></path>
-                <path d="M19 21V11l-6-4"></path>
-                <line x1="9" y1="9" x2="9" y2="9.01"></line>
-                <line x1="9" y1="13" x2="9" y2="13.01"></line>
-                <line x1="9" y1="17" x2="9" y2="17.01"></line>
-              </svg>
-            </div>
-            <h3>Inmueble</h3>
-            <p>Vivienda propia, remodelación o activos comerciales. Construye tu estabilidad sobre bases seguras.</p>
-          </div>
-          <div class="select-cue">
-            <span>Explorar Vivienda</span>
-            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          </div>
-        </div>
-
-        <!-- Tarjeta 3: Proyecto -->
-        <div class="good-pill sel" data-bien="Proyecto / Capital Planificado" data-video="proyecto" tabindex="0">
-          <div>
-            <span class="top-badge">Libertad Financiera</span>
-            <div class="icon-svg">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                <polyline points="16 7 22 7 22 13"></polyline>
-              </svg>
-            </div>
-            <h3>Proyecto</h3>
-            <p>Capital planificado para emprendimientos, tecnología o expansión de negocios con respaldo real.</p>
-          </div>
-          <div class="select-cue">
-            <span>Explorar Proyectos</span>
-            <span class="check-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESCENA 5: PASO 03 (CABINA TRANSLÚCIDA 2 COLS CON FORMULARIO) -->
-  <section class="scene scene-paso3" id="scene-5" data-video="docs">
-    <div class="scene-inner">
-      <div class="two-col-layout">
-        <!-- Columna Izquierda: Información -->
-        <div class="col-info">
-          <div class="pill-badge">
-            <span class="dot">03</span>
-            <span>PASO 03 DE 03 — <span class="tag-gold">ÚLTIMO PASO</span></span>
-          </div>
-
-          <h2 class="floating-text-shadow">Paso 3: <span style="color: var(--gold);">Documentos.</span></h2>
-          <p class="lead-sub floating-sub-shadow">Rellena este formulario para recibir tu propuesta de planificación personalizada.</p>
-
-          <div class="req-list">
-            <div class="req-item">
-              <span class="req-check">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <div>
-                <b>Requisitos Transparentes</b>
-                <span>Solo documento de identidad oficial para iniciar.</span>
-              </div>
-            </div>
-            <div class="req-item">
-              <span class="req-check">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <div>
-                <b>Validación Inmediata</b>
-                <span>Contacto y confirmación directa por WhatsApp Oficial.</span>
-              </div>
-            </div>
-            <div class="req-item">
-              <span class="req-check">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <div>
-                <b>Respaldo Institucional</b>
-                <span>Acompañamiento guiado paso a paso por un asesor experto.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna Derecha: Cabina de Formulario Translúcida -->
-        <div class="form-cockpit">
-          <h3>Solicitud de Registro</h3>
-          <p class="form-subtitle">Tus datos están protegidos bajo estricta confidencialidad.</p>
-
-          <form id="form" class="compact-form" novalidate>
-            <div class="form-field">
-              <label for="bien">Bien Elegido</label>
-              <select name="bien" id="bien">
-                <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
-                <option value="Inmueble / Hogar">Inmueble / Hogar</option>
-                <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="nombre">Nombre Completo</label>
-                <input id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
-              </div>
-              <div class="form-field">
-                <label for="cedula">Cédula / ID</label>
-                <input id="cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="whatsapp">WhatsApp / Teléfono</label>
-                <input id="whatsapp" name="whatsapp" type="tel" placeholder="Ej. 314 869 1001" required autocomplete="tel">
-              </div>
-              <div class="form-field">
-                <label for="ciudad">Ciudad</label>
-                <input id="ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="email">Correo Electrónico</label>
-              <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required autocomplete="email">
-            </div>
-
-            <button type="submit" class="btn-submit">
-              <span>ENVIAR SOLICITUD AHORA</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-            <p id="msg" role="status"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- =========================================================
-     EXPERIENCIA MÓVIL INDEPENDIENTE (COMPACTA, RESPONSIVA, 100% INMERSIVA)
-     - Sin videos para máximo rendimiento móvil
-     - Aceternity 3D Hero Parallax con imágenes 1, 2, 3, 4, 5
-     - Botón micro-interactivo PulseHeart al final
-========================================================= -->
-<main class="mobile-experience mobile-only" id="mobileApp">
-
-  <!-- Header Móvil Sticky -->
-  <header class="m-header">
-    <a href="#" class="m-brand" aria-label="Sistema Winners">
-      <img src="images/logo.svg" alt="Sistema Winners">
-    </a>
-    <a href="#m-paso3" class="m-header-action">
-      <span>Inscribirme</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </a>
-  </header>
-
-  <!-- =========================================================
-       SECCIÓN 1: HERO MÓVIL (FONDO INMERSIVO: IMAGEN 1.JPG)
-  ========================================================= -->
-  <section class="m-hero m-section-has-bg" id="m-hero">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/1.jpg" alt="" class="m-bg-img" loading="eager">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content">
-      <div class="m-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
-        <span>100% Digital · Planificación Colectiva</span>
-      </div>
-
-      <h1>¿Quieres ser parte<br><span class="tag-gold">del proceso?</span></h1>
-      <p>Sigue nuestros pasos, déjate llevar hacia tu meta con total respaldo y claridad. Adquiere tu vehículo, inmueble o proyecto sin deudas asfixiantes.</p>
-
-      <a href="#m-servicios" class="m-cta-btn">
-        <span>¿Qué tienes que hacer? Descúbrelo</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <polyline points="19 12 12 19 5 12"></polyline>
-        </svg>
+    <div class="flex items-center gap-4">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
       </a>
     </div>
+  </div>
+</div>
 
-    <!-- ACETERNITY UI: HERO PARALLAX (3D TILT + EXCLUSIVELY LOCAL IMAGES 1 TO 5) -->
-    <div class="m-hero-parallax-wrap mobile-parallax-stage" aria-label="Galería interactiva Hero Parallax">
-      <div class="m-parallax-stage mobile-parallax-layer">
-        
-        <!-- Fila 1: Parallax horizontal -->
-        <div class="m-parallax-row m-parallax-row-1">
-          <div class="m-parallax-card">
-            <img src="images/1.jpg" alt="Movilidad y Vehículo" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="8" rx="2"></rect>
-                  <path d="M5 11l2-5h10l2 5"></path>
-                  <circle cx="7.5" cy="15.5" r="1.5"></circle>
-                  <circle cx="16.5" cy="15.5" r="1.5"></circle>
-                </svg>
-                Movilidad
-              </span>
-              <span class="m-card-title">Vehículo Propio</span>
-            </div>
-          </div>
+<!-- =========================================================
+     SECCIÓN 1: NAVBAR PRINCIPAL
+========================================================= -->
+<header class="sticky top-0 z-50 bg-[#0B0D13] border-b border-[#EEAA2B]/30 px-6 py-4 md:py-4">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <!-- Izquierda: Logo corporativo -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0">
+      <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
+      <span class="hidden sm:block leading-tight">
+        <span class="block text-white font-extrabold tracking-wide text-sm">SISTEMA WINNERS</span>
+        <span class="block text-[#EEAA2B] text-[11px] font-semibold tracking-wider">Multifinanciamiento &amp; Socios</span>
+      </span>
+    </a>
 
-          <div class="m-parallax-card">
-            <img src="images/2.jpg" alt="Visión y Estrategia" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                </svg>
-                Visión
-              </span>
-              <span class="m-card-title">Planificación Inteligente</span>
-            </div>
-          </div>
+    <!-- Centro: Menú en texto limpio -->
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-white/85 font-semibold" aria-label="Navegación principal">
+      <a href="#quienes-somos" class="hover:text-[#EEAA2B] transition">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="hover:text-[#EEAA2B] transition">Multifinanciamiento</a>
+      <a href="#oferta" class="hover:text-[#EEAA2B] transition">Oferta y Marcas</a>
+      <a href="#proceso" class="hover:text-[#EEAA2B] transition">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="hover:text-[#EEAA2B] transition">Testimonios</a>
+    </nav>
 
-          <div class="m-parallax-card">
-            <img src="images/3.jpg" alt="Patrimonio Inmobiliario" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 21h18"></path>
-                  <path d="M5 21V7l8-4v18"></path>
-                  <path d="M19 21V11l-6-4"></path>
-                </svg>
-                Hogar
-              </span>
-              <span class="m-card-title">Inmueble Soñado</span>
-            </div>
-          </div>
-
-          <div class="m-parallax-card">
-            <img src="images/4.jpg" alt="Agilidad y Rapidez" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-                Agilidad
-              </span>
-              <span class="m-card-title">Cero Intereses Usureros</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fila 2: Parallax horizontal contrario -->
-        <div class="m-parallax-row m-parallax-row-2">
-          <div class="m-parallax-card">
-            <img src="images/5.jpg" alt="Libertad Financiera" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
-                </svg>
-                Libertad
-              </span>
-              <span class="m-card-title">Capital para Proyectos</span>
-            </div>
-          </div>
-
-          <div class="m-parallax-card">
-            <img src="images/1.jpg" alt="Resultados Reales" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                  <path d="M4 22h16"></path>
-                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7.5"></path>
-                  <path d="M14 14.66V17c0 .55.45 1 1 1h1.5"></path>
-                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
-                </svg>
-                Resultados
-              </span>
-              <span class="m-card-title">Entrega Programada</span>
-            </div>
-          </div>
-
-          <div class="m-parallax-card">
-            <img src="images/2.jpg" alt="Acompañamiento y Respaldo" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-                Respaldo
-              </span>
-              <span class="m-card-title">Acompañamiento 24/7</span>
-            </div>
-          </div>
-
-          <div class="m-parallax-card">
-            <img src="images/4.jpg" alt="Transparencia y Legalidad" loading="lazy">
-            <div class="m-parallax-card-overlay">
-              <span class="m-card-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                Legalidad
-              </span>
-              <span class="m-card-title">100% Transparente</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Métricas Rápidas Móvil -->
-  <div class="m-metrics">
-    <div class="m-metric-pill">
-      <b>100%</b>
-      <span>Respaldo Legal</span>
-    </div>
-    <div class="m-metric-pill">
-      <b>03</b>
-      <span>Pasos Simples</span>
-    </div>
-    <div class="m-metric-pill">
-      <b>24/7</b>
-      <span>Asesoría Directa</span>
-    </div>
-    <div class="m-metric-pill">
-      <b>+1,500</b>
-      <span>Metas Cumplidas</span>
+    <!-- Derecha: CTA corporativo -->
+    <div class="flex items-center gap-3">
+      <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block">Abre tu Cuenta</a>
+      <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </div>
   </div>
 
-  <!-- =========================================================
-       SECCIÓN 2: PRODUCTOS Y SERVICIOS (FONDO INMERSIVO: IMAGEN 2.JPG)
-       MULTIFINANCIAMIENTO VS AUTOFINANCIAMIENTO + EMPRENDER ES EL CAMINO
-  ========================================================= -->
-  <section class="m-section m-section-has-bg" id="m-servicios">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
+  <!-- Menú móvil desplegable -->
+  <nav id="mobileNav" class="mobile-nav lg:hidden bg-[#0B0D13] border-t border-white/10 mt-4 pt-4 pb-2" aria-label="Navegación móvil">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4 text-white/85 font-semibold text-sm">
+      <a href="#quienes-somos" class="mobile-link hover:text-[#EEAA2B] transition">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="mobile-link hover:text-[#EEAA2B] transition">Multifinanciamiento</a>
+      <a href="#oferta" class="mobile-link hover:text-[#EEAA2B] transition">Oferta y Marcas</a>
+      <a href="#proceso" class="mobile-link hover:text-[#EEAA2B] transition">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="mobile-link hover:text-[#EEAA2B] transition">Testimonios</a>
+    </div>
+  </nav>
+</header>
+
+<!-- =========================================================
+     SECCIÓN 2: HERO — SOCIOS INVERSIONISTAS
+     Clon estético del póster oficial: negro/dorado con
+     video en PC e imagen con parallax en móvil.
+========================================================= -->
+<section id="inicio" class="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden bg-[#08090C]">
+
+  <!-- Fondo: video local en PC / imagen con parallax en móvil -->
+  <video class="heroVideo" autoplay loop muted playsinline preload="auto">
+    <source src="images/2.mp4" type="video/mp4">
+  </video>
+  <img src="images/5.jpg" alt="" aria-hidden="true" class="parallaxImg md:hidden" id="heroParallax">
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(8,9,12,0.45) 0%, rgba(20,15,5,0.65) 65%, #08090C 100%);"></div>
+
+  <!-- Contenido central flotante -->
+  <div class="relative z-10 flex flex-col items-center">
+
+    <!-- Sello / Monograma dorado -->
+    <div class="flex items-center gap-4 mb-8">
+      <span class="border-2 border-[#EEAA2B] rounded-xl px-4 py-2 text-[#FFE885] font-black text-xl tracking-widest float-shadow">$W</span>
+      <span class="text-white/90 font-bold tracking-[0.25em] text-xs sm:text-sm uppercase float-shadow-soft">Sistema Winners • 10 Años de Solidez</span>
     </div>
 
-    <div class="m-section-content" style="padding: 24px 16px;">
-      <div class="m-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+    <!-- Bloque tipográfico monumental -->
+    <h1 class="font-black uppercase float-shadow">
+      <span class="block text-white text-4xl md:text-6xl tracking-tight leading-tight">Los sueños</span>
+      <span class="gold-gradient block text-3xl md:text-5xl my-1">SI SE CUMPLEN</span>
+      <span class="block text-white text-4xl md:text-6xl tracking-tight leading-tight">solo déjate</span>
+      <span class="hero-llevar-text block">LLEVAR!!</span>
+    </h1>
+
+    <!-- Firma entre comillas doradas -->
+    <p class="mt-8 text-white/60 text-5xl leading-none font-black select-none" aria-hidden="true">&ldquo;</p>
+    <p class="text-[#FFE885] font-black tracking-[0.35em] text-lg md:text-2xl uppercase -mt-4 float-shadow">&ldquo; S O C I O S &nbsp; I N V E R S I O N I S T A S &rdquo;</p>
+    <p class="mt-4 text-white/80 text-lg md:text-xl font-medium italic float-shadow-soft">¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.</p>
+
+    <!-- CTA principal -->
+    <a href="#multifinanciamiento" class="mt-10 group bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-base md:text-lg px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.4)] transition transform hover:scale-105 inline-flex items-center gap-2">
+      ¡Quiero Ser Socio Ahora!
+      <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </a>
+
+    <!-- Barra inferior de métricas (texto flotante sin cajas) -->
+    <div class="mt-14 pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-y-6">
+      <div class="text-center">
+        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">10 Años</p>
+        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Trayectoria Andina</p>
+      </div>
+      <div class="text-center md:border-l md:border-white/15">
+        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">100%</p>
+        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Cuentas Corporativas Legales</p>
+      </div>
+      <div class="text-center md:border-l md:border-white/15">
+        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">03 Pasos</p>
+        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Proceso Simple</p>
+      </div>
+      <div class="text-center md:border-l md:border-white/15">
+        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">+5,300</p>
+        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Metas Cumplidas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 3: EDITORIAL FONDO BLANCO — MULTIFINANCIAMIENTO
+     vs AUTOFINANCIAMIENTO (estilo ChevyPlan)
+========================================================= -->
+<section id="multifinanciamiento" class="bg-white w-full">
+
+  <!-- Banner fotográfico panorámico -->
+  <div class="w-full h-64 md:h-80 overflow-hidden">
+    <img src="images/hero-slide2.jpg" alt="Evento de comunidad de socios de Sistema Winners" class="w-full h-full object-cover">
+  </div>
+
+  <div class="max-w-5xl mx-auto py-14 px-6">
+    <!-- Pregunta principal -->
+    <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 reveal">¿Qué es y cómo funciona el Sistema Multifinanciamiento de Winners?</h2>
+
+    <!-- Fila de metadatos con íconos -->
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-gray-500 text-sm font-semibold">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        10 Años de Respaldo
+      </span>
+      <span>&bull;</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Planificación Programada
+      </span>
+      <span>&bull;</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        Área Andina y Latinoamérica
+      </span>
+    </div>
+
+    <!-- Título dorado corporativo -->
+    <h3 class="text-3xl md:text-5xl font-black text-[#C59B27] mt-10 mb-6 leading-tight reveal">PRODUCTOS Y SERVICIOS:<br>Mucho más que una compra programada</h3>
+
+    <!-- Párrafo introductorio con letra capital -->
+    <p class="dropcap text-gray-800 text-base md:text-lg leading-relaxed max-w-4xl reveal">
+      Si estás pensando en adquirir un vehículo, equipamiento tecnológico, bienestar o impulsar tu propio negocio, el <strong>Sistema Multifinanciamiento</strong> se convierte en la mejor opción para lograrlo a plazo, ya que <strong>te permitirá ahorrar dinero, apalancar tus ideas productivas y crecer en comunidad con cuotas justas y sin la rigidez de una entidad financiera tradicional.</strong>
+    </p>
+
+    <!-- Comparativa directa en 2 columnas -->
+    <div class="grid md:grid-cols-2 gap-10 mt-14">
+      <!-- Nuestro modelo -->
+      <div class="border-l-4 border-[#EEAA2B] pl-6 py-2">
+        <p class="text-xs font-black tracking-[0.2em] text-[#C59B27] uppercase">Nuestro Modelo Exclusivo</p>
+        <h4 class="text-2xl font-black text-[#132247] mb-3 mt-1">SISTEMA MULTIFINANCIAMIENTO</h4>
+        <p class="text-gray-700 font-semibold mb-4">A través de este sistema te permite obtener:</p>
+        <ul class="space-y-3 text-gray-900">
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <span><strong>Los productos comunales.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <span><strong>Promover tus emprendimientos.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <span><strong>Obtener apalancamientos para tus ideas.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <span><strong>Participar en otras iniciativas productivas y comerciales.</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Esquema tradicional -->
+      <div class="border-l-4 border-red-600 pl-6 py-2">
+        <p class="text-xs font-black tracking-[0.2em] text-red-600 uppercase">Esquema Tradicional Limitado</p>
+        <h4 class="text-2xl font-black text-gray-800 mb-3 mt-1">DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h4>
+        <p class="text-gray-600 font-semibold mb-4">Limitaciones de los sistemas convencionales:</p>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <span><strong>Te ofrecen únicamente productos y servicios propios.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <span><strong>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Llamado a la acción central -->
+    <div class="text-center mt-16">
+      <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal">EMPRENDER ES EL CAMINO</h4>
+      <p class="text-xl text-gray-700 mt-2 font-medium reveal">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
+      <a href="#contacto" class="mt-8 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition reveal">Iniciar mi Proceso como Socio</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 4: OFERTA REAL DE PRODUCTOS, SERVICIOS Y MARCAS
+========================================================= -->
+<section id="oferta" class="bg-[#F8FAFC] w-full py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-black text-[#132247] reveal">Nuestra Oferta Integral de Productos y Servicios</h2>
+      <p class="text-gray-600 text-lg mt-5 leading-relaxed reveal">Trabajamos con productos tangibles y servicios reales que satisfacen necesidades fundamentales y elevan tu calidad de vida, respaldados por marcas líderes a nivel mundial.</p>
+    </div>
+
+    <!-- Cintillo de marcas líderes -->
+    <div class="brand-marquee flex flex-wrap items-center justify-center gap-x-5 gap-y-3 py-10 border-y-2 border-[#EEAA2B]/40 mt-12 reveal">
+      <span class="text-[#132247] font-black text-xl md:text-2xl">SAMSUNG</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-xl md:text-2xl">HP</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-xl md:text-2xl">HONDA</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">BBS-ESTHETIQUE</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">YAS-LEX</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">ECU-ANDINO</span>
+    </div>
+
+    <!-- Grilla de 4 columnas tipográficas -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-14">
+
+      <!-- 1. Bienes muebles y movilidad -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"></path>
+          <path d="M3 16a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1h-2"></path><path d="M5 17H3v-1"></path>
+          <circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle>
+          <path d="M9 17h6"></path>
         </svg>
-        <span>ADJUDICACIÓN COLABORATIVA</span>
+        <h3 class="text-lg font-black text-[#132247] mt-4 mb-4">Compra de Bienes Muebles y Movilidad</h3>
+        <ul class="space-y-2.5 text-gray-700 text-sm leading-relaxed">
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Carros y Motos (<em>Honda</em>).</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Computadoras (<em>HP</em>) y Smartphones (<em>Samsung</em>).</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Electrodomésticos y línea hogar.</li>
+        </ul>
       </div>
 
-      <h2 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">PRODUCTOS Y SERVICIOS</h2>
-
-      <!-- Comparativa Multifinanciamiento vs Autofinanciamiento -->
-      <div class="compare-grid">
-        <!-- Bloque 1: Destacado en Dorado #EEAA2B -->
-        <div class="compare-card compare-card-gold">
-          <span class="compare-tag compare-tag-gold">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Recomendado · Modelo Colaborativo
-          </span>
-          <h3>SISTEMA MULTIFINANCIAMIENTO</h3>
-          <p class="compare-sub">A través de este sistema te permite obtener:</p>
-          <ul class="compare-list">
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Los productos comunales.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Promover tus emprendimientos.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Obtener apalancamientos para tus ideas.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              <span>Participar en otras iniciativas productivas y comerciales.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Bloque 2: Contraste con borde sutil rojo/platino -->
-        <div class="compare-card compare-card-dim">
-          <span class="compare-tag compare-tag-dim">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-            Modelo Convencional Limitado
-          </span>
-          <h3>DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h3>
-          <p class="compare-sub">Restricciones de esquemas tradicionales:</p>
-          <ul class="compare-list">
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-dim">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              <span>Te ofrecen productos y servicios propios.</span>
-            </li>
-            <li class="compare-item">
-              <span class="compare-icon-wrap compare-icon-dim">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              <span>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bloque 3: Cierre de Poder / Callout Central -->
-      <div class="compare-callout">
-        <span class="shiny-text">EMPRENDER ES EL CAMINO</span>
-        <p class="shiny-sub">Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.</p>
-      </div>
-
-      <div style="text-align: center; margin-top: 18px;">
-        <a href="#m-testimonios" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
-          <span>Ver Métricas y Testimonios</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <polyline points="19 12 12 19 5 12"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECCIÓN 3: ODOMETER & TESTIMONIOS (FONDO INMERSIVO: IMAGEN 3.JPG)
-       3A: CONTADOR ODOMETER VERTICAL RÁPIDO
-       3B: ACETERNITY ANIMATED TOOLTIP + TARJETA UIVERSE + ESTRELLAS
-  ========================================================= -->
-  <section class="m-section m-section-has-bg" id="m-testimonios">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/3.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content" style="padding: 24px 16px;">
-      <div class="m-badge">
-        <span class="tag-gold">IMPACTO REAL</span>
-        <span>· RESULTADOS COMPROBADOS</span>
-      </div>
-
-      <h2 style="font-size: 1.55rem; font-weight: 900; margin-bottom: 6px;">Métricas y <span class="tag-gold">Testimonios</span></h2>
-      <p style="font-size: 0.84rem; color: rgba(255,255,255,0.78); max-width: 320px; margin: 0 auto 16px;">Nuestra comunidad se apalanca en reglas transparentes y entregas garantizadas.</p>
-
-      <!-- 3A: Contador Odometer Vertical (Slot Machine Effect) -->
-      <div class="odometer-strip">
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="1500">
-            <span class="odometer-static">+</span>
-            <span class="odometer-digit-track" data-val="1">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
-              </span>
-            </span>
-            <span class="odometer-static">,</span>
-            <span class="odometer-digit-track" data-val="5">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-          </div>
-          <p class="odometer-label">Emprendimientos Impulsados</p>
-        </div>
-
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="5300">
-            <span class="odometer-static">+</span>
-            <span class="odometer-digit-track" data-val="5">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-              </span>
-            </span>
-            <span class="odometer-static">,</span>
-            <span class="odometer-digit-track" data-val="3">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-          </div>
-          <p class="odometer-label">Sueños y Bienes Adjudicados</p>
-        </div>
-
-        <div class="odometer-card">
-          <div class="odometer-number" data-target="100%">
-            <span class="odometer-digit-track" data-val="1">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-digit-track" data-val="0">
-              <span class="odometer-digit-ribbon">
-                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
-              </span>
-            </span>
-            <span class="odometer-static">%</span>
-          </div>
-          <p class="odometer-label">Apalancamiento Colectivo</p>
-        </div>
-      </div>
-
-      <!-- 3B: Aceternity Animated Tooltip (Fila de 5 Avatares) -->
-      <div class="tooltip-avatar-row">
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socio Emprendedor</span>
-            <span class="tooltip-name">Carlos Andrés M.</span>
-            <span class="tooltip-role">Vehículo Adjudicado</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socia Activa</span>
-            <span class="tooltip-name">Elena Restrepo</span>
-            <span class="tooltip-role">Capital de Expansión</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/hero-slide1.jpg" alt="Elena Restrepo" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Adjudicado 2026</span>
-            <span class="tooltip-name">Mauricio Gómez</span>
-            <span class="tooltip-role">Vivienda Familiar</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/hero-slide2.jpg" alt="Mauricio Gómez" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Plan Familiar</span>
-            <span class="tooltip-name">Paola & Andrea</span>
-            <span class="tooltip-role">Movilidad Urbana</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/moto-familia.jpg" alt="Paola & Andrea" class="tooltip-avatar-img" loading="lazy">
-        </div>
-
-        <div class="tooltip-avatar-item" tabindex="0">
-          <div class="tooltip-bubble">
-            <span class="tooltip-badge">Socio Fundador</span>
-            <span class="tooltip-name">David Fernando K.</span>
-            <span class="tooltip-role">Maquinaria Comercial</span>
-            <div class="tooltip-arrow"></div>
-          </div>
-          <img src="images/moto-referidos.jpg" alt="David Fernando K." class="tooltip-avatar-img" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Tarjetas de Testimonio basadas en Uiverse (breezy-eagle-39 + clever-elephant-35) -->
-      <div class="uiverse-testimonials-grid">
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/celular-plan.jpg" alt="Carlos Andrés M." class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="mr1" id="mr1-1" type="radio">
-                  <label for="mr1-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="mr1" id="mr1-2" type="radio">
-                  <label for="mr1-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="mr1" id="mr1-3" type="radio">
-                  <label for="mr1-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="mr1" id="mr1-4" type="radio">
-                  <label for="mr1-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="mr1" id="mr1-5" type="radio" checked>
-                  <label for="mr1-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Carlos Andrés M.</p>
-              <span class="uiverse-role">Socio Emprendedor</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Gracias al Sistema Multifinanciamiento logré apalancar mi propio negocio y adquirir mi vehículo sin las trabas del autofinanciamiento tradicional."
-          </p>
-        </div>
-
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/moto-familia.jpg" alt="Familia Gómez R." class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="mr2" id="mr2-1" type="radio">
-                  <label for="mr2-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="mr2" id="mr2-2" type="radio">
-                  <label for="mr2-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="mr2" id="mr2-3" type="radio">
-                  <label for="mr2-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="mr2" id="mr2-4" type="radio">
-                  <label for="mr2-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="mr2" id="mr2-5" type="radio" checked>
-                  <label for="mr2-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Familia Gómez R.</p>
-              <span class="uiverse-role">Movilidad & Hogar</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Pudimos obtener nuestro vehículo familiar con un plan transparente y cuotas justas. El acompañamiento del equipo Winners fue impecable desde el primer día."
-          </p>
-        </div>
-
-        <div class="uiverse-testimonial-card">
-          <div class="uiverse-header">
-            <img src="images/moto-referidos.jpg" alt="Mateo Valenzuela" class="uiverse-avatar" loading="lazy" />
-            <div>
-              <div class="uiverse-stars">
-                <div class="rating-clever-elephant">
-                  <input value="star-1" name="mr3" id="mr3-1" type="radio">
-                  <label for="mr3-1"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-2" name="mr3" id="mr3-2" type="radio">
-                  <label for="mr3-2"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-3" name="mr3" id="mr3-3" type="radio">
-                  <label for="mr3-3"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-4" name="mr3" id="mr3-4" type="radio">
-                  <label for="mr3-4"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                  <input value="star-5" name="mr3" id="mr3-5" type="radio" checked>
-                  <label for="mr3-5"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></label>
-                </div>
-              </div>
-              <p class="uiverse-name">Mateo Valenzuela</p>
-              <span class="uiverse-role">Proyecto Productivo</span>
-            </div>
-          </div>
-          <p class="uiverse-message">
-            "Emprender no es fácil cuando los bancos te cierran las puertas. Sistema Winners nos dio el apalancamiento que necesitábamos para reactivar nuestras ideas."
-          </p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 18px;">
-        <a href="#m-paso1" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
-          <span>Conocer los 3 Pasos</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <polyline points="19 12 12 19 5 12"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECCIÓN 4: EL PROCESO EN 3 PASOS
-       PASO 01: INSCRIBIRTE (FONDO INMERSIVO: IMAGEN 4.JPG) - ¡SIN MACBOOK!
-  ========================================================= -->
-  <section class="m-section m-section-has-bg" id="m-paso1">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/4.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content">
-      <div class="m-section-header">
-        <div class="m-step-badge">PASO 01 · INICIO DEL VIAJE</div>
-        <h2>¿Qué tienes que hacer?<br><span class="tag-gold">Inscribirte.</span></h2>
-        <p>Dar el primer paso es lo más importante: una planificación ordenada, colectiva y pensada para ti.</p>
-      </div>
-
-      <div class="m-features-list">
-        <div class="m-feature-item">
-          <div class="m-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-          </div>
-          <div class="m-feature-info">
-            <h3>Proceso 100% Digital</h3>
-            <p>Sin filas ni papeleos eternos. Realiza tu registro directamente desde tu celular en minutos.</p>
-          </div>
-        </div>
-
-        <div class="m-feature-item">
-          <div class="m-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <div class="m-feature-info">
-            <h3>Sin Intereses Bancarios</h3>
-            <p>Tu dinero crece y se respalda colectivamente, libre de tasas de usura e intermediarios abusivos.</p>
-          </div>
-        </div>
-
-        <div class="m-feature-item">
-          <div class="m-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-          </div>
-          <div class="m-feature-info">
-            <h3>Entrega Programada Garantizada</h3>
-            <p>Puntualidad y reglas claras bajo contrato legal desde el día número uno.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 20px;">
-        <a href="#m-paso2" class="m-cta-btn" style="max-width: 280px; font-size: 0.84rem; padding: 12px 18px;">
-          <span>Avanzar al Paso 02</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECCIÓN 4: PASO 02 (FONDO INMERSIVO: IMAGEN 5.JPG)
-  ========================================================= -->
-  <section class="m-section m-section-has-bg" id="m-paso2">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/5.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content">
-      <div class="m-section-header">
-        <div class="m-step-badge">PASO 02 · TU ELECCIÓN</div>
-        <h2>Elige el activo que<br><span class="tag-gold">quieres conquistar</span></h2>
-        <p>Selecciona tu bien para ajustar automáticamente tu solicitud:</p>
-      </div>
-
-      <div class="m-goods-list">
-        <!-- Opción 1: Vehículo -->
-        <div class="m-good-card" data-m-bien="Vehículo (Auto / Moto)">
-          <div class="m-good-thumb">
-            <img src="images/1.jpg" alt="Vehículo (Auto / Moto)" loading="lazy">
-          </div>
-          <div class="m-good-details">
-            <span class="tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="8" rx="2"></rect>
-                <path d="M5 11l2-5h10l2 5"></path>
-                <circle cx="7.5" cy="15.5" r="1.5"></circle>
-                <circle cx="16.5" cy="15.5" r="1.5"></circle>
-              </svg>
-              Movilidad Urbana
-            </span>
-            <h3>Vehículo Propio</h3>
-            <p>Autos nuevos o motocicletas con cuotas planificadas y sin bancos.</p>
-          </div>
-          <div class="m-good-check">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Opción 2: Inmueble -->
-        <div class="m-good-card" data-m-bien="Inmueble / Hogar">
-          <div class="m-good-thumb">
-            <img src="images/3.jpg" alt="Inmueble / Hogar" loading="lazy">
-          </div>
-          <div class="m-good-details">
-            <span class="tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21h18"></path>
-                <path d="M5 21V7l8-4v18"></path>
-                <path d="M19 21V11l-6-4"></path>
-              </svg>
-              Patrimonio Familiar
-            </span>
-            <h3>Inmueble o Vivienda</h3>
-            <p>Vivienda propia, remodelación o locales comerciales con base sólida.</p>
-          </div>
-          <div class="m-good-check">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Opción 3: Proyecto -->
-        <div class="m-good-card sel" data-m-bien="Proyecto / Capital Planificado">
-          <div class="m-good-thumb">
-            <img src="images/5.jpg" alt="Proyecto / Capital Planificado" loading="lazy">
-          </div>
-          <div class="m-good-details">
-            <span class="tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
-              Libertad Financiera
-            </span>
-            <h3>Proyecto / Capital</h3>
-            <p>Capital planificado para tu negocio, maquinaria o expansión comercial.</p>
-          </div>
-          <div class="m-good-check">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECCIÓN 4: PASO 03 (FONDO INMERSIVO: IMAGEN 1.JPG)
-  ========================================================= -->
-  <section class="m-section m-section-has-bg" id="m-paso3">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/1.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content">
-      <div class="m-section-header">
-        <div class="m-step-badge">PASO 03 · ÚLTIMO PASO</div>
-        <h2>Completa tus datos para<br><span class="tag-gold">tu propuesta oficial</span></h2>
-        <p>Solo requerimos tu documento básico para estructurar tu plan sin costo:</p>
-      </div>
-
-      <div class="m-form-card">
-        <form id="m_form" novalidate>
-          <div class="m-form-field">
-            <label for="m_bien">Bien Seleccionado</label>
-            <select id="m_bien" name="bien">
-              <option value="Vehículo (Auto / Moto)">Vehículo (Auto / Moto)</option>
-              <option value="Inmueble / Hogar">Inmueble / Hogar</option>
-              <option value="Proyecto / Capital Planificado" selected>Proyecto / Capital Planificado</option>
-            </select>
-          </div>
-
-          <div class="m-form-field">
-            <label for="m_nombre">Nombre Completo</label>
-            <input type="text" id="m_nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
-          </div>
-
-          <div class="m-form-field">
-            <label for="m_cedula">Cédula / Documento ID</label>
-            <input type="tel" id="m_cedula" name="cedula" placeholder="N° de Identificación" required inputmode="numeric">
-          </div>
-
-          <div class="m-form-field">
-            <label for="m_whatsapp">WhatsApp / Celular</label>
-            <input type="tel" id="m_whatsapp" name="whatsapp" placeholder="Ej. 314 869 1001" required autocomplete="tel">
-          </div>
-
-          <div class="m-form-field">
-            <label for="m_ciudad">Ciudad</label>
-            <input type="text" id="m_ciudad" name="ciudad" placeholder="Ej. Bogotá / Medellín" required autocomplete="address-level2">
-          </div>
-
-          <div class="m-form-field">
-            <label for="m_email">Correo Electrónico</label>
-            <input type="email" id="m_email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
-          </div>
-
-          <button type="submit" class="m-btn-submit">
-            <span>ENVIAR SOLICITUD AHORA</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-          <p id="m_msg" role="status" style="margin-top:10px; font-size:0.82rem; text-align:center;"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECCIÓN 5: COMUNIDAD & ME GUSTA (FONDO INMERSIVO: IMAGEN 2.JPG)
-       INCLUYE REACTBITS PULSEHEART CON PERSISTENCIA EN LOCALSTORAGE
-  ========================================================= -->
-  <section class="m-section m-section-has-bg m-social-section" id="m-social">
-    <div class="m-section-bg" aria-hidden="true">
-      <img src="images/2.jpg" alt="" class="m-bg-img" loading="lazy">
-      <div class="m-bg-overlay"></div>
-    </div>
-
-    <div class="m-section-content m-social-inner">
-      <div class="m-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+      <!-- 2. Diversificación de dinero y finanzas -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="1" x2="12" y2="23"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
         </svg>
-        <span>COMUNIDAD WINNERS</span>
+        <h3 class="text-lg font-black text-[#132247] mt-4 mb-4">Diversificación de Dinero y Finanzas</h3>
+        <ul class="space-y-2.5 text-gray-700 text-sm leading-relaxed">
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Generación de ingresos fijos o extras, más bonos e incentivos.</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Apoyo y capital para tu emprendimiento.</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Participación como <strong>Socio en las nuevas Fábricas Comunales</strong>.</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Opciones de financiamiento y créditos directos.</li>
+        </ul>
       </div>
 
-      <h3>¿Te gusta este modelo de adjudicación?</h3>
-      <p>Más de 1,500 socios planifican su libertad financiera con nosotros. Haz clic en el botón para sumarte al respaldo colectivo:</p>
+      <!-- 3. Bienestar y estilo de vida -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 3v6a4 4 0 0 0 8 0V3"></path><path d="M12 13v4"></path><path d="M10 21h4"></path>
+          <circle cx="8" cy="2" r="1"></circle><circle cx="16" cy="2" r="1"></circle>
+        </svg>
+        <h3 class="text-lg font-black text-[#132247] mt-4 mb-4">Industria del Bienestar y Estilo de Vida</h3>
+        <ul class="space-y-2.5 text-gray-700 text-sm leading-relaxed">
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Financiamiento programado para <strong>viajes de distracción o laborales</strong>.</li>
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Apoyo financiero para <strong>cirugías estéticas y tratamientos</strong> (<em>BBS-Esthetique</em>) que fortalecen tu seguridad e imagen personal.</li>
+        </ul>
+      </div>
 
-      <!-- Botón PulseHeart con animación física e incremento dinámico persistente -->
-      <button
-        id="pulseHeartBtn"
-        type="button"
-        class="pulse-heart"
-        aria-pressed="false"
-        data-liked="false"
-        aria-label="Apoyar el modelo colaborativo, 1542 me gusta"
-      >
-        <span class="pulse-heart__pill">
-          <span class="pulse-heart__heart" aria-hidden="true">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <g class="pulse-heart__glyph">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" vector-effect="non-scaling-stroke"></path>
-              </g>
-            </svg>
-          </span>
-          <span class="pulse-heart__count" id="phCountWrapper" aria-hidden="true">
-            <span>1</span>
-            <span>,</span>
-            <span>5</span>
-            <span>4</span>
-            <span class="pulse-heart__slot">
-              <span class="pulse-heart__roll" id="phRoll">
-                <span id="phDigitA">2</span>
-                <span id="phDigitB">3</span>
-              </span>
-            </span>
-          </span>
-          <span class="pulse-heart__label">Me gusta el proceso</span>
+      <!-- 4. Alimentos básicos y economía familiar -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11h18"></path><path d="M5 11V8a7 7 0 0 1 14 0v3"></path>
+          <path d="M4 11v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path d="M12 4v3"></path>
+          <path d="M6 15v5M10 15v5M14 15v5M18 15v5"></path>
+        </svg>
+        <h3 class="text-lg font-black text-[#132247] mt-4 mb-4">Alimentos Básicos y Economía Familiar</h3>
+        <ul class="space-y-2.5 text-gray-700 text-sm leading-relaxed">
+          <li class="flex gap-2"><span class="text-[#EEAA2B] font-black">&#8226;</span> Abastecimiento de canasta básica de alimentos (<em>Ecu-Andino</em>) y suplementos alimenticios de primera calidad sin sobreprecios.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 5: QUIÉNES SOMOS, MISIÓN, VISIÓN Y APORTE SOCIAL
+     (estilo Fonbienes — fondo blanco puro)
+========================================================= -->
+<section id="quienes-somos" class="bg-white w-full">
+
+  <!-- Franja institucional estilo Fonbienes -->
+  <div class="bg-[#132247] py-5 px-6 border-b-4 border-[#EEAA2B]">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <h2 class="text-white font-black text-lg md:text-2xl tracking-wide uppercase">Nuestra Compañía</h2>
+      <p class="text-[#FFE885] font-bold text-xs md:text-sm tracking-[0.15em] uppercase">Legalidad, Trayectoria y Compromiso Social</p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto py-16 px-6">
+
+    <!-- Bloque 1: Redacción ejecutiva -->
+    <div class="space-y-10 max-w-4xl">
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         </span>
-      </button>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]">10 Años de Presencia Internacional</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed">Sistema Winners cuenta con una década de trayectoria ininterrumpida operando en toda el <strong>Área Andina (Ecuador, Colombia, Perú) con extensión a Latinoamérica</strong>.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        </span>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]">100% Legalidad y Transparencia Bancaria</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed">Somos una empresa legalmente constituida en cada país donde operamos, con representante legal propio, declaración tributaria al día y operación exclusiva mediante <strong>cuentas bancarias corporativas autorizadas</strong> (jamás utilizamos paraísos fiscales ni esquemas informales).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+        </span>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]">Crecimiento Serio y Sostenible</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed">Construimos una relación asertiva y de largo plazo entre la empresa y nuestros afiliados, fomentando liderazgo, educación financiera y resultados reales.</p>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- Footer Móvil -->
-  <footer class="m-footer">
-    <img src="images/logo.svg" alt="Sistema Winners">
-    <p>© 2026 Sistema Winners S.A.S. Todos los derechos reservados.</p>
-    <p style="margin-top: 4px; font-size: 0.7rem; color: rgba(255,255,255,0.35);">Planificación Inteligente de Activos y Fondos Colaborativos</p>
-  </footer>
+    <!-- Bloque 2: Misión, Visión y Valores (3 columnas) -->
+    <div class="grid md:grid-cols-3 gap-10 mt-20">
+      <div class="border-t-4 border-[#132247] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3">Misión</h4>
+        <p class="text-gray-700 leading-relaxed">Promover la cultura del ahorro programado, el multifinanciamiento y el emprendimiento cooperativo, facilitando a nuestros socios el acceso a vehículos, tecnología, bienestar e industria libre de intereses abusivos.</p>
+      </div>
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3">Visión</h4>
+        <p class="text-gray-700 leading-relaxed">Consolidarnos en toda Latinoamérica como el ecosistema líder de economía colaborativa y multifinanciamiento empresarial que transforma las ideas de nuestros socios en patrimonio real.</p>
+      </div>
+      <div class="border-t-4 border-[#132247] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-4">Valores Corporativos</h4>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Servicio</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Ética</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Honestidad</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Integridad</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Respeto</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Liderazgo</span>
+        </div>
+      </div>
+    </div>
 
-</main>
+    <!-- Bloque 3: Aporte social "Todos se Benefician" -->
+    <div class="mt-20">
+      <h4 class="text-2xl md:text-3xl font-black text-[#132247] uppercase text-center reveal">Aporte Social y Economía Naranja: <span class="text-[#C59B27]">&ldquo;Todos se Benefician&rdquo;</span></h4>
+      <p class="text-gray-600 text-center mt-3 max-w-2xl mx-auto reveal">Iniciativas comunitarias oficiales de Sistema Winners que devuelven el valor a la sociedad.</p>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
 
-<!-- BOTÓN FLOTANTE WHATSAPP CON PULSO -->
-<a class="wa-float" id="wa" href="https://wa.me/573148691001" target="_blank" rel="noopener" aria-label="Contacto Directo por WhatsApp">
-  <img src="images/whatsapp.png" alt="WhatsApp">
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
+            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 22V12h6v10"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4">Tiendas Comunitarias DOY-MAS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Impulso al comercio solidario y abastecimiento justo.</p>
+        </div>
+
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
+            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.2 18.3a6.5 6.5 0 0 1 11.6 0"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4">Academia Deportiva SOCIO WINNERS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apoyo activo al deporte barrial, juventud y actividades lúdicas.</p>
+        </div>
+
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
+            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="14" rx="2"></rect><path d="M9 7V5a3 3 0 0 1 6 0v2"></path><path d="M4 12h16"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4">Desarrollo de Industrias y Empresas Comunales</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apalancamos propuestas productivas nacidas directamente de la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 6: EL PROCESO EN 3 PASOS (estilo Maqui+)
+     Fondo Verde Petróleo, elementos flotantes sin cajas
+========================================================= -->
+<section id="proceso" class="w-full px-6 py-20 text-white" style="background: linear-gradient(180deg, #0D3B3E 0%, #092226 100%);">
+
+  <!-- Fila superior de 3 íconos separados por líneas -->
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 border-b border-white/15 pb-10">
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide">Asambleas y Eventos Públicos</span>
+    </div>
+    <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide">Acompañamiento Paso a Paso</span>
+    </div>
+    <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide">Adjudicación y Apalancamiento</span>
+    </div>
+  </div>
+
+  <!-- Título central -->
+  <h2 class="text-2xl md:text-4xl font-black text-center uppercase tracking-wide mt-12 float-shadow reveal">¡Conéctate a Nuestro Proceso en<br class="hidden md:block"> 3 Simples Pasos!</h2>
+
+  <!-- Los 3 pasos flotantes -->
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mt-14 text-center">
+
+    <div class="reveal">
+      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">01</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Uno</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué tienes que hacer? Inscribirte</h3>
+      <p class="text-white/80 mt-3 leading-relaxed">Regístrate como Socio Inversionista y asegura tu posición en el sistema.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">02</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Dos</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué bien o servicio necesitas?</h3>
+      <p class="text-white/80 mt-3 leading-relaxed">Elige entre Vehículo (Carro/Moto), Tecnología, Emprendimiento/Fábricas Comunales o Bienestar/Viajes.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="text-[#EEAA2B] font-black text-5xl tracking-tighter">03</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Tres</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">Documentos</h3>
+      <p class="text-white/80 mt-3 leading-relaxed">Completa tus datos básicos en el formulario oficial a continuación para recibir asesoría inmediata.</p>
+    </div>
+  </div>
+
+  <!-- Visual inferior con imagen y CTA -->
+  <div class="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center">
+    <img src="images/moto-familia.jpg" alt="Familia adjudicada con su moto de trabajo en Sistema Winners" class="rounded-2xl shadow-2xl w-full h-64 md:h-80 object-cover reveal" loading="lazy">
+    <div class="text-center md:text-left reveal">
+      <h3 class="text-2xl md:text-3xl font-black float-shadow-soft">Tu meta está a 3 pasos de distancia</h3>
+      <p class="text-white/80 mt-3 leading-relaxed">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
+      <a href="#contacto" class="mt-7 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.45)] transition transform hover:scale-105">
+        ¡Inicia tu Proceso Ahora! &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 7: CONTADORES ODÓMETRO + TESTIMONIOS
+========================================================= -->
+<section id="testimonios" class="bg-[#F4F6F9] w-full py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Parte A: Contadores de giro rápido -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-[#132247] uppercase tracking-wide reveal">Resultados que hablan por nosotros</h2>
+      <div class="grid sm:grid-cols-3 gap-10 mt-14">
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="10">10</p>
+          <p class="text-gray-600 font-semibold mt-3">Años de Trayectoria<br>en el Área Andina</p>
+        </div>
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#C59B27] odometer" data-value="+1,904">+1,904</p>
+          <p class="text-gray-600 font-semibold mt-3">Emprendimientos y<br>Proyectos Impulsados</p>
+        </div>
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="+5,396">+5,396</p>
+          <p class="text-gray-600 font-semibold mt-3">Productos, Vehículos y<br>Servicios Adjudicados</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parte B: Avatares interactivos con tooltip -->
+    <div class="mt-24 text-center">
+      <h3 class="text-2xl font-extrabold text-gray-900 reveal">Socios reales, historias reales</h3>
+      <p class="text-gray-500 mt-2 reveal">Pasa el cursor o toca una foto para conocerlos.</p>
+      <div class="flex items-center justify-center -space-x-3 mt-10">
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/celular-plan.jpg" alt="Carlos M., socio de Quito" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Carlos M. &mdash; Quito</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Adjudiqué mi moto Honda para trabajar. El acompañamiento fue paso a paso.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/hero-slide1.jpg" alt="María G., socia de Guayaquil" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">María G. &mdash; Guayaquil</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Con el apalancamiento abrí mi emprendimiento. Hoy ya tengo un punto de venta.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/hero-slide2.jpg" alt="Andrés P., socio de Pasto" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Andrés P. &mdash; Pasto</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Lidero eventos en mi ciudad. Las asambleas son abiertas y transparentes.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/moto-familia.jpg" alt="Valentina S., socia de Bogotá" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Valentina S. &mdash; Bogotá</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Mi familia logró su vehículo sin intereses bancarios ni rigidez del sistema tradicional.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/3.jpg" alt="Jorge D., socio de Quito Sur" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Jorge D. &mdash; Quito Sur</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Participé en las tiendas DOY-MAS y desde entonces todo es comunidad real.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parte C: 3 testimonios con estrellas -->
+    <div class="grid md:grid-cols-3 gap-10 mt-24">
+
+      <article class="text-center reveal">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Entré con cuotas justas y sin la rigidez de un banco. Hoy manejo un carro propio gracias al multifinanciamiento.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Luisa Fernanda R.</p>
+        <p class="text-gray-500 text-sm font-semibold">Quito, Ecuador</p>
+      </article>
+
+      <article class="text-center reveal">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Recibí mi crédito productivo y mi smartphone Samsung en el mismo ciclo. El sistema me dio la espada para emprender.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Diego Alejandro S.</p>
+        <p class="text-gray-500 text-sm font-semibold">Guayaquil, Ecuador</p>
+      </article>
+
+      <article class="text-center reveal">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Además de mi moto de trabajo, participé en la tienda comunal DOY-MAS. Todo es transparente y legal desde el día uno.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Paola Andrea M.</p>
+        <p class="text-gray-500 text-sm font-semibold">Bogot&aacute;, Colombia</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 8: FORMULARIO "ABRE TU CUENTA DE SOCIO"
+     (clon estético de la captura CFI — fondo blanco puro)
+========================================================= -->
+<section id="contacto" class="bg-white w-full py-20 px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Franja superior azul marino corporativo -->
+    <div class="bg-[#132247] text-white py-5 px-8 rounded-t-2xl flex items-center justify-between shadow-lg">
+      <div class="flex items-center gap-3">
+        <span class="border border-[#EEAA2B] rounded-lg px-2.5 py-1 text-[#FFE885] font-black text-sm">$W</span>
+        <span class="font-extrabold tracking-wider text-sm">SISTEMA WINNERS</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
+        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        Área Andina (ES)
+      </div>
+    </div>
+
+    <!-- Cuerpo del formulario -->
+    <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2">Abre tu cuenta real de Socio</h2>
+      <p class="text-lg text-gray-500 mb-8">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
+
+      <form id="socioForm" novalidate>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2">Primer nombre</label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" required
+                   class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+          </div>
+          <div>
+            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2">Apellido</label>
+            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" required
+                   class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2">Cédula / RUC / Documento de Identidad</label>
+          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" required
+                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2">Celular / WhatsApp</label>
+          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" required
+                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" required
+                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
+          <select id="f-bien" name="bien" required
+                  class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 bg-white focus:border-[#132247] focus:outline-none transition">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Vehículo (Carro o Moto Honda / Multimarca)">Vehículo (Carro o Moto Honda / Multimarca)</option>
+            <option value="Tecnología y Electrodomésticos (Samsung / HP)">Tecnología y Electrodomésticos (Samsung / HP)</option>
+            <option value="Impulsar mi Emprendimiento / Crédito y Capital">Impulsar mi Emprendimiento / Crédito y Capital</option>
+            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
+            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
+            <option value="Canasta Básica y Suplementos (Ecu-Andino)">Canasta Básica y Suplementos (Ecu-Andino)</option>
+          </select>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8">
+          Solicitar Asesoría e Iniciar Proceso
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-6">¿Necesitas una respuesta inmediata?</p>
+        <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20abrir%20mi%20cuenta%20de%20Socio%20Inversionista"
+           target="_blank" rel="noopener"
+           class="mt-2 w-full inline-flex items-center justify-center gap-3 bg-[#1FAF54] hover:bg-[#189a48] text-white font-bold py-4 rounded-xl shadow-md transition">
+          <img src="images/whatsapp.png" alt="" aria-hidden="true" class="w-6 h-6 object-contain rounded-full">
+          Escríbenos por WhatsApp Ahora
+        </a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 9: FOOTER INSTITUCIONAL
+========================================================= -->
+<footer class="bg-[#08090C] text-gray-400 py-12 px-6 border-t border-white/10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
+        <span class="text-white font-extrabold tracking-wide text-sm">SISTEMA WINNERS</span>
+      </div>
+      <p class="leading-relaxed text-sm">10 años impulsando el multifinanciamiento, la economía naranja y el progreso colectivo en toda el Área Andina y Latinoamérica.</p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4">Nuestras Divisiones</h4>
+      <ul class="text-sm space-y-2 leading-relaxed">
+        <li>Bienes Muebles y Vehículos</li>
+        <li>Fábricas Comunales</li>
+        <li>Tiendas DOY-MAS</li>
+        <li>Academia Deportiva Socio Winners</li>
+        <li>Bienestar y Estética</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4">Legalidad y Contacto</h4>
+      <p class="text-sm leading-relaxed">Cuentas corporativas autorizadas y representación legal en cada país.</p>
+      <a href="tel:+573148691001" class="mt-3 inline-flex items-center gap-2 text-sm hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        L&iacute;nea de Socios: +57 314 869 1001
+      </a>
+      <p class="text-xs text-gray-500 mt-6">© <span id="year">2026</span> Sistema Winners. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     BOTÓN FLOTANTE DE WHATSAPP
+========================================================= -->
+<a class="wa-float fixed bottom-6 right-6 z-50 bg-[#25D366] rounded-full p-1.5 shadow-lg hover:scale-110 transition-transform"
+   href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas"
+   target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
+  <img src="images/whatsapp.png" alt="WhatsApp" class="w-12 h-12 object-contain rounded-full">
 </a>
 
-<!-- GSAP + SCROLLTRIGGER PARA TRANSICIONES CINEMATOGRÁFICAS Y HERO PARALLAX -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/inmersivo.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Año del footer ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Menú móvil ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function () {
+      mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open') ? 'true' : 'false');
+    });
+    mobileNav.querySelectorAll('.mobile-link').forEach(function (link) {
+      link.addEventListener('click', function () { mobileNav.classList.remove('open'); });
+    });
+  }
+
+  /* ---------- Reveal fluido al scroll ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- Contadores Odómetro: giro rápido tipo slot machine ---------- */
+  function runOdometer(el) {
+    var target = el.dataset.value;
+    el.innerHTML = '';
+    // Construir los caracteres finales: solo los dígitos giran
+    var slots = [];
+    for (var i = 0; i < target.length; i++) {
+      if (/\d/.test(target[i])) {
+        var d = document.createElement('span');
+        d.className = 'odometer-digit';
+        d.textContent = '0';
+        el.appendChild(d);
+        slots.push({ node: d, final: target[i] });
+      } else {
+        var s = document.createElement('span');
+        s.textContent = target[i];
+        el.appendChild(s);
+      }
+    }
+    el.classList.add('spinning');
+    var ticks = 0;
+    var maxTicks = 34;
+    var timer = setInterval(function () {
+      slots.forEach(function (slot) {
+        slot.node.textContent = String(Math.floor(Math.random() * 10));
+      });
+      ticks++;
+      if (ticks >= maxTicks) {
+        clearInterval(timer);
+        slots.forEach(function (slot) {
+          slot.node.textContent = slot.final;
+        });
+        el.classList.remove('spinning');
+      }
+    }, 48);
+  }
+
+  var odometers = document.querySelectorAll('.odometer');
+  if ('IntersectionObserver' in window) {
+    var odomObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          odomObs.unobserve(entry.target);
+          runOdometer(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    odometers.forEach(function (el) { odomObs.observe(el); });
+  }
+
+  /* ---------- Parallax suave del Hero (solo móvil) ---------- */
+  var heroImg = document.getElementById('heroParallax');
+  if (heroImg) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (window.innerWidth >= 768 || ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        var y = window.scrollY || window.pageYOffset;
+        heroImg.style.transform = 'translateY(' + Math.min(y * 0.25, 220) + 'px)';
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- Formulario: envío por WhatsApp oficial ---------- */
+  var form = document.getElementById('socioForm');
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var apellido = document.getElementById('f-apellido').value.trim();
+      var doc = document.getElementById('f-doc').value.trim();
+      var cel = document.getElementById('f-celular').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var bien = document.getElementById('f-bien').value;
+      var msg = 'Hola Sistema Winners, mi nombre es ' + nombre + ' ' + apellido +
+                ', documento ' + doc + ', celular ' + cel + ', email ' + email +
+                '. Y quiero: ' + bien + '. ¡Deseo iniciar mi proceso como Socio Inversionista!';
+      window.open('https://wa.me/573148691001?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
