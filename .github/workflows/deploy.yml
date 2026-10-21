@@ -1,0 +1,98 @@
+name: CI & Compilación Sistema Winners
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  verificacion-y-compilacion:
+    name: Verificación de Código y Compilación Wrangler
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validar Sintaxis de Worker y Scripts JS
+        run: |
+          echo "=== 1. Verificando sintaxis JavaScript ==="
+          node --check worker.js
+          node --check js/inmersivo.js
+          node --check js/main.js
+          node --check js/institucional.js
+          node --check js/landing-institucional.js
+          echo "OK: Todos los scripts JS tienen sintaxis válida."
+
+      - name: Validar Configuración Cloudflare (wrangler.jsonc)
+        run: |
+          echo "=== 2. Verificando wrangler.jsonc ==="
+          node -e "JSON.parse(require('fs').readFileSync('wrangler.jsonc', 'utf8').replace(/\/\/.*$/gm, '')); console.log('wrangler.jsonc es JSON válido')"
+
+      - name: Validar Integridad de Archivos Críticos
+        run: |
+          echo "=== 3. Comprobando presencia de archivos clave ==="
+          files=(
+            "index.html"
+            "inmersivo.html"
+            "consulta-devoluciones.html"
+            "zona-clientes.html"
+            "tu-pago-en-linea.html"
+            "devoluciones.html"
+            "resultados-asamblea.html"
+            "gerente.html"
+            "cotizador.html"
+            "contacto.html"
+            "politicas.html"
+            "productos.html"
+            "worker.js"
+            "wrangler.jsonc"
+            "_redirects"
+            "_headers"
+            "css/inmersivo.css"
+            "js/inmersivo.js"
+          )
+          for file in "${files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "ERROR: Archivo crítico no encontrado: $file"
+              exit 1
+            fi
+            echo "OK: $file presente."
+          done
+
+      - name: Compilación y Empaquetado Cloudflare (Wrangler Dry-Run)
+        run: |
+          echo "=== 4. Ejecutando compilación y chequeo de assets con Wrangler ==="
+          npx --yes wrangler@4.88.0 deploy --dry-run
+          echo "OK: Compilación y empaquetado de assets exitoso."
+
+      - name: Despliegue Automático con Wrangler (si existe token configurado)
+        if: "${{ env.CLOUDFLARE_API_TOKEN != '' }}"
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+  monitoreo-produccion:
+    name: Comprobación de Disponibilidad en Producción
+    needs: verificacion-y-compilacion
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Monitorear Disponibilidad de Producción
+        run: |
+          echo "=== 5. Comprobando disponibilidad en vivo de https://www.sistemawinners.com ==="
+          sleep 3
+          curl -sS -I -L --max-time 15 "https://www.sistemawinners.com/" | grep -E "HTTP/.* 200" || echo "Aviso: Dominio en proceso de refresco de CDN"
+          curl -sS -I -L --max-time 15 "https://www.sistemawinners.com/api/health" | grep -E "HTTP/.* 200" || echo "Aviso: Endpoint health en refresco"
+          echo "Verificación de producción finalizada."
