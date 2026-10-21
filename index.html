@@ -308,6 +308,29 @@
       50% { opacity: 1; color: #C59B27; }
     }
 
+    /* ---------- Metadatos: al hacer scroll entran girando como página/fecha ---------- */
+    .meta-item {
+      transform-origin: top center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform, opacity;
+    }
+    @keyframes metaFlip {
+      0% {
+        opacity: 0;
+        transform: perspective(700px) rotateX(-88deg) translateY(-10px);
+      }
+      55% { opacity: 1; }
+      75% { transform: perspective(700px) rotateX(8deg); }
+      100% { opacity: 1; transform: perspective(700px) rotateX(0deg) translateY(0); }
+    }
+    .meta-item.visible {
+      animation: metaFlip 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .meta-d1.visible { animation-delay: 0.05s; }
+    .meta-d2.visible { animation-delay: 0.28s; }
+    .meta-d3.visible { animation-delay: 0.5s; }
+
     /* ---------- Métricas del hero: subrayado dorado sutil ---------- */
     .metric-num {
       display: inline-block;
@@ -390,6 +413,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .meta-item svg { animation: none; }
+      .meta-item.visible { animation: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
