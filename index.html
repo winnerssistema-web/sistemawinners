@@ -202,6 +202,13 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ---------- Header inteligente: se oculta al bajar, reaparece al subir ---------- */
+    .site-header {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      transform: translateY(0);
+    }
+    .site-header.header-hidden { transform: translateY(-115%); }
+
     /* ---------- Menú móvil ---------- */
     .mobile-nav { display: none; }
     .mobile-nav.open { display: block; }
@@ -305,7 +312,7 @@
 <!-- =========================================================
      SECCIÓN 1: NAVBAR PRINCIPAL
 ========================================================= -->
-<header class="sticky top-0 z-50 bg-[#0B0D13] border-b border-[#EEAA2B]/30 px-6 py-4 md:py-4">
+<header id="siteHeader" class="site-header sticky top-0 z-50 bg-[#0B0D13] border-b border-[#EEAA2B]/30 px-6 py-4 md:py-4">
   <div class="flex items-center justify-between max-w-7xl mx-auto">
     <!-- Izquierda: Logo corporativo -->
     <a href="#inicio" class="flex items-center gap-3 shrink-0">
@@ -1067,20 +1074,44 @@
     });
   }
 
-  /* ---------- Reveal fluido al scroll ---------- */
+  /* ---------- Revelado fluido: aparece al bajar y reaparece al subir ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var revealObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          revealObs.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function (el) { revealObs.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- Header inteligente: se oculta al bajar y reaparece al subir ---------- */
+  var siteHeader = document.getElementById('siteHeader');
+  if (siteHeader) {
+    var lastY = window.pageYOffset || window.scrollY;
+    var hdrTicking = false;
+    window.addEventListener('scroll', function () {
+      if (hdrTicking) return;
+      hdrTicking = true;
+      window.requestAnimationFrame(function () {
+        var y = window.pageYOffset || window.scrollY;
+        if (y < 140) {
+          siteHeader.classList.remove('header-hidden');
+        } else if (y > lastY + 8) {
+          siteHeader.classList.add('header-hidden');
+        } else if (y < lastY - 8) {
+          siteHeader.classList.remove('header-hidden');
+        }
+        lastY = y;
+        hdrTicking = false;
+      });
+    }, { passive: true });
   }
 
   /* ---------- Contadores Odómetro: giro rápido tipo slot machine ---------- */
