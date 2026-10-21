@@ -2,7 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0D13">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <title>Sistema Winners | Multifinanciamiento y Socios Inversionistas</title>
   <meta name="description" content="10 años de trayectoria en el Área Andina y Latinoamérica. Sistema de Multifinanciamiento para vehículos, tecnología, bienestar y emprendimiento. Abre tu cuenta de Socio Inversionista.">
@@ -50,8 +55,11 @@
       will-change: opacity;
     }
     .heroLayer.active { opacity: 1; }
-    /* Encuadre del rostro en la imagen a.jpg (rostro en tercio superior-centro) */
-    .heroLayerA { object-position: 52% 18%; }
+    /* Encuadre de la chica: en móvil rostro y sonrisa en tercio superior; en PC chica a la derecha */
+    .heroLayerA { object-position: 52% 8%; }
+    @media (min-width: 1024px) {
+      .heroLayerA { object-position: 78% 20%; }
+    }
     /* Ken Burns sutil solo sobre imagenes activas */
     .heroLayer.active:not(video) { animation: heroKenBurns 8s ease-in-out forwards; }
     @keyframes heroKenBurns {
@@ -70,25 +78,59 @@
       }
     }
 
+    /* ---------- Overlay inteligente que NO tapa la sonrisa ni oscurece el rostro ---------- */
+    .heroOverlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      /* Móvil: cristalino arriba (0-30%) para ver el rostro y sonrisa nítidos; oscuro abajo para los textos */
+      background: linear-gradient(180deg,
+        rgba(8,9,12,0.06) 0%,
+        rgba(8,9,12,0.04) 28%,
+        rgba(8,9,12,0.70) 52%,
+        #08090C 92%
+      );
+    }
+    @media (min-width: 1024px) {
+      .heroOverlay {
+        /* Desktop: oscuro degradado en el lateral izquierdo para máxima legibilidad;
+           lado derecho despejado para que la chica sonriente y su celular brillen */
+        background:
+          linear-gradient(90deg,
+            rgba(8,9,12,0.96) 0%,
+            rgba(8,9,12,0.86) 38%,
+            rgba(8,9,12,0.32) 64%,
+            rgba(8,9,12,0.05) 84%,
+            transparent 100%
+          ),
+          linear-gradient(180deg,
+            transparent 72%,
+            #08090C 100%
+          );
+      }
+    }
+
     /* ---------- Texto flotante con sombra intensa (secciones oscuras) ---------- */
     .float-shadow { text-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.9); }
     .float-shadow-soft { text-shadow: 0 3px 18px rgba(0,0,0,0.8); }
 
-    /* ---------- Degradado dorado tipográfico ---------- */
+    /* ---------- Degradado dorado tipográfico radiante (sin sombra interna sucia) ---------- */
     .gold-gradient {
-      background: linear-gradient(100deg, #FFF6C9 0%, #FFDE71 40%, #EEAA2B 100%);
+      background: linear-gradient(135deg, #FFF6C9 0%, #FFDE71 35%, #EEAA2B 75%, #F59E0B 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      filter: drop-shadow(0 3px 14px rgba(238, 170, 43, 0.35));
+      -webkit-text-fill-color: transparent;
+      text-shadow: none !important;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.85)) drop-shadow(0 0 16px rgba(238, 170, 43, 0.5));
     }
 
-    /* ---------- Text Image Clip "LLEVAR!!" (idéntico al póster) ---------- */
+    /* ---------- Text Image Clip "LLEVAR!!" (idéntico al póster, sin sombra interna) ---------- */
     .hero-llevar-text {
-      font-size: clamp(2.6rem, 12.5vw, 4rem);
+      font-size: clamp(2.3rem, 10vw, 3.8rem);
       white-space: nowrap;
       font-weight: 900;
-      line-height: 0.92;
+      line-height: 0.95;
       letter-spacing: -0.02em;
       text-transform: uppercase;
       background-image: url('images/a.jpg'), linear-gradient(180deg, #FFF3B0 0%, #EEAA2B 45%, #8A5A00 100%);
@@ -97,12 +139,17 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      -webkit-text-stroke: 2px #EEAA2B;
-      filter: drop-shadow(0 8px 30px rgba(238, 170, 43, 0.45));
+      -webkit-text-fill-color: transparent;
+      text-shadow: none !important;
+      -webkit-text-stroke: 1.5px #EEAA2B;
+      filter: drop-shadow(0 4px 20px rgba(238, 170, 43, 0.45));
       margin-top: 0.1em;
     }
     @media (min-width: 640px) {
-      .hero-llevar-text { font-size: clamp(4rem, 11vw, 9rem); }
+      .hero-llevar-text {
+        font-size: clamp(3.8rem, 9.5vw, 7.5rem);
+        -webkit-text-stroke: 2px #EEAA2B;
+      }
     }
 
     /* ---------- Logo blanco puro ---------- */
@@ -268,6 +315,24 @@
       .reveal { opacity: 1; transform: none; transition: none; }
       .wa-float { animation: none; }
     }
+
+    /* ---------- Experiencia de App Nativa Móvil (Play Store Feel) ---------- */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-bottom-bar {
+      box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.6);
+      padding-bottom: max(0.4rem, env(safe-area-inset-bottom));
+    }
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+      }
+      .wa-float {
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px)) !important;
+        right: 1rem !important;
+      }
+    }
   </style>
 </head>
 <body class="font-mont antialiased">
@@ -358,64 +423,74 @@
      Clon estético del póster oficial: negro/dorado con
      slider de fondo (PC: video flor + imagenes / móvil: imagenes).
 ========================================================= -->
-<section id="inicio" class="relative min-h-[92vh] flex flex-col items-center justify-end text-center px-6 pt-32 pb-8 md:pt-44 md:pb-14 overflow-hidden bg-[#08090C]">
+<section id="inicio" class="relative min-h-[94vh] flex flex-col justify-end px-4 sm:px-6 pt-48 sm:pt-56 pb-8 md:pt-36 md:pb-16 overflow-hidden bg-[#08090C]">
 
-  <!-- Fondo: slider intercambiable -->
+  <!-- Fondo: slider intercambiable con chica sonriente en capa inicial activa -->
   <div class="heroSlider" id="heroSlider" aria-hidden="true">
+    <img class="heroLayer heroLayerA active" src="images/a.jpg" alt="Socia Inversionista Sistema Winners">
     <img class="heroLayer" src="images/c.jpg" alt="">
-    <img class="heroLayer heroLayerA" src="images/a.jpg" alt="">
     <img class="heroLayer" src="images/b.jpg" alt="">
-    <video class="heroLayer heroVideo active" autoplay loop muted playsinline preload="auto">
+    <video class="heroLayer heroVideo" autoplay loop muted playsinline preload="auto">
       <source src="images/2.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(8,9,12,0.45) 0%, rgba(20,15,5,0.65) 65%, #08090C 100%);"></div>
+  <div class="heroOverlay" aria-hidden="true"></div>
 
-  <!-- Contenido anclado a la base (libera el tercio superior para los rostros del slider) -->
-  <div class="relative z-10 flex flex-col items-center w-full">
+  <!-- Contenido anclado: en Desktop a la izquierda (máx. legibilidad sin tapar el rostro de la chica);
+       en Móvil compactado y adaptado tipo App Play Store para despejar su sonrisa en la parte superior -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center lg:items-start text-center lg:text-left">
+    <div class="w-full max-w-xl xl:max-w-2xl flex flex-col items-center lg:items-start">
 
-    <!-- Marca superior discreta (sin simbolo $W) -->
-    <p class="text-white/85 font-bold tracking-[0.25em] text-[11px] sm:text-xs uppercase float-shadow-soft mb-6 md:mb-8">Sistema Winners • 10 Años de Solidez</p>
-
-    <!-- Bloque tipográfico monumental -->
-    <h1 class="font-black uppercase float-shadow">
-      <span class="block text-white text-4xl md:text-6xl tracking-tight leading-tight">Los sueños</span>
-      <span class="gold-gradient block text-3xl md:text-5xl my-1">SI SE CUMPLEN</span>
-      <span class="block text-white text-4xl md:text-6xl tracking-tight leading-tight">solo déjate</span>
-      <span class="hero-llevar-text block">LLEVAR!!</span>
-    </h1>
-
-    <!-- Firma entre comillas doradas (cada palabra indivisible en móvil) -->
-    <p class="mt-6 md:mt-8 text-white/60 text-4xl md:text-5xl leading-none font-black select-none" aria-hidden="true">&ldquo;</p>
-    <p class="text-[#FFE885] font-black tracking-[0.12em] md:tracking-[0.35em] text-sm sm:text-base md:text-2xl uppercase md:-mt-4 float-shadow">
-      <span class="whitespace-nowrap">&ldquo; SOCIOS</span>&nbsp;<span class="whitespace-nowrap">INVERSIONISTAS &rdquo;</span>
-    </p>
-    <p class="mt-3 md:mt-4 text-white/80 text-base md:text-xl font-medium italic float-shadow-soft">¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.</p>
-
-    <!-- CTA principal -->
-    <a href="#multifinanciamiento" class="mt-10 group bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-base md:text-lg px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.4)] transition transform hover:scale-105 inline-flex items-center gap-2">
-      ¡Quiero Ser Socio Ahora!
-      <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-    </a>
-
-    <!-- Barra inferior de métricas (texto flotante sin cajas) -->
-    <div class="mt-10 md:mt-14 pt-6 md:pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-y-6">
-      <div class="text-center">
-        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">10 Años</p>
-        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Trayectoria Andina</p>
+      <!-- Badge de prestigio tipo App -->
+      <div class="inline-flex items-center gap-2 bg-[#EEAA2B]/15 border border-[#EEAA2B]/40 px-3.5 py-1 rounded-full mb-3 md:mb-5">
+        <span class="w-2 h-2 rounded-full bg-[#EEAA2B] animate-pulse"></span>
+        <p class="text-[#FFE885] font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase float-shadow-soft">Sistema Winners &bull; 10 Años de Solidez</p>
       </div>
-      <div class="text-center md:border-l md:border-white/15">
-        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">100%</p>
-        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Cuentas Corporativas Legales</p>
+
+      <!-- Bloque tipográfico monumental sin sombras oscuras residuales -->
+      <h1 class="font-black uppercase float-shadow">
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight">Los sueños</span>
+        <span class="gold-gradient block text-2xl sm:text-3xl md:text-5xl my-1">SI SE CUMPLEN</span>
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight">solo déjate</span>
+        <span class="hero-llevar-text block">LLEVAR!!</span>
+      </h1>
+
+      <!-- Firma entre comillas doradas -->
+      <p class="mt-4 md:mt-6 text-[#FFE885] font-black tracking-[0.14em] md:tracking-[0.28em] text-xs sm:text-base md:text-xl uppercase float-shadow">
+        &ldquo; SOCIOS INVERSIONISTAS &rdquo;
+      </p>
+      <p class="mt-2 md:mt-3 text-white/85 text-xs sm:text-sm md:text-lg font-medium italic float-shadow-soft max-w-lg">
+        ¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.
+      </p>
+
+      <!-- CTA principal interactivo con respuesta táctil de app -->
+      <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+        <a href="#multifinanciamiento" class="w-full sm:w-auto text-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full shadow-[0_10px_35px_rgba(238,170,43,0.45)] transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+          ¡Quiero Ser Socio Ahora!
+          <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        </a>
       </div>
-      <div class="text-center md:border-l md:border-white/15">
-        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">03 Pasos</p>
-        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Proceso Simple</p>
+
+      <!-- Barra inferior de métricas en tarjetas compactas -->
+      <div class="mt-8 md:mt-12 pt-5 md:pt-7 border-t border-white/15 w-full grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">10 Años</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Trayectoria Andina</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">100%</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Cuentas Legales</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">03 Pasos</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Proceso Simple</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">+5,300</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Metas Cumplidas</p>
+        </div>
       </div>
-      <div class="text-center md:border-l md:border-white/15">
-        <p class="text-[#FFE885] font-black text-2xl md:text-3xl">+5,300</p>
-        <p class="text-white/75 text-xs md:text-sm font-semibold mt-1 tracking-wide">Metas Cumplidas</p>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1053,6 +1128,31 @@
    target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
   <img src="images/whatsapp.png" alt="WhatsApp" class="w-12 h-12 object-contain rounded-full">
 </a>
+
+<!-- =========================================================
+     BARRA DE NAVEGACIÓN INFERIOR ESTILO APP (PLAY STORE FEEL)
+========================================================= -->
+<nav class="mobile-bottom-bar md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D13]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 flex items-center justify-around text-[10px] font-bold text-white/70 select-none shadow-[0_-8px_24px_rgba(0,0,0,0.5)]" aria-label="Navegación de aplicación móvil">
+  <a href="#inicio" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span>Inicio</span>
+  </a>
+  <a href="#oferta" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+    <span>Bienes</span>
+  </a>
+  <a href="#proceso" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+    <span>3 Pasos</span>
+  </a>
+  <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas" target="_blank" rel="noopener" class="flex flex-col items-center gap-1 text-[#25D366] hover:text-[#32e775] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="#contacto" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
+    <span class="text-[11px] whitespace-nowrap">Abre Cuenta</span>
+  </a>
+</nav>
 
 <script>
 (function () {
