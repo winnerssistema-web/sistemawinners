@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -256,6 +256,56 @@
     }
     .site-header.header-hidden { transform: translateY(-115%); }
 
+    /* ---------- Metadatos editoriales: sobrio, escalonado, halo dorado ---------- */
+    .meta-d1 { transition-delay: 0s; }
+    .meta-d2 { transition-delay: 0.15s; }
+    .meta-d3 { transition-delay: 0.3s; }
+    .meta-item svg { transition: filter 0.35s ease; }
+    .meta-item:hover svg {
+      filter: drop-shadow(0 0 8px rgba(238, 170, 43, 0.65));
+    }
+    .meta-dot {
+      animation: metaPulse 4.5s ease-in-out infinite;
+    }
+    .meta-dot-1 { animation-delay: 0.6s; }
+    .meta-dot-2 { animation-delay: 2.1s; }
+    @keyframes metaPulse {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; color: #C59B27; }
+    }
+
+    /* ---------- Métricas del hero: subrayado dorado sutil ---------- */
+    .metric-num {
+      display: inline-block;
+      min-width: 1.6em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------- Testimonios: marquee corporativo ---------- */
+    .testi-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    }
+    .testi-track {
+      display: flex;
+      align-items: stretch;
+      width: max-content;
+      animation: testiScroll 30s linear infinite;
+      will-change: transform;
+    }
+    .testi-card {
+      flex: 0 0 min(330px, 80vw);
+      margin-right: 3rem;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .testi-card:hover { transform: translateY(-6px); }
+    .testi-marquee:hover .testi-track { animation-play-state: paused; }
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     /* ---------- Menú móvil ---------- */
     .mobile-nav { display: none; }
     .mobile-nav.open { display: block; }
@@ -474,19 +524,19 @@
       <!-- Barra inferior de métricas en tarjetas compactas -->
       <div class="mt-8 md:mt-12 pt-5 md:pt-7 border-t border-white/15 w-full grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">10 Años</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="10" data-pad="2">10</span> Años</p>
           <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Trayectoria Andina</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">100%</p>
-          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Cuentas Legales</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="100">100</span>%</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Cuentas Corporativas Legales</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">03 Pasos</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="3" data-pad="2">03</span> Pasos</p>
           <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Proceso Simple</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl">+5,300</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="5300" data-prefix="+">+5,300</span></p>
           <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Metas Cumplidas</p>
         </div>
       </div>
@@ -510,19 +560,19 @@
     <!-- Pregunta principal -->
     <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 reveal">¿Qué es y cómo funciona el Sistema Multifinanciamiento de Winners?</h2>
 
-    <!-- Fila de metadatos con íconos -->
+    <!-- Fila de metadatos con íconos (aparecen escalonados, halo dorado al hover) -->
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-gray-500 text-sm font-semibold">
-      <span class="flex items-center gap-2">
+      <span class="meta-item reveal meta-d1 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         10 Años de Respaldo
       </span>
-      <span>&bull;</span>
-      <span class="flex items-center gap-2">
+      <span class="meta-dot meta-dot-1" aria-hidden="true">&bull;</span>
+      <span class="meta-item reveal meta-d2 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         Planificación Programada
       </span>
-      <span>&bull;</span>
-      <span class="flex items-center gap-2">
+      <span class="meta-dot meta-dot-2" aria-hidden="true">&bull;</span>
+      <span class="meta-item reveal meta-d3 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         Área Andina y Latinoamérica
       </span>
@@ -952,10 +1002,11 @@
       </div>
     </div>
 
-    <!-- Parte C: 3 testimonios con estrellas -->
-    <div class="grid md:grid-cols-3 gap-10 mt-24">
+    <!-- Parte C: testimonios en marquee dinamico (pausa al hover) -->
+    <div class="testi-marquee reveal mt-24">
+      <div class="testi-track" id="testiTrack">
 
-      <article class="text-center reveal">
+      <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -968,7 +1019,7 @@
         <p class="text-gray-500 text-sm font-semibold">Quito, Ecuador</p>
       </article>
 
-      <article class="text-center reveal">
+      <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -981,7 +1032,7 @@
         <p class="text-gray-500 text-sm font-semibold">Guayaquil, Ecuador</p>
       </article>
 
-      <article class="text-center reveal">
+      <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -993,6 +1044,7 @@
         <p class="font-black text-[#132247] mt-4">Paola Andrea M.</p>
         <p class="text-gray-500 text-sm font-semibold">Bogot&aacute;, Colombia</p>
       </article>
+      </div>
     </div>
   </div>
 </section>
@@ -1212,6 +1264,52 @@
         hdrTicking = false;
       });
     }, { passive: true });
+  }
+
+  /* ---------- Testimonios: duplicar la tanda para el bucle infinito ---------- */
+  var testiTrack = document.getElementById('testiTrack');
+  if (testiTrack) {
+    testiTrack.insertAdjacentHTML('beforeend', testiTrack.innerHTML);
+    var clones = testiTrack.children;
+    for (var ti = clones.length / 2; ti < clones.length; ti++) {
+      clones[ti].setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  /* ---------- Contadores del Hero: subida elegante y sobria ---------- */
+  function runMetric(el) {
+    var target = parseFloat(el.dataset.count);
+    var prefix = el.dataset.prefix || '';
+    var pad = parseInt(el.dataset.pad || '0', 10);
+    var duration = 1600;
+    var start = null;
+    function fmt(value) {
+      var n = Math.round(value);
+      var txt = String(n);
+      if (pad) { txt = ('00000000' + n).slice(-pad); }
+      else if (n >= 1000) { txt = txt.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      return prefix + txt;
+    }
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      p = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * p);
+      if (p < 1) { window.requestAnimationFrame(step); }
+    }
+    window.requestAnimationFrame(step);
+  }
+  var metricNums = document.querySelectorAll('.metric-num');
+  if ('IntersectionObserver' in window) {
+    var metricObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          metricObs.unobserve(entry.target);
+          runMetric(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    metricNums.forEach(function (el) { metricObs.observe(el); });
   }
 
   /* ---------- Contadores Odómetro: giro rápido tipo slot machine ---------- */
