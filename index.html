@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -331,6 +331,94 @@
     .meta-d2.visible { animation-delay: 0.28s; }
     .meta-d3.visible { animation-delay: 0.5s; }
 
+    /* ---------- Pack premium: draw-in, aurora ring, shimmer, magnético ---------- */
+    /* 1. Stroke draw-in: los íconos se dibujan al entrar (CSS puro, sin dependencias) */
+    .draw-icon path,
+    .draw-icon circle,
+    .draw-icon line,
+    .draw-icon rect,
+    .draw-icon polyline,
+    .icon-scrub {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.8, 0, 0.2, 1);
+    }
+    .reveal.visible .draw-icon :nth-child(1) { stroke-dashoffset: 0; transition-delay: 0.05s; }
+    .reveal.visible .draw-icon :nth-child(2) { stroke-dashoffset: 0; transition-delay: 0.18s; }
+    .reveal.visible .draw-icon :nth-child(3) { stroke-dashoffset: 0; transition-delay: 0.31s; }
+    .reveal.visible .draw-icon :nth-child(4) { stroke-dashoffset: 0; transition-delay: 0.44s; }
+    .reveal.visible .draw-icon :nth-child(5) { stroke-dashoffset: 0; transition-delay: 0.57s; }
+    .reveal.visible .draw-icon :nth-child(6) { stroke-dashoffset: 0; transition-delay: 0.7s; }
+    .reveal.visible .draw-icon :nth-child(n+7) { stroke-dashoffset: 0; transition-delay: 0.8s; }
+
+    /* 2. Aurora Ring: anillo giratorio dorado detrás de los títulos de Aporte Social */
+    .aurora { position: relative; z-index: 0; }
+    .aurora::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 9999px;
+      z-index: -1;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(238, 170, 43, 0.85) 20%,
+        rgba(196, 155, 39, 0.9) 40%,
+        rgba(255, 232, 133, 0.75) 60%,
+        rgba(238, 170, 43, 0.85) 80%,
+        transparent 100%
+      );
+      animation: auroraSpin 7s linear infinite;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+    @keyframes auroraSpin { to { transform: rotate(360deg); } }
+
+    /* 3. Shimmer Sweep: rayo de luz que barre el cintillo de marcas */
+    .brand-marquee { position: relative; }
+    .brand-marquee::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 32%,
+        rgba(238, 170, 43, 0.09) 44%,
+        rgba(255, 214, 102, 0.15) 50%,
+        rgba(238, 170, 43, 0.09) 56%,
+        transparent 68%
+      );
+      transform: translateX(-100%);
+      animation: brandShimmer 6.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes brandShimmer { to { transform: translateX(100%); } }
+
+    /* 4. Magnético: los íconos persiguen la punta del cursor */
+    [data-magnetic] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+
+    /* Respeto a accesibilidad: sin animaciones si el usuario lo pide */
+    @media (prefers-reduced-motion: reduce) {
+      .draw-icon path,
+      .draw-icon circle,
+      .draw-icon line,
+      .draw-icon rect,
+      .draw-icon polyline {
+        stroke-dashoffset: 0;
+        transition: none;
+      }
+      .aurora::before,
+      .brand-marquee::after {
+        animation: none;
+      }
+    }
+
     /* ---------- Métricas del hero: subrayado dorado sutil ---------- */
     .metric-num {
       display: inline-block;
@@ -457,30 +545,30 @@
     <div class="flex items-center gap-5 flex-wrap">
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
+          <path pathLength="100" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle pathLength="100" cx="12" cy="10" r="3"></circle>
         </svg>
         10 AÑOS EN EL ÁREA ANDINA Y LATINOAMÉRICA
       </span>
       <span class="hidden sm:flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          <path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
         ATENCIÓN A SOCIOS INVERSIONISTAS: 08:00 A 18:00
       </span>
     </div>
     <div class="flex items-center gap-4">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
       </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="2" y="2" width="20" height="20" rx="5"></rect><circle pathLength="100" cx="12" cy="12" r="4"></circle><circle pathLength="100" cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
       </a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
       </a>
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
       </a>
     </div>
   </div>
@@ -513,7 +601,7 @@
     <div class="flex items-center gap-3">
       <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block">Abre tu Cuenta</a>
       <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line pathLength="100" x1="3" y1="6" x2="21" y2="6"></line><line pathLength="100" x1="3" y1="12" x2="21" y2="12"></line><line pathLength="100" x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
   </div>
@@ -579,7 +667,7 @@
       <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
         <a href="#multifinanciamiento" class="w-full sm:w-auto text-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full shadow-[0_10px_35px_rgba(238,170,43,0.45)] transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
           ¡Quiero Ser Socio Ahora!
-          <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line pathLength="100" x1="12" y1="5" x2="12" y2="19"></line><polyline pathLength="100" points="19 12 12 19 5 12"></polyline></svg>
         </a>
       </div>
 
@@ -625,17 +713,17 @@
     <!-- Fila de metadatos con íconos (aparecen escalonados, halo dorado al hover) -->
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-gray-500 text-sm font-semibold">
       <span class="meta-item reveal meta-d1 flex items-center gap-2">
-        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="4" width="18" height="18" rx="2"></rect><line pathLength="100" x1="16" y1="2" x2="16" y2="6"></line><line pathLength="100" x1="8" y1="2" x2="8" y2="6"></line><line pathLength="100" x1="3" y1="10" x2="21" y2="10"></line></svg>
         10 Años de Respaldo
       </span>
       <span class="meta-dot meta-dot-1" aria-hidden="true">&bull;</span>
       <span class="meta-item reveal meta-d2 flex items-center gap-2">
-        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
         Planificación Programada
       </span>
       <span class="meta-dot meta-dot-2" aria-hidden="true">&bull;</span>
       <span class="meta-item reveal meta-d3 flex items-center gap-2">
-        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         Área Andina y Latinoamérica
       </span>
     </div>
@@ -657,19 +745,19 @@
         <p class="text-gray-700 font-semibold mb-4">A través de este sistema te permite obtener:</p>
         <ul class="space-y-3 text-gray-900">
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
             <span><strong>Los productos comunales.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
             <span><strong>Promover tus emprendimientos.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
             <span><strong>Obtener apalancamientos para tus ideas.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
             <span><strong>Participar en otras iniciativas productivas y comerciales.</strong></span>
           </li>
         </ul>
@@ -682,11 +770,11 @@
         <p class="text-gray-600 font-semibold mb-4">Limitaciones de los sistemas convencionales:</p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
             <span><strong>Te ofrecen únicamente productos y servicios propios.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
-            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
             <span><strong>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</strong></span>
           </li>
         </ul>
@@ -734,11 +822,11 @@
 
       <!-- 1. Bienes muebles y movilidad -->
       <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
-        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"></path>
-          <path d="M3 16a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1h-2"></path><path d="M5 17H3v-1"></path>
-          <circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle>
-          <path d="M9 17h6"></path>
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"></path>
+          <path pathLength="100" d="M3 16a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1h-2"></path><path pathLength="100" d="M5 17H3v-1"></path>
+          <circle pathLength="100" cx="7" cy="17" r="2"></circle><circle pathLength="100" cx="17" cy="17" r="2"></circle>
+          <path pathLength="100" d="M9 17h6"></path>
         </svg>
         <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Compra de Bienes Muebles y Movilidad</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
@@ -759,9 +847,9 @@
 
       <!-- 2. Diversificación de dinero y finanzas -->
       <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
-        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="12" y1="1" x2="12" y2="23"></line>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line pathLength="100" x1="12" y1="1" x2="12" y2="23"></line>
+          <path pathLength="100" d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
         </svg>
         <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Diversificación de Dinero y Finanzas</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
@@ -786,9 +874,9 @@
 
       <!-- 3. Bienestar y estilo de vida -->
       <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
-        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 3v6a4 4 0 0 0 8 0V3"></path><path d="M12 13v4"></path><path d="M10 21h4"></path>
-          <circle cx="8" cy="2" r="1"></circle><circle cx="16" cy="2" r="1"></circle>
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M8 3v6a4 4 0 0 0 8 0V3"></path><path pathLength="100" d="M12 13v4"></path><path pathLength="100" d="M10 21h4"></path>
+          <circle pathLength="100" cx="8" cy="2" r="1"></circle><circle pathLength="100" cx="16" cy="2" r="1"></circle>
         </svg>
         <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Industria del Bienestar y Estilo de Vida</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
@@ -805,10 +893,10 @@
 
       <!-- 4. Alimentos básicos y economía familiar -->
       <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
-        <svg class="w-12 h-12 text-[#132247]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 11h18"></path><path d="M5 11V8a7 7 0 0 1 14 0v3"></path>
-          <path d="M4 11v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path d="M12 4v3"></path>
-          <path d="M6 15v5M10 15v5M14 15v5M18 15v5"></path>
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M3 11h18"></path><path pathLength="100" d="M5 11V8a7 7 0 0 1 14 0v3"></path>
+          <path pathLength="100" d="M4 11v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path pathLength="100" d="M12 4v3"></path>
+          <path pathLength="100" d="M6 15v5M10 15v5M14 15v5M18 15v5"></path>
         </svg>
         <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Alimentos Básicos y Economía Familiar</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
@@ -842,7 +930,7 @@
     <div class="space-y-10 max-w-4xl">
       <div class="flex gap-5 items-start reveal">
         <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
-          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
         </span>
         <div>
           <h3 class="text-xl md:text-2xl font-black text-[#132247]">10 Años de Presencia Internacional</h3>
@@ -852,7 +940,7 @@
 
       <div class="flex gap-5 items-start reveal">
         <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
-          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline pathLength="100" points="9 12 11 14 15 10"></polyline></svg>
         </span>
         <div>
           <h3 class="text-xl md:text-2xl font-black text-[#132247]">100% Legalidad y Transparencia Bancaria</h3>
@@ -862,7 +950,7 @@
 
       <div class="flex gap-5 items-start reveal">
         <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
-          <svg class="w-6 h-6 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline pathLength="100" points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline pathLength="100" points="17 6 23 6 23 12"></polyline></svg>
         </span>
         <div>
           <h3 class="text-xl md:text-2xl font-black text-[#132247]">Crecimiento Serio y Sostenible</h3>
@@ -901,24 +989,24 @@
       <div class="grid md:grid-cols-3 gap-8 mt-12">
 
         <div class="text-center px-4 reveal">
-          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
-            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 22V12h6v10"></path></svg>
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path pathLength="100" d="M9 22V12h6v10"></path></svg>
           </span>
           <h5 class="text-lg font-black text-[#132247] mt-4">Tiendas Comunitarias DOY-MAS</h5>
           <p class="text-gray-700 text-sm mt-2 leading-relaxed">Impulso al comercio solidario y abastecimiento justo.</p>
         </div>
 
         <div class="text-center px-4 reveal">
-          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
-            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.2 18.3a6.5 6.5 0 0 1 11.6 0"></path></svg>
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><circle pathLength="100" cx="12" cy="10" r="3"></circle><path pathLength="100" d="M6.2 18.3a6.5 6.5 0 0 1 11.6 0"></path></svg>
           </span>
           <h5 class="text-lg font-black text-[#132247] mt-4">Academia Deportiva SOCIO WINNERS</h5>
           <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apoyo activo al deporte barrial, juventud y actividades lúdicas.</p>
         </div>
 
         <div class="text-center px-4 reveal">
-          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg">
-            <svg class="w-7 h-7 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="14" rx="2"></rect><path d="M9 7V5a3 3 0 0 1 6 0v2"></path><path d="M4 12h16"></path></svg>
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="4" y="7" width="16" height="14" rx="2"></rect><path pathLength="100" d="M9 7V5a3 3 0 0 1 6 0v2"></path><path pathLength="100" d="M4 12h16"></path></svg>
           </span>
           <h5 class="text-lg font-black text-[#132247] mt-4">Desarrollo de Industrias y Empresas Comunales</h5>
           <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apalancamos propuestas productivas nacidas directamente de la comunidad.</p>
@@ -937,17 +1025,17 @@
   <!-- Fila superior de 3 íconos separados por líneas -->
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 border-b border-white/15 pb-10">
     <div class="flex items-center gap-3 md:px-10">
-      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M23 7l-7 5 7 5V7z"></path><rect pathLength="100" x="1" y="5" width="15" height="14" rx="2"></rect></svg>
       <span class="font-bold text-sm md:text-base tracking-wide">Asambleas y Eventos Públicos</span>
     </div>
     <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
     <div class="flex items-center gap-3 md:px-10">
-      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
       <span class="font-bold text-sm md:text-base tracking-wide">Acompañamiento Paso a Paso</span>
     </div>
     <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
     <div class="flex items-center gap-3 md:px-10">
-      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
       <span class="font-bold text-sm md:text-base tracking-wide">Adjudicación y Apalancamiento</span>
     </div>
   </div>
@@ -1070,11 +1158,11 @@
 
       <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Entré con cuotas justas y sin la rigidez de un banco. Hoy manejo un carro propio gracias al multifinanciamiento.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Luisa Fernanda R.</p>
@@ -1083,11 +1171,11 @@
 
       <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Recibí mi crédito productivo y mi smartphone Samsung en el mismo ciclo. El sistema me dio la espada para emprender.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Diego Alejandro S.</p>
@@ -1096,11 +1184,11 @@
 
       <article class="testi-card text-center">
         <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Además de mi moto de trabajo, participé en la tienda comunal DOY-MAS. Todo es transparente y legal desde el día uno.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Paola Andrea M.</p>
@@ -1125,7 +1213,7 @@
         <span class="font-extrabold tracking-wider text-sm">SISTEMA WINNERS</span>
       </div>
       <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
-        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="2" y1="12" x2="22" y2="12"></line><path pathLength="100" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         Área Andina (ES)
       </div>
     </div>
@@ -1226,7 +1314,7 @@
       <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4">Legalidad y Contacto</h4>
       <p class="text-sm leading-relaxed">Cuentas corporativas autorizadas y representación legal en cada país.</p>
       <a href="tel:+573148691001" class="mt-3 inline-flex items-center gap-2 text-sm hover:text-[#EEAA2B] transition">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         L&iacute;nea de Socios: +57 314 869 1001
       </a>
       <p class="text-xs text-gray-500 mt-6">© <span id="year">2026</span> Sistema Winners. Todos los derechos reservados.</p>
@@ -1248,19 +1336,19 @@
 ========================================================= -->
 <nav class="mobile-bottom-bar md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D13]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 flex items-center justify-around text-[10px] font-bold text-white/70 select-none shadow-[0_-8px_24px_rgba(0,0,0,0.5)]" aria-label="Navegación de aplicación móvil">
   <a href="#inicio" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
-    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline pathLength="100" points="9 22 9 12 15 12 15 22"></polyline></svg>
     <span>Inicio</span>
   </a>
   <a href="#oferta" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
-    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="14" width="7" height="7"></rect><rect pathLength="100" x="3" y="14" width="7" height="7"></rect></svg>
     <span>Bienes</span>
   </a>
   <a href="#proceso" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
-    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 14 14"></polyline></svg>
     <span>3 Pasos</span>
   </a>
   <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas" target="_blank" rel="noopener" class="flex flex-col items-center gap-1 text-[#25D366] hover:text-[#32e775] transition py-1 px-2 active:scale-95">
-    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     <span>WhatsApp</span>
   </a>
   <a href="#contacto" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
@@ -1473,6 +1561,72 @@
   }
 })();
 </script>
+
+<script>
+/* =========================================================
+   PACK DE ANIMACIONES PREMIUM — degradación elegante:
+   si Lenis/GSAP no cargan, la web queda 100% funcional.
+========================================================= */
+(function () {
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initPremiumPack() {
+    /* Lenis: scroll suave (se salta si no cargó el CDN o si hay motion-reduce) */
+    if (!REDUCED && window.Lenis) {
+      var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      var lenisLoop = function (t) { lenis.raf(t); window.requestAnimationFrame(lenisLoop); };
+      window.requestAnimationFrame(lenisLoop);
+    }
+
+    /* Magnetismo: íconos que persiguen la punta del cursor (solo punteros finos) */
+    if (!REDUCED && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var magnets = document.querySelectorAll('[data-magnetic]');
+      Array.prototype.forEach.call(magnets, function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var r = el.getBoundingClientRect();
+          var x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+          var y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+          el.style.transform = 'translate(' + (x * 7).toFixed(1) + 'px,' + (y * 7).toFixed(1) + 'px) scale(1.12)';
+        });
+        el.addEventListener('mouseleave', function () {
+          el.style.transform = '';
+        });
+      });
+    }
+
+    /* GSAP + ScrollTrigger: rotación scrubeada de los íconos según el scroll */
+    if (!REDUCED && window.gsap) {
+      if (window.ScrollTrigger) { gsap.registerPlugin(ScrollTrigger); }
+      [
+        ['#oferta', '.draw-icon.icon-scrub'],
+        ['#quienes-somos', '.draw-icon.icon-scrub']
+      ].forEach(function (pair) {
+        var trigger = document.querySelector(pair[0]);
+        if (!trigger) { return; }
+        gsap.fromTo(trigger.querySelectorAll(pair[1]), { rotation: -5 }, {
+          rotation: 5,
+          ease: 'none',
+          transformOrigin: '50% 50%',
+          scrollTrigger: window.ScrollTrigger
+            ? { trigger: pair[0], start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+            : true
+        });
+      });
+    }
+  }
+
+  if (document.readyState === 'complete') { initPremiumPack(); }
+  else { window.addEventListener('load', initPremiumPack, { once: true }); }
+})();
+</script>
+
+<!-- =========================================================
+     PACK DE ANIMACIONES PREMIUM (degradación elegante:
+     si el CDN falla, la web queda 100% funcional sin animar)
+========================================================= -->
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
 
 </body>
 </html>
