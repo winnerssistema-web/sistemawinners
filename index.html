@@ -15,7 +15,7 @@
   <meta property="og:description" content="10 años de solidez. Multifinanciamiento en comunidad para vehículos, tecnología, bienestar y emprendimiento. Solo déjate llevar.">
   <meta property="og:url" content="https://www.sistemawinners.com/">
   <meta property="og:site_name" content="Sistema Winners">
-  <meta property="og:image" content="https://www.sistemawinners.com/images/hero-slide1.jpg">
+  <meta property="og:image" content="https://www.sistemawinners.com/images/a.jpg">
 
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,28 +38,34 @@
     }
     section[id] { scroll-margin-top: 108px; }
 
-    /* ---------- Video de fondo: solo PC (>=768px) ---------- */
+    /* ---------- Slider de fondo del Hero ---------- */
+    .heroSlider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+    .heroLayer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+      will-change: opacity;
+    }
+    .heroLayer.active { opacity: 1; }
+    /* Ken Burns sutil solo sobre imagenes activas */
+    .heroLayer.active:not(video) { animation: heroKenBurns 8s ease-in-out forwards; }
+    @keyframes heroKenBurns {
+      from { transform: scale(1); }
+      to { transform: scale(1.07); }
+    }
+    /* El video de la flor: solo PC (>=768px), oculto en móvil */
     .heroVideo { display: none; }
     @media (min-width: 768px) {
       .heroVideo {
         display: block;
-        position: absolute;
-        right: 0; bottom: 0;
         min-width: 100%; min-height: 100%;
         width: auto; height: auto;
         object-fit: cover;
-        opacity: 1;
         filter: contrast(1.08) saturate(1.15);
       }
-    }
-
-    /* ---------- Parallax suave móvil ---------- */
-    .parallaxImg {
-      position: absolute;
-      top: -12%; left: 0;
-      width: 100%; height: 124%;
-      object-fit: cover;
-      will-change: transform;
     }
 
     /* ---------- Texto flotante con sombra intensa (secciones oscuras) ---------- */
@@ -83,7 +89,7 @@
       line-height: 0.92;
       letter-spacing: -0.02em;
       text-transform: uppercase;
-      background-image: url('images/hero-slide1.jpg'), linear-gradient(180deg, #FFF3B0 0%, #EEAA2B 45%, #8A5A00 100%);
+      background-image: url('images/a.jpg'), linear-gradient(180deg, #FFF3B0 0%, #EEAA2B 45%, #8A5A00 100%);
       background-size: cover;
       background-position: center;
       -webkit-background-clip: text;
@@ -291,15 +297,19 @@
 <!-- =========================================================
      SECCIÓN 2: HERO — SOCIOS INVERSIONISTAS
      Clon estético del póster oficial: negro/dorado con
-     video en PC e imagen con parallax en móvil.
+     slider de fondo (PC: video flor + imagenes / móvil: imagenes).
 ========================================================= -->
 <section id="inicio" class="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden bg-[#08090C]">
 
-  <!-- Fondo: video local en PC / imagen con parallax en móvil -->
-  <video class="heroVideo" autoplay loop muted playsinline preload="auto">
-    <source src="images/2.mp4" type="video/mp4">
-  </video>
-  <img src="images/5.jpg" alt="" aria-hidden="true" class="parallaxImg md:hidden" id="heroParallax">
+  <!-- Fondo: slider intercambiable -->
+  <div class="heroSlider" id="heroSlider" aria-hidden="true">
+    <img class="heroLayer" src="images/c.jpg" alt="">
+    <img class="heroLayer" src="images/a.jpg" alt="">
+    <img class="heroLayer" src="images/b.jpg" alt="">
+    <video class="heroLayer heroVideo active" autoplay loop muted playsinline preload="auto">
+      <source src="images/2.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(8,9,12,0.45) 0%, rgba(20,15,5,0.65) 65%, #08090C 100%);"></div>
 
   <!-- Contenido central flotante -->
@@ -746,7 +756,7 @@
           </div>
         </div>
         <div class="avatar-wrap reveal">
-          <img class="avatar-img" src="images/hero-slide1.jpg" alt="María G., socia de Guayaquil" loading="lazy" tabindex="0">
+          <img class="avatar-img" src="images/b.jpg" alt="María G., socia de Guayaquil" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">María G. &mdash; Guayaquil</p>
             <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Con el apalancamiento abrí mi emprendimiento. Hoy ya tengo un punto de venta.&rdquo;</p>
@@ -1039,19 +1049,30 @@
     odometers.forEach(function (el) { odomObs.observe(el); });
   }
 
-  /* ---------- Parallax suave del Hero (solo móvil) ---------- */
-  var heroImg = document.getElementById('heroParallax');
-  if (heroImg) {
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (window.innerWidth >= 768 || ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(function () {
-        var y = window.scrollY || window.pageYOffset;
-        heroImg.style.transform = 'translateY(' + Math.min(y * 0.25, 220) + 'px)';
-        ticking = false;
-      });
-    }, { passive: true });
+  /* ---------- Slider de fondo del Hero ---------- */
+  var heroLayers = Array.prototype.slice.call(document.querySelectorAll('#heroSlider .heroLayer'));
+  if (heroLayers.length > 1) {
+    var hi = 0;
+    // Si la capa inicial (video en movil) esta oculta, activar la primera imagen
+    if (heroLayers[hi].offsetParent === null) {
+      heroLayers[hi].classList.remove('active');
+      hi = 0;
+      for (var i = 0; i < heroLayers.length; i++) {
+        if (heroLayers[i].offsetParent !== null) { hi = i; break; }
+      }
+      heroLayers[hi].classList.add('active');
+    }
+    var heroTimer = setInterval(function () {
+      var next = -1;
+      for (var i = 1; i <= heroLayers.length; i++) {
+        var cand = (hi + i) % heroLayers.length;
+        if (heroLayers[cand].offsetParent !== null) { next = cand; break; }
+      }
+      if (next === -1) return;
+      heroLayers[hi].classList.remove('active');
+      hi = next;
+      heroLayers[hi].classList.add('active');
+    }, 6000);
   }
 
   /* ---------- Formulario: envío por WhatsApp oficial ---------- */
