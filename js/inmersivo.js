@@ -41,18 +41,42 @@
     currentKey = key;
   }
 
-  // Reproducir video inicial
-  if (vids.hero) {
-    vids.hero.play().catch(function () {});
+  // Reproducir video inicial (Hero / Escena 0: "¿Quieres ser parte del proceso?")
+  function startHeroVideo() {
+    if (vids.hero) {
+      vids.hero.muted = true;
+      var p = vids.hero.play();
+      if (p !== undefined) {
+        p.catch(function () {});
+      }
+    }
   }
-  // Precarga estratégica de videos
-  setTimeout(function () { loadVideo(vids.paso1); }, 1000);
+
+  startHeroVideo();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startHeroVideo);
+  }
+
+  // Desbloqueo garantizado en caso de políticas restrictivas de autoplay en móviles/escritorio
+  var unlockEvents = ['click', 'touchstart', 'scroll', 'wheel', 'keydown'];
+  function unlockHeroVideo() {
+    startHeroVideo();
+    unlockEvents.forEach(function (evt) {
+      window.removeEventListener(evt, unlockHeroVideo);
+    });
+  }
+  unlockEvents.forEach(function (evt) {
+    window.addEventListener(evt, unlockHeroVideo, { passive: true, once: true });
+  });
+
+  // Precarga estratégica de videos secundarios
+  setTimeout(function () { if (vids.paso1) loadVideo(vids.paso1); }, 800);
   setTimeout(function () {
-    loadVideo(vids.proyecto);
-    loadVideo(vids.vehiculo);
-    loadVideo(vids.inmueble);
-    loadVideo(vids.docs);
-  }, 3000);
+    if (vids.proyecto) loadVideo(vids.proyecto);
+    if (vids.vehiculo) loadVideo(vids.vehiculo);
+    if (vids.inmueble) loadVideo(vids.inmueble);
+    if (vids.docs) loadVideo(vids.docs);
+  }, 2500);
 
   // =========================================================
   // MOTOR DE ESCENAS FULLSCREEN DECK (0, 1, 2, 3)
