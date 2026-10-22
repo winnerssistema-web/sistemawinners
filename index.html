@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -451,6 +451,40 @@
       to { transform: translateX(-50%); }
     }
 
+    /* ---------- Inputs neumórficos del formulario (adaptado de Uiverse Praashoo7) ---------- */
+    .input-neo {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      padding: 0.9375rem 1rem;
+      background-color: #C5CDD9;
+      box-shadow: inset 2px 5px 10px rgba(19, 34, 71, 0.22), inset -2px -2px 6px rgba(255, 255, 255, 0.85);
+      color: #0F172A;
+      font-weight: 500;
+      transition: 300ms ease-in-out;
+    }
+    .input-neo::placeholder {
+      color: #4A5568;
+      font-weight: 400;
+    }
+    .input-neo:focus {
+      background-color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 13px 13px 100px rgba(19, 34, 71, 0.16),
+                  -13px -13px 100px #ffffff,
+                  0 0 0 3px rgba(238, 170, 43, 0.45);
+    }
+    select.input-neo {
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23132247' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 14px;
+      padding-right: 2.75rem;
+    }
+
     /* ---------- Menú móvil ---------- */
     .mobile-nav { display: none; }
     .mobile-nav.open { display: block; }
@@ -533,6 +567,24 @@
         right: 1rem !important;
       }
     }
+
+    /* ---------- Selector de Idiomas / Language Switcher ---------- */
+    .lang-switcher-wrap {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      user-select: none;
+    }
+    .lang-btn {
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active, .lang-btn[aria-pressed="true"] {
+      color: #EEAA2B;
+      text-shadow: 0 0 10px rgba(238, 170, 43, 0.45);
+    }
+    .lang-btn:not(.active):hover {
+      color: #FFFFFF;
+    }
   </style>
 </head>
 <body class="font-mont antialiased">
@@ -541,35 +593,56 @@
      SECCIÓN 1: TOPBAR CORPORATIVO
 ========================================================= -->
 <div class="bg-[#060709] text-white/80 text-xs py-2.5 px-6 border-b border-white/10">
-  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap">
     <div class="flex items-center gap-5 flex-wrap">
       <span class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path pathLength="100" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
           <circle pathLength="100" cx="12" cy="10" r="3"></circle>
         </svg>
-        10 AÑOS EN EL ÁREA ANDINA Y LATINOAMÉRICA
+        <span data-i18n="topbar.andina">10 AÑOS EN EL ÁREA ANDINA Y LATINOAMÉRICA</span>
       </span>
       <span class="hidden sm:flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
-        ATENCIÓN A SOCIOS INVERSIONISTAS: 08:00 A 18:00
+        <span data-i18n="topbar.horario">ATENCIÓN A SOCIOS INVERSIONISTAS: 08:00 A 18:00</span>
       </span>
     </div>
-    <div class="flex items-center gap-4">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="2" y="2" width="20" height="20" rx="5"></rect><circle pathLength="100" cx="12" cy="12" r="4"></circle><circle pathLength="100" cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
-      </a>
+    <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="2" y="2" width="20" height="20" rx="5"></rect><circle pathLength="100" cx="12" cy="12" r="4"></circle><circle pathLength="100" cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+
+      <!-- Divisor sutil -->
+      <span class="w-[1px] h-3.5 bg-white/20" aria-hidden="true"></span>
+
+      <!-- Selector de Idioma con Logo SVG de Traducción Internacional -->
+      <div class="lang-switcher-wrap flex items-center bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#EEAA2B]/60 rounded-full px-2.5 py-1 transition-all" role="group" aria-label="Selector de idioma / Language Switcher">
+        <!-- SVG oficial de Traducción (Universal Translate Icon con 'A' y carácter) -->
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m5 8 6 6"></path>
+          <path d="m4 14 6-6 2-3"></path>
+          <path d="M2 5h12"></path>
+          <path d="M7 2h1"></path>
+          <path d="m22 22-5-10-5 10"></path>
+          <path d="M14 18h6"></path>
+        </svg>
+        <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')" aria-label="Español" title="Cambiar a Español">ES</button>
+        <span class="text-white/30 text-[10px] select-none mx-0.5">|</span>
+        <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')" aria-label="English" title="Switch to English">EN</button>
+      </div>
     </div>
   </div>
 </div>
@@ -583,23 +656,22 @@
     <a href="#inicio" class="flex items-center gap-3 shrink-0">
       <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
       <span class="hidden sm:block leading-tight">
-        <span class="block text-white font-extrabold tracking-wide text-sm">SISTEMA WINNERS</span>
-        <span class="block text-[#EEAA2B] text-[11px] font-semibold tracking-wider">Multifinanciamiento &amp; Socios</span>
+        <span class="block text-[#EEAA2B] text-[11px] font-semibold tracking-wider" data-i18n="nav.subtitulo_logo">Multifinanciamiento &amp; Socios</span>
       </span>
     </a>
 
     <!-- Centro: Menú en texto limpio -->
     <nav class="hidden lg:flex items-center gap-7 text-sm text-white/85 font-semibold" aria-label="Navegación principal">
-      <a href="#quienes-somos" class="hover:text-[#EEAA2B] transition">Quiénes Somos</a>
-      <a href="#multifinanciamiento" class="hover:text-[#EEAA2B] transition">Multifinanciamiento</a>
-      <a href="#oferta" class="hover:text-[#EEAA2B] transition">Oferta y Marcas</a>
-      <a href="#proceso" class="hover:text-[#EEAA2B] transition">El Proceso (3 Pasos)</a>
-      <a href="#testimonios" class="hover:text-[#EEAA2B] transition">Testimonios</a>
+      <a href="#quienes-somos" class="hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="hover:text-[#EEAA2B] transition" data-i18n="nav.multifinanciamiento">Multifinanciamiento</a>
+      <a href="#oferta" class="hover:text-[#EEAA2B] transition" data-i18n="nav.oferta">Oferta y Marcas</a>
+      <a href="#proceso" class="hover:text-[#EEAA2B] transition" data-i18n="nav.proceso">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="hover:text-[#EEAA2B] transition" data-i18n="nav.testimonios">Testimonios</a>
     </nav>
 
     <!-- Derecha: CTA corporativo -->
     <div class="flex items-center gap-3">
-      <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block">Abre tu Cuenta</a>
+      <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block" data-i18n="nav.cta">Abre tu Cuenta</a>
       <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line pathLength="100" x1="3" y1="6" x2="21" y2="6"></line><line pathLength="100" x1="3" y1="12" x2="21" y2="12"></line><line pathLength="100" x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -607,13 +679,26 @@
   </div>
 
   <!-- Menú móvil desplegable -->
-  <nav id="mobileNav" class="mobile-nav lg:hidden bg-[#0B0D13] border-t border-white/10 mt-4 pt-4 pb-2" aria-label="Navegación móvil">
+  <nav id="mobileNav" class="mobile-nav lg:hidden bg-[#0B0D13] border-t border-white/10 mt-4 pt-4 pb-3" aria-label="Navegación móvil">
     <div class="max-w-7xl mx-auto flex flex-col gap-4 text-white/85 font-semibold text-sm">
-      <a href="#quienes-somos" class="mobile-link hover:text-[#EEAA2B] transition">Quiénes Somos</a>
-      <a href="#multifinanciamiento" class="mobile-link hover:text-[#EEAA2B] transition">Multifinanciamiento</a>
-      <a href="#oferta" class="mobile-link hover:text-[#EEAA2B] transition">Oferta y Marcas</a>
-      <a href="#proceso" class="mobile-link hover:text-[#EEAA2B] transition">El Proceso (3 Pasos)</a>
-      <a href="#testimonios" class="mobile-link hover:text-[#EEAA2B] transition">Testimonios</a>
+      <a href="#quienes-somos" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.multifinanciamiento">Multifinanciamiento</a>
+      <a href="#oferta" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.oferta">Oferta y Marcas</a>
+      <a href="#proceso" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.proceso">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.testimonios">Testimonios</a>
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+        <span class="text-xs text-white/70 flex items-center gap-1.5 font-bold">
+          <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path>
+          </svg>
+          Idioma / Language
+        </span>
+        <div class="inline-flex items-center gap-1 bg-[#12151D] border border-white/15 rounded-full px-2.5 py-1">
+          <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')">ES</button>
+          <span class="text-white/30 text-xs">|</span>
+          <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
@@ -644,29 +729,29 @@
       <!-- Badge de prestigio tipo App -->
       <div class="inline-flex items-center gap-2 bg-[#EEAA2B]/15 border border-[#EEAA2B]/40 px-3.5 py-1 rounded-full mb-3 md:mb-5">
         <span class="w-2 h-2 rounded-full bg-[#EEAA2B] animate-pulse"></span>
-        <p class="text-[#FFE885] font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase float-shadow-soft">Sistema Winners &bull; 10 Años de Solidez</p>
+        <p class="text-[#FFE885] font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase float-shadow-soft" data-i18n="hero.badge">Sistema Winners &bull; 10 Años de Solidez</p>
       </div>
 
       <!-- Bloque tipográfico monumental sin sombras oscuras residuales -->
       <h1 class="font-black uppercase float-shadow">
-        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight">Los sueños</span>
-        <span class="gold-gradient block text-2xl sm:text-3xl md:text-5xl my-1">SI SE CUMPLEN</span>
-        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight">solo déjate</span>
-        <span class="hero-llevar-text block">LLEVAR!!</span>
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight" data-i18n="hero.title_1">Los sueños</span>
+        <span class="gold-gradient block text-2xl sm:text-3xl md:text-5xl my-1" data-i18n="hero.title_2">SI SE CUMPLEN</span>
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight" data-i18n="hero.title_3">solo déjate</span>
+        <span class="hero-llevar-text block" data-i18n="hero.title_4">LLEVAR!!</span>
       </h1>
 
       <!-- Firma entre comillas doradas -->
-      <p class="mt-4 md:mt-6 text-[#FFE885] font-black tracking-[0.14em] md:tracking-[0.28em] text-xs sm:text-base md:text-xl uppercase float-shadow">
+      <p class="mt-4 md:mt-6 text-[#FFE885] font-black tracking-[0.14em] md:tracking-[0.28em] text-xs sm:text-base md:text-xl uppercase float-shadow" data-i18n="hero.firma">
         &ldquo; SOCIOS INVERSIONISTAS &rdquo;
       </p>
-      <p class="mt-2 md:mt-3 text-white/85 text-xs sm:text-sm md:text-lg font-medium italic float-shadow-soft max-w-lg">
+      <p class="mt-2 md:mt-3 text-white/85 text-xs sm:text-sm md:text-lg font-medium italic float-shadow-soft max-w-lg" data-i18n="hero.subtitulo">
         ¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.
       </p>
 
       <!-- CTA principal interactivo con respuesta táctil de app -->
       <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
         <a href="#multifinanciamiento" class="w-full sm:w-auto text-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full shadow-[0_10px_35px_rgba(238,170,43,0.45)] transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
-          ¡Quiero Ser Socio Ahora!
+          <span data-i18n="hero.cta">¡Quiero Ser Socio Ahora!</span>
           <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line pathLength="100" x1="12" y1="5" x2="12" y2="19"></line><polyline pathLength="100" points="19 12 12 19 5 12"></polyline></svg>
         </a>
       </div>
@@ -674,20 +759,20 @@
       <!-- Barra inferior de métricas en tarjetas compactas -->
       <div class="mt-8 md:mt-12 pt-5 md:pt-7 border-t border-white/15 w-full grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="10" data-pad="2">10</span> Años</p>
-          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Trayectoria Andina</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="10" data-pad="2">10</span> <span data-i18n="hero.m1_unit">Años</span></p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m1_label">Trayectoria Andina</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
           <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="100">100</span>%</p>
-          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Cuentas Corporativas Legales</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m2_label">Cuentas Corporativas Legales</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
-          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="3" data-pad="2">03</span> Pasos</p>
-          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Proceso Simple</p>
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="3" data-pad="2">03</span> <span data-i18n="hero.m3_unit">Pasos</span></p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m3_label">Proceso Simple</p>
         </div>
         <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
           <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="5300" data-prefix="+">+5,300</span></p>
-          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide">Metas Cumplidas</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m4_label">Metas Cumplidas</p>
         </div>
       </div>
 
@@ -708,31 +793,31 @@
 
   <div class="max-w-5xl mx-auto py-14 px-6">
     <!-- Pregunta principal -->
-    <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 reveal">¿Qué es y cómo funciona el Sistema Multifinanciamiento de Winners?</h2>
+    <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 reveal" data-i18n="multi.pregunta">¿Qué es y cómo funciona el Sistema Multifinanciamiento de Winners?</h2>
 
     <!-- Fila de metadatos con íconos (aparecen escalonados, halo dorado al hover) -->
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-gray-500 text-sm font-semibold">
       <span class="meta-item reveal meta-d1 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="4" width="18" height="18" rx="2"></rect><line pathLength="100" x1="16" y1="2" x2="16" y2="6"></line><line pathLength="100" x1="8" y1="2" x2="8" y2="6"></line><line pathLength="100" x1="3" y1="10" x2="21" y2="10"></line></svg>
-        10 Años de Respaldo
+        <span data-i18n="multi.tag1">10 Años de Respaldo</span>
       </span>
       <span class="meta-dot meta-dot-1" aria-hidden="true">&bull;</span>
       <span class="meta-item reveal meta-d2 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
-        Planificación Programada
+        <span data-i18n="multi.tag2">Planificación Programada</span>
       </span>
       <span class="meta-dot meta-dot-2" aria-hidden="true">&bull;</span>
       <span class="meta-item reveal meta-d3 flex items-center gap-2">
         <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        Área Andina y Latinoamérica
+        <span data-i18n="multi.tag3">Área Andina y Latinoamérica</span>
       </span>
     </div>
 
     <!-- Título dorado corporativo -->
-    <h3 class="text-3xl md:text-5xl font-black text-[#C59B27] mt-10 mb-6 leading-tight reveal">PRODUCTOS Y SERVICIOS:<br>Mucho más que una compra programada</h3>
+    <h3 class="text-3xl md:text-5xl font-black text-[#C59B27] mt-10 mb-6 leading-tight reveal" data-i18n="multi.titulo_dorado">PRODUCTOS Y SERVICIOS:<br>Mucho más que una compra programada</h3>
 
     <!-- Párrafo introductorio con letra capital -->
-    <p class="dropcap text-gray-800 text-base md:text-lg leading-relaxed max-w-4xl reveal">
+    <p class="dropcap text-gray-800 text-base md:text-lg leading-relaxed max-w-4xl reveal" data-i18n="multi.parrafo">
       Si estás pensando en adquirir un vehículo, equipamiento tecnológico, bienestar o impulsar tu propio negocio, el <strong>Sistema Multifinanciamiento</strong> se convierte en la mejor opción para lograrlo a plazo, ya que <strong>te permitirá ahorrar dinero, apalancar tus ideas productivas y crecer en comunidad con cuotas justas y sin la rigidez de una entidad financiera tradicional.</strong>
     </p>
 
@@ -740,42 +825,42 @@
     <div class="grid md:grid-cols-2 gap-10 mt-14">
       <!-- Nuestro modelo -->
       <div class="border-l-4 border-[#EEAA2B] pl-6 py-2">
-        <p class="text-xs font-black tracking-[0.2em] text-[#C59B27] uppercase">Nuestro Modelo Exclusivo</p>
-        <h4 class="text-2xl font-black text-[#132247] mb-3 mt-1">SISTEMA MULTIFINANCIAMIENTO</h4>
-        <p class="text-gray-700 font-semibold mb-4">A través de este sistema te permite obtener:</p>
+        <p class="text-xs font-black tracking-[0.2em] text-[#C59B27] uppercase" data-i18n="multi.col1_badge">Nuestro Modelo Exclusivo</p>
+        <h4 class="text-2xl font-black text-[#132247] mb-3 mt-1" data-i18n="multi.col1_title">SISTEMA MULTIFINANCIAMIENTO</h4>
+        <p class="text-gray-700 font-semibold mb-4" data-i18n="multi.col1_sub">A través de este sistema te permite obtener:</p>
         <ul class="space-y-3 text-gray-900">
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
-            <span><strong>Los productos comunales.</strong></span>
+            <span data-i18n="multi.col1_i1"><strong>Los productos comunales.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
-            <span><strong>Promover tus emprendimientos.</strong></span>
+            <span data-i18n="multi.col1_i2"><strong>Promover tus emprendimientos.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
-            <span><strong>Obtener apalancamientos para tus ideas.</strong></span>
+            <span data-i18n="multi.col1_i3"><strong>Obtener apalancamientos para tus ideas.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
-            <span><strong>Participar en otras iniciativas productivas y comerciales.</strong></span>
+            <span data-i18n="multi.col1_i4"><strong>Participar en otras iniciativas productivas y comerciales.</strong></span>
           </li>
         </ul>
       </div>
 
       <!-- Esquema tradicional -->
       <div class="border-l-4 border-[#7F1D1D] pl-6 py-2">
-        <p class="text-xs font-black tracking-[0.2em] text-[#7F1D1D] uppercase">Esquema Tradicional Limitado</p>
-        <h4 class="text-2xl font-black text-gray-800 mb-3 mt-1">DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h4>
-        <p class="text-gray-600 font-semibold mb-4">Limitaciones de los sistemas convencionales:</p>
+        <p class="text-xs font-black tracking-[0.2em] text-[#7F1D1D] uppercase" data-i18n="multi.col2_badge">Esquema Tradicional Limitado</p>
+        <h4 class="text-2xl font-black text-gray-800 mb-3 mt-1" data-i18n="multi.col2_title">DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h4>
+        <p class="text-gray-600 font-semibold mb-4" data-i18n="multi.col2_sub">Limitaciones de los sistemas convencionales:</p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
-            <span><strong>Te ofrecen únicamente productos y servicios propios.</strong></span>
+            <span data-i18n="multi.col2_i1"><strong>Te ofrecen únicamente productos y servicios propios.</strong></span>
           </li>
           <li class="flex gap-3 items-start">
             <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
-            <span><strong>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</strong></span>
+            <span data-i18n="multi.col2_i2"><strong>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</strong></span>
           </li>
         </ul>
       </div>
@@ -783,9 +868,9 @@
 
     <!-- Llamado a la acción central -->
     <div class="text-center mt-16">
-      <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal">EMPRENDER ES EL CAMINO</h4>
-      <p class="text-xl text-gray-700 mt-2 font-medium reveal">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
-      <a href="#contacto" class="mt-8 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition reveal">Iniciar mi Proceso como Socio</a>
+      <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="multi.cierre_title">EMPRENDER ES EL CAMINO</h4>
+      <p class="text-xl text-gray-700 mt-2 font-medium reveal" data-i18n="multi.cierre_sub">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
+      <a href="#contacto" class="mt-8 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition reveal" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
     </div>
   </div>
 </section>
@@ -798,8 +883,8 @@
 
     <!-- Encabezado -->
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-black text-[#132247] reveal">Nuestra Oferta Integral de Productos y Servicios</h2>
-      <p class="text-gray-600 text-lg mt-5 leading-relaxed reveal">Trabajamos con productos tangibles y servicios reales que satisfacen necesidades fundamentales y elevan tu calidad de vida, respaldados por marcas líderes a nivel mundial.</p>
+      <h2 class="text-3xl md:text-5xl font-black text-[#132247] reveal" data-i18n="oferta.titulo">Nuestra Oferta Integral de Productos y Servicios</h2>
+      <p class="text-gray-600 text-lg mt-5 leading-relaxed reveal" data-i18n="oferta.subtitulo">Trabajamos con productos tangibles y servicios reales que satisfacen necesidades fundamentales y elevan tu calidad de vida, respaldados por marcas líderes a nivel mundial.</p>
     </div>
 
     <!-- Cintillo de marcas líderes -->
@@ -828,19 +913,19 @@
           <circle pathLength="100" cx="7" cy="17" r="2"></circle><circle pathLength="100" cx="17" cy="17" r="2"></circle>
           <path pathLength="100" d="M9 17h6"></path>
         </svg>
-        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Compra de Bienes Muebles y Movilidad</h3>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col1_title">Compra de Bienes Muebles y Movilidad</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Carros y Motos (<em>Honda</em>).</span>
+            <span data-i18n="oferta.col1_i1">Carros y Motos (<em>Honda</em>).</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Computadoras (<em>HP</em>) y Smartphones (<em>Samsung</em>).</span>
+            <span data-i18n="oferta.col1_i2">Computadoras (<em>HP</em>) y Smartphones (<em>Samsung</em>).</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Electrodomésticos y línea hogar.</span>
+            <span data-i18n="oferta.col1_i3">Electrodomésticos y línea hogar.</span>
           </li>
         </ul>
       </div>
@@ -851,23 +936,23 @@
           <line pathLength="100" x1="12" y1="1" x2="12" y2="23"></line>
           <path pathLength="100" d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
         </svg>
-        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Diversificación de Dinero y Finanzas</h3>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col2_title">Diversificación de Dinero y Finanzas</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Generación de ingresos fijos o extras, más bonos e incentivos.</span>
+            <span data-i18n="oferta.col2_i1">Generación de ingresos fijos o extras, más bonos e incentivos.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Apoyo y capital para tu emprendimiento.</span>
+            <span data-i18n="oferta.col2_i2">Apoyo y capital para tu emprendimiento.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Participación como <strong>Socio en las nuevas Fábricas Comunales</strong>.</span>
+            <span data-i18n="oferta.col2_i3">Participación como <strong>Socio en las nuevas Fábricas Comunales</strong>.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Opciones de financiamiento y créditos directos.</span>
+            <span data-i18n="oferta.col2_i4">Opciones de financiamiento y créditos directos.</span>
           </li>
         </ul>
       </div>
@@ -878,15 +963,15 @@
           <path pathLength="100" d="M8 3v6a4 4 0 0 0 8 0V3"></path><path pathLength="100" d="M12 13v4"></path><path pathLength="100" d="M10 21h4"></path>
           <circle pathLength="100" cx="8" cy="2" r="1"></circle><circle pathLength="100" cx="16" cy="2" r="1"></circle>
         </svg>
-        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Industria del Bienestar y Estilo de Vida</h3>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col3_title">Industria del Bienestar y Estilo de Vida</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Financiamiento programado para <strong>viajes de distracción o laborales</strong>.</span>
+            <span data-i18n="oferta.col3_i1">Financiamiento programado para <strong>viajes de distracción o laborales</strong>.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Apoyo financiero para <strong>cirugías estéticas y tratamientos</strong> (<em>BBS-Esthetique</em>) que fortalecen tu seguridad e imagen personal.</span>
+            <span data-i18n="oferta.col3_i2">Apoyo financiero para <strong>cirugías estéticas y tratamientos</strong> (<em>BBS-Esthetique</em>) que fortalecen tu seguridad e imagen personal.</span>
           </li>
         </ul>
       </div>
@@ -898,11 +983,11 @@
           <path pathLength="100" d="M4 11v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path pathLength="100" d="M12 4v3"></path>
           <path pathLength="100" d="M6 15v5M10 15v5M14 15v5M18 15v5"></path>
         </svg>
-        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4">Alimentos Básicos y Economía Familiar</h3>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col4_title">Alimentos Básicos y Economía Familiar</h3>
         <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
           <li class="flex items-start gap-2.5">
             <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
-            <span>Abastecimiento de canasta básica de alimentos (<em>Ecu-Andino</em>) y suplementos alimenticios de primera calidad sin sobreprecios.</span>
+            <span data-i18n="oferta.col4_i1">Abastecimiento de canasta básica de alimentos (<em>Ecu-Andino</em>) y suplementos alimenticios de primera calidad sin sobreprecios.</span>
           </li>
         </ul>
       </div>
@@ -919,8 +1004,8 @@
   <!-- Franja institucional estilo Fonbienes -->
   <div class="bg-[#132247] py-5 px-6 border-b-4 border-[#EEAA2B]">
     <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <h2 class="text-white font-black text-lg md:text-2xl tracking-wide uppercase">Nuestra Compañía</h2>
-      <p class="text-[#FFE885] font-bold text-xs md:text-sm tracking-[0.15em] uppercase">Legalidad, Trayectoria y Compromiso Social</p>
+      <h2 class="text-white font-black text-lg md:text-2xl tracking-wide uppercase" data-i18n="compania.franja_title">Nuestra Compañía</h2>
+      <p class="text-[#FFE885] font-bold text-xs md:text-sm tracking-[0.15em] uppercase" data-i18n="compania.franja_sub">Legalidad, Trayectoria y Compromiso Social</p>
     </div>
   </div>
 
@@ -933,8 +1018,8 @@
           <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
         </span>
         <div>
-          <h3 class="text-xl md:text-2xl font-black text-[#132247]">10 Años de Presencia Internacional</h3>
-          <p class="text-gray-700 mt-2 leading-relaxed">Sistema Winners cuenta con una década de trayectoria ininterrumpida operando en toda el <strong>Área Andina (Ecuador, Colombia, Perú) con extensión a Latinoamérica</strong>.</p>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b1_t">10 Años de Presencia Internacional</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b1_d">Sistema Winners cuenta con una década de trayectoria ininterrumpida operando en toda el <strong>Área Andina (Ecuador, Colombia, Perú) con extensión a Latinoamérica</strong>.</p>
         </div>
       </div>
 
@@ -943,8 +1028,8 @@
           <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline pathLength="100" points="9 12 11 14 15 10"></polyline></svg>
         </span>
         <div>
-          <h3 class="text-xl md:text-2xl font-black text-[#132247]">100% Legalidad y Transparencia Bancaria</h3>
-          <p class="text-gray-700 mt-2 leading-relaxed">Somos una empresa legalmente constituida en cada país donde operamos, con representante legal propio, declaración tributaria al día y operación exclusiva mediante <strong>cuentas bancarias corporativas autorizadas</strong> (jamás utilizamos paraísos fiscales ni esquemas informales).</p>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b2_t">100% Legalidad y Transparencia Bancaria</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b2_d">Somos una empresa legalmente constituida en cada país donde operamos, con representante legal propio, declaración tributaria al día y operación exclusiva mediante <strong>cuentas bancarias corporativas autorizadas</strong> (jamás utilizamos paraísos fiscales ni esquemas informales).</p>
         </div>
       </div>
 
@@ -953,8 +1038,8 @@
           <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline pathLength="100" points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline pathLength="100" points="17 6 23 6 23 12"></polyline></svg>
         </span>
         <div>
-          <h3 class="text-xl md:text-2xl font-black text-[#132247]">Crecimiento Serio y Sostenible</h3>
-          <p class="text-gray-700 mt-2 leading-relaxed">Construimos una relación asertiva y de largo plazo entre la empresa y nuestros afiliados, fomentando liderazgo, educación financiera y resultados reales.</p>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b3_t">Crecimiento Serio y Sostenible</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b3_d">Construimos una relación asertiva y de largo plazo entre la empresa y nuestros afiliados, fomentando liderazgo, educación financiera y resultados reales.</p>
         </div>
       </div>
     </div>
@@ -962,54 +1047,54 @@
     <!-- Bloque 2: Misión, Visión y Valores (3 columnas) -->
     <div class="grid md:grid-cols-3 gap-10 mt-20">
       <div class="border-t-4 border-[#132247] pt-6 reveal">
-        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3">Misión</h4>
-        <p class="text-gray-700 leading-relaxed">Promover la cultura del ahorro programado, el multifinanciamiento y el emprendimiento cooperativo, facilitando a nuestros socios el acceso a vehículos, tecnología, bienestar e industria libre de intereses abusivos.</p>
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3" data-i18n="compania.mision_t">Misión</h4>
+        <p class="text-gray-700 leading-relaxed" data-i18n="compania.mision_d">Promover la cultura del ahorro programado, el multifinanciamiento y el emprendimiento cooperativo, facilitando a nuestros socios el acceso a vehículos, tecnología, bienestar e industria libre de intereses abusivos.</p>
       </div>
       <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
-        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3">Visión</h4>
-        <p class="text-gray-700 leading-relaxed">Consolidarnos en toda Latinoamérica como el ecosistema líder de economía colaborativa y multifinanciamiento empresarial que transforma las ideas de nuestros socios en patrimonio real.</p>
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3" data-i18n="compania.vision_t">Visión</h4>
+        <p class="text-gray-700 leading-relaxed" data-i18n="compania.vision_d">Consolidarnos en toda Latinoamérica como el ecosistema líder de economía colaborativa y multifinanciamiento empresarial que transforma las ideas de nuestros socios en patrimonio real.</p>
       </div>
       <div class="border-t-4 border-[#132247] pt-6 reveal">
-        <h4 class="text-2xl font-black text-[#132247] uppercase mb-4">Valores Corporativos</h4>
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-4" data-i18n="compania.valores_t">Valores Corporativos</h4>
         <div class="flex flex-wrap gap-2.5">
-          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Servicio</span>
-          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Ética</span>
-          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Honestidad</span>
-          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Integridad</span>
-          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full">Respeto</span>
-          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full">Liderazgo</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_servicio">Servicio</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_etica">Ética</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_honestidad">Honestidad</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_integridad">Integridad</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_respeto">Respeto</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_liderazgo">Liderazgo</span>
         </div>
       </div>
     </div>
 
     <!-- Bloque 3: Aporte social "Todos se Benefician" -->
     <div class="mt-20">
-      <h4 class="text-2xl md:text-3xl font-black text-[#132247] uppercase text-center reveal">Aporte Social y Economía Naranja: <span class="text-[#C59B27]">&ldquo;Todos se Benefician&rdquo;</span></h4>
-      <p class="text-gray-600 text-center mt-3 max-w-2xl mx-auto reveal">Iniciativas comunitarias oficiales de Sistema Winners que devuelven el valor a la sociedad.</p>
+      <h4 class="text-2xl md:text-3xl font-black text-[#132247] uppercase text-center reveal" data-i18n="compania.social_t">Aporte Social y Economía Naranja: <span class="text-[#C59B27]">&ldquo;Todos se Benefician&rdquo;</span></h4>
+      <p class="text-gray-600 text-center mt-3 max-w-2xl mx-auto reveal" data-i18n="compania.social_sub">Iniciativas comunitarias oficiales de Sistema Winners que devuelven el valor a la sociedad.</p>
       <div class="grid md:grid-cols-3 gap-8 mt-12">
 
         <div class="text-center px-4 reveal">
           <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
             <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path pathLength="100" d="M9 22V12h6v10"></path></svg>
           </span>
-          <h5 class="text-lg font-black text-[#132247] mt-4">Tiendas Comunitarias DOY-MAS</h5>
-          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Impulso al comercio solidario y abastecimiento justo.</p>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c1_t">Tiendas Comunitarias DOY-MAS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c1_d">Impulso al comercio solidario y abastecimiento justo.</p>
         </div>
 
         <div class="text-center px-4 reveal">
           <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
             <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><circle pathLength="100" cx="12" cy="10" r="3"></circle><path pathLength="100" d="M6.2 18.3a6.5 6.5 0 0 1 11.6 0"></path></svg>
           </span>
-          <h5 class="text-lg font-black text-[#132247] mt-4">Academia Deportiva SOCIO WINNERS</h5>
-          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apoyo activo al deporte barrial, juventud y actividades lúdicas.</p>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c2_t">Academia Deportiva SOCIO WINNERS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c2_d">Apoyo activo al deporte barrial, juventud y actividades lúdicas.</p>
         </div>
 
         <div class="text-center px-4 reveal">
           <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
             <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="4" y="7" width="16" height="14" rx="2"></rect><path pathLength="100" d="M9 7V5a3 3 0 0 1 6 0v2"></path><path pathLength="100" d="M4 12h16"></path></svg>
           </span>
-          <h5 class="text-lg font-black text-[#132247] mt-4">Desarrollo de Industrias y Empresas Comunales</h5>
-          <p class="text-gray-700 text-sm mt-2 leading-relaxed">Apalancamos propuestas productivas nacidas directamente de la comunidad.</p>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c3_t">Desarrollo de Industrias y Empresas Comunales</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c3_d">Apalancamos propuestas productivas nacidas directamente de la comunidad.</p>
         </div>
       </div>
     </div>
@@ -1026,48 +1111,48 @@
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 border-b border-white/15 pb-10">
     <div class="flex items-center gap-3 md:px-10">
       <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M23 7l-7 5 7 5V7z"></path><rect pathLength="100" x="1" y="5" width="15" height="14" rx="2"></rect></svg>
-      <span class="font-bold text-sm md:text-base tracking-wide">Asambleas y Eventos Públicos</span>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_1">Asambleas y Eventos Públicos</span>
     </div>
     <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
     <div class="flex items-center gap-3 md:px-10">
       <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
-      <span class="font-bold text-sm md:text-base tracking-wide">Acompañamiento Paso a Paso</span>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_2">Acompañamiento Paso a Paso</span>
     </div>
     <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
     <div class="flex items-center gap-3 md:px-10">
       <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
-      <span class="font-bold text-sm md:text-base tracking-wide">Adjudicación y Apalancamiento</span>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_3">Adjudicación y Apalancamiento</span>
     </div>
   </div>
 
   <!-- Título central -->
-  <h2 class="text-2xl md:text-4xl font-black text-center uppercase tracking-wide mt-12 float-shadow reveal">¡Conéctate a Nuestro Proceso en<br class="hidden md:block"> 3 Simples Pasos!</h2>
+  <h2 class="text-2xl md:text-4xl font-black text-center uppercase tracking-wide mt-12 float-shadow reveal" data-i18n="proceso.titulo">¡Conéctate a Nuestro Proceso en<br class="hidden md:block"> 3 Simples Pasos!</h2>
 
   <!-- Los 3 pasos flotantes -->
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mt-14 text-center">
 
     <div class="reveal paso-card paso-d1">
       <p class="paso-num">01</p>
-      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Uno</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p1_badge">Paso Uno</p>
       <div class="paso-bar"><span></span></div>
-      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué tienes que hacer? Inscribirte</h3>
-      <p class="text-white/80 mt-3 leading-relaxed">Regístrate como Socio Inversionista y asegura tu posición en el sistema.</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p1_t">¿Qué tienes que hacer? Inscribirte</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p1_d">Regístrate como Socio Inversionista y asegura tu posición en el sistema.</p>
     </div>
 
     <div class="reveal paso-card paso-d2">
       <p class="paso-num">02</p>
-      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Dos</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p2_badge">Paso Dos</p>
       <div class="paso-bar"><span></span></div>
-      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">¿Qué bien o servicio necesitas?</h3>
-      <p class="text-white/80 mt-3 leading-relaxed">Elige entre Vehículo (Carro/Moto), Tecnología, Emprendimiento/Fábricas Comunales o Bienestar/Viajes.</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p2_t">¿Qué bien o servicio necesitas?</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p2_d">Elige entre Vehículo (Carro/Moto), Tecnología, Emprendimiento/Fábricas Comunales o Bienestar/Viajes.</p>
     </div>
 
     <div class="reveal paso-card paso-d3">
       <p class="paso-num">03</p>
-      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1">Paso Tres</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p3_badge">Paso Tres</p>
       <div class="paso-bar"><span></span></div>
-      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft">Documentos</h3>
-      <p class="text-white/80 mt-3 leading-relaxed">Completa tus datos básicos en el formulario oficial a continuación para recibir asesoría inmediata.</p>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p3_t">Documentos</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p3_d">Completa tus datos básicos en el formulario oficial a continuación para recibir asesoría inmediata.</p>
     </div>
   </div>
 
@@ -1075,9 +1160,9 @@
   <div class="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center">
     <img src="images/moto-familia.jpg" alt="Familia adjudicada con su moto de trabajo en Sistema Winners" class="rounded-2xl shadow-2xl w-full h-64 md:h-80 object-cover reveal" loading="lazy">
     <div class="text-center md:text-left reveal">
-      <h3 class="text-2xl md:text-3xl font-black float-shadow-soft">Tu meta está a 3 pasos de distancia</h3>
-      <p class="text-white/80 mt-3 leading-relaxed">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
-      <a href="#contacto" class="mt-7 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.45)] transition transform hover:scale-105">
+      <h3 class="text-2xl md:text-3xl font-black float-shadow-soft" data-i18n="proceso.callout_t">Tu meta está a 3 pasos de distancia</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.callout_d">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
+      <a href="#contacto" class="mt-7 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.45)] transition transform hover:scale-105" data-i18n="proceso.callout_btn">
         ¡Inicia tu Proceso Ahora! &rarr;
       </a>
     </div>
@@ -1092,61 +1177,61 @@
 
     <!-- Parte A: Contadores de giro rápido -->
     <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-black text-[#132247] uppercase tracking-wide reveal">Resultados que hablan por nosotros</h2>
+      <h2 class="text-3xl md:text-4xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="testimonios.titulo">Resultados que hablan por nosotros</h2>
       <div class="grid sm:grid-cols-3 gap-10 mt-14">
         <div class="reveal">
           <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="10">10</p>
-          <p class="text-gray-600 font-semibold mt-3">Años de Trayectoria<br>en el Área Andina</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m1_d">Años de Trayectoria<br>en el Área Andina</p>
         </div>
         <div class="reveal">
           <p class="font-black text-5xl md:text-6xl text-[#C59B27] odometer" data-value="+1,904">+1,904</p>
-          <p class="text-gray-600 font-semibold mt-3">Emprendimientos y<br>Proyectos Impulsados</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m2_d">Emprendimientos y<br>Proyectos Impulsados</p>
         </div>
         <div class="reveal">
           <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="+5,396">+5,396</p>
-          <p class="text-gray-600 font-semibold mt-3">Productos, Vehículos y<br>Servicios Adjudicados</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m3_d">Productos, Vehículos y<br>Servicios Adjudicados</p>
         </div>
       </div>
     </div>
 
     <!-- Parte B: Avatares interactivos con tooltip -->
     <div class="mt-24 text-center">
-      <h3 class="text-2xl font-extrabold text-gray-900 reveal">Socios reales, historias reales</h3>
-      <p class="text-gray-500 mt-2 reveal">Pasa el cursor o toca una foto para conocerlos.</p>
+      <h3 class="text-2xl font-extrabold text-gray-900 reveal" data-i18n="testimonios.avatars_t">Socios reales, historias reales</h3>
+      <p class="text-gray-500 mt-2 reveal" data-i18n="testimonios.avatars_sub">Pasa el cursor o toca una foto para conocerlos.</p>
       <div class="flex items-center justify-center -space-x-3 mt-10">
         <div class="avatar-wrap reveal">
           <img class="avatar-img" src="images/celular-plan.jpg" alt="Carlos M., socio de Quito" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">Carlos M. &mdash; Quito</p>
-            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Adjudiqué mi moto Honda para trabajar. El acompañamiento fue paso a paso.&rdquo;</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_carlos">&ldquo;Adjudiqué mi moto Honda para trabajar. El acompañamiento fue paso a paso.&rdquo;</p>
           </div>
         </div>
         <div class="avatar-wrap reveal">
           <img class="avatar-img" src="images/b.jpg" alt="María G., socia de Guayaquil" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">María G. &mdash; Guayaquil</p>
-            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Con el apalancamiento abrí mi emprendimiento. Hoy ya tengo un punto de venta.&rdquo;</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_maria">&ldquo;Con el apalancamiento abrí mi emprendimiento. Hoy ya tengo un punto de venta.&rdquo;</p>
           </div>
         </div>
         <div class="avatar-wrap reveal">
           <img class="avatar-img" src="images/hero-slide2.jfif" alt="Andrés P., socio de Pasto" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">Andrés P. &mdash; Pasto</p>
-            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Lidero eventos en mi ciudad. Las asambleas son abiertas y transparentes.&rdquo;</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_andres">&ldquo;Lidero eventos en mi ciudad. Las asambleas son abiertas y transparentes.&rdquo;</p>
           </div>
         </div>
         <div class="avatar-wrap reveal">
           <img class="avatar-img" src="images/moto-familia.jpg" alt="Valentina S., socia de Bogotá" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">Valentina S. &mdash; Bogotá</p>
-            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Mi familia logró su vehículo sin intereses bancarios ni rigidez del sistema tradicional.&rdquo;</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_valentina">&ldquo;Mi familia logró su vehículo sin intereses bancarios ni rigidez del sistema tradicional.&rdquo;</p>
           </div>
         </div>
         <div class="avatar-wrap reveal">
           <img class="avatar-img" src="images/3.jpg" alt="Jorge D., socio de Quito Sur" loading="lazy" tabindex="0">
           <div class="avatar-tip">
             <p class="font-bold text-sm">Jorge D. &mdash; Quito Sur</p>
-            <p class="text-white/80 text-xs mt-1.5 leading-relaxed">&ldquo;Participé en las tiendas DOY-MAS y desde entonces todo es comunidad real.&rdquo;</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_jorge">&ldquo;Participé en las tiendas DOY-MAS y desde entonces todo es comunidad real.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -1164,7 +1249,7 @@
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Entré con cuotas justas y sin la rigidez de un banco. Hoy manejo un carro propio gracias al multifinanciamiento.&rdquo;</blockquote>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_1">&ldquo;Entré con cuotas justas y sin la rigidez de un banco. Hoy manejo un carro propio gracias al multifinanciamiento.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Luisa Fernanda R.</p>
         <p class="text-gray-500 text-sm font-semibold">Quito, Ecuador</p>
       </article>
@@ -1177,7 +1262,7 @@
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Recibí mi crédito productivo y mi smartphone Samsung en el mismo ciclo. El sistema me dio la espada para emprender.&rdquo;</blockquote>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_2">&ldquo;Recibí mi crédito productivo y mi smartphone Samsung en el mismo ciclo. El sistema me dio la espada para emprender.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Diego Alejandro S.</p>
         <p class="text-gray-500 text-sm font-semibold">Guayaquil, Ecuador</p>
       </article>
@@ -1190,7 +1275,7 @@
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <blockquote class="text-gray-700 mt-5 leading-relaxed">&ldquo;Además de mi moto de trabajo, participé en la tienda comunal DOY-MAS. Todo es transparente y legal desde el día uno.&rdquo;</blockquote>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_3">&ldquo;Además de mi moto de trabajo, participé en la tienda comunal DOY-MAS. Todo es transparente y legal desde el día uno.&rdquo;</blockquote>
         <p class="font-black text-[#132247] mt-4">Paola Andrea M.</p>
         <p class="text-gray-500 text-sm font-semibold">Bogot&aacute;, Colombia</p>
       </article>
@@ -1214,72 +1299,72 @@
       </div>
       <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
         <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="2" y1="12" x2="22" y2="12"></line><path pathLength="100" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        Área Andina (ES)
+        <span data-i18n="form.region">Área Andina (ES)</span>
       </div>
     </div>
 
     <!-- Cuerpo del formulario -->
     <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2">Abre tu cuenta real de Socio</h2>
-      <p class="text-lg text-gray-500 mb-8">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2" data-i18n="form.heading">Abre tu cuenta real de Socio</h2>
+      <p class="text-lg text-gray-500 mb-8" data-i18n="form.subheading">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
 
       <form id="socioForm" novalidate>
         <div class="grid md:grid-cols-2 gap-5">
           <div>
-            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2">Primer nombre</label>
-            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" required
-                   class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_nombre">Primer nombre</label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" data-i18n-placeholder="form.ph_nombre" required
+                   class="input-neo">
           </div>
           <div>
-            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2">Apellido</label>
-            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" required
-                   class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_apellido">Apellido</label>
+            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" data-i18n-placeholder="form.ph_apellido" required
+                   class="input-neo">
           </div>
         </div>
 
         <div class="mt-5">
-          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2">Cédula / RUC / Documento de Identidad</label>
-          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" required
-                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_doc">Cédula / RUC / Documento de Identidad</label>
+          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" data-i18n-placeholder="form.ph_doc" required
+                 class="input-neo">
         </div>
 
         <div class="mt-5">
-          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2">Celular / WhatsApp</label>
-          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" required
-                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_celular">Celular / WhatsApp</label>
+          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" data-i18n-placeholder="form.ph_celular" required
+                 class="input-neo">
         </div>
 
         <div class="mt-5">
-          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2">Email</label>
-          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" required
-                 class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:border-[#132247] focus:outline-none transition">
+          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" data-i18n-placeholder="form.ph_email" required
+                 class="input-neo">
         </div>
 
         <div class="mt-5">
-          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
+          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_bien">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
           <select id="f-bien" name="bien" required
-                  class="w-full border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 bg-white focus:border-[#132247] focus:outline-none transition">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="Vehículo (Carro o Moto Honda / Multimarca)">Vehículo (Carro o Moto Honda / Multimarca)</option>
-            <option value="Tecnología y Electrodomésticos (Samsung / HP)">Tecnología y Electrodomésticos (Samsung / HP)</option>
-            <option value="Impulsar mi Emprendimiento / Crédito y Capital">Impulsar mi Emprendimiento / Crédito y Capital</option>
-            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
-            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
-            <option value="Canasta Básica y Suplementos (Ecu-Andino)">Canasta Básica y Suplementos (Ecu-Andino)</option>
+                  class="input-neo">
+            <option value="" disabled selected data-i18n="form.opt_default">Selecciona una opción</option>
+            <option value="Vehículo (Carro o Moto Honda / Multimarca)" data-i18n="form.opt_vehiculo">Vehículo (Carro o Moto Honda / Multimarca)</option>
+            <option value="Tecnología y Electrodomésticos (Samsung / HP)" data-i18n="form.opt_tecnologia">Tecnología y Electrodomésticos (Samsung / HP)</option>
+            <option value="Impulsar mi Emprendimiento / Crédito y Capital" data-i18n="form.opt_emprendimiento">Impulsar mi Emprendimiento / Crédito y Capital</option>
+            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS" data-i18n="form.opt_fabricas">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
+            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)" data-i18n="form.opt_bienestar">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
+            <option value="Canasta Básica y Suplementos (Ecu-Andino)" data-i18n="form.opt_alimentos">Canasta Básica y Suplementos (Ecu-Andino)</option>
           </select>
         </div>
 
         <button type="submit"
-                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8">
+                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8" data-i18n="form.btn_submit">
           Solicitar Asesoría e Iniciar Proceso
         </button>
 
-        <p class="text-center text-sm text-gray-500 mt-6">¿Necesitas una respuesta inmediata?</p>
+        <p class="text-center text-sm text-gray-500 mt-6" data-i18n="form.wa_pre">¿Necesitas una respuesta inmediata?</p>
         <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20abrir%20mi%20cuenta%20de%20Socio%20Inversionista"
            target="_blank" rel="noopener"
            class="mt-2 w-full inline-flex items-center justify-center gap-3 bg-[#1FAF54] hover:bg-[#189a48] text-white font-bold py-4 rounded-xl shadow-md transition">
           <img src="images/whatsapp.png" alt="" aria-hidden="true" class="w-6 h-6 object-contain rounded-full">
-          Escríbenos por WhatsApp Ahora
+          <span data-i18n="form.wa_btn">Escríbenos por WhatsApp Ahora</span>
         </a>
       </form>
     </div>
@@ -1294,30 +1379,29 @@
     <div>
       <div class="flex items-center gap-3 mb-4">
         <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
-        <span class="text-white font-extrabold tracking-wide text-sm">SISTEMA WINNERS</span>
       </div>
-      <p class="leading-relaxed text-sm">10 años impulsando el multifinanciamiento, la economía naranja y el progreso colectivo en toda el Área Andina y Latinoamérica.</p>
+      <p class="leading-relaxed text-sm" data-i18n="footer.desc">10 años impulsando el multifinanciamiento, la economía naranja y el progreso colectivo en toda el Área Andina y Latinoamérica.</p>
     </div>
 
     <div>
-      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4">Nuestras Divisiones</h4>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4" data-i18n="footer.div_title">Nuestras Divisiones</h4>
       <ul class="text-sm space-y-2 leading-relaxed">
-        <li>Bienes Muebles y Vehículos</li>
-        <li>Fábricas Comunales</li>
-        <li>Tiendas DOY-MAS</li>
-        <li>Academia Deportiva Socio Winners</li>
-        <li>Bienestar y Estética</li>
+        <li data-i18n="footer.div_1">Bienes Muebles y Vehículos</li>
+        <li data-i18n="footer.div_2">Fábricas Comunales</li>
+        <li data-i18n="footer.div_3">Tiendas DOY-MAS</li>
+        <li data-i18n="footer.div_4">Academia Deportiva Socio Winners</li>
+        <li data-i18n="footer.div_5">Bienestar y Estética</li>
       </ul>
     </div>
 
     <div>
-      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4">Legalidad y Contacto</h4>
-      <p class="text-sm leading-relaxed">Cuentas corporativas autorizadas y representación legal en cada país.</p>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4" data-i18n="footer.contact_title">Legalidad y Contacto</h4>
+      <p class="text-sm leading-relaxed" data-i18n="footer.contact_sub">Cuentas corporativas autorizadas y representación legal en cada país.</p>
       <a href="tel:+573148691001" class="mt-3 inline-flex items-center gap-2 text-sm hover:text-[#EEAA2B] transition">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        L&iacute;nea de Socios: +57 314 869 1001
+        <span data-i18n="footer.hotline">L&iacute;nea de Socios:</span> +57 314 869 1001
       </a>
-      <p class="text-xs text-gray-500 mt-6">© <span id="year">2026</span> Sistema Winners. Todos los derechos reservados.</p>
+      <p class="text-xs text-gray-500 mt-6">© <span id="year">2026</span> <span data-i18n="footer.rights">Sistema Winners. Todos los derechos reservados.</span></p>
     </div>
   </div>
 </footer>
@@ -1337,22 +1421,22 @@
 <nav class="mobile-bottom-bar md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D13]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 flex items-center justify-around text-[10px] font-bold text-white/70 select-none shadow-[0_-8px_24px_rgba(0,0,0,0.5)]" aria-label="Navegación de aplicación móvil">
   <a href="#inicio" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
     <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline pathLength="100" points="9 22 9 12 15 12 15 22"></polyline></svg>
-    <span>Inicio</span>
+    <span data-i18n="bottom_nav.inicio">Inicio</span>
   </a>
   <a href="#oferta" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
     <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="14" width="7" height="7"></rect><rect pathLength="100" x="3" y="14" width="7" height="7"></rect></svg>
-    <span>Bienes</span>
+    <span data-i18n="bottom_nav.bienes">Bienes</span>
   </a>
   <a href="#proceso" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
     <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 14 14"></polyline></svg>
-    <span>3 Pasos</span>
+    <span data-i18n="bottom_nav.pasos">3 Pasos</span>
   </a>
   <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas" target="_blank" rel="noopener" class="flex flex-col items-center gap-1 text-[#25D366] hover:text-[#32e775] transition py-1 px-2 active:scale-95">
     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    <span>WhatsApp</span>
+    <span data-i18n="bottom_nav.whatsapp">WhatsApp</span>
   </a>
   <a href="#contacto" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
-    <span class="text-[11px] whitespace-nowrap">Abre Cuenta</span>
+    <span class="text-[11px] whitespace-nowrap" data-i18n="bottom_nav.cta">Abre Cuenta</span>
   </a>
 </nav>
 
@@ -1627,6 +1711,7 @@
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+<script src="js/i18n.js" defer></script>
 
 </body>
 </html>

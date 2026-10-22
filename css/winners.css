@@ -331,6 +331,7 @@ strong { font-weight: 700; }
   .sm\:block { display: block; }
   .sm\:flex-row { flex-direction: row; }
   .sm\:gap-4 { gap: 1rem; }
+  .sm\:gap-3 { gap: 0.75rem; }
   .sm\:p-3 { padding: 0.75rem; }
   .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
   .sm\:pt-56 { padding-top: 14rem; }
@@ -404,6 +405,25 @@ strong { font-weight: 700; }
   .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .xl\:max-w-2xl { max-width: 42rem; }
 }
+
+/* ---------- Selector de idioma (ES/EN) — respaldo añadido ---------- */
+.cursor-pointer { cursor: pointer; }
+.transition-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.bg-\[\#12151D\] { background-color: #12151D; }
+.bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
+.bg-white\/20 { background-color: rgba(255, 255, 255, 0.2); }
+.hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.10); }
+.hover\:border-\[\#EEAA2B\]\/60:hover { border-color: rgba(238, 170, 43, 0.6); }
+.hover\:text-white:hover { color: #ffffff; }
+.text-white\/30 { color: rgba(255, 255, 255, 0.3); }
+.w-\[1px\] { width: 1px; }
+.mr-1\.5 { margin-right: 0.375rem; }
+.mx-0\.5 { margin-left: 0.125rem; margin-right: 0.125rem; }
+.pb-3 { padding-bottom: 0.75rem; }
+.px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
+.py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+.lang-switcher-wrap { position: relative; }
+.lang-btn { line-height: 1.4; user-select: none; }
 
 /* ---------- Barra inferior móvil: margen para el footer y WhatsApp ---------- */
 @media (max-width: 767px) {
