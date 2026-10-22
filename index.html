@@ -1660,6 +1660,21 @@
       var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
       var lenisLoop = function (t) { lenis.raf(t); window.requestAnimationFrame(lenisLoop); };
       window.requestAnimationFrame(lenisLoop);
+
+      /* Anclas: evita el choque del scroll nativo smooth con Lenis (tirones) */
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var hash = a.getAttribute('href');
+          if (hash === '#') { e.preventDefault(); return; }
+          var target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -96, duration: 1.2 });
+            if (history.pushState) { history.pushState(null, '', hash); }
+          }
+        });
+      });
     }
 
     /* Magnetismo: íconos que persiguen la punta del cursor (solo punteros finos) */
