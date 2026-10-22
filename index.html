@@ -470,9 +470,8 @@
     }
     .input-neo:focus {
       background-color: #ffffff;
-      transform: scale(1.05);
-      box-shadow: 13px 13px 100px rgba(19, 34, 71, 0.16),
-                  -13px -13px 100px #ffffff,
+      transform: scale(1.02);
+      box-shadow: 0 10px 40px rgba(19, 34, 71, 0.16),
                   0 0 0 3px rgba(238, 170, 43, 0.45);
     }
     select.input-neo {
@@ -483,6 +482,10 @@
       background-position: right 1rem center;
       background-size: 14px;
       padding-right: 2.75rem;
+    }
+    /* En táctil, sin salto de escala al enfocar (evita movimiento brusco) */
+    @media (max-width: 767px) {
+      .input-neo:focus { transform: none; }
     }
 
     /* ---------- Menú móvil ---------- */
