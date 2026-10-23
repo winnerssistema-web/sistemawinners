@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0D13">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Sistema Winners | Multifinanciamiento y Socios Inversionistas</title>
+  <meta name="description" content="10 años de trayectoria en el Área Andina y Latinoamérica. Sistema de Multifinanciamiento para vehículos, tecnología, bienestar y emprendimiento. Abre tu cuenta de Socio Inversionista.">
+  <link rel="canonical" href="https://www.sistemawinners.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sistema Winners | Socios Inversionistas — Los sueños sí se cumplen">
+  <meta property="og:description" content="10 años de solidez. Multifinanciamiento en comunidad para vehículos, tecnología, bienestar y emprendimiento. Solo déjate llevar.">
+  <meta property="og:url" content="https://www.sistemawinners.com/">
+  <meta property="og:site_name" content="Sistema Winners">
+  <meta property="og:image" content="https://www.sistemawinners.com/images/a.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/winners.css">
+
+  <style>
+    /* ============================================================
+       SISTEMA WINNERS — HOJA DE ESTILO MAESTRA
+       Reglas: scroll fluido sin bloqueos, sin tarjetas negras
+       difuminadas, sin emojis, fondos optimizados PC vs Móvil.
+    ============================================================ */
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #08090C;
+      overflow-x: hidden;
+    }
+    section[id] { scroll-margin-top: 108px; }
+
+    /* ---------- Slider de fondo del Hero ---------- */
+    .heroSlider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+    .heroLayer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+      will-change: opacity;
+    }
+    .heroLayer.active { opacity: 1; }
+    /* Encuadre de la chica: en móvil rostro y sonrisa en tercio superior; en PC chica a la derecha */
+    .heroLayerA { object-position: 52% 8%; }
+    @media (min-width: 1024px) {
+      .heroLayerA { object-position: 78% 20%; }
+    }
+    /* Ken Burns sutil solo sobre imagenes activas */
+    .heroLayer.active:not(video) { animation: heroKenBurns 8s ease-in-out forwards; }
+    @keyframes heroKenBurns {
+      from { transform: scale(1); }
+      to { transform: scale(1.07); }
+    }
+    /* El video de la flor: solo PC (>=768px), oculto en móvil */
+    .heroVideo { display: none; }
+    @media (min-width: 768px) {
+      .heroVideo {
+        display: block;
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto;
+        object-fit: cover;
+        filter: contrast(1.08) saturate(1.15);
+      }
+    }
+
+    /* ---------- Overlay inteligente que NO tapa la sonrisa ni oscurece el rostro ---------- */
+    .heroOverlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      /* Móvil: cristalino arriba (0-30%) para ver el rostro y sonrisa nítidos; oscuro abajo para los textos */
+      background: linear-gradient(180deg,
+        rgba(8,9,12,0.06) 0%,
+        rgba(8,9,12,0.04) 28%,
+        rgba(8,9,12,0.70) 52%,
+        #08090C 92%
+      );
+    }
+    @media (min-width: 1024px) {
+      .heroOverlay {
+        /* Desktop: oscuro degradado en el lateral izquierdo para máxima legibilidad;
+           lado derecho despejado para que la chica sonriente y su celular brillen */
+        background:
+          linear-gradient(90deg,
+            rgba(8,9,12,0.96) 0%,
+            rgba(8,9,12,0.86) 38%,
+            rgba(8,9,12,0.32) 64%,
+            rgba(8,9,12,0.05) 84%,
+            transparent 100%
+          ),
+          linear-gradient(180deg,
+            transparent 72%,
+            #08090C 100%
+          );
+      }
+    }
+
+    /* ---------- Texto flotante con sombra intensa (secciones oscuras) ---------- */
+    .float-shadow { text-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.9); }
+    .float-shadow-soft { text-shadow: 0 3px 18px rgba(0,0,0,0.8); }
+
+    /* ---------- Degradado dorado tipográfico radiante (sin sombra interna sucia) ---------- */
+    .gold-gradient {
+      background: linear-gradient(135deg, #FFF6C9 0%, #FFDE71 35%, #EEAA2B 75%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none !important;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.85)) drop-shadow(0 0 16px rgba(238, 170, 43, 0.5));
+    }
+
+    /* ---------- Text "LLEVAR!!" Dorado Metálico Mítico (estilo MythicZai) ---------- */
+    .hero-llevar-text {
+      font-size: clamp(2.3rem, 10vw, 3.8rem);
+      white-space: nowrap;
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      background: linear-gradient(
+        115deg,
+        #FFF4BD 0%,
+        #FFCD38 18%,
+        #FFFFFF 28%,
+        #FFAC1C 42%,
+        #4A2000 48%,
+        #733600 52%,
+        #FFC32E 65%,
+        #FFFFFF 76%,
+        #FFA500 88%,
+        #FFE885 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none !important;
+      -webkit-text-stroke: 1.5px #FFEBA8;
+      filter:
+        drop-shadow(0 3px 2px #240E00)
+        drop-shadow(0 0 16px rgba(255, 185, 30, 0.85))
+        drop-shadow(0 0 36px rgba(238, 170, 43, 0.45));
+      animation: mythicGoldShine 6s linear infinite;
+      margin-top: 0.1em;
+    }
+    @keyframes mythicGoldShine {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    @media (min-width: 640px) {
+      .hero-llevar-text {
+        font-size: clamp(3.8rem, 9.5vw, 7.5rem);
+        -webkit-text-stroke: 2.2px #FFEBA8;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-llevar-text { animation: none; background-position: 50% center; }
+    }
+
+    /* ---------- Logo blanco puro ---------- */
+    .logo-white { filter: brightness(0) invert(1); }
+
+    /* ---------- Letra capital gigante (Drop Cap "S") ---------- */
+    .dropcap::first-letter {
+      float: left;
+      font-size: 4.6rem;
+      line-height: 0.78;
+      padding-right: 0.75rem;
+      padding-top: 0.18rem;
+      font-weight: 900;
+      color: #111827;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ---------- Cintillo de marcas ---------- */
+    .brand-marquee span { letter-spacing: 0.18em; }
+
+    /* ---------- Odómetro / Slot machine ---------- */
+    .odometer-digit {
+      display: inline-block;
+      min-width: 0.65em;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .odometer.spinning .odometer-digit { color: #EEAA2B; }
+
+    /* ---------- Estrellas doradas interactivas (rebote hover) ---------- */
+    @keyframes starBounce {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.45) rotate(-8deg); }
+      60% { transform: scale(0.92) rotate(4deg); }
+      100% { transform: scale(1); }
+    }
+    .star { cursor: pointer; transition: transform 0.2s ease, filter 0.2s ease; transform-origin: bottom; }
+    .stars:hover .star { fill: #EEAA2B; filter: drop-shadow(0 2px 6px rgba(238,170,43,0.55)); }
+    .stars .star:hover { animation: starBounce 0.45s ease; }
+
+    /* ---------- Tooltip animado de avatares (estilo Aceternity) ---------- */
+    .avatar-wrap { position: relative; }
+    .avatar-img {
+      width: 3.25rem; height: 3.25rem;
+      border-radius: 9999px;
+      object-fit: cover;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(19,34,71,0.18);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      cursor: pointer;
+    }
+    .avatar-wrap:hover .avatar-img, .avatar-wrap:focus-within .avatar-img { transform: translateY(-10px) scale(1.12); }
+    .avatar-tip {
+      position: absolute;
+      bottom: calc(100% + 16px);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px) scale(0.92);
+      transform-origin: bottom center;
+      width: 15rem;
+      background: #132247;
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(19,34,71,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 40;
+      text-align: left;
+    }
+    .avatar-tip::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      margin-left: -8px;
+      border: 8px solid transparent;
+      border-top-color: #132247;
+    }
+    .avatar-wrap:hover .avatar-tip, .avatar-wrap:focus-within .avatar-tip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    /* ---------- Botón flotante WhatsApp con pulso ---------- */
+    @keyframes waPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+      70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    .wa-float { animation: waPulse 2.4s infinite; }
+
+    /* ---------- Reveal fluido al hacer scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Header inteligente: se oculta al bajar, reaparece al subir ---------- */
+    .site-header {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      transform: translateY(0);
+    }
+    .site-header.header-hidden { transform: translateY(-115%); }
+
+    /* ---------- Metadatos editoriales: sobrio, escalonado, halo dorado ---------- */
+    .meta-d1 { transition-delay: 0s; }
+    .meta-d2 { transition-delay: 0.15s; }
+    .meta-d3 { transition-delay: 0.3s; }
+    .meta-item svg {
+      transition: filter 0.35s ease;
+      animation: metaIconFloat 7s ease-in-out infinite;
+    }
+    .meta-d1 svg { animation-delay: 0s; }
+    .meta-d2 svg { animation-delay: 2.3s; }
+    .meta-d3 svg { animation-delay: 4.6s; }
+    @keyframes metaIconFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-3px) scale(1.08); }
+    }
+    .meta-item:hover svg {
+      filter: drop-shadow(0 0 8px rgba(238, 170, 43, 0.65));
+      animation-duration: 3.5s;
+    }
+    .meta-dot {
+      animation: metaPulse 4.5s ease-in-out infinite;
+    }
+    .meta-dot-1 { animation-delay: 0.6s; }
+    .meta-dot-2 { animation-delay: 2.1s; }
+    @keyframes metaPulse {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; color: #C59B27; }
+    }
+
+    /* ---------- Metadatos: al hacer scroll entran girando como página/fecha ---------- */
+    .meta-item {
+      transform-origin: top center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform, opacity;
+    }
+    @keyframes metaFlip {
+      0% {
+        opacity: 0;
+        transform: perspective(700px) rotateX(-88deg) translateY(-10px);
+      }
+      55% { opacity: 1; }
+      75% { transform: perspective(700px) rotateX(8deg); }
+      100% { opacity: 1; transform: perspective(700px) rotateX(0deg) translateY(0); }
+    }
+    .meta-item.visible {
+      animation: metaFlip 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .meta-d1.visible { animation-delay: 0.05s; }
+    .meta-d2.visible { animation-delay: 0.28s; }
+    .meta-d3.visible { animation-delay: 0.5s; }
+
+    /* ---------- Pack premium: draw-in, aurora ring, shimmer, magnético ---------- */
+    /* 1. Stroke draw-in: los íconos se dibujan al entrar (CSS puro, sin dependencias) */
+    .draw-icon path,
+    .draw-icon circle,
+    .draw-icon line,
+    .draw-icon rect,
+    .draw-icon polyline,
+    .icon-scrub {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.8, 0, 0.2, 1);
+    }
+    .reveal.visible .draw-icon :nth-child(1) { stroke-dashoffset: 0; transition-delay: 0.05s; }
+    .reveal.visible .draw-icon :nth-child(2) { stroke-dashoffset: 0; transition-delay: 0.18s; }
+    .reveal.visible .draw-icon :nth-child(3) { stroke-dashoffset: 0; transition-delay: 0.31s; }
+    .reveal.visible .draw-icon :nth-child(4) { stroke-dashoffset: 0; transition-delay: 0.44s; }
+    .reveal.visible .draw-icon :nth-child(5) { stroke-dashoffset: 0; transition-delay: 0.57s; }
+    .reveal.visible .draw-icon :nth-child(6) { stroke-dashoffset: 0; transition-delay: 0.7s; }
+    .reveal.visible .draw-icon :nth-child(n+7) { stroke-dashoffset: 0; transition-delay: 0.8s; }
+
+    /* 2. Aurora Ring: anillo giratorio dorado detrás de los títulos de Aporte Social */
+    .aurora { position: relative; z-index: 0; }
+    .aurora::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 9999px;
+      z-index: -1;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(238, 170, 43, 0.85) 20%,
+        rgba(196, 155, 39, 0.9) 40%,
+        rgba(255, 232, 133, 0.75) 60%,
+        rgba(238, 170, 43, 0.85) 80%,
+        transparent 100%
+      );
+      animation: auroraSpin 7s linear infinite;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+    @keyframes auroraSpin { to { transform: rotate(360deg); } }
+
+    /* 3. Shimmer Sweep: rayo de luz que barre el cintillo de marcas */
+    .brand-marquee { position: relative; }
+    .brand-marquee::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 32%,
+        rgba(238, 170, 43, 0.09) 44%,
+        rgba(255, 214, 102, 0.15) 50%,
+        rgba(238, 170, 43, 0.09) 56%,
+        transparent 68%
+      );
+      transform: translateX(-100%);
+      animation: brandShimmer 6.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes brandShimmer { to { transform: translateX(100%); } }
+
+    /* 4. Magnético: los íconos persiguen la punta del cursor */
+    [data-magnetic] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+
+    /* Respeto a accesibilidad: sin animaciones si el usuario lo pide */
+    @media (prefers-reduced-motion: reduce) {
+      .draw-icon path,
+      .draw-icon circle,
+      .draw-icon line,
+      .draw-icon rect,
+      .draw-icon polyline {
+        stroke-dashoffset: 0;
+        transition: none;
+      }
+      .aurora::before,
+      .brand-marquee::after {
+        animation: none;
+      }
+    }
+
+    /* ---------- Métricas del hero: subrayado dorado sutil ---------- */
+    .metric-num {
+      display: inline-block;
+      min-width: 1.6em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------- Testimonios: marquee corporativo ---------- */
+    .testi-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    }
+    .testi-track {
+      display: flex;
+      align-items: stretch;
+      width: max-content;
+      animation: testiScroll 30s linear infinite;
+      will-change: transform;
+    }
+    .testi-card {
+      flex: 0 0 min(330px, 80vw);
+      margin-right: 3rem;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .testi-card:hover { transform: translateY(-6px); }
+    .testi-marquee:hover .testi-track { animation-play-state: paused; }
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- Inputs neumórficos del formulario (adaptado de Uiverse Praashoo7) ---------- */
+    .input-neo {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      padding: 0.9375rem 1rem;
+      background-color: #C5CDD9;
+      box-shadow: inset 2px 5px 10px rgba(19, 34, 71, 0.22), inset -2px -2px 6px rgba(255, 255, 255, 0.85);
+      color: #0F172A;
+      font-weight: 500;
+      transition: 300ms ease-in-out;
+    }
+    .input-neo::placeholder {
+      color: #4A5568;
+      font-weight: 400;
+    }
+    .input-neo:focus {
+      background-color: #ffffff;
+      transform: scale(1.02);
+      box-shadow: 0 10px 40px rgba(19, 34, 71, 0.16),
+                  0 0 0 3px rgba(238, 170, 43, 0.45);
+    }
+    select.input-neo {
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23132247' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 14px;
+      padding-right: 2.75rem;
+    }
+    /* En táctil, sin salto de escala al enfocar (evita movimiento brusco) */
+    @media (max-width: 767px) {
+      .input-neo:focus { transform: none; }
+    }
+
+    /* ---------- Menú móvil ---------- */
+    .mobile-nav { display: none; }
+    .mobile-nav.open { display: block; }
+
+    /* ---------- Proceso en 3 pasos: efecto premium ---------- */
+    .paso-num {
+      font-size: clamp(3.2rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      background: linear-gradient(110deg, #FFE885 0%, #EEAA2B 38%, #8A5A00 50%, #EEAA2B 62%, #FFE885 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: pasoShine 3.6s linear infinite;
+      filter: drop-shadow(0 6px 22px rgba(238, 170, 43, 0.4));
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes pasoShine {
+      to { background-position: -250% center; }
+    }
+    .paso-card { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    .paso-card:hover { transform: translateY(-10px); }
+    .paso-card:hover .paso-num { transform: scale(1.12); }
+    /* Barra dorada que se dibuja al aparecer */
+    .paso-bar {
+      display: block;
+      height: 3px;
+      margin: 14px auto 0;
+      width: 120px;
+      overflow: hidden;
+    }
+    .paso-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #EEAA2B 30%, #FFDD77 50%, #EEAA2B 70%, transparent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 14px rgba(238, 170, 43, 0.65);
+    }
+    .visible .paso-bar span { transform: scaleX(1); }
+    /* Aparición escalonada al hacer scroll */
+    .paso-d1 { transition-delay: 0s; }
+    .paso-d2 { transition-delay: 0.18s; }
+    .paso-d3 { transition-delay: 0.36s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .meta-item svg { animation: none; }
+      .meta-item.visible { animation: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .paso-num { animation: none; -webkit-text-fill-color: #EEAA2B; }
+      .paso-card, .paso-card:hover { transform: none; transition: none; }
+      .visible .paso-bar span { transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .wa-float { animation: none; }
+    }
+
+    /* ---------- Experiencia de App Nativa Móvil (Play Store Feel) ---------- */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-bottom-bar {
+      box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.6);
+      padding-bottom: max(0.4rem, env(safe-area-inset-bottom));
+    }
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+      }
+      .wa-float {
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px)) !important;
+        right: 1rem !important;
+      }
+    }
+
+    /* ---------- Selector de Idiomas / Language Switcher ---------- */
+    .lang-switcher-wrap {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      user-select: none;
+    }
+    .lang-btn {
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active, .lang-btn[aria-pressed="true"] {
+      color: #EEAA2B;
+      text-shadow: 0 0 10px rgba(238, 170, 43, 0.45);
+    }
+    .lang-btn:not(.active):hover {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body class="font-mont antialiased">
+
+<!-- =========================================================
+     SECCIÓN 1: TOPBAR CORPORATIVO
+========================================================= -->
+<div class="bg-[#060709] text-white/80 text-xs py-2.5 px-6 border-b border-white/10">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-5 flex-wrap">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle pathLength="100" cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span data-i18n="topbar.andina">10 AÑOS EN EL ÁREA ANDINA Y LATINOAMÉRICA</span>
+      </span>
+      <span class="hidden sm:flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span data-i18n="topbar.horario">ATENCIÓN A SOCIOS INVERSIONISTAS: 08:00 A 18:00</span>
+      </span>
+    </div>
+    <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="2" y="2" width="20" height="20" rx="5"></rect><circle pathLength="100" cx="12" cy="12" r="4"></circle><circle pathLength="100" cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.76 5.76 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.29a7.35 7.35 0 0 0 4.3 1.38V7.58a4.31 4.31 0 0 1-3.24-1.76z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/70 hover:text-[#EEAA2B] transition" data-magnetic>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+
+      <!-- Divisor sutil -->
+      <span class="w-[1px] h-3.5 bg-white/20" aria-hidden="true"></span>
+
+      <!-- Selector de Idioma con Logo SVG de Traducción Internacional -->
+      <div class="lang-switcher-wrap flex items-center bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#EEAA2B]/60 rounded-full px-2.5 py-1 transition-all" role="group" aria-label="Selector de idioma / Language Switcher">
+        <!-- SVG oficial de Traducción (Universal Translate Icon con 'A' y carácter) -->
+        <svg class="w-3.5 h-3.5 text-[#EEAA2B] mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m5 8 6 6"></path>
+          <path d="m4 14 6-6 2-3"></path>
+          <path d="M2 5h12"></path>
+          <path d="M7 2h1"></path>
+          <path d="m22 22-5-10-5 10"></path>
+          <path d="M14 18h6"></path>
+        </svg>
+        <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')" aria-label="Español" title="Cambiar a Español">ES</button>
+        <span class="text-white/30 text-[10px] select-none mx-0.5">|</span>
+        <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')" aria-label="English" title="Switch to English">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECCIÓN 1: NAVBAR PRINCIPAL
+========================================================= -->
+<header id="siteHeader" class="site-header sticky top-0 z-50 bg-[#0B0D13] border-b border-[#EEAA2B]/30 px-6 py-4 md:py-4">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <!-- Izquierda: Logo corporativo -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0">
+      <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
+      <span class="hidden sm:block leading-tight">
+        <span class="block text-[#EEAA2B] text-[11px] font-semibold tracking-wider" data-i18n="nav.subtitulo_logo">Multifinanciamiento &amp; Socios</span>
+      </span>
+    </a>
+
+    <!-- Centro: Menú en texto limpio -->
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-white/85 font-semibold" aria-label="Navegación principal">
+      <a href="#quienes-somos" class="hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="hover:text-[#EEAA2B] transition" data-i18n="nav.multifinanciamiento">Multifinanciamiento</a>
+      <a href="#oferta" class="hover:text-[#EEAA2B] transition" data-i18n="nav.oferta">Oferta y Marcas</a>
+      <a href="#proceso" class="hover:text-[#EEAA2B] transition" data-i18n="nav.proceso">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="hover:text-[#EEAA2B] transition" data-i18n="nav.testimonios">Testimonios</a>
+    </nav>
+
+    <!-- Derecha: CTA corporativo -->
+    <div class="flex items-center gap-3">
+      <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block" data-i18n="nav.cta">Abre tu Cuenta</a>
+      <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line pathLength="100" x1="3" y1="6" x2="21" y2="6"></line><line pathLength="100" x1="3" y1="12" x2="21" y2="12"></line><line pathLength="100" x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil desplegable -->
+  <nav id="mobileNav" class="mobile-nav lg:hidden bg-[#0B0D13] border-t border-white/10 mt-4 pt-4 pb-3" aria-label="Navegación móvil">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4 text-white/85 font-semibold text-sm">
+      <a href="#quienes-somos" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+      <a href="#multifinanciamiento" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.multifinanciamiento">Multifinanciamiento</a>
+      <a href="#oferta" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.oferta">Oferta y Marcas</a>
+      <a href="#proceso" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.proceso">El Proceso (3 Pasos)</a>
+      <a href="#testimonios" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.testimonios">Testimonios</a>
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+        <span class="text-xs text-white/70 flex items-center gap-1.5 font-bold">
+          <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path>
+          </svg>
+          Idioma / Language
+        </span>
+        <div class="inline-flex items-center gap-1 bg-[#12151D] border border-white/15 rounded-full px-2.5 py-1">
+          <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')">ES</button>
+          <span class="text-white/30 text-xs">|</span>
+          <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- =========================================================
+     SECCIÓN 2: HERO — SOCIOS INVERSIONISTAS
+     Clon estético del póster oficial: negro/dorado con
+     slider de fondo (PC: video flor + imagenes / móvil: imagenes).
+========================================================= -->
+<section id="inicio" class="relative min-h-[94vh] flex flex-col justify-end md:justify-start px-4 sm:px-6 pt-48 sm:pt-56 pb-8 md:pt-8 md:pb-16 overflow-hidden bg-[#08090C]">
+
+  <!-- Fondo: slider intercambiable con chica sonriente en capa inicial activa -->
+  <div class="heroSlider" id="heroSlider" aria-hidden="true">
+    <img class="heroLayer heroLayerA active" src="images/a.jpg" alt="Socia Inversionista Sistema Winners">
+    <img class="heroLayer" src="images/c.jpg" alt="">
+    <img class="heroLayer" src="images/b.jpg" alt="">
+    <video class="heroLayer heroVideo" autoplay loop muted playsinline preload="auto">
+      <source src="images/2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="heroOverlay" aria-hidden="true"></div>
+
+  <!-- Contenido anclado: en Desktop a la izquierda (máx. legibilidad sin tapar el rostro de la chica);
+       en Móvil compactado y adaptado tipo App Play Store para despejar su sonrisa en la parte superior -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center lg:items-start text-center lg:text-left">
+    <div class="w-full max-w-xl xl:max-w-2xl flex flex-col items-center lg:items-start">
+
+      <!-- Badge de prestigio tipo App -->
+      <div class="inline-flex items-center gap-2 bg-[#EEAA2B]/15 border border-[#EEAA2B]/40 px-3.5 py-1 rounded-full mb-3 md:mb-5">
+        <span class="w-2 h-2 rounded-full bg-[#EEAA2B] animate-pulse"></span>
+        <p class="text-[#FFE885] font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase float-shadow-soft" data-i18n="hero.badge">Sistema Winners &bull; 10 Años de Solidez</p>
+      </div>
+
+      <!-- Bloque tipográfico monumental sin sombras oscuras residuales -->
+      <h1 class="font-black uppercase float-shadow">
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight" data-i18n="hero.title_1">Los sueños</span>
+        <span class="gold-gradient block text-2xl sm:text-3xl md:text-5xl my-1" data-i18n="hero.title_2">SI SE CUMPLEN</span>
+        <span class="block text-white text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight" data-i18n="hero.title_3">solo déjate</span>
+        <span class="hero-llevar-text block" data-i18n="hero.title_4">LLEVAR!!</span>
+      </h1>
+
+      <!-- Firma entre comillas doradas -->
+      <p class="mt-4 md:mt-6 text-[#FFE885] font-black tracking-[0.14em] md:tracking-[0.28em] text-xs sm:text-base md:text-xl uppercase float-shadow" data-i18n="hero.firma">
+        &ldquo; SOCIOS INVERSIONISTAS &rdquo;
+      </p>
+      <p class="mt-2 md:mt-3 text-white/85 text-xs sm:text-sm md:text-lg font-medium italic float-shadow-soft max-w-lg" data-i18n="hero.subtitulo">
+        ¿Quieres ser parte del proceso? Sigue nuestros pasos, solo déjate llevar.
+      </p>
+
+      <!-- CTA principal interactivo con respuesta táctil de app -->
+      <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+        <a href="#multifinanciamiento" class="w-full sm:w-auto text-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full shadow-[0_10px_35px_rgba(238,170,43,0.45)] transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+          <span data-i18n="hero.cta">¡Quiero Ser Socio Ahora!</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line pathLength="100" x1="12" y1="5" x2="12" y2="19"></line><polyline pathLength="100" points="19 12 12 19 5 12"></polyline></svg>
+        </a>
+      </div>
+
+      <!-- Barra inferior de métricas en tarjetas compactas -->
+      <div class="mt-8 md:mt-12 pt-5 md:pt-7 border-t border-white/15 w-full grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="10" data-pad="2">10</span> <span data-i18n="hero.m1_unit">Años</span></p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m1_label">Trayectoria Andina</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="100">100</span>%</p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m2_label">Cuentas Corporativas Legales</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="3" data-pad="2">03</span> <span data-i18n="hero.m3_unit">Pasos</span></p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m3_label">Proceso Simple</p>
+        </div>
+        <div class="bg-white/[0.04] md:bg-transparent p-2.5 sm:p-3 rounded-xl md:rounded-none border border-white/5 md:border-0 text-center md:border-l md:border-white/15">
+          <p class="text-[#FFE885] font-black text-xl sm:text-2xl md:text-3xl"><span class="metric-num" data-count="5300" data-prefix="+">+5,300</span></p>
+          <p class="text-white/75 text-[11px] sm:text-xs font-semibold mt-0.5 tracking-wide" data-i18n="hero.m4_label">Metas Cumplidas</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 3: EDITORIAL FONDO BLANCO — MULTIFINANCIAMIENTO
+     vs AUTOFINANCIAMIENTO (estilo ChevyPlan)
+========================================================= -->
+<section id="multifinanciamiento" class="bg-white w-full">
+
+  <!-- Banner fotográfico panorámico -->
+  <div class="w-full h-64 md:h-80 overflow-hidden">
+    <img src="images/hero-slide2.jfif" alt="Evento de comunidad de socios de Sistema Winners" class="w-full h-full object-cover">
+  </div>
+
+  <div class="max-w-5xl mx-auto py-14 px-6">
+    <!-- Pregunta principal -->
+    <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 reveal" data-i18n="multi.pregunta">¿Qué es y cómo funciona el Sistema Multifinanciamiento de Winners?</h2>
+
+    <!-- Fila de metadatos con íconos (aparecen escalonados, halo dorado al hover) -->
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-gray-500 text-sm font-semibold">
+      <span class="meta-item reveal meta-d1 flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="4" width="18" height="18" rx="2"></rect><line pathLength="100" x1="16" y1="2" x2="16" y2="6"></line><line pathLength="100" x1="8" y1="2" x2="8" y2="6"></line><line pathLength="100" x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span data-i18n="multi.tag1">10 Años de Respaldo</span>
+      </span>
+      <span class="meta-dot meta-dot-1" aria-hidden="true">&bull;</span>
+      <span class="meta-item reveal meta-d2 flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
+        <span data-i18n="multi.tag2">Planificación Programada</span>
+      </span>
+      <span class="meta-dot meta-dot-2" aria-hidden="true">&bull;</span>
+      <span class="meta-item reveal meta-d3 flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#C59B27]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span data-i18n="multi.tag3">Área Andina y Latinoamérica</span>
+      </span>
+    </div>
+
+    <!-- Título dorado corporativo -->
+    <h3 class="text-3xl md:text-5xl font-black text-[#C59B27] mt-10 mb-6 leading-tight reveal" data-i18n="multi.titulo_dorado">PRODUCTOS Y SERVICIOS:<br>Mucho más que una compra programada</h3>
+
+    <!-- Párrafo introductorio con letra capital -->
+    <p class="dropcap text-gray-800 text-base md:text-lg leading-relaxed max-w-4xl reveal" data-i18n="multi.parrafo">
+      Si estás pensando en adquirir un vehículo, equipamiento tecnológico, bienestar o impulsar tu propio negocio, el <strong>Sistema Multifinanciamiento</strong> se convierte en la mejor opción para lograrlo a plazo, ya que <strong>te permitirá ahorrar dinero, apalancar tus ideas productivas y crecer en comunidad con cuotas justas y sin la rigidez de una entidad financiera tradicional.</strong>
+    </p>
+
+    <!-- Comparativa directa en 2 columnas -->
+    <div class="grid md:grid-cols-2 gap-10 mt-14">
+      <!-- Nuestro modelo -->
+      <div class="border-l-4 border-[#EEAA2B] pl-6 py-2">
+        <p class="text-xs font-black tracking-[0.2em] text-[#C59B27] uppercase" data-i18n="multi.col1_badge">Nuestro Modelo Exclusivo</p>
+        <h4 class="text-2xl font-black text-[#132247] mb-3 mt-1" data-i18n="multi.col1_title">SISTEMA MULTIFINANCIAMIENTO</h4>
+        <p class="text-gray-700 font-semibold mb-4" data-i18n="multi.col1_sub">A través de este sistema te permite obtener:</p>
+        <ul class="space-y-3 text-gray-900">
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
+            <span data-i18n="multi.col1_i1"><strong>Los productos comunales.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
+            <span data-i18n="multi.col1_i2"><strong>Promover tus emprendimientos.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
+            <span data-i18n="multi.col1_i3"><strong>Obtener apalancamientos para tus ideas.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
+            <span data-i18n="multi.col1_i4"><strong>Participar en otras iniciativas productivas y comerciales.</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Esquema tradicional -->
+      <div class="border-l-4 border-[#7F1D1D] pl-6 py-2">
+        <p class="text-xs font-black tracking-[0.2em] text-[#7F1D1D] uppercase" data-i18n="multi.col2_badge">Esquema Tradicional Limitado</p>
+        <h4 class="text-2xl font-black text-gray-800 mb-3 mt-1" data-i18n="multi.col2_title">DIFERENTE A SISTEMA DE AUTOFINANCIAMIENTO</h4>
+        <p class="text-gray-600 font-semibold mb-4" data-i18n="multi.col2_sub">Limitaciones de los sistemas convencionales:</p>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <span data-i18n="multi.col2_i1"><strong>Te ofrecen únicamente productos y servicios propios.</strong></span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#7F1D1D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="9" y1="9" x2="15" y2="15"></line><line pathLength="100" x1="15" y1="9" x2="9" y2="15"></line></svg>
+            <span data-i18n="multi.col2_i2"><strong>No diversifican opciones ni jamás impulsan emprendimientos o te dan un espacio para crecer.</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Llamado a la acción central -->
+    <div class="text-center mt-16">
+      <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="multi.cierre_title">EMPRENDER ES EL CAMINO</h4>
+      <p class="text-xl text-gray-700 mt-2 font-medium reveal" data-i18n="multi.cierre_sub">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
+      <a href="#contacto" class="mt-8 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition reveal" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 4: OFERTA REAL DE PRODUCTOS, SERVICIOS Y MARCAS
+========================================================= -->
+<section id="oferta" class="bg-[#F8FAFC] w-full py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-black text-[#132247] reveal" data-i18n="oferta.titulo">Nuestra Oferta Integral de Productos y Servicios</h2>
+      <p class="text-gray-600 text-lg mt-5 leading-relaxed reveal" data-i18n="oferta.subtitulo">Trabajamos con productos tangibles y servicios reales que satisfacen necesidades fundamentales y elevan tu calidad de vida, respaldados por marcas líderes a nivel mundial.</p>
+    </div>
+
+    <!-- Cintillo de marcas líderes -->
+    <div class="brand-marquee flex flex-wrap items-center justify-center gap-x-5 gap-y-3 py-10 border-y-2 border-[#EEAA2B]/40 mt-12 reveal">
+      <span class="text-[#132247] font-black text-xl md:text-2xl">SAMSUNG</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-xl md:text-2xl">HP</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-xl md:text-2xl">HONDA</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">BBS-ESTHETIQUE</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">YAS-LEX</span>
+      <span class="text-[#EEAA2B] font-black text-xl">&bull;</span>
+      <span class="text-[#132247] font-black text-lg md:text-xl">ECU-ANDINO</span>
+    </div>
+
+    <!-- Grilla de 4 columnas tipográficas -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-x-10 lg:gap-x-14 gap-y-12 mt-14">
+
+      <!-- 1. Bienes muebles y movilidad -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"></path>
+          <path pathLength="100" d="M3 16a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1h-2"></path><path pathLength="100" d="M5 17H3v-1"></path>
+          <circle pathLength="100" cx="7" cy="17" r="2"></circle><circle pathLength="100" cx="17" cy="17" r="2"></circle>
+          <path pathLength="100" d="M9 17h6"></path>
+        </svg>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col1_title">Compra de Bienes Muebles y Movilidad</h3>
+        <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col1_i1">Carros y Motos (<em>Honda</em>).</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col1_i2">Computadoras (<em>HP</em>) y Smartphones (<em>Samsung</em>).</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col1_i3">Electrodomésticos y línea hogar.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 2. Diversificación de dinero y finanzas -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line pathLength="100" x1="12" y1="1" x2="12" y2="23"></line>
+          <path pathLength="100" d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col2_title">Diversificación de Dinero y Finanzas</h3>
+        <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col2_i1">Generación de ingresos fijos o extras, más bonos e incentivos.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col2_i2">Apoyo y capital para tu emprendimiento.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col2_i3">Participación como <strong>Socio en las nuevas Fábricas Comunales</strong>.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col2_i4">Opciones de financiamiento y créditos directos.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3. Bienestar y estilo de vida -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M8 3v6a4 4 0 0 0 8 0V3"></path><path pathLength="100" d="M12 13v4"></path><path pathLength="100" d="M10 21h4"></path>
+          <circle pathLength="100" cx="8" cy="2" r="1"></circle><circle pathLength="100" cx="16" cy="2" r="1"></circle>
+        </svg>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col3_title">Industria del Bienestar y Estilo de Vida</h3>
+        <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col3_i1">Financiamiento programado para <strong>viajes de distracción o laborales</strong>.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col3_i2">Apoyo financiero para <strong>cirugías estéticas y tratamientos</strong> (<em>BBS-Esthetique</em>) que fortalecen tu seguridad e imagen personal.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. Alimentos básicos y economía familiar -->
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <svg class="w-12 h-12 text-[#132247] draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="100" d="M3 11h18"></path><path pathLength="100" d="M5 11V8a7 7 0 0 1 14 0v3"></path>
+          <path pathLength="100" d="M4 11v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path pathLength="100" d="M12 4v3"></path>
+          <path pathLength="100" d="M6 15v5M10 15v5M14 15v5M18 15v5"></path>
+        </svg>
+        <h3 class="text-xl font-black text-[#132247] mt-4 mb-4" data-i18n="oferta.col4_title">Alimentos Básicos y Economía Familiar</h3>
+        <ul class="space-y-3.5 text-gray-700 text-[15px] leading-relaxed">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#EEAA2B] font-black shrink-0 select-none leading-relaxed">&#8226;</span>
+            <span data-i18n="oferta.col4_i1">Abastecimiento de canasta básica de alimentos (<em>Ecu-Andino</em>) y suplementos alimenticios de primera calidad sin sobreprecios.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 5: QUIÉNES SOMOS, MISIÓN, VISIÓN Y APORTE SOCIAL
+     (estilo Fonbienes — fondo blanco puro)
+========================================================= -->
+<section id="quienes-somos" class="bg-white w-full">
+
+  <!-- Franja institucional estilo Fonbienes -->
+  <div class="bg-[#132247] py-5 px-6 border-b-4 border-[#EEAA2B]">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <h2 class="text-white font-black text-lg md:text-2xl tracking-wide uppercase" data-i18n="compania.franja_title">Nuestra Compañía</h2>
+      <p class="text-[#FFE885] font-bold text-xs md:text-sm tracking-[0.15em] uppercase" data-i18n="compania.franja_sub">Legalidad, Trayectoria y Compromiso Social</p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto py-16 px-6">
+
+    <!-- Bloque 1: Redacción ejecutiva -->
+    <div class="space-y-10 max-w-4xl">
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
+        </span>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b1_t">10 Años de Presencia Internacional</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b1_d">Sistema Winners cuenta con una década de trayectoria ininterrumpida operando en toda el <strong>Área Andina (Ecuador, Colombia, Perú) con extensión a Latinoamérica</strong>.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline pathLength="100" points="9 12 11 14 15 10"></polyline></svg>
+        </span>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b2_t">100% Legalidad y Transparencia Bancaria</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b2_d">Somos una empresa legalmente constituida en cada país donde operamos, con representante legal propio, declaración tributaria al día y operación exclusiva mediante <strong>cuentas bancarias corporativas autorizadas</strong> (jamás utilizamos paraísos fiscales ni esquemas informales).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 items-start reveal">
+        <span class="shrink-0 w-12 h-12 rounded-full bg-[#EEAA2B]/15 flex items-center justify-center border border-[#EEAA2B]/50">
+          <svg class="w-6 h-6 text-[#C59B27] draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline pathLength="100" points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline pathLength="100" points="17 6 23 6 23 12"></polyline></svg>
+        </span>
+        <div>
+          <h3 class="text-xl md:text-2xl font-black text-[#132247]" data-i18n="compania.b3_t">Crecimiento Serio y Sostenible</h3>
+          <p class="text-gray-700 mt-2 leading-relaxed" data-i18n="compania.b3_d">Construimos una relación asertiva y de largo plazo entre la empresa y nuestros afiliados, fomentando liderazgo, educación financiera y resultados reales.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2: Misión, Visión y Valores (3 columnas) -->
+    <div class="grid md:grid-cols-3 gap-10 mt-20">
+      <div class="border-t-4 border-[#132247] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3" data-i18n="compania.mision_t">Misión</h4>
+        <p class="text-gray-700 leading-relaxed" data-i18n="compania.mision_d">Promover la cultura del ahorro programado, el multifinanciamiento y el emprendimiento cooperativo, facilitando a nuestros socios el acceso a vehículos, tecnología, bienestar e industria libre de intereses abusivos.</p>
+      </div>
+      <div class="border-t-4 border-[#EEAA2B] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-3" data-i18n="compania.vision_t">Visión</h4>
+        <p class="text-gray-700 leading-relaxed" data-i18n="compania.vision_d">Consolidarnos en toda Latinoamérica como el ecosistema líder de economía colaborativa y multifinanciamiento empresarial que transforma las ideas de nuestros socios en patrimonio real.</p>
+      </div>
+      <div class="border-t-4 border-[#132247] pt-6 reveal">
+        <h4 class="text-2xl font-black text-[#132247] uppercase mb-4" data-i18n="compania.valores_t">Valores Corporativos</h4>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_servicio">Servicio</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_etica">Ética</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_honestidad">Honestidad</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_integridad">Integridad</span>
+          <span class="bg-[#132247] text-white text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_respeto">Respeto</span>
+          <span class="bg-[#EEAA2B] text-black text-xs font-bold px-4 py-2 rounded-full" data-i18n="compania.v_liderazgo">Liderazgo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 3: Aporte social "Todos se Benefician" -->
+    <div class="mt-20">
+      <h4 class="text-2xl md:text-3xl font-black text-[#132247] uppercase text-center reveal" data-i18n="compania.social_t">Aporte Social y Economía Naranja: <span class="text-[#C59B27]">&ldquo;Todos se Benefician&rdquo;</span></h4>
+      <p class="text-gray-600 text-center mt-3 max-w-2xl mx-auto reveal" data-i18n="compania.social_sub">Iniciativas comunitarias oficiales de Sistema Winners que devuelven el valor a la sociedad.</p>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path pathLength="100" d="M9 22V12h6v10"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c1_t">Tiendas Comunitarias DOY-MAS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c1_d">Impulso al comercio solidario y abastecimiento justo.</p>
+        </div>
+
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><circle pathLength="100" cx="12" cy="10" r="3"></circle><path pathLength="100" d="M6.2 18.3a6.5 6.5 0 0 1 11.6 0"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c2_t">Academia Deportiva SOCIO WINNERS</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c2_d">Apoyo activo al deporte barrial, juventud y actividades lúdicas.</p>
+        </div>
+
+        <div class="text-center px-4 reveal">
+          <span class="mx-auto w-14 h-14 rounded-full bg-[#EEAA2B] flex items-center justify-center shadow-lg aurora" data-magnetic>
+            <svg class="w-7 h-7 text-black draw-icon icon-scrub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="4" y="7" width="16" height="14" rx="2"></rect><path pathLength="100" d="M9 7V5a3 3 0 0 1 6 0v2"></path><path pathLength="100" d="M4 12h16"></path></svg>
+          </span>
+          <h5 class="text-lg font-black text-[#132247] mt-4" data-i18n="compania.social_c3_t">Desarrollo de Industrias y Empresas Comunales</h5>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" data-i18n="compania.social_c3_d">Apalancamos propuestas productivas nacidas directamente de la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 6: EL PROCESO EN 3 PASOS (estilo Maqui+)
+     Fondo Verde Petróleo, elementos flotantes sin cajas
+========================================================= -->
+<section id="proceso" class="w-full px-6 py-20 text-white" style="background: linear-gradient(180deg, #0D3B3E 0%, #092226 100%);">
+
+  <!-- Fila superior de 3 íconos separados por líneas -->
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 border-b border-white/15 pb-10">
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M23 7l-7 5 7 5V7z"></path><rect pathLength="100" x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_1">Asambleas y Eventos Públicos</span>
+    </div>
+    <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 16 14"></polyline></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_2">Acompañamiento Paso a Paso</span>
+    </div>
+    <span class="hidden md:block text-white/25 text-2xl font-thin">|</span>
+    <div class="flex items-center gap-3 md:px-10">
+      <svg class="w-7 h-7 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="8 12 11 15 16 9"></polyline></svg>
+      <span class="font-bold text-sm md:text-base tracking-wide" data-i18n="proceso.banner_3">Adjudicación y Apalancamiento</span>
+    </div>
+  </div>
+
+  <!-- Título central -->
+  <h2 class="text-2xl md:text-4xl font-black text-center uppercase tracking-wide mt-12 float-shadow reveal" data-i18n="proceso.titulo">¡Conéctate a Nuestro Proceso en<br class="hidden md:block"> 3 Simples Pasos!</h2>
+
+  <!-- Los 3 pasos flotantes -->
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mt-14 text-center">
+
+    <div class="reveal paso-card paso-d1">
+      <p class="paso-num">01</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p1_badge">Paso Uno</p>
+      <div class="paso-bar"><span></span></div>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p1_t">¿Qué tienes que hacer? Inscribirte</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p1_d">Regístrate como Socio Inversionista y asegura tu posición en el sistema.</p>
+    </div>
+
+    <div class="reveal paso-card paso-d2">
+      <p class="paso-num">02</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p2_badge">Paso Dos</p>
+      <div class="paso-bar"><span></span></div>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p2_t">¿Qué bien o servicio necesitas?</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p2_d">Elige entre Vehículo (Carro/Moto), Tecnología, Emprendimiento/Fábricas Comunales o Bienestar/Viajes.</p>
+    </div>
+
+    <div class="reveal paso-card paso-d3">
+      <p class="paso-num">03</p>
+      <p class="text-[#FFE885] font-bold text-xs tracking-[0.25em] uppercase mt-1" data-i18n="proceso.p3_badge">Paso Tres</p>
+      <div class="paso-bar"><span></span></div>
+      <h3 class="text-xl font-extrabold mt-4 float-shadow-soft" data-i18n="proceso.p3_t">Documentos</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.p3_d">Completa tus datos básicos en el formulario oficial a continuación para recibir asesoría inmediata.</p>
+    </div>
+  </div>
+
+  <!-- Visual inferior con imagen y CTA -->
+  <div class="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center">
+    <img src="images/moto-familia.jpg" alt="Familia adjudicada con su moto de trabajo en Sistema Winners" class="rounded-2xl shadow-2xl w-full h-64 md:h-80 object-cover reveal" loading="lazy">
+    <div class="text-center md:text-left reveal">
+      <h3 class="text-2xl md:text-3xl font-black float-shadow-soft" data-i18n="proceso.callout_t">Tu meta está a 3 pasos de distancia</h3>
+      <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.callout_d">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
+      <a href="#contacto" class="mt-7 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.45)] transition transform hover:scale-105" data-i18n="proceso.callout_btn">
+        ¡Inicia tu Proceso Ahora! &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 7: CONTADORES ODÓMETRO + TESTIMONIOS
+========================================================= -->
+<section id="testimonios" class="bg-[#F4F6F9] w-full py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Parte A: Contadores de giro rápido -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="testimonios.titulo">Resultados que hablan por nosotros</h2>
+      <div class="grid sm:grid-cols-3 gap-10 mt-14">
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="10">10</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m1_d">Años de Trayectoria<br>en el Área Andina</p>
+        </div>
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#C59B27] odometer" data-value="+1,904">+1,904</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m2_d">Emprendimientos y<br>Proyectos Impulsados</p>
+        </div>
+        <div class="reveal">
+          <p class="font-black text-5xl md:text-6xl text-[#132247] odometer" data-value="+5,396">+5,396</p>
+          <p class="text-gray-600 font-semibold mt-3" data-i18n="testimonios.m3_d">Productos, Vehículos y<br>Servicios Adjudicados</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parte B: Avatares interactivos con tooltip -->
+    <div class="mt-24 text-center">
+      <h3 class="text-2xl font-extrabold text-gray-900 reveal" data-i18n="testimonios.avatars_t">Socios reales, historias reales</h3>
+      <p class="text-gray-500 mt-2 reveal" data-i18n="testimonios.avatars_sub">Pasa el cursor o toca una foto para conocerlos.</p>
+      <div class="flex items-center justify-center -space-x-3 mt-10">
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/celular-plan.jpg" alt="Carlos M., socio de Quito" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Carlos M. &mdash; Quito</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_carlos">&ldquo;Adjudiqué mi moto Honda para trabajar. El acompañamiento fue paso a paso.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/b.jpg" alt="María G., socia de Guayaquil" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">María G. &mdash; Guayaquil</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_maria">&ldquo;Con el apalancamiento abrí mi emprendimiento. Hoy ya tengo un punto de venta.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/hero-slide2.jfif" alt="Andrés P., socio de Pasto" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Andrés P. &mdash; Pasto</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_andres">&ldquo;Lidero eventos en mi ciudad. Las asambleas son abiertas y transparentes.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/moto-familia.jpg" alt="Valentina S., socia de Bogotá" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Valentina S. &mdash; Bogotá</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_valentina">&ldquo;Mi familia logró su vehículo sin intereses bancarios ni rigidez del sistema tradicional.&rdquo;</p>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <img class="avatar-img" src="images/3.jpg" alt="Jorge D., socio de Quito Sur" loading="lazy" tabindex="0">
+          <div class="avatar-tip">
+            <p class="font-bold text-sm">Jorge D. &mdash; Quito Sur</p>
+            <p class="text-white/80 text-xs mt-1.5 leading-relaxed" data-i18n="testimonios.tip_jorge">&ldquo;Participé en las tiendas DOY-MAS y desde entonces todo es comunidad real.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parte C: testimonios en marquee dinamico (pausa al hover) -->
+    <div class="testi-marquee reveal mt-24">
+      <div class="testi-track" id="testiTrack">
+
+      <article class="testi-card text-center">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_1">&ldquo;Entré con cuotas justas y sin la rigidez de un banco. Hoy manejo un carro propio gracias al multifinanciamiento.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Luisa Fernanda R.</p>
+        <p class="text-gray-500 text-sm font-semibold">Quito, Ecuador</p>
+      </article>
+
+      <article class="testi-card text-center">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_2">&ldquo;Recibí mi crédito productivo y mi smartphone Samsung en el mismo ciclo. El sistema me dio la espada para emprender.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Diego Alejandro S.</p>
+        <p class="text-gray-500 text-sm font-semibold">Guayaquil, Ecuador</p>
+      </article>
+
+      <article class="testi-card text-center">
+        <div class="stars flex justify-center gap-1.5" role="img" aria-label="5 estrellas de 5">
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star w-6 h-6 text-[#EEAA2B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 mt-5 leading-relaxed" data-i18n="testimonios.quote_3">&ldquo;Además de mi moto de trabajo, participé en la tienda comunal DOY-MAS. Todo es transparente y legal desde el día uno.&rdquo;</blockquote>
+        <p class="font-black text-[#132247] mt-4">Paola Andrea M.</p>
+        <p class="text-gray-500 text-sm font-semibold">Bogot&aacute;, Colombia</p>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 8: FORMULARIO "ABRE TU CUENTA DE SOCIO"
+     (clon estético de la captura CFI — fondo blanco puro)
+========================================================= -->
+<section id="contacto" class="bg-white w-full py-20 px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Franja superior azul marino corporativo -->
+    <div class="bg-[#132247] text-white py-5 px-8 rounded-t-2xl flex items-center justify-between shadow-lg">
+      <div class="flex items-center gap-3">
+        <span class="border border-[#EEAA2B] rounded-lg px-2.5 py-1 text-[#FFE885] font-black text-sm">$W</span>
+        <span class="font-extrabold tracking-wider text-sm">SISTEMA WINNERS</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
+        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="2" y1="12" x2="22" y2="12"></line><path pathLength="100" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span data-i18n="form.region">Área Andina (ES)</span>
+      </div>
+    </div>
+
+    <!-- Cuerpo del formulario -->
+    <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2" data-i18n="form.heading">Abre tu cuenta real de Socio</h2>
+      <p class="text-lg text-gray-500 mb-8" data-i18n="form.subheading">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
+
+      <form id="socioForm" novalidate>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_nombre">Primer nombre</label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" data-i18n-placeholder="form.ph_nombre" required
+                   class="input-neo">
+          </div>
+          <div>
+            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_apellido">Apellido</label>
+            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" data-i18n-placeholder="form.ph_apellido" required
+                   class="input-neo">
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_doc">Cédula / RUC / Documento de Identidad</label>
+          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" data-i18n-placeholder="form.ph_doc" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_celular">Celular / WhatsApp</label>
+          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" data-i18n-placeholder="form.ph_celular" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" data-i18n-placeholder="form.ph_email" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_bien">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
+          <select id="f-bien" name="bien" required
+                  class="input-neo">
+            <option value="" disabled selected data-i18n="form.opt_default">Selecciona una opción</option>
+            <option value="Vehículo (Carro o Moto Honda / Multimarca)" data-i18n="form.opt_vehiculo">Vehículo (Carro o Moto Honda / Multimarca)</option>
+            <option value="Tecnología y Electrodomésticos (Samsung / HP)" data-i18n="form.opt_tecnologia">Tecnología y Electrodomésticos (Samsung / HP)</option>
+            <option value="Impulsar mi Emprendimiento / Crédito y Capital" data-i18n="form.opt_emprendimiento">Impulsar mi Emprendimiento / Crédito y Capital</option>
+            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS" data-i18n="form.opt_fabricas">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
+            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)" data-i18n="form.opt_bienestar">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
+            <option value="Canasta Básica y Suplementos (Ecu-Andino)" data-i18n="form.opt_alimentos">Canasta Básica y Suplementos (Ecu-Andino)</option>
+          </select>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8" data-i18n="form.btn_submit">
+          Solicitar Asesoría e Iniciar Proceso
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-6" data-i18n="form.wa_pre">¿Necesitas una respuesta inmediata?</p>
+        <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20abrir%20mi%20cuenta%20de%20Socio%20Inversionista"
+           target="_blank" rel="noopener"
+           class="mt-2 w-full inline-flex items-center justify-center gap-3 bg-[#1FAF54] hover:bg-[#189a48] text-white font-bold py-4 rounded-xl shadow-md transition">
+          <img src="images/whatsapp.png" alt="" aria-hidden="true" class="w-6 h-6 object-contain rounded-full">
+          <span data-i18n="form.wa_btn">Escríbenos por WhatsApp Ahora</span>
+        </a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 9: FOOTER INSTITUCIONAL
+========================================================= -->
+<footer class="bg-[#08090C] text-gray-400 py-12 px-6 border-t border-white/10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="images/logo.svg?v=3" alt="Sistema Winners" class="logo-white h-9 w-auto">
+      </div>
+      <p class="leading-relaxed text-sm" data-i18n="footer.desc">10 años impulsando el multifinanciamiento, la economía naranja y el progreso colectivo en toda el Área Andina y Latinoamérica.</p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4" data-i18n="footer.div_title">Nuestras Divisiones</h4>
+      <ul class="text-sm space-y-2 leading-relaxed">
+        <li data-i18n="footer.div_1">Bienes Muebles y Vehículos</li>
+        <li data-i18n="footer.div_2">Fábricas Comunales</li>
+        <li data-i18n="footer.div_3">Tiendas DOY-MAS</li>
+        <li data-i18n="footer.div_4">Academia Deportiva Socio Winners</li>
+        <li data-i18n="footer.div_5">Bienestar y Estética</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-black text-sm tracking-widest uppercase mb-4" data-i18n="footer.contact_title">Legalidad y Contacto</h4>
+      <p class="text-sm leading-relaxed" data-i18n="footer.contact_sub">Cuentas corporativas autorizadas y representación legal en cada país.</p>
+      <a href="tel:+573148691001" class="mt-3 inline-flex items-center gap-2 text-sm hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span data-i18n="footer.hotline">L&iacute;nea de Socios:</span> +57 314 869 1001
+      </a>
+      <a href="mailto:contacto@sistemawinners.com"
+         class="mt-2 inline-flex items-center gap-2 text-sm hover:text-[#EEAA2B] transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline pathLength="100" points="22,6 12,13 2,6"></polyline></svg>
+        contacto@sistemawinners.com
+      </a>
+      <p class="text-xs text-gray-500 mt-6">© <span id="year">2026</span> <span data-i18n="footer.rights">Sistema Winners. Todos los derechos reservados.</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     BOTÓN FLOTANTE DE WHATSAPP
+========================================================= -->
+<a class="wa-float fixed bottom-6 right-6 z-50 bg-[#25D366] rounded-full p-1.5 shadow-lg hover:scale-110 transition-transform"
+   href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas"
+   target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
+  <img src="images/whatsapp.png" alt="WhatsApp" class="w-12 h-12 object-contain rounded-full">
+</a>
+
+<!-- =========================================================
+     BARRA DE NAVEGACIÓN INFERIOR ESTILO APP (PLAY STORE FEEL)
+========================================================= -->
+<nav class="mobile-bottom-bar md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D13]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 flex items-center justify-around text-[10px] font-bold text-white/70 select-none shadow-[0_-8px_24px_rgba(0,0,0,0.5)]" aria-label="Navegación de aplicación móvil">
+  <a href="#inicio" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="100" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline pathLength="100" points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span data-i18n="bottom_nav.inicio">Inicio</span>
+  </a>
+  <a href="#oferta" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect pathLength="100" x="3" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="3" width="7" height="7"></rect><rect pathLength="100" x="14" y="14" width="7" height="7"></rect><rect pathLength="100" x="3" y="14" width="7" height="7"></rect></svg>
+    <span data-i18n="bottom_nav.bienes">Bienes</span>
+  </a>
+  <a href="#proceso" class="flex flex-col items-center gap-1 hover:text-[#EEAA2B] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><polyline pathLength="100" points="12 6 12 12 14 14"></polyline></svg>
+    <span data-i18n="bottom_nav.pasos">3 Pasos</span>
+  </a>
+  <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20informaci%C3%B3n%20sobre%20Socios%20Inversionistas" target="_blank" rel="noopener" class="flex flex-col items-center gap-1 text-[#25D366] hover:text-[#32e775] transition py-1 px-2 active:scale-95">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    <span data-i18n="bottom_nav.whatsapp">WhatsApp</span>
+  </a>
+  <a href="#contacto" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
+    <span class="text-[11px] whitespace-nowrap" data-i18n="bottom_nav.cta">Abre Cuenta</span>
+  </a>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Año del footer ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Menú móvil ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function () {
+      mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open') ? 'true' : 'false');
+    });
+    mobileNav.querySelectorAll('.mobile-link').forEach(function (link) {
+      link.addEventListener('click', function () { mobileNav.classList.remove('open'); });
+    });
+  }
+
+  /* ---------- Revelado fluido: aparece al bajar y reaparece al subir ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- Header inteligente: se oculta al bajar y reaparece al subir ---------- */
+  var siteHeader = document.getElementById('siteHeader');
+  if (siteHeader) {
+    var lastY = window.pageYOffset || window.scrollY;
+    var hdrTicking = false;
+    window.addEventListener('scroll', function () {
+      if (hdrTicking) return;
+      hdrTicking = true;
+      window.requestAnimationFrame(function () {
+        var y = window.pageYOffset || window.scrollY;
+        if (y < 140) {
+          siteHeader.classList.remove('header-hidden');
+        } else if (y > lastY + 8) {
+          siteHeader.classList.add('header-hidden');
+        } else if (y < lastY - 8) {
+          siteHeader.classList.remove('header-hidden');
+        }
+        lastY = y;
+        hdrTicking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- Testimonios: duplicar la tanda para el bucle infinito ---------- */
+  var testiTrack = document.getElementById('testiTrack');
+  if (testiTrack) {
+    testiTrack.insertAdjacentHTML('beforeend', testiTrack.innerHTML);
+    var clones = testiTrack.children;
+    for (var ti = clones.length / 2; ti < clones.length; ti++) {
+      clones[ti].setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  /* ---------- Contadores del Hero: subida elegante y sobria ---------- */
+  function runMetric(el) {
+    var target = parseFloat(el.dataset.count);
+    var prefix = el.dataset.prefix || '';
+    var pad = parseInt(el.dataset.pad || '0', 10);
+    var duration = 1600;
+    var start = null;
+    function fmt(value) {
+      var n = Math.round(value);
+      var txt = String(n);
+      if (pad) { txt = ('00000000' + n).slice(-pad); }
+      else if (n >= 1000) { txt = txt.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      return prefix + txt;
+    }
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      p = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * p);
+      if (p < 1) { window.requestAnimationFrame(step); }
+    }
+    window.requestAnimationFrame(step);
+  }
+  var metricNums = document.querySelectorAll('.metric-num');
+  if ('IntersectionObserver' in window) {
+    var metricObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          metricObs.unobserve(entry.target);
+          runMetric(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    metricNums.forEach(function (el) { metricObs.observe(el); });
+  }
+
+  /* ---------- Contadores Odómetro: giro rápido tipo slot machine ---------- */
+  function runOdometer(el) {
+    var target = el.dataset.value;
+    el.innerHTML = '';
+    // Construir los caracteres finales: solo los dígitos giran
+    var slots = [];
+    for (var i = 0; i < target.length; i++) {
+      if (/\d/.test(target[i])) {
+        var d = document.createElement('span');
+        d.className = 'odometer-digit';
+        d.textContent = '0';
+        el.appendChild(d);
+        slots.push({ node: d, final: target[i] });
+      } else {
+        var s = document.createElement('span');
+        s.textContent = target[i];
+        el.appendChild(s);
+      }
+    }
+    el.classList.add('spinning');
+    var ticks = 0;
+    var maxTicks = 34;
+    var timer = setInterval(function () {
+      slots.forEach(function (slot) {
+        slot.node.textContent = String(Math.floor(Math.random() * 10));
+      });
+      ticks++;
+      if (ticks >= maxTicks) {
+        clearInterval(timer);
+        slots.forEach(function (slot) {
+          slot.node.textContent = slot.final;
+        });
+        el.classList.remove('spinning');
+      }
+    }, 48);
+  }
+
+  var odometers = document.querySelectorAll('.odometer');
+  if ('IntersectionObserver' in window) {
+    var odomObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          odomObs.unobserve(entry.target);
+          runOdometer(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    odometers.forEach(function (el) { odomObs.observe(el); });
+  }
+
+  /* ---------- Slider de fondo del Hero ---------- */
+  var heroLayers = Array.prototype.slice.call(document.querySelectorAll('#heroSlider .heroLayer'));
+  if (heroLayers.length > 1) {
+    var hi = 0;
+    // Si la capa inicial (video en movil) esta oculta, activar la primera imagen
+    if (heroLayers[hi].offsetParent === null) {
+      heroLayers[hi].classList.remove('active');
+      hi = 0;
+      for (var i = 0; i < heroLayers.length; i++) {
+        if (heroLayers[i].offsetParent !== null) { hi = i; break; }
+      }
+      heroLayers[hi].classList.add('active');
+    }
+    var heroTimer = setInterval(function () {
+      var next = -1;
+      for (var i = 1; i <= heroLayers.length; i++) {
+        var cand = (hi + i) % heroLayers.length;
+        if (heroLayers[cand].offsetParent !== null) { next = cand; break; }
+      }
+      if (next === -1) return;
+      heroLayers[hi].classList.remove('active');
+      hi = next;
+      heroLayers[hi].classList.add('active');
+    }, 6000);
+  }
+
+  /* ---------- Formulario: envío por WhatsApp oficial ---------- */
+  var form = document.getElementById('socioForm');
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var apellido = document.getElementById('f-apellido').value.trim();
+      var doc = document.getElementById('f-doc').value.trim();
+      var cel = document.getElementById('f-celular').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var bien = document.getElementById('f-bien').value;
+      var msg = 'Hola Sistema Winners, mi nombre es ' + nombre + ' ' + apellido +
+                ', documento ' + doc + ', celular ' + cel + ', email ' + email +
+                '. Y quiero: ' + bien + '. ¡Deseo iniciar mi proceso como Socio Inversionista!';
+      window.open('https://wa.me/573148691001?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  }
+})();
+</script>
+
+<script>
+/* =========================================================
+   PACK DE ANIMACIONES PREMIUM — degradación elegante:
+   si Lenis/GSAP no cargan, la web queda 100% funcional.
+========================================================= */
+(function () {
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initPremiumPack() {
+    /* Lenis: scroll suave (se salta si no cargó el CDN o si hay motion-reduce) */
+    if (!REDUCED && window.Lenis) {
+      var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      var lenisLoop = function (t) { lenis.raf(t); window.requestAnimationFrame(lenisLoop); };
+      window.requestAnimationFrame(lenisLoop);
+
+      /* Anclas: evita el choque del scroll nativo smooth con Lenis (tirones) */
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var hash = a.getAttribute('href');
+          if (hash === '#') { e.preventDefault(); return; }
+          var target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -96, duration: 1.2 });
+            if (history.pushState) { history.pushState(null, '', hash); }
+          }
+        });
+      });
+    }
+
+    /* Magnetismo: íconos que persiguen la punta del cursor (solo punteros finos) */
+    if (!REDUCED && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var magnets = document.querySelectorAll('[data-magnetic]');
+      Array.prototype.forEach.call(magnets, function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var r = el.getBoundingClientRect();
+          var x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+          var y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+          el.style.transform = 'translate(' + (x * 7).toFixed(1) + 'px,' + (y * 7).toFixed(1) + 'px) scale(1.12)';
+        });
+        el.addEventListener('mouseleave', function () {
+          el.style.transform = '';
+        });
+      });
+    }
+
+    /* GSAP + ScrollTrigger: rotación scrubeada de los íconos según el scroll */
+    if (!REDUCED && window.gsap) {
+      if (window.ScrollTrigger) { gsap.registerPlugin(ScrollTrigger); }
+      [
+        ['#oferta', '.draw-icon.icon-scrub'],
+        ['#quienes-somos', '.draw-icon.icon-scrub']
+      ].forEach(function (pair) {
+        var trigger = document.querySelector(pair[0]);
+        if (!trigger) { return; }
+        gsap.fromTo(trigger.querySelectorAll(pair[1]), { rotation: -5 }, {
+          rotation: 5,
+          ease: 'none',
+          transformOrigin: '50% 50%',
+          scrollTrigger: window.ScrollTrigger
+            ? { trigger: pair[0], start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+            : true
+        });
+      });
+    }
+  }
+
+  if (document.readyState === 'complete') { initPremiumPack(); }
+  else { window.addEventListener('load', initPremiumPack, { once: true }); }
+})();
+</script>
+
+<!-- =========================================================
+     PACK DE ANIMACIONES PREMIUM (degradación elegante:
+     si el CDN falla, la web queda 100% funcional sin animar)
+========================================================= -->
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+<script src="js/i18n.js" defer></script>
+
+</body>
+</html>
