@@ -175,6 +175,45 @@
       .hero-llevar-text { animation: none; background-position: 50% center; }
     }
 
+    /* ---------- Botones dorados metálicos (aspecto "LLEVAR!!") ---------- */
+    .btn-gold-metal {
+      color: #240E00;
+      background-image: linear-gradient(
+        115deg,
+        #FFF4BD 0%,
+        #FFCD38 15%,
+        #FFFDF6 25%,
+        #FFAC1C 38%,
+        #FFC32E 52%,
+        #FFE885 62%,
+        #FFFDF6 72%,
+        #FFA500 85%,
+        #FFE885 100%
+      );
+      background-size: 250% auto;
+      border: 1px solid rgba(255, 235, 168, 0.9);
+      text-shadow: 0 1px 0 rgba(255, 251, 235, 0.55);
+      box-shadow:
+        0 10px 34px rgba(238, 170, 43, 0.5),
+        0 2px 4px rgba(36, 14, 0, 0.35),
+        0 0 22px rgba(255, 185, 30, 0.35);
+      animation: btnGoldShine 5s linear infinite;
+    }
+    .btn-gold-metal:hover {
+      filter: brightness(1.08);
+      box-shadow:
+        0 14px 46px rgba(238, 170, 43, 0.65),
+        0 0 32px rgba(255, 185, 30, 0.55);
+    }
+    @keyframes btnGoldShine {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn-gold-metal { animation: none; background-position: 60% center; }
+    }
+
     /* ---------- Logo blanco puro ---------- */
     .logo-white { filter: brightness(0) invert(1); }
 
@@ -868,7 +907,7 @@
       <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="multi.cierre_title">EMPRENDER ES EL CAMINO</h4>
       <p class="text-xl text-gray-700 mt-2 font-medium reveal" data-i18n="multi.cierre_sub">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4 reveal">
-        <a href="#contacto" class="inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
+        <a href="#contacto" class="btn-gold-metal inline-block font-extrabold px-8 py-3.5 rounded-full transition" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
         <a href="aspectos-diferenciadores.html#diferenciadores" class="inline-block bg-[#132247] hover:bg-[#1a2e5c] text-white font-extrabold px-8 py-3.5 rounded-full shadow-lg transition">Ver Comparativa y Catálogo Completo &rarr;</a>
       </div>
     </div>
@@ -938,7 +977,7 @@
     <div class="text-center md:text-left reveal">
       <h3 class="text-2xl md:text-3xl font-black float-shadow-soft" data-i18n="proceso.callout_t">Tu meta está a 3 pasos de distancia</h3>
       <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.callout_d">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
-      <a href="#contacto" class="mt-7 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(238,170,43,0.45)] transition transform hover:scale-105" data-i18n="proceso.callout_btn">
+      <a href="#contacto" class="btn-gold-metal mt-7 inline-block font-extrabold px-8 py-4 rounded-full transition" data-i18n="proceso.callout_btn">
         ¡Inicia tu Proceso Ahora! &rarr;
       </a>
     </div>

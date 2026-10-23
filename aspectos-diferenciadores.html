@@ -187,6 +187,45 @@
     .nav-dd-item:hover { background: rgba(238, 170, 43, 0.12); color: #EEAA2B; }
     .nav-dd-item svg { width: 1rem; height: 1rem; color: #EEAA2B; flex-shrink: 0; }
 
+    /* ---------- Botón dorado metálico (aspecto "LLEVAR!!" del hero) ---------- */
+    .btn-gold-metal {
+      color: #240E00;
+      background-image: linear-gradient(
+        115deg,
+        #FFF4BD 0%,
+        #FFCD38 15%,
+        #FFFDF6 25%,
+        #FFAC1C 38%,
+        #FFC32E 52%,
+        #FFE885 62%,
+        #FFFDF6 72%,
+        #FFA500 85%,
+        #FFE885 100%
+      );
+      background-size: 250% auto;
+      border: 1px solid rgba(255, 235, 168, 0.9);
+      text-shadow: 0 1px 0 rgba(255, 251, 235, 0.55);
+      box-shadow:
+        0 10px 34px rgba(238, 170, 43, 0.5),
+        0 2px 4px rgba(36, 14, 0, 0.35),
+        0 0 22px rgba(255, 185, 30, 0.35);
+      animation: btnGoldShine 5s linear infinite;
+    }
+    .btn-gold-metal:hover {
+      filter: brightness(1.08);
+      box-shadow:
+        0 14px 46px rgba(238, 170, 43, 0.65),
+        0 0 32px rgba(255, 185, 30, 0.55);
+    }
+    @keyframes btnGoldShine {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn-gold-metal { animation: none; background-position: 60% center; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .draw-icon path, .draw-icon circle, .draw-icon line, .draw-icon rect, .draw-icon polyline {
         stroke-dashoffset: 0; transition: none;
@@ -373,7 +412,7 @@
     <div class="text-center mt-16 pt-10 border-t border-gray-100">
       <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="multi.cierre_title">EMPRENDER ES EL CAMINO</h4>
       <p class="text-xl text-gray-700 mt-2 font-medium reveal" data-i18n="multi.cierre_sub">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
-      <a href="index.html#contacto" class="mt-8 inline-block bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold px-8 py-3.5 rounded-full shadow-lg transition reveal" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
+      <a href="index.html#contacto" class="btn-gold-metal mt-8 inline-block font-extrabold px-8 py-3.5 rounded-full transition reveal" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
     </div>
 
   </div>
