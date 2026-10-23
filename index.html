@@ -43,6 +43,17 @@
     }
     section[id] { scroll-margin-top: 108px; }
 
+    /* ---------- Ancla exacta al formulario de cuenta + destello de llegada ---------- */
+    #form-cuenta { scroll-margin-top: 96px; }
+    .form-glow {
+      animation: formCardGlow 1.8s ease-out 1;
+    }
+    @keyframes formCardGlow {
+      0%   { box-shadow: 0 0 0 0 rgba(238, 170, 43, 0); }
+      25%  { box-shadow: 0 0 0 8px rgba(238, 170, 43, 0.5), 0 0 44px rgba(238, 170, 43, 0.6); }
+      100% { box-shadow: 0 0 0 0 rgba(238, 170, 43, 0); }
+    }
+
     /* ---------- Slider de fondo del Hero ---------- */
     .heroSlider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
     .heroLayer {
@@ -724,7 +735,7 @@
         <span class="text-white/30 text-[10px] select-none mx-0.5">|</span>
         <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')" aria-label="English" title="Switch to English">EN</button>
       </div>
-      <a href="#contacto" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block" data-i18n="nav.cta">Abre tu Cuenta</a>
+      <a href="#form-cuenta" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2.5 rounded-full transition inline-block" data-i18n="nav.cta">Abre tu Cuenta</a>
       <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line pathLength="100" x1="3" y1="6" x2="21" y2="6"></line><line pathLength="100" x1="3" y1="12" x2="21" y2="12"></line><line pathLength="100" x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -804,7 +815,7 @@
 
       <!-- CTA principal interactivo con respuesta táctil de app -->
       <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-        <a href="#multifinanciamiento" class="w-full sm:w-auto text-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full shadow-[0_10px_35px_rgba(238,170,43,0.45)] transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+        <a href="#form-cuenta" class="btn-gold-metal w-full sm:w-auto text-center active:scale-95 font-extrabold text-sm sm:text-base md:text-lg px-8 py-3.5 md:py-4 rounded-full transition inline-flex items-center justify-center gap-2">
           <span data-i18n="hero.cta">¡Quiero Ser Socio Ahora!</span>
           <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line pathLength="100" x1="12" y1="5" x2="12" y2="19"></line><polyline pathLength="100" points="19 12 12 19 5 12"></polyline></svg>
         </a>
@@ -907,7 +918,7 @@
       <h4 class="text-3xl font-black text-[#132247] uppercase tracking-wide reveal" data-i18n="multi.cierre_title">EMPRENDER ES EL CAMINO</h4>
       <p class="text-xl text-gray-700 mt-2 font-medium reveal" data-i18n="multi.cierre_sub">&ldquo;Seamos socios y empecemos a construir tus proyectos o reactivamos tus ideas.&rdquo;</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4 reveal">
-        <a href="#contacto" class="btn-gold-metal inline-block font-extrabold px-8 py-3.5 rounded-full transition" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
+        <a href="#form-cuenta" class="btn-gold-metal inline-block font-extrabold px-8 py-3.5 rounded-full transition" data-i18n="multi.cierre_btn">Iniciar mi Proceso como Socio</a>
         <a href="aspectos-diferenciadores.html#diferenciadores" class="inline-block bg-[#132247] hover:bg-[#1a2e5c] text-white font-extrabold px-8 py-3.5 rounded-full shadow-lg transition">Ver Comparativa y Catálogo Completo &rarr;</a>
       </div>
     </div>
@@ -977,7 +988,7 @@
     <div class="text-center md:text-left reveal">
       <h3 class="text-2xl md:text-3xl font-black float-shadow-soft" data-i18n="proceso.callout_t">Tu meta está a 3 pasos de distancia</h3>
       <p class="text-white/80 mt-3 leading-relaxed" data-i18n="proceso.callout_d">Únete hoy a la comunidad de socios y comienza a construir tu patrimonio en comunidad.</p>
-      <a href="#contacto" class="btn-gold-metal mt-7 inline-block font-extrabold px-8 py-4 rounded-full transition" data-i18n="proceso.callout_btn">
+      <a href="#form-cuenta" class="btn-gold-metal mt-7 inline-block font-extrabold px-8 py-4 rounded-full transition" data-i18n="proceso.callout_btn">
         ¡Inicia tu Proceso Ahora! &rarr;
       </a>
     </div>
@@ -1004,7 +1015,7 @@
     </div>
 
     <!-- Cuerpo del formulario -->
-    <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
+    <div id="form-cuenta" class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
       <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2" data-i18n="form.heading">Abre tu cuenta real de Socio</h2>
       <p class="text-lg text-gray-500 mb-8" data-i18n="form.subheading">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
 
@@ -1275,7 +1286,7 @@
     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path pathLength="100" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     <span data-i18n="bottom_nav.whatsapp">WhatsApp</span>
   </a>
-  <a href="#contacto" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
+  <a href="#form-cuenta" class="flex flex-col items-center justify-center bg-[#EEAA2B] hover:bg-[#f5b841] active:scale-95 text-black font-extrabold px-3 py-1.5 rounded-full shadow-[0_2px_12px_rgba(238,170,43,0.45)] transition">
     <span class="text-[11px] whitespace-nowrap" data-i18n="bottom_nav.cta">Abre Cuenta</span>
   </a>
 </nav>
@@ -1339,6 +1350,23 @@
       });
     }, { passive: true });
   }
+
+  /* ---------- Llegada al formulario de cuenta: destello dorado + foco suave (solo escritorio) ---------- */
+  function warmUpForm() {
+    var card = document.getElementById('form-cuenta');
+    if (!card) return;
+    card.classList.remove('form-glow');
+    void card.offsetWidth; /* reinicia la animación si ya estaba activa */
+    card.classList.add('form-glow');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var first = document.getElementById('f-nombre');
+      if (first) { setTimeout(function () { first.focus({ preventScroll: true }); }, 900); }
+    }
+  }
+  if (location.hash === '#form-cuenta') { setTimeout(warmUpForm, 250); }
+  document.querySelectorAll('a[href$="#form-cuenta"]').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(warmUpForm, 900); });
+  });
 
   /* ---------- Testimonios: duplicar la tanda para el bucle infinito ---------- */
   var testiTrack = document.getElementById('testiTrack');
