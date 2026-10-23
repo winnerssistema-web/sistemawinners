@@ -21,6 +21,9 @@
         quienes_somos: "Quiénes Somos",
         multifinanciamiento: "Multifinanciamiento",
         oferta: "Oferta y Marcas",
+        sistema: "El Sistema",
+        proceso_menu: "El Proceso",
+        pasos: "Los 3 Pasos",
         proceso: "El Proceso (3 Pasos)",
         testimonios: "Testimonios",
         cta: "Abre tu Cuenta"
@@ -174,6 +177,7 @@
       },
       footer: {
         desc: "10 años impulsando el multifinanciamiento, la economía naranja y el progreso colectivo en toda el Área Andina y Latinoamérica.",
+        follow: "Síguenos",
         div_title: "Nuestras Divisiones",
         div_1: "Bienes Muebles y Vehículos",
         div_2: "Fábricas Comunales",
@@ -208,6 +212,9 @@
         quienes_somos: "About Us",
         multifinanciamiento: "Multifinancing",
         oferta: "Offer & Brands",
+        sistema: "The System",
+        proceso_menu: "The Process",
+        pasos: "The 3 Steps",
         proceso: "The Process (3 Steps)",
         testimonios: "Testimonials",
         cta: "Open Account"
@@ -361,6 +368,7 @@
       },
       footer: {
         desc: "10 years promoting multifinancing, collaborative economy, and collective progress throughout the Andean Region and Latin America.",
+        follow: "Follow Us",
         div_title: "Our Divisions",
         div_1: "Movable Assets & Vehicles",
         div_2: "Communal Manufacturing Hubs",
