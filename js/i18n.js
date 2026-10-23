@@ -26,7 +26,7 @@
         pasos: "Los 3 Pasos",
         proceso: "El Proceso (3 Pasos)",
         testimonios: "Testimonios",
-        cta: "Abre tu Cuenta"
+        cta: "Login"
       },
       hero: {
         badge: "Sistema Winners &bull; 10 Años de Solidez",
@@ -217,7 +217,7 @@
         pasos: "The 3 Steps",
         proceso: "The Process (3 Steps)",
         testimonios: "Testimonials",
-        cta: "Open Account"
+        cta: "Login"
       },
       hero: {
         badge: "Sistema Winners &bull; 10 Years of Proven Strength",

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Oficina Virtual de Socios | Sistema Winners</title>
+  <meta name="description" content="Acceso a la Oficina Virtual de Socios Inversionistas de Sistema Winners. Monitorea tu fondo común, red de referidos, adjudicaciones y entregas programadas.">
+  <link rel="canonical" href="https://www.sistemawinners.com/login.html">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/winners.css">
+
+  <style>
+    :root {
+      --gold-primary: #EEAA2B;
+      --gold-light: #FFE885;
+      --navy-deep: #0B0D13;
+      --navy-card: #132247;
+    }
+
+    body {
+      background-color: #08090C;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container {
+      flex: 1 0 auto;
+    }
+
+    /* Glow sutil de fondo */
+    .bg-ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 170, 43, 0.12) 0%, rgba(19, 34, 71, 0.25) 50%, transparent 75%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Inputs estilo Glassmorphism Dark */
+    .input-login {
+      width: 100%;
+      background: rgba(14, 18, 27, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 0.85rem 1.4rem;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      outline: none;
+    }
+    .input-login:focus {
+      border-color: var(--gold-primary);
+      background: rgba(19, 34, 71, 0.5);
+      box-shadow: 0 0 0 3px rgba(238, 170, 43, 0.25);
+    }
+    .input-login::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Botón Metálico Dorado */
+    .btn-gold-metal {
+      background: linear-gradient(135deg, #FFDF73 0%, #EEAA2B 35%, #C78B16 70%, #FFDF73 100%);
+      background-size: 200% 200%;
+      box-shadow: 0 4px 18px rgba(238, 170, 43, 0.35);
+      transition: all 0.3s ease;
+    }
+    .btn-gold-metal:hover {
+      background-position: 100% 100%;
+      box-shadow: 0 6px 24px rgba(238, 170, 43, 0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Header Nav dropdowns */
+    .nav-dd { position: relative; }
+    .nav-dd-btn { display: inline-flex; items-center: center; gap: 0.35rem; }
+    .nav-dd-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 230px;
+      padding: 0.5rem 0;
+      background: #0B0D13;
+      border: 1px solid rgba(238, 170, 43, 0.3);
+      border-radius: 0.75rem;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      z-index: 60;
+    }
+    .nav-dd:hover .nav-dd-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dd-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem 1rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dd-item:hover {
+      background: rgba(238,170,43,0.12);
+      color: #EEAA2B;
+    }
+    .nav-dd-item svg { width: 1rem; height: 1rem; color: #EEAA2B; }
+    .nav-dd-chev { width: 0.75rem; height: 0.75rem; transition: transform 0.2s; }
+    .nav-dd:hover .nav-dd-chev { transform: rotate(180deg); }
+
+    /* Alerta de feedback interactivo */
+    .login-toast {
+      display: none;
+      background: rgba(19, 34, 71, 0.95);
+      border: 1px solid #EEAA2B;
+      color: #FFE885;
+      padding: 0.9rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.875rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="selection:bg-[#EEAA2B] selection:text-black">
+
+  <!-- =========================================================
+       HEADER / NAVBAR UNIFICADO (Idéntico al portal)
+  ========================================================= -->
+  <header id="siteHeader" class="sticky top-0 z-50 bg-[#0B0D13]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-6 py-3.5 transition-transform duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo Oficial -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Sistema Winners - Inicio">
+        <img src="images/logo.svg" alt="Sistema Winners" class="h-9 md:h-10 w-auto">
+      </a>
+
+      <!-- Menú Escritorio -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm text-white/85 font-semibold" aria-label="Navegación principal">
+        <a href="index.html#inicio" class="hover:text-[#EEAA2B] transition">Inicio</a>
+        <a href="nosotros.html#quienes-somos" class="hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+
+        <!-- Desplegable: Multifinanciamiento -->
+        <div class="nav-dd">
+          <a href="aspectos-diferenciadores.html#diferenciadores" class="nav-dd-btn hover:text-[#EEAA2B] transition" aria-haspopup="true">
+            <span data-i18n="nav.multifinanciamiento">Multifinanciamiento</span>
+            <svg class="nav-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </a>
+          <div class="nav-dd-menu" role="menu">
+            <a href="aspectos-diferenciadores.html#diferenciadores" class="nav-dd-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"></path></svg>
+              <span data-i18n="nav.sistema">El Sistema</span>
+            </a>
+            <a href="aspectos-diferenciadores.html#oferta" class="nav-dd-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span data-i18n="nav.oferta">Oferta y Marcas</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="aspectos-diferenciadores.html#diferenciadores" class="hover:text-[#EEAA2B] transition" data-i18n="nav.comparativa">Aspectos Diferenciadores</a>
+
+        <!-- Desplegable: El Proceso -->
+        <div class="nav-dd">
+          <a href="index.html#proceso" class="nav-dd-btn hover:text-[#EEAA2B] transition" aria-haspopup="true">
+            <span data-i18n="nav.proceso_menu">El Proceso</span>
+            <svg class="nav-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </a>
+          <div class="nav-dd-menu" role="menu">
+            <a href="index.html#proceso" class="nav-dd-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span data-i18n="nav.pasos">Los 3 Pasos</span>
+            </a>
+            <a href="index.html#testimonios" class="nav-dd-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <span data-i18n="nav.testimonios">Testimonios</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Derecha: Idioma + Botón Login Activo -->
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher-wrap hidden lg:flex items-center bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#EEAA2B]/60 rounded-full px-2.5 py-1 transition-all" role="group" aria-label="Selector de idioma / Language Switcher">
+          <svg class="w-3.5 h-3.5 text-[#EEAA2B] mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path>
+          </svg>
+          <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')" aria-label="Español" title="Cambiar a Español">ES</button>
+          <span class="text-white/30 text-[10px] select-none mx-0.5">|</span>
+          <button type="button" class="lang-btn font-extrabold text-[11px] px-1.5 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')" aria-label="English" title="Switch to English">EN</button>
+        </div>
+
+        <!-- Botón Login (página activa) -->
+        <a href="login.html" class="bg-[#EEAA2B] hover:bg-[#f5b841] text-black font-extrabold text-sm px-6 py-2 rounded-full transition inline-flex items-center gap-2 shadow-[0_0_18px_rgba(238,170,43,0.4)]" data-i18n="nav.cta">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          <span>Login</span>
+        </a>
+
+        <button type="button" id="menuBtn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <nav id="mobileNav" class="mobile-nav lg:hidden bg-[#0B0D13] border-t border-white/10 mt-4 pt-4 pb-3" aria-label="Navegación móvil">
+      <div class="max-w-7xl mx-auto flex flex-col gap-4 text-white/85 font-semibold text-sm">
+        <a href="index.html#inicio" class="mobile-link hover:text-[#EEAA2B] transition">Inicio</a>
+        <a href="nosotros.html#quienes-somos" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.quienes_somos">Quiénes Somos</a>
+        <a href="aspectos-diferenciadores.html#diferenciadores" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.multifinanciamiento">Multifinanciamiento</a>
+        <a href="aspectos-diferenciadores.html#diferenciadores" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.comparativa">Aspectos Diferenciadores</a>
+        <a href="aspectos-diferenciadores.html#oferta" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.oferta">Oferta y Marcas</a>
+        <a href="index.html#proceso" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.proceso">El Proceso (3 Pasos)</a>
+        <a href="index.html#testimonios" class="mobile-link hover:text-[#EEAA2B] transition" data-i18n="nav.testimonios">Testimonios</a>
+        <a href="login.html" class="mobile-link text-[#EEAA2B] font-bold py-1">Acceso Login / Socios</a>
+        
+        <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+          <span class="text-xs text-white/70 flex items-center gap-1.5 font-bold">
+            <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path>
+            </svg>
+            Idioma / Language
+          </span>
+          <div class="inline-flex items-center gap-1 bg-[#12151D] border border-white/15 rounded-full px-2.5 py-1">
+            <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-[#EEAA2B]" data-lang="es" onclick="setLanguage('es')">ES</button>
+            <span class="text-white/30 text-xs">|</span>
+            <button type="button" class="lang-btn font-extrabold text-xs px-2 py-0.5 rounded cursor-pointer transition text-white/70 hover:text-white" data-lang="en" onclick="setLanguage('en')">EN</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       CUERPO PRINCIPAL: PORTAL DE LOGIN CORPORATIVO
+  ========================================================= -->
+  <main class="login-container relative flex items-center justify-center px-4 sm:px-6 py-12 md:py-20 overflow-hidden">
+    
+    <!-- Elementos de fondo decorativos -->
+    <div class="bg-ambient-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(#132247_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none"></div>
+
+    <div class="relative z-10 w-full max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Columna Izquierda: Tarjeta Principal de Login (7 cols) -->
+      <div class="md:col-span-7 bg-[#0F131D]/90 backdrop-blur-xl border border-white/10 hover:border-[#EEAA2B]/40 rounded-3xl p-8 sm:p-10 shadow-2xl transition-all">
+        
+        <!-- Header de la tarjeta -->
+        <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="border border-[#EEAA2B] rounded-lg px-2 py-0.5 text-[#FFE885] font-black text-xs tracking-wider">$W</span>
+            <div>
+              <p class="text-[11px] text-[#EEAA2B] font-extrabold uppercase tracking-widest">Portal Exclusivo</p>
+              <h1 class="text-2xl font-black text-white tracking-tight">Oficina Virtual</h1>
+            </div>
+          </div>
+          <span class="hidden sm:inline-flex items-center gap-1.5 text-[11px] text-emerald-400 font-semibold bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Servidor Seguro
+          </span>
+        </div>
+
+        <p class="text-sm text-white/70 mb-6 leading-relaxed">
+          Ingresa tus credenciales oficiales de <strong>Socio Inversionista</strong> para acceder a tu estado de cuenta, historial del fondo común y solicitudes de adjudicación.
+        </p>
+
+        <!-- Toast de Notificación -->
+        <div id="loginToast" class="login-toast mb-6" role="alert">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-[#EEAA2B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span id="loginToastMsg">Iniciando verificación en el servidor...</span>
+          </div>
+        </div>
+
+        <!-- Formulario de Acceso -->
+        <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-5" novalidate>
+          
+          <!-- Campo Usuario / Documento -->
+          <div>
+            <label for="loginUser" class="block text-xs font-bold uppercase tracking-wider text-white/80 mb-2">
+              Usuario, Cédula / RUC o Email
+            </label>
+            <div class="relative">
+              <input type="text" id="loginUser" name="usuario" required
+                     placeholder="Ej: 1020304050 o socio@email.com"
+                     class="input-login pl-11">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-white/40">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campo Contraseña -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label for="loginPass" class="block text-xs font-bold uppercase tracking-wider text-white/80">
+                Contraseña
+              </label>
+              <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20necesito%20recuperar%20mi%20clave%20de%20la%20Oficina%20Virtual" target="_blank" rel="noopener" class="text-xs text-[#EEAA2B] hover:underline">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+            <div class="relative">
+              <input type="password" id="loginPass" name="password" required
+                     placeholder="••••••••••••"
+                     class="input-login pl-11 pr-12">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-white/40">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-4 flex items-center text-white/40 hover:text-[#EEAA2B] transition" aria-label="Mostrar contraseña">
+                <svg id="eyeIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recordar sesión -->
+          <div class="flex items-center justify-between pt-1 text-xs">
+            <label class="flex items-center gap-2.5 text-white/70 cursor-pointer select-none">
+              <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded accent-[#EEAA2B]">
+              <span>Recordar sesión en este equipo</span>
+            </label>
+          </div>
+
+          <!-- Botón de Ingreso (CTA dorado metálico) -->
+          <button type="submit" id="btnLoginSubmit" class="btn-gold-metal w-full text-black font-black text-sm tracking-wide uppercase py-3.5 px-6 rounded-full flex items-center justify-center gap-2 cursor-pointer mt-3">
+            <span>Ingresar a mi Cuenta</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </form>
+
+        <!-- Enlace para registrarse (Abre tu cuenta) -->
+        <div class="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/60">
+          ¿Aún no tienes una cuenta de Socio Inversionista?
+          <a href="index.html#contacto" class="text-[#EEAA2B] hover:text-[#FFDF73] font-bold ml-1 transition underline">
+            Abre tu Cuenta aquí
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Beneficios y Soporte (5 cols) -->
+      <div class="md:col-span-5 flex flex-col justify-between gap-6">
+        
+        <!-- Tarjeta de Beneficios de la Oficina Virtual -->
+        <div class="bg-[#132247]/60 border border-white/10 rounded-3xl p-7 md:p-8 backdrop-blur-md">
+          <div class="flex items-center gap-2.5 mb-5 text-[#EEAA2B]">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-white">Servicios en tu Portal</h2>
+          </div>
+
+          <ul class="space-y-4 text-xs text-white/80 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#EEAA2B]/20 text-[#EEAA2B] flex items-center justify-center shrink-0 font-bold text-[10px]">✓</span>
+              <div>
+                <strong class="text-white block">Árbol y Red de Referidos:</strong>
+                Revisa el crecimiento de tu red y tus derechos de entrega inmediata.
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#EEAA2B]/20 text-[#EEAA2B] flex items-center justify-center shrink-0 font-bold text-[10px]">✓</span>
+              <div>
+                <strong class="text-white block">Histórico de Fondo Común:</strong>
+                Consulta tus aportes acumulados, saldos y actas públicas de asambleas.
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#EEAA2B]/20 text-[#EEAA2B] flex items-center justify-center shrink-0 font-bold text-[10px]">✓</span>
+              <div>
+                <strong class="text-white block">Adjudicación y Entregas:</strong>
+                Radica tu adjudicación de vehículos, tecnología y bienes directos.
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-[#EEAA2B]/20 text-[#EEAA2B] flex items-center justify-center shrink-0 font-bold text-[10px]">✓</span>
+              <div>
+                <strong class="text-white block">Certificados y Paz y Salvo:</strong>
+                Descarga tus certificados de membresía y constancias oficiales.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta de Soporte Oficial y Cifrado -->
+        <div class="bg-[#0B0D13]/80 border border-white/10 rounded-3xl p-6 text-center space-y-3">
+          <div class="flex items-center justify-center gap-2 text-xs text-white/50">
+            <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Cifrado bancario SSL 256-Bit · Área Andina</span>
+          </div>
+
+          <p class="text-xs text-white/70">
+            ¿Problemas para acceder? Nuestro equipo de atención a socios te asiste en directo.
+          </p>
+
+          <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20necesito%20soporte%20t%C3%A9cnico%20para%20ingresar%20a%20mi%20Oficina%20Virtual"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 w-full bg-[#132247] hover:bg-[#1a2f63] border border-[#EEAA2B]/40 hover:border-[#EEAA2B] text-white text-xs font-bold py-2.5 px-4 rounded-full transition">
+            <svg class="w-4 h-4 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>Soporte Técnico de Socios</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================
+       FOOTER CORPORATIVO
+  ========================================================= -->
+  <footer class="bg-[#08090C] border-t border-white/10 py-8 px-6 text-xs text-white/50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.svg" alt="Sistema Winners" class="h-6 w-auto opacity-70">
+        <p>&copy; <span id="year">2026</span> Sistema Winners S.A.S. Todos los derechos reservados.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html#inicio" class="hover:text-[#EEAA2B] transition">Volver al Portal</a>
+        <a href="index.html#contacto" class="hover:text-[#EEAA2B] transition">Abre tu Cuenta</a>
+        <a href="mailto:contacto@sistemawinners.com" class="hover:text-[#EEAA2B] transition">contacto@sistemawinners.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a class="wa-float fixed bottom-6 right-6 z-50 bg-[#25D366] rounded-full p-1.5 shadow-lg hover:scale-110 transition-transform"
+     href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20necesito%20ayuda%20con%20el%20acceso%20a%20mi%20cuenta"
+     target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
+    <img src="images/whatsapp.png" alt="WhatsApp" class="w-12 h-12 object-contain rounded-full">
+  </a>
+
+  <!-- =========================================================
+       SCRIPTS
+  ========================================================= -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu movil
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileNav = document.getElementById('mobileNav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', function () {
+        mobileNav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('open') ? 'true' : 'false');
+      });
+      mobileNav.querySelectorAll('.mobile-link').forEach(function (link) {
+        link.addEventListener('click', function () { mobileNav.classList.remove('open'); });
+      });
+    }
+
+    // Toggle para visibilidad de password
+    function togglePasswordVisibility() {
+      var passInput = document.getElementById('loginPass');
+      var eyeIcon = document.getElementById('eyeIcon');
+      if (!passInput) return;
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+      } else {
+        passInput.type = 'password';
+        eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+      }
+    }
+
+    // Interacción al enviar formulario de login
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      var user = document.getElementById('loginUser').value.trim();
+      var pass = document.getElementById('loginPass').value.trim();
+      var toast = document.getElementById('loginToast');
+      var msg = document.getElementById('loginToastMsg');
+      var btn = document.getElementById('btnLoginSubmit');
+
+      if (!user || !pass) {
+        toast.style.display = 'block';
+        toast.style.borderColor = '#f87171';
+        toast.style.color = '#fecaca';
+        msg.textContent = 'Por favor ingresa tu usuario y contraseña para continuar.';
+        return;
+      }
+
+      // Animación de loading en el botón
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.innerHTML = '<span>Verificando credenciales...</span>';
+
+      toast.style.display = 'block';
+      toast.style.borderColor = '#EEAA2B';
+      toast.style.color = '#FFE885';
+      msg.textContent = 'Conectando con el servidor seguro de Sistema Winners...';
+
+      setTimeout(function () {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.innerHTML = '<span>Ingresar a mi Cuenta</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
+        
+        toast.style.borderColor = '#34d399';
+        toast.style.color = '#a7f3d0';
+        msg.textContent = 'Acceso de demostración autorizado. Redirigiendo a tu panel de socio...';
+        
+        setTimeout(function() {
+          alert('Bienvenido ' + user + '. Has ingresado con éxito a la Oficina Virtual de Sistema Winners.');
+        }, 600);
+      }, 1200);
+    }
+  </script>
+
+  <script src="js/i18n.js" defer></script>
+</body>
+</html>
