@@ -936,7 +936,94 @@
 </section>
 
 <!-- =========================================================
-     SECCIÓN 7: CONTADORES ODÓMETRO + TESTIMONIOS
+     SECCIÓN 7: FORMULARIO "ABRE TU CUENTA DE SOCIO"
+     (clon estético de la captura CFI — fondo blanco puro)
+========================================================= -->
+<section id="contacto" class="bg-white w-full py-20 px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Franja superior azul marino corporativo -->
+    <div class="bg-[#132247] text-white py-5 px-8 rounded-t-2xl flex items-center justify-between shadow-lg">
+      <div class="flex items-center gap-3">
+        <span class="border border-[#EEAA2B] rounded-lg px-2.5 py-1 text-[#FFE885] font-black text-sm">$W</span>
+        <span class="font-extrabold tracking-wider text-sm">SISTEMA WINNERS</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
+        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="2" y1="12" x2="22" y2="12"></line><path pathLength="100" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span data-i18n="form.region">Área Andina (ES)</span>
+      </div>
+    </div>
+
+    <!-- Cuerpo del formulario -->
+    <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2" data-i18n="form.heading">Abre tu cuenta real de Socio</h2>
+      <p class="text-lg text-gray-500 mb-8" data-i18n="form.subheading">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
+
+      <form id="socioForm" novalidate>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_nombre">Primer nombre</label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" data-i18n-placeholder="form.ph_nombre" required
+                   class="input-neo">
+          </div>
+          <div>
+            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_apellido">Apellido</label>
+            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" data-i18n-placeholder="form.ph_apellido" required
+                   class="input-neo">
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_doc">Cédula / RUC / Documento de Identidad</label>
+          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" data-i18n-placeholder="form.ph_doc" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_celular">Celular / WhatsApp</label>
+          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" data-i18n-placeholder="form.ph_celular" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" data-i18n-placeholder="form.ph_email" required
+                 class="input-neo">
+        </div>
+
+        <div class="mt-5">
+          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_bien">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
+          <select id="f-bien" name="bien" required
+                  class="input-neo">
+            <option value="" disabled selected data-i18n="form.opt_default">Selecciona una opción</option>
+            <option value="Vehículo (Carro o Moto Honda / Multimarca)" data-i18n="form.opt_vehiculo">Vehículo (Carro o Moto Honda / Multimarca)</option>
+            <option value="Tecnología y Electrodomésticos (Samsung / HP)" data-i18n="form.opt_tecnologia">Tecnología y Electrodomésticos (Samsung / HP)</option>
+            <option value="Impulsar mi Emprendimiento / Crédito y Capital" data-i18n="form.opt_emprendimiento">Impulsar mi Emprendimiento / Crédito y Capital</option>
+            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS" data-i18n="form.opt_fabricas">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
+            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)" data-i18n="form.opt_bienestar">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
+            <option value="Canasta Básica y Suplementos (Ecu-Andino)" data-i18n="form.opt_alimentos">Canasta Básica y Suplementos (Ecu-Andino)</option>
+          </select>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8" data-i18n="form.btn_submit">
+          Solicitar Asesoría e Iniciar Proceso
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-6" data-i18n="form.wa_pre">¿Necesitas una respuesta inmediata?</p>
+        <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20abrir%20mi%20cuenta%20de%20Socio%20Inversionista"
+           target="_blank" rel="noopener"
+           class="mt-2 w-full inline-flex items-center justify-center gap-3 bg-[#132247] hover:bg-[#1c3060] text-white font-bold py-4 rounded-xl shadow-md border border-[#EEAA2B]/40 hover:border-[#EEAA2B] transition">
+          <img src="images/whatsapp.png" alt="" aria-hidden="true" class="w-6 h-6 object-contain rounded-full">
+          <span data-i18n="form.wa_btn">Escríbenos por WhatsApp Ahora</span>
+        </a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECCIÓN 8: CONTADORES ODÓMETRO + TESTIMONIOS
 ========================================================= -->
 <section id="testimonios" class="bg-[#F4F6F9] w-full py-20 px-6">
   <div class="max-w-6xl mx-auto">
@@ -1046,93 +1133,6 @@
         <p class="text-gray-500 text-sm font-semibold">Bogot&aacute;, Colombia</p>
       </article>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     SECCIÓN 8: FORMULARIO "ABRE TU CUENTA DE SOCIO"
-     (clon estético de la captura CFI — fondo blanco puro)
-========================================================= -->
-<section id="contacto" class="bg-white w-full py-20 px-6">
-  <div class="max-w-2xl mx-auto">
-
-    <!-- Franja superior azul marino corporativo -->
-    <div class="bg-[#132247] text-white py-5 px-8 rounded-t-2xl flex items-center justify-between shadow-lg">
-      <div class="flex items-center gap-3">
-        <span class="border border-[#EEAA2B] rounded-lg px-2.5 py-1 text-[#FFE885] font-black text-sm">$W</span>
-        <span class="font-extrabold tracking-wider text-sm">SISTEMA WINNERS</span>
-      </div>
-      <div class="flex items-center gap-2 text-white/85 text-sm font-semibold">
-        <svg class="w-4 h-4 text-[#EEAA2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="100" cx="12" cy="12" r="10"></circle><line pathLength="100" x1="2" y1="12" x2="22" y2="12"></line><path pathLength="100" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        <span data-i18n="form.region">Área Andina (ES)</span>
-      </div>
-    </div>
-
-    <!-- Cuerpo del formulario -->
-    <div class="bg-white border border-gray-200 shadow-xl rounded-b-2xl p-8 md:p-12 -mt-px">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-2" data-i18n="form.heading">Abre tu cuenta real de Socio</h2>
-      <p class="text-lg text-gray-500 mb-8" data-i18n="form.subheading">Paso 3 (Documentos): Empodérate con el sistema de multifinanciamiento líder de la región.</p>
-
-      <form id="socioForm" novalidate>
-        <div class="grid md:grid-cols-2 gap-5">
-          <div>
-            <label for="f-nombre" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_nombre">Primer nombre</label>
-            <input type="text" id="f-nombre" name="nombre" placeholder="Introduce tu nombre" data-i18n-placeholder="form.ph_nombre" required
-                   class="input-neo">
-          </div>
-          <div>
-            <label for="f-apellido" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_apellido">Apellido</label>
-            <input type="text" id="f-apellido" name="apellido" placeholder="Introduce tu apellido" data-i18n-placeholder="form.ph_apellido" required
-                   class="input-neo">
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <label for="f-doc" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_doc">Cédula / RUC / Documento de Identidad</label>
-          <input type="text" id="f-doc" name="documento" placeholder="Introduce tu número de documento" data-i18n-placeholder="form.ph_doc" required
-                 class="input-neo">
-        </div>
-
-        <div class="mt-5">
-          <label for="f-celular" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_celular">Celular / WhatsApp</label>
-          <input type="tel" id="f-celular" name="celular" placeholder="Introduce tu número con código de país" data-i18n-placeholder="form.ph_celular" required
-                 class="input-neo">
-        </div>
-
-        <div class="mt-5">
-          <label for="f-email" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_email">Email</label>
-          <input type="email" id="f-email" name="email" placeholder="Introduce tu email" data-i18n-placeholder="form.ph_email" required
-                 class="input-neo">
-        </div>
-
-        <div class="mt-5">
-          <label for="f-bien" class="block text-sm font-bold text-gray-800 mb-2" data-i18n="form.lbl_bien">¿Qué bien, producto o proyecto necesitas? (Paso 2)</label>
-          <select id="f-bien" name="bien" required
-                  class="input-neo">
-            <option value="" disabled selected data-i18n="form.opt_default">Selecciona una opción</option>
-            <option value="Vehículo (Carro o Moto Honda / Multimarca)" data-i18n="form.opt_vehiculo">Vehículo (Carro o Moto Honda / Multimarca)</option>
-            <option value="Tecnología y Electrodomésticos (Samsung / HP)" data-i18n="form.opt_tecnologia">Tecnología y Electrodomésticos (Samsung / HP)</option>
-            <option value="Impulsar mi Emprendimiento / Crédito y Capital" data-i18n="form.opt_emprendimiento">Impulsar mi Emprendimiento / Crédito y Capital</option>
-            <option value="Ser Socio en Fábricas Comunales y Tiendas DOY-MAS" data-i18n="form.opt_fabricas">Ser Socio en Fábricas Comunales y Tiendas DOY-MAS</option>
-            <option value="Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)" data-i18n="form.opt_bienestar">Industria del Bienestar (Viajes o Cirugía Estética BBS-Esthetique)</option>
-            <option value="Canasta Básica y Suplementos (Ecu-Andino)" data-i18n="form.opt_alimentos">Canasta Básica y Suplementos (Ecu-Andino)</option>
-          </select>
-        </div>
-
-        <button type="submit"
-                class="w-full bg-[#132247] hover:bg-[#1d3368] text-white font-bold text-lg py-4 rounded-xl shadow-md transition mt-8" data-i18n="form.btn_submit">
-          Solicitar Asesoría e Iniciar Proceso
-        </button>
-
-        <p class="text-center text-sm text-gray-500 mt-6" data-i18n="form.wa_pre">¿Necesitas una respuesta inmediata?</p>
-        <a href="https://wa.me/573148691001?text=Hola%20Sistema%20Winners%2C%20quiero%20abrir%20mi%20cuenta%20de%20Socio%20Inversionista"
-           target="_blank" rel="noopener"
-           class="mt-2 w-full inline-flex items-center justify-center gap-3 bg-[#1FAF54] hover:bg-[#189a48] text-white font-bold py-4 rounded-xl shadow-md transition">
-          <img src="images/whatsapp.png" alt="" aria-hidden="true" class="w-6 h-6 object-contain rounded-full">
-          <span data-i18n="form.wa_btn">Escríbenos por WhatsApp Ahora</span>
-        </a>
-      </form>
     </div>
   </div>
 </section>
